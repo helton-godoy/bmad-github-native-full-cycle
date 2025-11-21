@@ -1,4 +1,4 @@
-const { v4: uuidv4 } = require('crypto');
+const crypto = require('crypto');
 
 // In-memory storage
 const users = new Map();
@@ -9,7 +9,7 @@ class UserRepository {
      */
     async create(userData) {
         const user = {
-            id: uuidv4(),
+            id: crypto.randomUUID(),
             username: userData.username,
             email: userData.email,
             passwordHash: userData.passwordHash,
