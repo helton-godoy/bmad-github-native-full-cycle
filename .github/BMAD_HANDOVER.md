@@ -10,7 +10,7 @@
 
 ### Active Persona
 
-**[PM]**
+**[ARCHITECT]**
 
 ### Current Phase
 
@@ -18,7 +18,7 @@
 
 ### Project Status
 
-🔄 **VALIDATING** - Executing Health Check API scenario
+🔄 **VALIDATING** - Designing Health Check API Architecture
 
 ---
 
