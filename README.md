@@ -51,6 +51,7 @@ bmad-github-native-full-cycle/
    ```bash
    git clone https://github.com/helton-godoy/bmad-github-native-full-cycle.git
    cd bmad-github-native-full-cycle
+   npm run setup  # Installs local dependencies (gh, act)
    ```
 
 2. **The agent will automatically:**

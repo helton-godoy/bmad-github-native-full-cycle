@@ -38,6 +38,9 @@ logs/
 tmp/
 temp/
 .cache/
+.bin/
+.actrc
+.secrets
 *.tmp
 *.swp
 *.swo

@@ -1,0 +1,2 @@
+# Use medium image for better compatibility/size balance
+-P ubuntu-latest=catthehacker/ubuntu:act-latest
