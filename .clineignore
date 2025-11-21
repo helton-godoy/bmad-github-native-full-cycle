@@ -1,0 +1,103 @@
+# Cline Ignore File
+# BMAD-GitHub Native Full Cycle - Token Optimization
+# Excludes files that should not be loaded into agent context
+
+# Dependencies and Package Management
+node_modules/
+vendor/
+.pnp.*
+.yarn/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+Gemfile.lock
+Pipfile.lock
+poetry.lock
+composer.lock
+
+# Build Outputs
+dist/
+build/
+out/
+target/
+*.min.js
+*.min.css
+*.bundle.js
+
+# Environment and Configuration
+.env
+.env.local
+.env.*.local
+*.secret
+*.key
+*.pem
+
+# Logs and Temporary Files
+*.log
+logs/
+tmp/
+temp/
+.cache/
+*.tmp
+*.swp
+*.swo
+*~
+
+# Version Control
+.git/
+.svn/
+.hg/
+
+# IDE and Editor Files
+.vscode/settings.json
+.idea/
+*.sublime-*
+.DS_Store
+Thumbs.db
+
+# Test Coverage and Reports
+coverage/
+.nyc_output/
+*.lcov
+htmlcov/
+.pytest_cache/
+.coverage
+
+# Media and Assets (large files)
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.flv
+*.wmv
+*.pdf
+*.zip
+*.tar.gz
+*.rar
+*.7z
+*.iso
+
+# Database Files
+*.db
+*.sqlite
+*.sqlite3
+
+# Compiled Files
+*.pyc
+__pycache__/
+*.class
+*.o
+*.so
+*.dll
+*.exe
+
+# Documentation (processed separately if needed)
+# Uncomment if you want to exclude documentation from general context
+# docs/api/
+# *.generated.md
+
+# BMAD Specific (archive of old handovers, not current state)
+.github/BMAD_HANDOVER.archive.*
+
+# Project-Specific Exclusions
+# Add any project-specific patterns below
