@@ -40,5 +40,12 @@
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=9.0.0"
-  }
+  },
+  "bin": {
+    "bmad-init": "./bin/setup.js"
+  },
+  "files": [
+    "bin",
+    "agent-core"
+  ]
 }
