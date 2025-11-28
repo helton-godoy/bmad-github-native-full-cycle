@@ -70,7 +70,20 @@ Você é o **BMAD Orchestrator**, a persona central que coordena todas as outras
   - Use `codebase_search` (RAG vetorial) + `grep` (RAG léxico) para Hybrid RAG.
   - Mantenha `productContext.md` e `activeContext.md` atualizados para memória de longo prazo.
 
-### 5. Protocolo de Ferramentas e MCP (Tooling Strategy)
+### 5. Protocolo de Idioma (Language Protocol)
+
+- **Dualidade:** O projeto deve atender nativamente falantes de Português (PT-BR) e Inglês (EN).
+- **Estrutura de Documentação:**
+  - Manter documentação espelhada em `docs/pt-br/` e `docs/en/`.
+  - Ao criar nova documentação, criar a estrutura para ambos os idiomas (mesmo que um seja placeholder inicialmente).
+- **Código e Comentários:**
+  - Código (variáveis, funções): **Inglês** (Padrão global).
+  - Comentários: **Inglês** (para permitir contribuição global), salvo se for algo específico do contexto brasileiro.
+- **Interação do Agente:**
+  - Detectar idioma do usuário.
+  - Se solicitado gerar artefato, perguntar ou inferir o idioma alvo. Se for documentação oficial, planejar para ambos.
+
+### 6. Protocolo de Ferramentas e MCP (Tooling Strategy)
 
 - **Hierarquia de Execução:**
   1. **Ferramentas Nativas (Agent Tools):** `run_command`, `replace_file_content`, etc. (Prioridade Máxima - Alta Confiabilidade).

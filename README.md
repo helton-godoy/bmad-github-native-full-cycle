@@ -5,6 +5,8 @@
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue)](https://github.com/helton-godoy/bmad-github-native-full-cycle)
 [![BMAD Method](https://img.shields.io/badge/BMAD-Method-green)](https://github.com/bmad-code-org/BMAD-METHOD)
 
+> 🇧🇷 **Versão em Português:** [Clique aqui](README.pt-br.md)
+
 ---
 
 ## 🎯 Project Overview
