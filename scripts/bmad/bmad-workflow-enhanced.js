@@ -30,7 +30,7 @@ class EnhancedBMADWorkflow {
             console.error(`${colors.red}❌ GITHUB_TOKEN environment variable required${colors.reset}`);
             process.exit(1);
         }
-        
+
         this.personas = {
             pm: new EnhancedProjectManager(this.githubToken),
             architect: new EnhancedArchitect(this.githubToken),
@@ -66,40 +66,33 @@ class EnhancedBMADWorkflow {
     /**
      * @ai-context Execute complete enhanced BMAD workflow
      */
+    /**
+     * @ai-context Execute complete enhanced BMAD workflow
+     */
     async executeWorkflow(issueNumber) {
         console.log(`${colors.cyan}🚀 Starting Enhanced BMAD Workflow for Issue #${issueNumber}${colors.reset}`);
         console.log(`${colors.blue}=====================================${colors.reset}`);
-        
+
         const workflowId = this.generateWorkflowId();
         this.logWorkflow(`Workflow ${workflowId} started for Issue #${issueNumber}`);
 
+        const BMADOrchestrator = require('./bmad-orchestrator');
+        const orchestrator = new BMADOrchestrator();
+
         try {
-            // Phase 1: Project Management
-            await this.executePhase('pm', 'Project Management', issueNumber);
-            
-            // Phase 2: Architecture
-            await this.executePhase('architect', 'Architecture Design', issueNumber);
-            
-            // Phase 3: Development
-            await this.executePhase('developer', 'Development', issueNumber);
-            
-            // Phase 4: QA Testing
-            await this.executePhase('qa', 'Quality Assurance', issueNumber);
-            
-            // Phase 5: Security
-            await this.executePhase('security', 'Security Review', issueNumber);
-            
-            // Phase 6: DevOps
-            await this.executePhase('devops', 'DevOps & Deployment', issueNumber);
-            
-            // Phase 7: Release Management
-            await this.executePhase('releaseManager', 'Release Management', issueNumber);
+            // Use Orchestrator to drive the workflow
+            // This loop allows the orchestrator to run multiple steps if needed
+            // In a real autonomous run, this might be a cron job or event-driven
+            // For now, we run one orchestration cycle per execution or loop until done
+
+            console.log(`${colors.yellow}🔄 Handing over control to BMAD Orchestrator...${colors.reset}`);
+            await orchestrator.orchestrate();
 
             // Generate final report
             await this.generateWorkflowReport(workflowId, issueNumber);
-            
-            console.log(`${colors.green}✅ Enhanced BMAD Workflow completed successfully!${colors.reset}`);
-            this.logWorkflow(`Workflow ${workflowId} completed successfully`);
+
+            console.log(`${colors.green}✅ Enhanced BMAD Workflow cycle completed!${colors.reset}`);
+            this.logWorkflow(`Workflow ${workflowId} cycle completed`);
 
         } catch (error) {
             console.error(`${colors.red}❌ Workflow failed: ${error.message}${colors.reset}`);
@@ -108,7 +101,7 @@ class EnhancedBMADWorkflow {
                 error: error.message,
                 timestamp: new Date().toISOString()
             });
-            
+
             await this.generateErrorReport(workflowId, issueNumber, error);
             throw error;
         }
@@ -120,13 +113,13 @@ class EnhancedBMADWorkflow {
     async executePhase(personaKey, phaseName, issueNumber) {
         const phaseStart = new Date();
         console.log(`${colors.yellow}🎯 Starting ${phaseName} Phase${colors.reset}`);
-        
+
         try {
             const persona = this.personas[personaKey];
-            
+
             // Execute persona
             const result = await persona.execute(issueNumber);
-            
+
             // Record metrics
             const phaseDuration = new Date() - phaseStart;
             this.workflowMetrics.phases[personaKey] = {
@@ -286,10 +279,10 @@ ${phase.error ? `- **Error:** ${phase.error}` : ''}
     logWorkflow(message, level = 'INFO') {
         const timestamp = new Date().toISOString();
         const logEntry = `[${timestamp}] [${level}] ${message}\n`;
-        
+
         // Log to console
         console.log(`${colors.gray}${logEntry.trim()}${colors.reset}`);
-        
+
         // Log to file
         const logPath = `.github/logs/workflow.log`;
         require('fs').appendFileSync(logPath, logEntry);
@@ -327,7 +320,7 @@ ${phase.error ? `- **Error:** ${phase.error}` : ''}
         console.log(`${colors.cyan}🎯 Executing ${personaKey} persona${colors.reset}`);
         const result = await persona.execute(issueNumber);
         console.log(`${colors.green}✅ ${personaKey} completed${colors.reset}`);
-        
+
         return result;
     }
 }
@@ -335,7 +328,7 @@ ${phase.error ? `- **Error:** ${phase.error}` : ''}
 // CLI Interface
 if (require.main === module) {
     const args = process.argv.slice(2);
-    
+
     if (args.length === 0) {
         console.log(`${colors.yellow}Usage: node bmad-workflow-enhanced.js <issue-number> [persona-key]${colors.reset}`);
         console.log(`${colors.gray}Available personas: pm, architect, developer, qa, security, devops, releaseManager${colors.reset}`);

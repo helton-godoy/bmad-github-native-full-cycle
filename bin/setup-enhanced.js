@@ -53,7 +53,7 @@ console.log("\n📁 Creating enhanced directory structure...");
 const enhancedDirs = [
     '.cline',
     '.github/logs',
-    '.github/reports', 
+    '.github/reports',
     '.github/metrics',
     'scripts',
     'scripts/bmad',
@@ -182,6 +182,7 @@ console.log("\n🔧 Installing enhanced BMAD workflow scripts...");
 
 const enhancedScripts = [
     { src: 'scripts/bmad/bmad-workflow-enhanced.js', dest: 'scripts/bmad/bmad-workflow-enhanced.js' },
+    { src: 'scripts/bmad/bmad-orchestrator.js', dest: 'scripts/bmad/bmad-orchestrator.js' },
     { src: 'scripts/bmad/bmad-workflow.js', dest: 'scripts/bmad/bmad-workflow.js' },
     { src: 'scripts/bmad/agent-doc-enhanced.js', dest: 'scripts/bmad/agent-doc-enhanced.js' },
     { src: 'scripts/bmad/agent-doc.js', dest: 'scripts/bmad/agent-doc.js' },
@@ -192,7 +193,7 @@ let installedScripts = 0;
 enhancedScripts.forEach(script => {
     const srcPath = path.join(packageDir, script.src);
     const destPath = path.join(targetDir, script.dest);
-    
+
     if (fs.existsSync(srcPath)) {
         if (copy(srcPath, destPath)) {
             try {
@@ -229,7 +230,7 @@ let installedPersonas = 0;
 enhancedPersonas.forEach(persona => {
     const srcPath = path.join(packageDir, 'personas', persona);
     const destPath = path.join(targetDir, 'personas', persona);
-    
+
     if (fs.existsSync(srcPath)) {
         if (copy(srcPath, destPath)) {
             installedPersonas++;
@@ -349,7 +350,7 @@ if (fs.existsSync(pkgPath)) {
     try {
         const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
         pkg.scripts = pkg.scripts || {};
-        
+
         // Add enhanced BMAD scripts
         pkg.scripts['bmad:workflow'] = "node scripts/bmad/bmad-workflow-enhanced.js";
         pkg.scripts['bmad:workflow:original'] = "node scripts/bmad/bmad-workflow.js";
@@ -362,13 +363,13 @@ if (fs.existsSync(pkgPath)) {
         pkg.scripts['status'] = "node -e \"console.log('Enhanced BMAD Framework v2.0.0 - Ready for autonomous development!')\"";
         pkg.scripts['validate'] = "npm run lint && npm run test";
         pkg.scripts['clean'] = "rm -rf .github/logs/ .github/reports/ .github/metrics/ node_modules/.cache/";
-        
+
         // Add enhanced metadata
         pkg.bmad = {
             version: "2.0.0",
             features: [
                 "enhanced-personas",
-                "advanced-workflow", 
+                "advanced-workflow",
                 "comprehensive-documentation",
                 "quality-metrics",
                 "error-handling",
@@ -376,7 +377,7 @@ if (fs.existsSync(pkgPath)) {
             ],
             personas: [
                 "project-manager",
-                "architect", 
+                "architect",
                 "developer-enhanced",
                 "qa",
                 "security",
