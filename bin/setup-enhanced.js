@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-console.log("\x1b[36m🚀 Installing Enhanced BMAD Framework v2.0.0...\x1b[0m");
+console.log("\x1b[36m🚀 Installing Enhanced BMAD Framework v2.0.1...\x1b[0m");
 console.log("\x1b[33m📋 Setting up advanced features with enhanced personas and documentation...\x1b[0m");
 
 const targetDir = process.cwd();

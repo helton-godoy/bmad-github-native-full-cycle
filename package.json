@@ -1,6 +1,6 @@
 {
   "name": "bmad-github-native-full-cycle",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Enhanced BMAD Framework - Breakthrough Method for Agile AI-Driven Development with Advanced Features",
   "main": "src/index.js",
   "scripts": {
