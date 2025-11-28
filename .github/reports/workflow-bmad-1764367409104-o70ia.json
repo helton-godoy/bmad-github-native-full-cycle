@@ -1,0 +1,14 @@
+{
+  "workflowId": "bmad-1764367409104-o70ia",
+  "issueNumber": 1,
+  "startTime": "2025-11-28T22:03:29.102Z",
+  "endTime": "2025-11-28T22:03:53.136Z",
+  "totalDuration": 24,
+  "phases": {},
+  "metrics": {
+    "totalPhases": 0,
+    "successfulPhases": 0,
+    "failedPhases": 0,
+    "successRate": "NaN"
+  }
+}

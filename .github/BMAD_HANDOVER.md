@@ -2,10 +2,11 @@
 
 ## Current State
 Current Phase
-**Planning**
+
+**Release Management**
 
 Active Persona
-**[PM]**
+**[RELEASEMANAGER]**
 
 ## Handover History
 | Date | From | To | Artifacts | Notes |

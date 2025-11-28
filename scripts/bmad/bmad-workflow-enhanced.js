@@ -86,7 +86,28 @@ class EnhancedBMADWorkflow {
             // For now, we run one orchestration cycle per execution or loop until done
 
             console.log(`${colors.yellow}🔄 Handing over control to BMAD Orchestrator...${colors.reset}`);
-            await orchestrator.orchestrate();
+
+            let stepCount = 0;
+            const MAX_STEPS = 20;
+            let keepRunning = true;
+
+            while (keepRunning && stepCount < MAX_STEPS) {
+                stepCount++;
+                console.log(`${colors.blue}--- Orchestration Step ${stepCount} ---${colors.reset}`);
+
+                // orchestrate() should return true if an action was taken, false if idle/done
+                // We need to update BMADOrchestrator to return this boolean
+                keepRunning = await orchestrator.orchestrate();
+
+                if (keepRunning) {
+                    // Small delay between steps to allow file system updates to settle
+                    await this.delay(2000);
+                }
+            }
+
+            if (stepCount >= MAX_STEPS) {
+                console.warn(`${colors.yellow}⚠️ Workflow stopped after reaching maximum steps (${MAX_STEPS}).${colors.reset}`);
+            }
 
             // Generate final report
             await this.generateWorkflowReport(workflowId, issueNumber);

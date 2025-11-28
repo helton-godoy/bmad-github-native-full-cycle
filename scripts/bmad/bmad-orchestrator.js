@@ -37,7 +37,7 @@ class BMADOrchestrator {
 
         if (!action) {
             console.log('✅ No pending actions detected.');
-            return;
+            return false;
         }
 
         console.log(`🎯 Next Action: Execute ${action.persona} with prompt from ${action.source}`);
@@ -47,6 +47,8 @@ class BMADOrchestrator {
 
         // 4. Update State
         this.updateHandoverState(action);
+
+        return true;
     }
 
     /**
@@ -76,22 +78,19 @@ class BMADOrchestrator {
         // Logic mapping Phase -> Next Persona
         // This is where the "Bmad-Method" logic lives
 
-        // Example: If PM just finished PRD, next is Architect
+        // 1. PM -> Architect
         if (state.persona === 'PM' && state.phase.includes('Planning')) {
             const prdPath = 'docs/planning/PRD-user-authentication.md'; // TODO: Dynamic path
-
             if (fs.existsSync(prdPath)) {
-                const prompt = this.extractSection(prdPath, 'Architect Prompt');
-                if (prompt) {
-                    return {
-                        persona: 'architect',
-                        prompt: prompt,
-                        source: prdPath,
-                        nextPhase: 'Architecture Design'
-                    };
-                }
+                const prompt = this.extractSection(prdPath, 'Architect Prompt') || "Design the system architecture based on the PRD.";
+                return {
+                    persona: 'architect',
+                    prompt: prompt,
+                    source: prdPath,
+                    nextPhase: 'Architecture Design'
+                };
             } else {
-                // If PRD doesn't exist, we need to run the PM to create it
+                // If PRD doesn't exist, run PM
                 return {
                     persona: 'pm',
                     prompt: "Analyze the issue and create a PRD.",
@@ -101,12 +100,10 @@ class BMADOrchestrator {
             }
         }
 
-        // Example: If Architect finished Spec, next is Developer
+        // 2. Architect -> Developer
         if (state.persona === 'ARCHITECT') {
             const specPath = 'docs/architecture/SPEC-user-authentication.md'; // TODO: Dynamic path
             if (fs.existsSync(specPath)) {
-                // In a real scenario, we might look for "Developer Prompt" or similar
-                // For now, let's assume standard flow
                 return {
                     persona: 'developer',
                     prompt: "Implement the specification defined in " + specPath,
@@ -114,6 +111,57 @@ class BMADOrchestrator {
                     nextPhase: 'Implementation'
                 };
             }
+        }
+
+        // 3. Developer -> QA
+        if (state.persona === 'DEVELOPER') {
+            // Assuming Developer produces code and maybe a PR reference in context
+            // For now, we transition to QA to test the implementation
+            return {
+                persona: 'qa',
+                prompt: "Verify the implementation against the PRD and Architecture Spec.",
+                source: 'Implementation',
+                nextPhase: 'Quality Assurance'
+            };
+        }
+
+        // 4. QA -> Security
+        if (state.persona === 'QA') {
+            // Assuming QA produces a test report
+            return {
+                persona: 'security',
+                prompt: "Perform a security review of the code and dependencies.",
+                source: 'QA Report',
+                nextPhase: 'Security Review'
+            };
+        }
+
+        // 5. Security -> DevOps
+        if (state.persona === 'SECURITY') {
+            // Assuming Security produces a security audit
+            return {
+                persona: 'devops',
+                prompt: "Prepare the deployment pipeline and infrastructure.",
+                source: 'Security Audit',
+                nextPhase: 'DevOps & Deployment'
+            };
+        }
+
+        // 6. DevOps -> Release Manager
+        if (state.persona === 'DEVOPS') {
+            // Assuming DevOps confirms deployment readiness
+            return {
+                persona: 'releasemanager',
+                prompt: "Coordinate the final release, close the issue, and publish release notes.",
+                source: 'Deployment Readiness',
+                nextPhase: 'Release Management'
+            };
+        }
+
+        // 7. Release Manager -> Done
+        if (state.persona === 'RELEASEMANAGER') {
+            // Workflow is complete
+            return null;
         }
 
         return null;
