@@ -12,8 +12,8 @@
 ## 1. Test Summary
 
 | Test Suite | Total Tests | Passed | Failed | Duration |
-|------------|-------------|--------|--------|----------|
-| Auth API | 2 | 2 | 0 | ~0.6s |
+| ---------- | ----------- | ------ | ------ | -------- |
+| Auth API   | 2           | 2      | 0      | ~0.6s    |
 
 ## 2. Test Cases Execution
 
@@ -42,10 +42,12 @@
 ## 4. Bugs Found & Fixed
 
 1. **Bug:** `authController.getProfile` is not a function
+   
    - **Fix:** Updated route to use `authController.me`
    - **Status:** ✅ Fixed
 
 2. **Bug:** `uuidv4` is not a function
+   
    - **Fix:** Updated repository to use `crypto.randomUUID()`
    - **Status:** ✅ Fixed
 

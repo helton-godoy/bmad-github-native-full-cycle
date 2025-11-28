@@ -260,10 +260,13 @@ const users = new Map();
 ### JWT Configuration
 
 - **Algorithm:** HS256
-- **Secret:** Environment variable `JWT_SECRET`
-- **Expiration:** 24 hours
-- **Payload:**
 
+- **Secret:** Environment variable `JWT_SECRET`
+
+- **Expiration:** 24 hours
+
+- **Payload:**
+  
   ```json
   {
     "userId": "uuid",

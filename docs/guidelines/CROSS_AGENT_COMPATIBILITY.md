@@ -45,13 +45,14 @@ Baseado nisso, ADAPTE seu fluxo:
 
 Classifique os agentes e defina expectativas para cada nível:
 
-| Nível | Capacidades | Comportamento Esperado |
-| :--- | :--- | :--- |
-| **Nível 1: Básico** | Apenas Edição de Texto | O agente deve apenas escrever código e pedir ao usuário para rodar comandos. |
-| **Nível 2: Intermediário** | Edição + Terminal | O agente roda scripts de teste e git, mas não interage com APIs externas. |
-| **Nível 3: Avançado** | Edição + Terminal + MCP | O agente usa ferramentas nativas para orquestração completa (Issues, PRs, Deploy). |
+| Nível                      | Capacidades             | Comportamento Esperado                                                             |
+|:-------------------------- |:----------------------- |:---------------------------------------------------------------------------------- |
+| **Nível 1: Básico**        | Apenas Edição de Texto  | O agente deve apenas escrever código e pedir ao usuário para rodar comandos.       |
+| **Nível 2: Intermediário** | Edição + Terminal       | O agente roda scripts de teste e git, mas não interage com APIs externas.          |
+| **Nível 3: Avançado**      | Edição + Terminal + MCP | O agente usa ferramentas nativas para orquestração completa (Issues, PRs, Deploy). |
 
 **Instrução no Prompt:**
+
 > *"Se você não possui a ferramenta X, verifique se existe um script equivalente em `./bmad/bin/`. Se não, solicite a ação ao usuário."*
 
 ## 4. Polyfills para Agentes Limitados
