@@ -36,7 +36,8 @@ class AuthService {
         });
 
         // Return user without password
-        const { passwordHash: _, ...userWithoutPassword } = user;
+        // eslint-disable-next-line no-unused-vars
+        const { passwordHash: _passwordHash, ...userWithoutPassword } = user;
         return userWithoutPassword;
     }
 
@@ -69,7 +70,8 @@ class AuthService {
         });
 
         // Return token and user
-        const { passwordHash: _, ...userWithoutPassword } = user;
+        // eslint-disable-next-line no-unused-vars
+        const { passwordHash: _passwordHash, ...userWithoutPassword } = user;
         return {
             token,
             expiresIn: '24h',
@@ -86,7 +88,8 @@ class AuthService {
             throw new Error('USER_NOT_FOUND: User not found');
         }
 
-        const { passwordHash: _, ...userWithoutPassword } = user;
+        // eslint-disable-next-line no-unused-vars
+        const { passwordHash: _passwordHash, ...userWithoutPassword } = user;
         return userWithoutPassword;
     }
 }
