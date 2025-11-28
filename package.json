@@ -22,8 +22,10 @@
     "dev": "npm run bmad:docs && npm run start",
     "release": "npm run build && npm run test:coverage",
     "clean": "rm -rf .github/logs/ .github/reports/ .github/metrics/ node_modules/.cache/",
-    "setup": "npm install && chmod +x scripts/bmad/*.js",
-    "status": "node -e \"console.log('Enhanced BMAD Framework v2.0.0 - Ready for autonomous development!')\""
+    "setup": "npm install && chmod +x scripts/bmad/*.js && chmod +x scripts/*.js",
+    "setup:enhanced": "node bin/setup-enhanced.js",
+    "status": "node -e \"console.log('Enhanced BMAD Framework v2.0.0 - Ready for autonomous development!')\"",
+    "bmad:search": "node scripts/search-memory.js"
   },
   "keywords": [
     "bmad",
@@ -69,10 +71,50 @@
     "npm": ">=9.0.0"
   },
   "bin": {
-    "bmad-init": "./bin/setup.js"
+    "bmad-init": "./bin/setup.js",
+    "bmad-init-enhanced": "./bin/setup-enhanced.js"
   },
   "files": [
     "bin",
     "agent-core"
-  ]
+  ],
+  "bmad": {
+    "version": "2.0.0",
+    "features": [
+      "enhanced-personas",
+      "advanced-workflow",
+      "comprehensive-documentation",
+      "quality-metrics",
+      "error-handling",
+      "performance-monitoring"
+    ],
+    "personas": [
+      "project-manager",
+      "architect",
+      "developer-enhanced",
+      "qa",
+      "security",
+      "devops",
+      "release-manager"
+    ],
+    "workflows": {
+      "full-cycle": "scripts/bmad/bmad-workflow-enhanced.js",
+      "single-persona": "scripts/bmad/bmad-workflow-enhanced.js [persona]",
+      "documentation": "scripts/bmad/agent-doc-enhanced.js"
+    },
+    "documentation": {
+      "auto-generate": true,
+      "semantic-analysis": true,
+      "output-dir": "docs/architecture",
+      "formats": [
+        "markdown",
+        "json"
+      ]
+    },
+    "quality": {
+      "test-coverage": ">=80%",
+      "eslint-rules": "recommended",
+      "performance-threshold": "200ms"
+    }
+  }
 }
