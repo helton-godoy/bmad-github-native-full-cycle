@@ -1,7 +1,7 @@
 # Architecture Documentation
 
 ## System Invariants
-- **NÃO adicione chamadas de DB aqui. A validação deve ser puramente criptográfica.** (`RFC-001-AgentDoc.md`:28)
+- **NÃO adicione chamadas de DB aqui. A validação deve ser puramente criptográfica.** (`RFC-001-AgentDoc.md`:32)
 - **Architect must create technical specifications and system design** (`architect.js`:1)
 - **All personas must extend this enhanced base class** (`base-persona-enhanced.js`:1)
 - **All personas must extend this base class** (`base-persona.js`:1)
@@ -13,6 +13,7 @@
 - **Release Manager must coordinate final release and version management** (`release-manager.js`:1)
 - **Security must validate all security aspects before deployment** (`security.js`:1)
 - **Must extract and document all semantic tags from codebase** (`agent-doc-enhanced.js`:1)
+- **State determines Action, Content drives Context** (`bmad-orchestrator.js`:2)
 - **Must execute all personas in sequence with enhanced coordination** (`bmad-workflow-enhanced.js`:2)
 - **Must execute all personas in sequence** (`bmad-workflow.js`:2)
 - **Mock all GitHub API calls for testing** (`octokit.js`:1)
@@ -21,7 +22,7 @@
 - **Workflow should coordinate all personas correctly** (`workflow.test.js`:1)
 
 ## Component Connections
-- **Impacta diretamente o middleware `auth.middleware.js`.** (`RFC-001-AgentDoc.md`:28)
+- **Impacta diretamente o middleware `auth.middleware.js`.** (`RFC-001-AgentDoc.md`:32)
 - **Architect connects to PM requirements and provides implementation guidance** (`architect.js`:1)
 - **This class connects to GitHub API, context management, and advanced logging** (`base-persona-enhanced.js`:1)
 - **This class connects to GitHub API and context management** (`base-persona.js`:1)
@@ -33,6 +34,7 @@
 - **Release Manager connects to DevOps preparation and manages final release** (`release-manager.js`:1)
 - **Security connects to QA results and provides security validation** (`security.js`:1)
 - **Connects code analysis to comprehensive documentation generation** (`agent-doc-enhanced.js`:1)
+- **Reads BMAD_HANDOVER.md and activeContext.md to decide next steps** (`bmad-orchestrator.js`:2)
 - **Coordinates all personas, GitHub integration, and advanced monitoring** (`bmad-workflow-enhanced.js`:2)
 - **Coordinates all personas and GitHub integration** (`bmad-workflow.js`:2)
 - **Provides consistent mock responses for GitHub operations** (`octokit.js`:1)

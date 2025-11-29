@@ -18,7 +18,7 @@ class EnhancedAgentDoc {
             'ai-performance': [],
             'ai-security': []
         };
-        
+
         this.documentation = {
             overview: '',
             architecture: '',
@@ -43,28 +43,28 @@ class EnhancedAgentDoc {
      */
     extractTags() {
         console.log('🔍 Extracting semantic tags from codebase...');
-        
+
         const files = this.getAllCodeFiles();
-        
+
         for (const file of files) {
             try {
                 const content = fs.readFileSync(file, 'utf-8');
                 const tags = this.extractTagsFromFile(content, file);
-                
+
                 // Organize tags by type
                 for (const [type, tagList] of Object.entries(tags)) {
                     this.semanticTags[type].push(...tagList);
                 }
-                
+
                 this.metrics.filesProcessed++;
                 console.log(`✅ Processed: ${file}`);
-                
+
             } catch (error) {
                 console.error(`❌ Error processing ${file}: ${error.message}`);
                 this.metrics.errors++;
             }
         }
-        
+
         this.metrics.tagsExtracted = Object.values(this.semanticTags).reduce((sum, tags) => sum + tags.length, 0);
         console.log(`📊 Extracted ${this.metrics.tagsExtracted} tags from ${this.metrics.filesProcessed} files`);
     }
@@ -75,14 +75,14 @@ class EnhancedAgentDoc {
     getAllCodeFiles() {
         const extensions = ['.js', '.ts', '.go', '.py', '.java', '.md', '.json', '.yml', '.yaml'];
         const files = [];
-        
+
         const scanDirectory = (dir) => {
             const items = fs.readdirSync(dir);
-            
+
             for (const item of items) {
                 const fullPath = path.join(dir, item);
                 const stat = fs.statSync(fullPath);
-                
+
                 if (stat.isDirectory() && !item.startsWith('.') && item !== 'node_modules') {
                     scanDirectory(fullPath);
                 } else if (stat.isFile()) {
@@ -93,7 +93,7 @@ class EnhancedAgentDoc {
                 }
             }
         };
-        
+
         scanDirectory('.');
         return files;
     }
@@ -103,23 +103,23 @@ class EnhancedAgentDoc {
      */
     extractTagsFromFile(content, filePath) {
         const tags = {};
-        
+
         // Initialize tag types
         for (const tagType of Object.keys(this.semanticTags)) {
             tags[tagType] = [];
         }
-        
+
         // Extract from block comments
         const blockCommentRegex = /\/\*\*([\s\S]*?)\*\//g;
         let match;
-        
+
         while ((match = blockCommentRegex.exec(content)) !== null) {
             const commentBlock = match[1];
-            
+
             for (const tagType of Object.keys(tags)) {
                 const tagRegex = new RegExp(`@${tagType}\\s+(.*)`, 'g');
                 let tagMatch;
-                
+
                 while ((tagMatch = tagRegex.exec(commentBlock)) !== null) {
                     tags[tagType].push({
                         content: tagMatch[1].trim(),
@@ -130,14 +130,14 @@ class EnhancedAgentDoc {
                 }
             }
         }
-        
+
         // Extract from line comments
         const lineCommentRegex = /\/\/.*@(\w+-\w+)\s+(.*)$/gm;
-        
+
         while ((match = lineCommentRegex.exec(content)) !== null) {
             const tagType = match[1];
             const tagContent = match[2].trim();
-            
+
             if (tags[tagType]) {
                 tags[tagType].push({
                     content: tagContent,
@@ -147,7 +147,7 @@ class EnhancedAgentDoc {
                 });
             }
         }
-        
+
         return tags;
     }
 
@@ -164,34 +164,34 @@ class EnhancedAgentDoc {
      */
     generateDocumentation() {
         console.log('📝 Generating comprehensive documentation...');
-        
+
         // Generate overview
         this.generateOverview();
-        
+
         // Generate architecture documentation
         this.generateArchitecture();
-        
+
         // Generate persona documentation
         this.generatePersonaDocumentation();
-        
+
         // Generate workflow documentation
         this.generateWorkflowDocumentation();
-        
+
         // Generate component documentation
         this.generateComponentDocumentation();
-        
+
         // Generate API documentation
         this.generateAPIDocumentation();
-        
+
         // Generate security documentation
         this.generateSecurityDocumentation();
-        
+
         // Generate performance documentation
         this.generatePerformanceDocumentation();
-        
+
         // Generate main system map
         this.generateSystemMap();
-        
+
         this.metrics.documentationGenerated = 8;
         console.log(`📚 Generated ${this.metrics.documentationGenerated} documentation sections`);
     }
@@ -229,7 +229,7 @@ ${this.extractDevelopmentApproach(contexts)}
     generateArchitecture() {
         const invariants = this.semanticTags['ai-invariant'];
         const connections = this.semanticTags['ai-connection'];
-        
+
         const architecture = `# Architecture Documentation
 
 ## System Invariants
@@ -256,10 +256,10 @@ ${this.extractTechnologyStack(connections)}
      * @ai-context Generate persona documentation
      */
     generatePersonaDocumentation() {
-        const personaTags = this.semanticTags['ai-context'].filter(tag => 
+        const personaTags = this.semanticTags['ai-context'].filter(tag =>
             tag.content.toLowerCase().includes('persona')
         );
-        
+
         const personas = `# Persona Documentation
 
 ## Available Personas
@@ -283,10 +283,10 @@ ${this.extractPersonaWorkflows(personaTags)}
      * @ai-context Generate workflow documentation
      */
     generateWorkflowDocumentation() {
-        const workflowTags = this.semanticTags['ai-context'].filter(tag => 
+        const workflowTags = this.semanticTags['ai-context'].filter(tag =>
             tag.content.toLowerCase().includes('workflow')
         );
-        
+
         const workflows = `# Workflow Documentation
 
 ## Available Workflows
@@ -310,10 +310,10 @@ ${this.extractWorkflowMetrics(workflowTags)}
      * @ai-context Generate component documentation
      */
     generateComponentDocumentation() {
-        const components = this.semanticTags['ai-context'].filter(tag => 
+        const components = this.semanticTags['ai-context'].filter(tag =>
             tag.content.toLowerCase().includes('component')
         );
-        
+
         const componentDocs = `# Component Documentation
 
 ## System Components
@@ -337,10 +337,10 @@ ${this.extractComponentDependencies(components)}
      * @ai-context Generate API documentation
      */
     generateAPIDocumentation() {
-        const apiTags = this.semanticTags['ai-context'].filter(tag => 
+        const apiTags = this.semanticTags['ai-context'].filter(tag =>
             tag.content.toLowerCase().includes('api')
         );
-        
+
         const apis = `# API Documentation
 
 ## Available APIs
@@ -450,6 +450,42 @@ ${this.formatSemanticTags('ai-deprecated')}
 `;
 
         this.saveDocumentation('SYSTEM_MAP.md', systemMap);
+
+        // Generate Mermaid Diagram
+        this.generateMermaidDiagram();
+    }
+
+    /**
+     * @ai-context Generate Mermaid diagram from connections
+     */
+    generateMermaidDiagram() {
+        const connections = this.semanticTags['ai-connection'];
+        let mermaid = 'graph TD\n';
+
+        // Add nodes and edges
+        connections.forEach(tag => {
+            const source = path.basename(tag.file).replace(/[^a-zA-Z0-9]/g, '_');
+            const content = tag.content;
+
+            // Heuristic to find target
+            let target = 'System';
+            const connectMatch = content.match(/connects?\s+(?:to|with)?\s+([a-zA-Z0-9\s]+)/i);
+
+            if (connectMatch) {
+                target = connectMatch[1].trim().replace(/[^a-zA-Z0-9]/g, '_');
+                // Limit target length to avoid huge nodes
+                if (target.length > 30) target = target.substring(0, 30) + '...';
+            }
+
+            mermaid += `    ${source} -->|"${content.substring(0, 50)}..."| ${target}\n`;
+        });
+
+        this.saveDocumentation('SYSTEM_MAP.mermaid', mermaid);
+
+        // Also append to SYSTEM_MAP.md
+        const mermaidBlock = `\n## System Diagram\n\n\`\`\`mermaid\n${mermaid}\n\`\`\`\n`;
+        const systemMapPath = path.join('docs/architecture', 'SYSTEM_MAP.md');
+        fs.appendFileSync(systemMapPath, mermaidBlock);
     }
 
     /**
@@ -457,12 +493,12 @@ ${this.formatSemanticTags('ai-deprecated')}
      */
     formatSemanticTags(tagType) {
         const tags = this.semanticTags[tagType];
-        
+
         if (tags.length === 0) {
             return `No ${tagType} tags found.\n`;
         }
-        
-        return tags.map(tag => 
+
+        return tags.map(tag =>
             `### ${tag.content}\n- **File:** \`${tag.file}\`\n- **Line:** ${tag.line}\n`
         ).join('\n');
     }
@@ -471,234 +507,234 @@ ${this.formatSemanticTags('ai-deprecated')}
      * @ai-context Helper methods for content extraction
      */
     extractProjectDescription(contexts) {
-        const descriptions = contexts.filter(tag => 
-            tag.content.toLowerCase().includes('project') || 
+        const descriptions = contexts.filter(tag =>
+            tag.content.toLowerCase().includes('project') ||
             tag.content.toLowerCase().includes('description')
         );
-        
-        return descriptions.length > 0 
+
+        return descriptions.length > 0
             ? descriptions.map(tag => `- ${tag.content}`).join('\n')
             : 'Project description not found in semantic tags.';
     }
 
     extractKeyComponents(contexts) {
-        const components = contexts.filter(tag => 
+        const components = contexts.filter(tag =>
             tag.content.toLowerCase().includes('component')
         );
-        
-        return components.length > 0 
+
+        return components.length > 0
             ? components.map(tag => `- **${tag.content}** (\`${tag.file}\`)`).join('\n')
             : 'No components identified in semantic tags.';
     }
 
     extractArchitecturePrinciples(contexts) {
-        const principles = contexts.filter(tag => 
-            tag.content.toLowerCase().includes('architecture') || 
+        const principles = contexts.filter(tag =>
+            tag.content.toLowerCase().includes('architecture') ||
             tag.content.toLowerCase().includes('principle')
         );
-        
-        return principles.length > 0 
+
+        return principles.length > 0
             ? principles.map(tag => `- ${tag.content}`).join('\n')
             : 'No architecture principles found in semantic tags.';
     }
 
     extractDevelopmentApproach(contexts) {
-        const approaches = contexts.filter(tag => 
-            tag.content.toLowerCase().includes('development') || 
+        const approaches = contexts.filter(tag =>
+            tag.content.toLowerCase().includes('development') ||
             tag.content.toLowerCase().includes('approach')
         );
-        
-        return approaches.length > 0 
+
+        return approaches.length > 0
             ? approaches.map(tag => `- ${tag.content}`).join('\n')
             : 'No development approach specified in semantic tags.';
     }
 
     formatInvariants(invariants) {
-        return invariants.length > 0 
+        return invariants.length > 0
             ? invariants.map(tag => `- **${tag.content}** (\`${path.basename(tag.file)}\`:${tag.line})`).join('\n')
             : 'No invariants defined.';
     }
 
     formatConnections(connections) {
-        return connections.length > 0 
+        return connections.length > 0
             ? connections.map(tag => `- **${tag.content}** (\`${path.basename(tag.file)}\`:${tag.line})`).join('\n')
             : 'No connections defined.';
     }
 
     extractArchitecturePatterns(invariants) {
-        const patterns = invariants.filter(tag => 
+        const patterns = invariants.filter(tag =>
             tag.content.toLowerCase().includes('pattern')
         );
-        
-        return patterns.length > 0 
+
+        return patterns.length > 0
             ? patterns.map(tag => `- ${tag.content}`).join('\n')
             : 'No architecture patterns identified.';
     }
 
     extractTechnologyStack(connections) {
-        const tech = connections.filter(tag => 
-            tag.content.toLowerCase().includes('tech') || 
+        const tech = connections.filter(tag =>
+            tag.content.toLowerCase().includes('tech') ||
             tag.content.toLowerCase().includes('stack')
         );
-        
-        return tech.length > 0 
+
+        return tech.length > 0
             ? tech.map(tag => `- ${tag.content}`).join('\n')
             : 'No technology stack information found.';
     }
 
     formatPersonas(personas) {
-        return personas.length > 0 
+        return personas.length > 0
             ? personas.map(tag => `- **${tag.content}** (\`${path.basename(tag.file)}\`)`).join('\n')
             : 'No personas defined.';
     }
 
     extractPersonaResponsibilities(personas) {
-        const responsibilities = personas.filter(tag => 
+        const responsibilities = personas.filter(tag =>
             tag.content.toLowerCase().includes('responsibility')
         );
-        
-        return responsibilities.length > 0 
+
+        return responsibilities.length > 0
             ? responsibilities.map(tag => `- ${tag.content}`).join('\n')
             : 'No persona responsibilities defined.';
     }
 
     extractPersonaWorkflows(personas) {
-        const workflows = personas.filter(tag => 
+        const workflows = personas.filter(tag =>
             tag.content.toLowerCase().includes('workflow')
         );
-        
-        return workflows.length > 0 
+
+        return workflows.length > 0
             ? workflows.map(tag => `- ${tag.content}`).join('\n')
             : 'No persona workflows defined.';
     }
 
     formatWorkflows(workflows) {
-        return workflows.length > 0 
+        return workflows.length > 0
             ? workflows.map(tag => `- **${tag.content}** (\`${path.basename(tag.file)}\`)`).join('\n')
             : 'No workflows defined.';
     }
 
     extractWorkflowPhases(workflows) {
-        const phases = workflows.filter(tag => 
+        const phases = workflows.filter(tag =>
             tag.content.toLowerCase().includes('phase')
         );
-        
-        return phases.length > 0 
+
+        return phases.length > 0
             ? phases.map(tag => `- ${tag.content}`).join('\n')
             : 'No workflow phases defined.';
     }
 
     extractWorkflowMetrics(workflows) {
-        const metrics = workflows.filter(tag => 
+        const metrics = workflows.filter(tag =>
             tag.content.toLowerCase().includes('metric')
         );
-        
-        return metrics.length > 0 
+
+        return metrics.length > 0
             ? metrics.map(tag => `- ${tag.content}`).join('\n')
             : 'No workflow metrics defined.';
     }
 
     formatComponents(components) {
-        return components.length > 0 
+        return components.length > 0
             ? components.map(tag => `- **${tag.content}** (\`${path.basename(tag.file)}\`)`).join('\n')
             : 'No components defined.';
     }
 
     extractComponentInterfaces(components) {
-        const interfaces = components.filter(tag => 
+        const interfaces = components.filter(tag =>
             tag.content.toLowerCase().includes('interface')
         );
-        
-        return interfaces.length > 0 
+
+        return interfaces.length > 0
             ? interfaces.map(tag => `- ${tag.content}`).join('\n')
             : 'No component interfaces defined.';
     }
 
     extractComponentDependencies(components) {
-        const dependencies = components.filter(tag => 
+        const dependencies = components.filter(tag =>
             tag.content.toLowerCase().includes('dependency')
         );
-        
-        return dependencies.length > 0 
+
+        return dependencies.length > 0
             ? dependencies.map(tag => `- ${tag.content}`).join('\n')
             : 'No component dependencies defined.';
     }
 
     formatAPIs(apis) {
-        return apis.length > 0 
+        return apis.length > 0
             ? apis.map(tag => `- **${tag.content}** (\`${path.basename(tag.file)}\`)`).join('\n')
             : 'No APIs defined.';
     }
 
     extractAPIEndpoints(apis) {
-        const endpoints = apis.filter(tag => 
+        const endpoints = apis.filter(tag =>
             tag.content.toLowerCase().includes('endpoint')
         );
-        
-        return endpoints.length > 0 
+
+        return endpoints.length > 0
             ? endpoints.map(tag => `- ${tag.content}`).join('\n')
             : 'No API endpoints defined.';
     }
 
     extractAPIAuthentication(apis) {
-        const auth = apis.filter(tag => 
+        const auth = apis.filter(tag =>
             tag.content.toLowerCase().includes('auth')
         );
-        
-        return auth.length > 0 
+
+        return auth.length > 0
             ? auth.map(tag => `- ${tag.content}`).join('\n')
             : 'No API authentication defined.';
     }
 
     formatSecurityConsiderations(securityTags) {
-        return securityTags.length > 0 
+        return securityTags.length > 0
             ? securityTags.map(tag => `- **${tag.content}** (\`${path.basename(tag.file)}\`:${tag.line})`).join('\n')
             : 'No security considerations defined.';
     }
 
     extractSecurityBestPractices(securityTags) {
-        const practices = securityTags.filter(tag => 
+        const practices = securityTags.filter(tag =>
             tag.content.toLowerCase().includes('practice')
         );
-        
-        return practices.length > 0 
+
+        return practices.length > 0
             ? practices.map(tag => `- ${tag.content}`).join('\n')
             : 'No security best practices defined.';
     }
 
     extractSecurityMetrics(securityTags) {
-        const metrics = securityTags.filter(tag => 
+        const metrics = securityTags.filter(tag =>
             tag.content.toLowerCase().includes('metric')
         );
-        
-        return metrics.length > 0 
+
+        return metrics.length > 0
             ? metrics.map(tag => `- ${tag.content}`).join('\n')
             : 'No security metrics defined.';
     }
 
     formatPerformanceConsiderations(performanceTags) {
-        return performanceTags.length > 0 
+        return performanceTags.length > 0
             ? performanceTags.map(tag => `- **${tag.content}** (\`${path.basename(tag.file)}\`:${tag.line})`).join('\n')
             : 'No performance considerations defined.';
     }
 
     extractPerformanceMetrics(performanceTags) {
-        const metrics = performanceTags.filter(tag => 
+        const metrics = performanceTags.filter(tag =>
             tag.content.toLowerCase().includes('metric')
         );
-        
-        return metrics.length > 0 
+
+        return metrics.length > 0
             ? metrics.map(tag => `- ${tag.content}`).join('\n')
             : 'No performance metrics defined.';
     }
 
     extractOptimizationStrategies(performanceTags) {
-        const strategies = performanceTags.filter(tag => 
-            tag.content.toLowerCase().includes('optimization') || 
+        const strategies = performanceTags.filter(tag =>
+            tag.content.toLowerCase().includes('optimization') ||
             tag.content.toLowerCase().includes('strategy')
         );
-        
-        return strategies.length > 0 
+
+        return strategies.length > 0
             ? strategies.map(tag => `- ${tag.content}`).join('\n')
             : 'No optimization strategies defined.';
     }
@@ -708,14 +744,14 @@ ${this.formatSemanticTags('ai-deprecated')}
      */
     saveDocumentation(filename, content) {
         const docsDir = 'docs/architecture';
-        
+
         if (!fs.existsSync(docsDir)) {
             fs.mkdirSync(docsDir, { recursive: true });
         }
-        
+
         const filePath = path.join(docsDir, filename);
         fs.writeFileSync(filePath, content, 'utf-8');
-        
+
         console.log(`📄 Saved: ${filePath}`);
     }
 
@@ -731,14 +767,14 @@ ${this.formatSemanticTags('ai-deprecated')}
      */
     async run() {
         console.log('🚀 Starting Enhanced Agent Documentation Generation...');
-        
+
         try {
             this.extractTags();
             this.generateDocumentation();
-            
+
             console.log('✅ Enhanced documentation generation completed!');
             console.log(`📊 Final Metrics:`, this.getMetrics());
-            
+
         } catch (error) {
             console.error('❌ Documentation generation failed:', error.message);
             throw error;

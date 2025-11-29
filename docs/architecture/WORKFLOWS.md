@@ -1,9 +1,15 @@
 # Workflow Documentation
 
 ## Available Workflows
+- **Push git tag to trigger release workflow** (`release-manager.js`)
 - **Generate workflow documentation** (`agent-doc-enhanced.js`)
 - **Enhanced BMAD Workflow Orchestrator with advanced features** (`bmad-workflow-enhanced.js`)
 - **Execute complete enhanced BMAD workflow** (`bmad-workflow-enhanced.js`)
+- **Execute complete enhanced BMAD workflow** (`bmad-workflow-enhanced.js`)
+- **Execute complete enhanced BMAD workflow** (`bmad-workflow-enhanced.js`)
+- **Load workflow state from file** (`bmad-workflow-enhanced.js`)
+- **Save workflow state to file** (`bmad-workflow-enhanced.js`)
+- **Clear workflow state file** (`bmad-workflow-enhanced.js`)
 - **Execute individual workflow phase** (`bmad-workflow-enhanced.js`)
 - **Generate comprehensive workflow report** (`bmad-workflow-enhanced.js`)
 - **Generate markdown workflow report** (`bmad-workflow-enhanced.js`)

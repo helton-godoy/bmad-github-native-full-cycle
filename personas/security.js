@@ -70,6 +70,7 @@ class Security extends BasePersona {
     }
 
     generateSecurityReport(analysis, compliance) {
+        const hasSystemMap = this.context && this.context.architectureSpec && this.context.architectureSpec.trim().length > 0;
         return `# Security Report
 
 ## Security Analysis
@@ -87,11 +88,16 @@ class Security extends BasePersona {
 - **HIPAA**: ${compliance.hipaa}
 - **Overall**: ${compliance.overall}
 
+## Architecture Coverage
+- **System Map Available**: ${hasSystemMap ? 'Yes' : 'No'}
+${hasSystemMap ? '- Referenced SYSTEM_MAP.md to understand sensitive components, data flows and trust boundaries.' : '- No SYSTEM_MAP.md found; security review based on QA report and issue context.'}
+
 ## Security Recommendations
 1. Implement API rate limiting
 2. Add security headers
 3. Regular security scans
 4. Security training for team
+5. Review and update SYSTEM_MAP.md to ensure it accurately reflects the current system architecture
 
 ## Approval Status
 ✅ Approved for deployment

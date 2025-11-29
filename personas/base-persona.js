@@ -23,10 +23,26 @@ class BasePersona {
         try {
             const activeContext = fs.readFileSync('activeContext.md', 'utf-8');
             const productContext = fs.readFileSync('productContext.md', 'utf-8');
-            return { activeContext, productContext };
+
+            let architectureSpec = '';
+            let handoverState = '';
+
+            try {
+                architectureSpec = fs.readFileSync('docs/architecture/SYSTEM_MAP.md', 'utf-8');
+            } catch (_) {
+                architectureSpec = '';
+            }
+
+            try {
+                handoverState = fs.readFileSync('.github/BMAD_HANDOVER.md', 'utf-8');
+            } catch (_) {
+                handoverState = '';
+            }
+
+            return { activeContext, productContext, architectureSpec, handoverState };
         } catch (error) {
             console.error('Error loading context:', error.message);
-            return { activeContext: '', productContext: '' };
+            return { activeContext: '', productContext: '', architectureSpec: '', handoverState: '' };
         }
     }
 

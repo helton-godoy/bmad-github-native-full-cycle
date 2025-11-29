@@ -12,6 +12,7 @@ const EnhancedQA = require('../../personas/qa');
 const EnhancedSecurity = require('../../personas/security');
 const EnhancedDevOps = require('../../personas/devops');
 const EnhancedReleaseManager = require('../../personas/release-manager');
+const RecoveryPersona = require('../../personas/recovery');
 
 const colors = {
     red: '\x1b[31m',
@@ -69,44 +70,98 @@ class EnhancedBMADWorkflow {
     /**
      * @ai-context Execute complete enhanced BMAD workflow
      */
+    /**
+     * @ai-context Execute complete enhanced BMAD workflow
+     */
     async executeWorkflow(issueNumber) {
         console.log(`${colors.cyan}🚀 Starting Enhanced BMAD Workflow for Issue #${issueNumber}${colors.reset}`);
         console.log(`${colors.blue}=====================================${colors.reset}`);
 
-        const workflowId = this.generateWorkflowId();
-        this.logWorkflow(`Workflow ${workflowId} started for Issue #${issueNumber}`);
+        // Try to load existing state for resume
+        let state = this.loadState(issueNumber);
+        let workflowId;
+
+        if (state) {
+            console.log(`${colors.yellow}🔄 Resuming existing workflow ${state.workflowId}...${colors.reset}`);
+            workflowId = state.workflowId;
+            this.workflowMetrics = state.metrics;
+        } else {
+            workflowId = this.generateWorkflowId();
+            this.logWorkflow(`Workflow ${workflowId} started for Issue #${issueNumber}`);
+            state = {
+                workflowId,
+                issueNumber,
+                status: 'running',
+                metrics: this.workflowMetrics
+            };
+            this.saveState(state);
+        }
+
+        const EventEmitter = require('events');
+        const eventEmitter = new EventEmitter();
+
+        // Setup event listeners
+        eventEmitter.on('state-loaded', (state) => {
+            console.log(`${colors.magenta}📡 Event: State Loaded (Phase: ${state.phase})${colors.reset}`);
+        });
+
+        eventEmitter.on('action-determined', (action) => {
+            console.log(`${colors.magenta}📡 Event: Action Determined -> ${action.persona}${colors.reset}`);
+        });
+
+        eventEmitter.on('phase-completed', (data) => {
+            console.log(`${colors.magenta}📡 Event: Phase Completed (${data.persona} -> ${data.nextPhase})${colors.reset}`);
+            this.workflowMetrics.phases[data.persona] = {
+                status: 'completed',
+                timestamp: new Date().toISOString()
+            };
+        });
 
         const BMADOrchestrator = require('./bmad-orchestrator');
-        const orchestrator = new BMADOrchestrator();
+        const orchestrator = new BMADOrchestrator(eventEmitter);
 
         try {
-            // Use Orchestrator to drive the workflow
-            // This loop allows the orchestrator to run multiple steps if needed
-            // In a real autonomous run, this might be a cron job or event-driven
-            // For now, we run one orchestration cycle per execution or loop until done
-
             console.log(`${colors.yellow}🔄 Handing over control to BMAD Orchestrator...${colors.reset}`);
 
             let stepCount = 0;
-            const MAX_STEPS = 20;
+            const MAX_STEPS = 50; // Increased from 20 for complex workflows
+            const WORKFLOW_TIMEOUT_MS = 30 * 60 * 1000; // 30 minutes
+            const workflowStartTime = Date.now();
             let keepRunning = true;
 
             while (keepRunning && stepCount < MAX_STEPS) {
                 stepCount++;
-                console.log(`${colors.blue}--- Orchestration Step ${stepCount} ---${colors.reset}`);
 
-                // orchestrate() should return true if an action was taken, false if idle/done
-                // We need to update BMADOrchestrator to return this boolean
-                keepRunning = await orchestrator.orchestrate();
-
-                if (keepRunning) {
-                    // Small delay between steps to allow file system updates to settle
-                    await this.delay(2000);
+                // Check timeout
+                const elapsedTime = Date.now() - workflowStartTime;
+                if (elapsedTime > WORKFLOW_TIMEOUT_MS) {
+                    console.warn(`${colors.yellow}⚠️ Workflow stopped after timeout (${Math.round(elapsedTime / 1000 / 60)} minutes).${colors.reset}`);
+                    state.status = 'timeout';
+                    state.lastStep = new Date().toISOString();
+                    this.saveState(state);
+                    break;
                 }
+
+                console.log(`${colors.blue}--- Orchestration Step ${stepCount} (Elapsed: ${Math.round(elapsedTime / 1000)}s) ---${colors.reset}`);
+
+                // orchestrate() returns true if action taken, false if idle
+                keepRunning = await orchestrator.orchestrate(issueNumber);
+
+                // Update and save state after each step
+                state.metrics = this.workflowMetrics; // Metrics might be updated by phases
+                state.lastStep = new Date().toISOString();
+                // If orchestrator signaled idle, consider workflow completed from orchestrator perspective
+                if (!keepRunning) {
+                    state.status = state.status || 'completed';
+                }
+                this.saveState(state);
             }
 
-            if (stepCount >= MAX_STEPS) {
+            if (stepCount >= MAX_STEPS && keepRunning) {
                 console.warn(`${colors.yellow}⚠️ Workflow stopped after reaching maximum steps (${MAX_STEPS}).${colors.reset}`);
+                state.status = 'max-steps';
+                state.lastStep = new Date().toISOString();
+                this.saveState(state);
             }
 
             // Generate final report
@@ -114,6 +169,16 @@ class EnhancedBMADWorkflow {
 
             console.log(`${colors.green}✅ Enhanced BMAD Workflow cycle completed!${colors.reset}`);
             this.logWorkflow(`Workflow ${workflowId} cycle completed`);
+
+            // Mark as completed if no explicit status was set (i.e., no timeout/max-steps)
+            if (!state.status || state.status === 'running') {
+                state.status = 'completed';
+                state.lastStep = new Date().toISOString();
+                this.saveState(state);
+            }
+
+            // Clear state on successful completion
+            this.clearState(issueNumber);
 
         } catch (error) {
             console.error(`${colors.red}❌ Workflow failed: ${error.message}${colors.reset}`);
@@ -123,8 +188,68 @@ class EnhancedBMADWorkflow {
                 timestamp: new Date().toISOString()
             });
 
+            // Save error state
+            state.status = 'failed';
+            state.error = error.message;
+            this.saveState(state);
+
+            // Attempt automated recovery
+            try {
+                console.log(`${colors.yellow}🛟 Attempting automated recovery using RecoveryPersona...${colors.reset}`);
+                const recovery = new RecoveryPersona(this.githubToken);
+                await recovery.execute(issueNumber);
+                this.workflowMetrics.errors.push({
+                    phase: 'recovery',
+                    error: null,
+                    timestamp: new Date().toISOString()
+                });
+                state.status = 'recovered';
+                state.lastStep = new Date().toISOString();
+                this.saveState(state);
+            } catch (recoveryError) {
+                console.error(`${colors.red}❌ Recovery workflow failed: ${recoveryError.message}${colors.reset}`);
+                this.workflowMetrics.errors.push({
+                    phase: 'recovery',
+                    error: recoveryError.message,
+                    timestamp: new Date().toISOString()
+                });
+                state.status = 'recovery-failed';
+                state.recoveryError = recoveryError.message;
+                state.lastStep = new Date().toISOString();
+                this.saveState(state);
+            }
+
             await this.generateErrorReport(workflowId, issueNumber, error);
             throw error;
+        }
+    }
+
+    /**
+     * @ai-context Load workflow state from file
+     */
+    loadState(issueNumber) {
+        const stateFile = `.github/workflow-state-${issueNumber}.json`;
+        if (require('fs').existsSync(stateFile)) {
+            return JSON.parse(require('fs').readFileSync(stateFile, 'utf-8'));
+        }
+        return null;
+    }
+
+    /**
+     * @ai-context Save workflow state to file
+     */
+    saveState(state) {
+        const stateFile = `.github/workflow-state-${state.issueNumber}.json`;
+        require('fs').writeFileSync(stateFile, JSON.stringify(state, null, 2));
+    }
+
+    /**
+     * @ai-context Clear workflow state file
+     */
+    clearState(issueNumber) {
+        const stateFile = `.github/workflow-state-${issueNumber}.json`;
+        if (require('fs').existsSync(stateFile)) {
+            require('fs').unlinkSync(stateFile);
         }
     }
 

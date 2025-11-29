@@ -177,6 +177,48 @@ if (fs.existsSync(searchSrc)) {
     }
 }
 
+// 2.1 Copy Workflows and Tests
+console.log("\n📦 Installing workflows and tests...");
+
+// Copy Workflows
+const workflowsSrc = path.join(packageDir, '.github/workflows');
+const workflowsDest = path.join(targetDir, '.github/workflows');
+if (createDirectory(workflowsDest)) {
+    if (fs.existsSync(workflowsSrc)) {
+        const files = fs.readdirSync(workflowsSrc);
+        files.forEach(file => {
+            copy(path.join(workflowsSrc, file), path.join(workflowsDest, file));
+        });
+    }
+}
+
+// Copy Changelog Config
+const changelogSrc = path.join(packageDir, '.github/changelog-config.json');
+const changelogDest = path.join(targetDir, '.github/changelog-config.json');
+if (fs.existsSync(changelogSrc)) {
+    copy(changelogSrc, changelogDest);
+}
+
+// Copy Tests
+const testsSrc = path.join(packageDir, 'tests');
+const testsDest = path.join(targetDir, 'tests');
+if (createDirectory(testsDest)) {
+    // Recursive copy function for tests
+    const copyRecursive = (src, dest) => {
+        if (fs.statSync(src).isDirectory()) {
+            createDirectory(dest);
+            fs.readdirSync(src).forEach(child => {
+                copyRecursive(path.join(src, child), path.join(dest, child));
+            });
+        } else {
+            copy(src, dest);
+        }
+    };
+    if (fs.existsSync(testsSrc)) {
+        copyRecursive(testsSrc, testsDest);
+    }
+}
+
 // 3. Install Enhanced BMAD Scripts
 console.log("\n🔧 Installing enhanced BMAD workflow scripts...");
 
@@ -186,7 +228,9 @@ const enhancedScripts = [
     { src: 'scripts/bmad/bmad-workflow.js', dest: 'scripts/bmad/bmad-workflow.js' },
     { src: 'scripts/bmad/agent-doc-enhanced.js', dest: 'scripts/bmad/agent-doc-enhanced.js' },
     { src: 'scripts/bmad/agent-doc.js', dest: 'scripts/bmad/agent-doc.js' },
-    { src: 'scripts/bmad/bmad-gatekeeper.js', dest: 'scripts/bmad/bmad-gatekeeper.js' }
+    { src: 'scripts/bmad/bmad-gatekeeper.js', dest: 'scripts/bmad/bmad-gatekeeper.js' },
+    { src: 'scripts/bmad/bmad-monitor.js', dest: 'scripts/bmad/bmad-monitor.js' },
+    { src: 'scripts/bmad/product-context-validator.js', dest: 'scripts/bmad/product-context-validator.js' }
 ];
 
 let installedScripts = 0;
@@ -223,7 +267,8 @@ const enhancedPersonas = [
     'security.js',
     'devops.js',
     'project-manager.js',
-    'release-manager.js'
+    'release-manager.js',
+    'recovery.js'
 ];
 
 let installedPersonas = 0;
@@ -359,9 +404,11 @@ if (fs.existsSync(pkgPath)) {
         pkg.scripts['bmad:docs:original'] = "node scripts/bmad/agent-doc.js";
         pkg.scripts['bmad:gatekeeper'] = "node scripts/bmad/bmad-gatekeeper.js";
         pkg.scripts['bmad:search'] = "node scripts/search-memory.js";
+        pkg.scripts['bmad:monitor'] = "node scripts/bmad/bmad-monitor.js";
         pkg.scripts['setup'] = "npm install && chmod +x scripts/bmad/*.js && chmod +x scripts/*.js";
         pkg.scripts['status'] = "node -e \"console.log('Enhanced BMAD Framework v2.0.0 - Ready for autonomous development!')\"";
         pkg.scripts['validate'] = "npm run lint && npm run test";
+        pkg.scripts['build'] = "npm run bmad:docs && npm run validate";
         pkg.scripts['clean'] = "rm -rf .github/logs/ .github/reports/ .github/metrics/ node_modules/.cache/";
 
         // Add enhanced metadata

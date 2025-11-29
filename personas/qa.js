@@ -81,6 +81,7 @@ class QA extends BasePersona {
     }
 
     generateQAReport(testResults, securityResults, performanceResults) {
+        const hasSystemMap = this.context && this.context.architectureSpec && this.context.architectureSpec.trim().length > 0;
         return `# QA Report
 
 ## Test Results
@@ -96,6 +97,10 @@ class QA extends BasePersona {
 - **Status**: ${performanceResults.status}
 - **Response Time**: ${performanceResults.responseTime}
 - **Throughput**: ${performanceResults.throughput}
+
+## Architecture Coverage
+- **System Map Available**: ${hasSystemMap ? 'Yes' : 'No'}
+${hasSystemMap ? '- Referenced SYSTEM_MAP.md for understanding existing components and flows.' : '- No SYSTEM_MAP.md found; QA based only on tests and issue context.'}
 
 ## Overall Assessment
 ✅ Ready for security review

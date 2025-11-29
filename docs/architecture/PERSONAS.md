@@ -17,6 +17,7 @@
 - **Release Manager Persona - Version management and release coordination** (`release-manager.js`)
 - **Security Persona - Security analysis and compliance** (`security.js`)
 - **Generate persona documentation** (`agent-doc-enhanced.js`)
+- **Execute the determined persona** (`bmad-orchestrator.js`)
 - **Execute single persona (for testing/debugging)** (`bmad-workflow-enhanced.js`)
 - **Test suite for BMAD personas** (`personas.test.js`)
 

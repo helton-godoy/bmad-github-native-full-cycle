@@ -18,14 +18,15 @@
     "lint:fix": "eslint src/ scripts/ personas/ --fix",
     "format": "prettier --write src/ scripts/ personas/",
     "validate": "npm run lint && npm run test",
-    "build": "npm run validate",
+    "build": "npm run bmad:docs && npm run validate",
     "dev": "npm run bmad:docs && npm run start",
     "release": "npm run build && npm run test:coverage",
     "clean": "rm -rf .github/logs/ .github/reports/ .github/metrics/ node_modules/.cache/",
     "setup": "npm install && chmod +x scripts/bmad/*.js && chmod +x scripts/*.js",
     "setup:enhanced": "node bin/setup-enhanced.js",
     "status": "node -e \"console.log('Enhanced BMAD Framework v2.0.0 - Ready for autonomous development!')\"",
-    "bmad:search": "node scripts/search-memory.js"
+    "bmad:search": "node scripts/search-memory.js",
+    "bmad:monitor": "node scripts/bmad/bmad-monitor.js"
   },
   "keywords": [
     "bmad",

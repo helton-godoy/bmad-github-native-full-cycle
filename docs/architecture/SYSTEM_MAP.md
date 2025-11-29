@@ -3,7 +3,7 @@
 ## Semantic Context
 ### Esta função usa uma validação "preguiçosa" para economizar recursos.
 - **File:** `docs/en/planning/RFC-001-AgentDoc.md`
-- **Line:** 28
+- **Line:** 32
 
 ### Architect Persona - System design and technical decisions
 - **File:** `personas/architect.js`
@@ -45,33 +45,33 @@
 - **File:** `personas/base-persona-enhanced.js`
 - **Line:** 89
 
-### Enhanced commit with automatic metrics tracking
+### Enhanced commit with automatic metrics tracking and validation
 - **File:** `personas/base-persona-enhanced.js`
 - **Line:** 112
 
 ### Execute shell command with error handling
 - **File:** `personas/base-persona-enhanced.js`
-- **Line:** 138
+- **Line:** 170
 
 ### Get next step ID for commits
 - **File:** `personas/base-persona-enhanced.js`
-- **Line:** 154
+- **Line:** 186
 
 ### Update handover state
 - **File:** `personas/base-persona-enhanced.js`
-- **Line:** 162
+- **Line:** 194
 
 ### Generate handover content
 - **File:** `personas/base-persona-enhanced.js`
-- **Line:** 176
+- **Line:** 208
 
 ### Validate prerequisites for persona execution
 - **File:** `personas/base-persona-enhanced.js`
-- **Line:** 214
+- **Line:** 246
 
 ### Get persona execution summary
 - **File:** `personas/base-persona-enhanced.js`
-- **Line:** 228
+- **Line:** 260
 
 ### Base class for all BMAD personas
 - **File:** `personas/base-persona.js`
@@ -91,15 +91,15 @@
 
 ### Create GitHub issue for task tracking
 - **File:** `personas/base-persona.js`
-- **Line:** 85
+- **Line:** 99
 
 ### Abstract method for persona execution
 - **File:** `personas/base-persona.js`
-- **Line:** 106
+- **Line:** 120
 
 ### Log persona activity
 - **File:** `personas/base-persona.js`
-- **Line:** 113
+- **Line:** 127
 
 ### Enhanced Developer Persona with advanced code generation and validation
 - **File:** `personas/developer-enhanced.js`
@@ -261,6 +261,14 @@
 - **File:** `personas/release-manager.js`
 - **Line:** 1
 
+### Generate changelog preview using git log
+- **File:** `personas/release-manager.js`
+- **Line:** 73
+
+### Push git tag to trigger release workflow
+- **File:** `personas/release-manager.js`
+- **Line:** 86
+
 ### Security Persona - Security analysis and compliance
 - **File:** `personas/security.js`
 - **Line:** 1
@@ -325,25 +333,57 @@
 - **File:** `scripts/bmad/agent-doc-enhanced.js`
 - **Line:** 411
 
+### Generate Mermaid diagram from connections
+- **File:** `scripts/bmad/agent-doc-enhanced.js`
+- **Line:** 458
+
 ### Format semantic tags for display
 - **File:** `scripts/bmad/agent-doc-enhanced.js`
-- **Line:** 455
+- **Line:** 491
 
 ### Helper methods for content extraction
 - **File:** `scripts/bmad/agent-doc-enhanced.js`
-- **Line:** 470
+- **Line:** 506
 
 ### Save documentation to file
 - **File:** `scripts/bmad/agent-doc-enhanced.js`
-- **Line:** 706
+- **Line:** 742
 
 ### Get documentation metrics
 - **File:** `scripts/bmad/agent-doc-enhanced.js`
-- **Line:** 722
+- **Line:** 758
 
 ### Run complete documentation generation
 - **File:** `scripts/bmad/agent-doc-enhanced.js`
-- **Line:** 729
+- **Line:** 765
+
+### BMAD Context-Driven Orchestrator
+- **File:** `scripts/bmad/bmad-orchestrator.js`
+- **Line:** 2
+
+### Main execution entry point
+- **File:** `scripts/bmad/bmad-orchestrator.js`
+- **Line:** 26
+
+### Parse BMAD_HANDOVER.md to get current state
+- **File:** `scripts/bmad/bmad-orchestrator.js`
+- **Line:** 73
+
+### Decide next action based on state and artifacts
+- **File:** `scripts/bmad/bmad-orchestrator.js`
+- **Line:** 95
+
+### Extract specific section from markdown file
+- **File:** `scripts/bmad/bmad-orchestrator.js`
+- **Line:** 206
+
+### Execute the determined persona
+- **File:** `scripts/bmad/bmad-orchestrator.js`
+- **Line:** 216
+
+### Update BMAD_HANDOVER.md with new state
+- **File:** `scripts/bmad/bmad-orchestrator.js`
+- **Line:** 245
 
 ### Enhanced BMAD Workflow Orchestrator with advanced features
 - **File:** `scripts/bmad/bmad-workflow-enhanced.js`
@@ -357,45 +397,65 @@
 - **File:** `scripts/bmad/bmad-workflow-enhanced.js`
 - **Line:** 66
 
+### Execute complete enhanced BMAD workflow
+- **File:** `scripts/bmad/bmad-workflow-enhanced.js`
+- **Line:** 69
+
+### Execute complete enhanced BMAD workflow
+- **File:** `scripts/bmad/bmad-workflow-enhanced.js`
+- **Line:** 72
+
+### Load workflow state from file
+- **File:** `scripts/bmad/bmad-workflow-enhanced.js`
+- **Line:** 178
+
+### Save workflow state to file
+- **File:** `scripts/bmad/bmad-workflow-enhanced.js`
+- **Line:** 189
+
+### Clear workflow state file
+- **File:** `scripts/bmad/bmad-workflow-enhanced.js`
+- **Line:** 197
+
 ### Execute individual workflow phase
 - **File:** `scripts/bmad/bmad-workflow-enhanced.js`
-- **Line:** 117
+- **Line:** 207
 
 ### Generate comprehensive workflow report
 - **File:** `scripts/bmad/bmad-workflow-enhanced.js`
-- **Line:** 172
+- **Line:** 262
 
 ### Generate markdown workflow report
 - **File:** `scripts/bmad/bmad-workflow-enhanced.js`
-- **Line:** 204
+- **Line:** 294
 
 ### Generate error report
 - **File:** `scripts/bmad/bmad-workflow-enhanced.js`
-- **Line:** 240
+- **Line:** 330
 
 ### Get current phase based on completed phases
 - **File:** `scripts/bmad/bmad-workflow-enhanced.js`
-- **Line:** 265
+- **Line:** 355
 
 ### Generate unique workflow ID
 - **File:** `scripts/bmad/bmad-workflow-enhanced.js`
-- **Line:** 274
+- **Line:** 364
 
 ### Log workflow events
 - **File:** `scripts/bmad/bmad-workflow-enhanced.js`
-- **Line:** 283
+- **Line:** 373
 
 ### Delay between API calls
 - **File:** `scripts/bmad/bmad-workflow-enhanced.js`
-- **Line:** 298
+- **Line:** 388
 
 ### Get workflow status
 - **File:** `scripts/bmad/bmad-workflow-enhanced.js`
-- **Line:** 305
+- **Line:** 395
 
 ### Execute single persona (for testing/debugging)
 - **File:** `scripts/bmad/bmad-workflow-enhanced.js`
-- **Line:** 318
+- **Line:** 408
 
 ### BMAD Workflow Orchestrator
 - **File:** `scripts/bmad/bmad-workflow.js`
@@ -433,7 +493,7 @@
 ## System Invariants
 ### NÃO adicione chamadas de DB aqui. A validação deve ser puramente criptográfica.
 - **File:** `docs/en/planning/RFC-001-AgentDoc.md`
-- **Line:** 28
+- **Line:** 32
 
 ### Architect must create technical specifications and system design
 - **File:** `personas/architect.js`
@@ -479,6 +539,10 @@
 - **File:** `scripts/bmad/agent-doc-enhanced.js`
 - **Line:** 1
 
+### State determines Action, Content drives Context
+- **File:** `scripts/bmad/bmad-orchestrator.js`
+- **Line:** 2
+
 ### Must execute all personas in sequence with enhanced coordination
 - **File:** `scripts/bmad/bmad-workflow-enhanced.js`
 - **Line:** 2
@@ -507,7 +571,7 @@
 ## Component Connections
 ### Impacta diretamente o middleware `auth.middleware.js`.
 - **File:** `docs/en/planning/RFC-001-AgentDoc.md`
-- **Line:** 28
+- **Line:** 32
 
 ### Architect connects to PM requirements and provides implementation guidance
 - **File:** `personas/architect.js`
@@ -552,6 +616,10 @@
 ### Connects code analysis to comprehensive documentation generation
 - **File:** `scripts/bmad/agent-doc-enhanced.js`
 - **Line:** 1
+
+### Reads BMAD_HANDOVER.md and activeContext.md to decide next steps
+- **File:** `scripts/bmad/bmad-orchestrator.js`
+- **Line:** 2
 
 ### Coordinates all personas, GitHub integration, and advanced monitoring
 - **File:** `scripts/bmad/bmad-workflow-enhanced.js`
@@ -599,11 +667,37 @@ No ai-deprecated tags found.
 
 
 ## Documentation Metrics
-- Files Processed: 70
-- Tags Extracted: 143
+- Files Processed: 87
+- Tags Extracted: 160
 - Documentation Generated: 0
 - Errors: 0
 
 ---
 *Generated by Enhanced BMAD Agent Documentation*
-*Last Updated: 2025-11-28T13:57:14.506Z
+*Last Updated: 2025-11-29T09:59:15.780Z
+
+## System Diagram
+
+```mermaid
+graph TD
+    RFC_001_AgentDoc_md -->|"Impacta diretamente o middleware `auth.middleware...."| System
+    architect_js -->|"Architect connects to PM requirements and provides..."| PM_requirements_and_provides_i...
+    base_persona_enhanced_js -->|"This class connects to GitHub API, context managem..."| GitHub_API
+    base_persona_js -->|"This class connects to GitHub API and context mana..."| GitHub_API_and_context_managem...
+    developer_enhanced_js -->|"Developer connects to architecture design and prov..."| architecture_design_and_provid...
+    developer_js -->|"Developer connects to architecture design and prov..."| architecture_design_and_provid...
+    devops_js -->|"DevOps connects to security approval and provides ..."| security_approval_and_provides...
+    project_manager_js -->|"PM connects to GitHub Issues and creates structure..."| GitHub_Issues_and_creates_stru...
+    qa_js -->|"QA connects to developer implementation and provid..."| developer_implementation_and_p...
+    release_manager_js -->|"Release Manager connects to DevOps preparation and..."| DevOps_preparation_and_manages...
+    security_js -->|"Security connects to QA results and provides secur..."| QA_results_and_provides_securi...
+    agent_doc_enhanced_js -->|"Connects code analysis to comprehensive documentat..."| System
+    bmad_orchestrator_js -->|"Reads BMAD_HANDOVER.md and activeContext.md to dec..."| System
+    bmad_workflow_enhanced_js -->|"Coordinates all personas, GitHub integration, and ..."| System
+    bmad_workflow_js -->|"Coordinates all personas and GitHub integration..."| System
+    octokit_js -->|"Provides consistent mock responses for GitHub oper..."| System
+    personas_test_js -->|"Tests validate persona integration and workflow..."| System
+    setup_js -->|"Setup consistent test environment across all tests..."| System
+    workflow_test_js -->|"Tests validate workflow execution and GitHub integ..."| System
+
+```

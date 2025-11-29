@@ -340,7 +340,7 @@ class EnhancedDeveloper extends EnhancedBasePersona {
      */
     generateFileContent(filePath) {
         if (filePath === 'package.json') {
-            return JSON.stringify({
+            let basePackage = {
                 name: 'bmad-enhanced-project',
                 version: '1.0.0',
                 description: 'BMAD Enhanced Framework Project',
@@ -359,7 +359,36 @@ class EnhancedDeveloper extends EnhancedBasePersona {
                     jest: '^29.0.0',
                     nodemon: '^2.0.0'
                 }
-            }, null, 2);
+            };
+
+            // If a package.json already exists, merge defaults without destructive overwrite
+            if (fs.existsSync('package.json')) {
+                try {
+                    const existing = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
+
+                    // Preserve existing fields and scripts
+                    basePackage = {
+                        ...basePackage,
+                        ...existing,
+                        scripts: {
+                            ...basePackage.scripts,
+                            ...(existing.scripts || {})
+                        },
+                        dependencies: {
+                            ...basePackage.dependencies,
+                            ...(existing.dependencies || {})
+                        },
+                        devDependencies: {
+                            ...basePackage.devDependencies,
+                            ...(existing.devDependencies || {})
+                        }
+                    };
+                } catch (error) {
+                    this.log(`Failed to merge existing package.json, using defaults: ${error.message}`, 'WARNING');
+                }
+            }
+
+            return JSON.stringify(basePackage, null, 2);
         }
 
         if (filePath === 'go.mod') {

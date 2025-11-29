@@ -27,7 +27,7 @@ if (commitMsg && !/^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|rever
 if (config.requireContextUpdate) {
     try {
         const staged = execSync('git diff --cached --name-only').toString();
-        
+
         // Se houver código staged mas o activeContext não estiver lá
         // Verifica extensões comuns de código
         const hasCodeChanges = staged.match(/\.(js|ts|jsx|tsx|py|rb|go|rs|java|c|cpp|h|hpp|css|scss|html|vue|svelte)$/m);
@@ -46,17 +46,44 @@ if (config.requireContextUpdate) {
 
 // 3. Rodar Testes (Se existirem)
 console.log(`${colors.yellow}🧪 A verificar integridade (testes)...${colors.reset}`);
-try {
-    // Verifica se existe script de teste no package.json
-    const pkg = require(path.join(process.cwd(), 'package.json'));
-    if (pkg.scripts && pkg.scripts.test) {
-        execSync('npm test --if-present', { stdio: 'inherit' });
-        console.log(`${colors.green}✅ Testes aprovados.${colors.reset}`);
-    } else {
-        console.log(`${colors.yellow}⚠️  Nenhum script de teste encontrado. Pulando testes.${colors.reset}`);
+
+let gateResult = {
+    gate: 'FAIL',
+    timestamp: new Date().toISOString(),
+    waiver: { active: false }
+};
+
+if (process.env.BMAD_SKIP_TESTS === 'true') {
+    console.log(`${colors.yellow}⚠️  BMAD_SKIP_TESTS ativado. Pulando execução de testes.${colors.reset}`);
+    gateResult.gate = 'WAIVED';
+    gateResult.waiver = {
+        active: true,
+        reason: 'BMAD_SKIP_TESTS environment variable set',
+        approved_by: 'Developer (Local Override)'
+    };
+    console.log(`${colors.green}✅ Gate Status: WAIVED${colors.reset}`);
+} else {
+    try {
+        // Verifica se existe script de teste no package.json
+        const pkg = require(path.join(process.cwd(), 'package.json'));
+        if (pkg.scripts && pkg.scripts.test) {
+            execSync('npm test --if-present', { stdio: 'inherit' });
+            console.log(`${colors.green}✅ Testes aprovados.${colors.reset}`);
+            gateResult.gate = 'PASS';
+        } else {
+            console.log(`${colors.yellow}⚠️  Nenhum script de teste encontrado. Pulando testes.${colors.reset}`);
+            gateResult.gate = 'PASS'; // Pass if no tests defined (for now, or could be CONCERNS)
+            gateResult.status_reason = 'No tests defined';
+        }
+
+    } catch {
+        console.error(`${colors.red}❌ Testes falharam. Commit abortado.${colors.reset}`);
+        gateResult.gate = 'FAIL';
+        // Log gate result before exiting
+        console.log(JSON.stringify(gateResult, null, 2));
+        process.exit(1);
     }
-   
-} catch {
-    console.error(`${colors.red}❌ Testes falharam. Commit abortado.${colors.reset}`);
-    process.exit(1);
 }
+
+// Output structured result (could be saved to file in future)
+console.log(JSON.stringify(gateResult, null, 2));

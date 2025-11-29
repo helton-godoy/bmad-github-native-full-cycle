@@ -4,6 +4,7 @@
  * @ai-connection Architect connects to PM requirements and provides implementation guidance
  */
 const BasePersona = require('./base-persona');
+const ProductContextValidator = require('../scripts/bmad/product-context-validator');
 
 class Architect extends BasePersona {
     constructor(githubToken) {
@@ -15,8 +16,20 @@ class Architect extends BasePersona {
      */
     async execute(planningIssueNumber) {
         this.log('Starting architecture design');
-        
+
         try {
+            // Validate product context before proceeding
+            try {
+                const validator = new ProductContextValidator();
+                const result = validator.validate();
+                if (!result.valid) {
+                    throw new Error(`productContext.md validation failed: ${result.errors.join('; ')}`);
+                }
+            } catch (validationError) {
+                this.log(`Product context validation error: ${validationError.message}`);
+                throw validationError;
+            }
+
             // Get planning issue
             const issue = await this.octokit.rest.issues.get({
                 owner: process.env.GITHUB_OWNER || 'helton-godoy',
@@ -28,7 +41,7 @@ class Architect extends BasePersona {
 
             // Create architecture design
             const architectureDesign = this.createArchitectureDesign(issue.data);
-            
+
             // Update context
             this.updateActiveContext(`Designing arquitetura para issue #${planningIssueNumber}`);
 
@@ -56,6 +69,12 @@ class Architect extends BasePersona {
      * @ai-context Create comprehensive architecture design
      */
     createArchitectureDesign(planningIssue) {
+        // Extract context or use defaults
+        const productContext = this.context.productContext || '';
+        const techStackMatch = productContext.match(/## Technical Stack([\s\S]*?)##/);
+        const techStack = techStackMatch ? techStackMatch[1].trim() : 'Node.js (Default)';
+        const systemMap = (this.context.architectureSpec || '').trim();
+
         const design = `# System Architecture Design
 
 ## Overview
@@ -64,102 +83,87 @@ Architecture design for: ${planningIssue.title}
 ## Requirements Analysis
 Based on planning issue #${planningIssue.number}
 
+## Context & Technology Stack
+${techStack}
+
+## Existing Architecture Map
+${systemMap || 'No existing SYSTEM_MAP.md found. This design will serve as the initial architecture reference.'}
+
 ## System Components
 
-### 1. API Layer
-- **Framework**: Express.js
-- **Authentication**: JWT
-- **Validation**: Input sanitization
-- **Rate Limiting**: Security measure
+### 1. Core Application Layer
+- **Runtime/Language**: Derived from Product Context
+- **Framework**: Derived from Product Context
+- **Architecture Pattern**: Modular/Layered
 
 ### 2. Business Logic Layer
-- **Services**: Modular service architecture
-- **Controllers**: Request handling
-- **Middleware**: Security and logging
+- **Services**: Domain logic isolation
+- **Handlers/Controllers**: Input processing
+- **Utilities**: Shared helper functions
 
 ### 3. Data Layer
-- **Database**: File-based storage (for simplicity)
-- **Caching**: In-memory cache
-- **Backup**: Git-based versioning
+- **Storage**: As defined in requirements (File/DB)
+- **Persistence**: Data access patterns
+- **Backup**: Version control / Snapshots
 
 ### 4. Integration Layer
-- **GitHub API**: @octokit/rest
-- **Webhooks**: Event processing
-- **Authentication**: OAuth/App tokens
+- **External APIs**: GitHub, etc.
+- **Events**: Webhooks / Signals
 
 ## Security Architecture
 
 ### Authentication & Authorization
-- JWT-based authentication
-- Role-based access control
-- API token management
+- Secure credential management
+- Role-based access (if applicable)
 
 ### Data Protection
-- Input validation
-- SQL injection prevention
-- XSS protection
-- CSRF protection
-
-### API Security
-- Rate limiting
-- CORS configuration
-- Request validation
+- Input validation (Critical)
+- Secure storage of sensitive data
 
 ## Performance Considerations
 
-### Scalability
-- Horizontal scaling ready
-- Load balancing support
-- Caching strategies
+### Efficiency
+- Resource usage optimization
+- Startup time minimization
 
 ### Monitoring
-- Request logging
-- Performance metrics
-- Error tracking
+- Logging strategy
+- Performance metrics tracking
 
 ## Deployment Architecture
 
 ### Environment Setup
-- Development: Local Node.js
-- Testing: GitHub Actions
-- Production: Container-ready
+- Development: Local environment
+- Testing: CI Pipeline
+- Production: Build artifacts
 
 ### CI/CD Pipeline
 - Automated testing
-- Security scanning
-- Automated deployment
-
-## Technology Stack
-- **Runtime**: Node.js 18+
-- **Framework**: Express.js
-- **Security**: bcrypt, jsonwebtoken
-- **GitHub**: @octokit/rest
-- **Testing**: Jest
-- **Documentation**: AgentDoc
+- Linting & Quality checks
+- Automated release process
 
 ## Implementation Guidelines
 
 ### Code Structure
+(Adapt to target language conventions)
 \`\`\`
-src/
-├── controllers/     # Request handlers
-├── services/        # Business logic
-├── middleware/      # Security & utilities
-├── utils/           # Helper functions
-└── config/          # Configuration
+src/ or cmd/
+├── core/           # Core logic
+├── api/            # Interfaces
+├── data/           # Data access
+└── config/         # Configuration
 \`\`\`
 
 ### Development Standards
 - Follow BMAD micro-commit pattern
-- Maintain 80%+ test coverage
+- Maintain high test coverage
 - Use AgentDoc tags for documentation
 - Implement security best practices
 
 ## Risk Assessment
-- **Security**: Medium risk, mitigated with best practices
-- **Performance**: Low risk, optimized architecture
-- **Scalability**: Medium risk, designed for growth
-- **Maintainability**: Low risk, clean architecture
+- **Security**: Mitigate with validation and secure coding
+- **Performance**: Optimize critical paths
+- **Maintainability**: Enforce clean code principles
 
 ---
 *Designed by Architect Agent on ${new Date().toISOString()}*`;
@@ -182,20 +186,19 @@ ${architectureDesign}
 
 ### Phase 1: Core Setup
 - [ ] Initialize project structure
-- [ ] Set up Express server
-- [ ] Configure middleware
-- [ ] Implement authentication
+- [ ] Set up core application framework
+- [ ] Configure basic configuration
+- [ ] Implement core utilities
 
-### Phase 2: API Development
-- [ ] Implement core endpoints
-- [ ] Add validation
-- [ ] Error handling
-- [ ] Logging
+### Phase 2: Core Features
+- [ ] Implement primary business logic
+- [ ] Add data layer implementation
+- [ ] Implement input/output handling
+- [ ] Add logging and monitoring
 
 ### Phase 3: Integration
-- [ ] GitHub API integration
-- [ ] Webhook handling
-- [ ] Event processing
+- [ ] External API integration (if needed)
+- [ ] Event handling
 - [ ] State management
 
 ### Phase 4: Testing & Security

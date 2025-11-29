@@ -12,11 +12,11 @@ class ReleaseManager extends BasePersona {
 
     async execute(releaseIssueNumber) {
         this.log('Starting release management');
-        
+
         try {
             const issue = await this.octokit.rest.issues.get({
                 owner: process.env.GITHUB_OWNER || 'helton-godoy',
-                repo: process.env.GITHUB_REPO || 'shantilly-cli',
+                repo: process.env.GITHUB_REPO || 'bmad-github-native-full-cycle',
                 issue_number: releaseIssueNumber
             });
 
@@ -24,20 +24,16 @@ class ReleaseManager extends BasePersona {
 
             // Version management
             const versionInfo = await this.manageVersion();
-            
-            // Release notes
-            const releaseNotes = this.generateReleaseNotes(issue.data);
-            
-            // Create release
-            const release = await this.createGitHubRelease(versionInfo, releaseNotes);
 
-            const releaseReport = this.generateReleaseReport(versionInfo, release);
+            // Generate local changelog preview
+            const changelogPreview = await this.generateChangelogPreview(versionInfo);
 
-            await this.microCommit('Release Manager: Release completed', [
-                {
-                    path: 'CHANGELOG.md',
-                    content: releaseNotes
-                },
+            // Trigger Release via Tag (GitHub Actions will handle the rest)
+            await this.pushReleaseTag(versionInfo);
+
+            const releaseReport = this.generateReleaseReport(versionInfo, changelogPreview);
+
+            await this.microCommit('Release Manager: Release tag pushed', [
                 {
                     path: 'docs/release/release-report.md',
                     content: releaseReport
@@ -45,7 +41,7 @@ class ReleaseManager extends BasePersona {
             ]);
 
             // Close the workflow
-            await this.closeWorkflow(issue.data, release);
+            await this.closeWorkflow(issue.data, versionInfo);
 
             this.log('Release management completed');
             return releaseReport;
@@ -60,7 +56,7 @@ class ReleaseManager extends BasePersona {
         const packageJson = require('../package.json');
         const currentVersion = packageJson.version;
         const newVersion = this.incrementVersion(currentVersion);
-        
+
         return {
             current: currentVersion,
             new: newVersion,
@@ -74,50 +70,31 @@ class ReleaseManager extends BasePersona {
         return parts.join('.');
     }
 
-    generateReleaseNotes(issue) {
-        return `# Release Notes
-
-## Version ${this.incrementVersion(require('../package.json').version)}
-
-### Features
-- BMAD GitHub Native Full Cycle integration
-- Autonomous workflow implementation
-- 7 specialized personas
-- GitHub native integration
-
-### Improvements
-- Enhanced security measures
-- Performance optimizations
-- Better error handling
-
-### Bug Fixes
-- Context management improvements
-- Test coverage enhancements
-
-### Technical Details
-- Node.js 18+ compatibility
-- Express.js framework
-- GitHub API integration
-- JWT authentication
-
----
-*Generated for issue #${issue.number}: ${issue.title}*`;
+    /**
+     * @ai-context Generate changelog preview using git log
+     */
+    async generateChangelogPreview(versionInfo) {
+        try {
+            // Get commits since last tag or last 10 commits if no tag
+            const commits = await this.execCommand('git log -n 10 --pretty=format:"- %s"');
+            return `# Changelog Preview (v${versionInfo.new})\n\n${commits}`;
+        } catch (error) {
+            return `# Changelog Preview\n\nCould not generate preview: ${error.message}`;
+        }
     }
 
-    async createGitHubRelease(versionInfo, releaseNotes) {
+    /**
+     * @ai-context Push git tag to trigger release workflow
+     */
+    async pushReleaseTag(versionInfo) {
+        const tagName = `v${versionInfo.new}`;
         try {
-            const release = await this.octokit.rest.repos.createRelease({
-                owner: process.env.GITHUB_OWNER || 'helton-godoy',
-                repo: process.env.GITHUB_REPO || 'shantilly-cli',
-                tag_name: `v${versionInfo.new}`,
-                name: `Release v${versionInfo.new}`,
-                body: releaseNotes,
-                draft: false,
-                prerelease: false
-            });
-            return release.data;
+            await this.execCommand(`git tag ${tagName}`);
+            await this.execCommand(`git push origin ${tagName}`);
+            this.log(`Pushed tag ${tagName} to trigger release workflow`);
+            return tagName;
         } catch (error) {
-            console.error('Error creating release:', error.message);
+            console.error('Error pushing tag:', error.message);
             throw error;
         }
     }
