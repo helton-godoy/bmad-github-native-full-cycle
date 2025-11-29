@@ -230,7 +230,14 @@ const enhancedScripts = [
     { src: 'scripts/bmad/agent-doc.js', dest: 'scripts/bmad/agent-doc.js' },
     { src: 'scripts/bmad/bmad-gatekeeper.js', dest: 'scripts/bmad/bmad-gatekeeper.js' },
     { src: 'scripts/bmad/bmad-monitor.js', dest: 'scripts/bmad/bmad-monitor.js' },
-    { src: 'scripts/bmad/product-context-validator.js', dest: 'scripts/bmad/product-context-validator.js' }
+    { src: 'scripts/bmad/product-context-validator.js', dest: 'scripts/bmad/product-context-validator.js' },
+    { src: 'scripts/bmad/health-check.js', dest: 'scripts/bmad/health-check.js' },
+    { src: 'scripts/lib/git-state-manager.js', dest: 'scripts/lib/git-state-manager.js' },
+    { src: 'scripts/lib/context-manager.js', dest: 'scripts/lib/context-manager.js' },
+    { src: 'scripts/lib/secret-manager.js', dest: 'scripts/lib/secret-manager.js' },
+    { src: 'scripts/lib/logger.js', dest: 'scripts/lib/logger.js' },
+    { src: 'scripts/lib/cache-manager.js', dest: 'scripts/lib/cache-manager.js' },
+    { src: 'bin/bmad-cli.js', dest: 'bin/bmad-cli.js' }
 ];
 
 let installedScripts = 0;
@@ -405,7 +412,10 @@ if (fs.existsSync(pkgPath)) {
         pkg.scripts['bmad:gatekeeper'] = "node scripts/bmad/bmad-gatekeeper.js";
         pkg.scripts['bmad:search'] = "node scripts/search-memory.js";
         pkg.scripts['bmad:monitor'] = "node scripts/bmad/bmad-monitor.js";
-        pkg.scripts['setup'] = "npm install && chmod +x scripts/bmad/*.js && chmod +x scripts/*.js";
+        pkg.scripts['bmad:monitor'] = "node scripts/bmad/bmad-monitor.js";
+        pkg.scripts['bmad:watchdog'] = "node scripts/bmad/health-check.js";
+        pkg.scripts['bmad:cli'] = "node bin/bmad-cli.js";
+        pkg.scripts['setup'] = "npm install && chmod +x scripts/bmad/*.js && chmod +x scripts/*.js && chmod +x bin/*.js";
         pkg.scripts['status'] = "node -e \"console.log('Enhanced BMAD Framework v2.0.0 - Ready for autonomous development!')\"";
         pkg.scripts['validate'] = "npm run lint && npm run test";
         pkg.scripts['build'] = "npm run bmad:docs && npm run validate";
