@@ -1,0 +1,5 @@
+{"timestamp":"2025-11-29T15:55:53.899Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2025-11-29T15:55:53.902Z","level":"INFO","component":"Watchdog","message":"Checking workflow-state-999.json: Last update 15m ago."}
+{"timestamp":"2025-11-29T15:55:53.902Z","level":"WARN","component":"Watchdog","message":"⚠️ Workflow workflow-state-999.json appears STALLED."}
+{"timestamp":"2025-11-29T15:55:53.931Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2025-11-29T15:55:53.934Z","level":"ERROR","component":"Watchdog","message":"⛔ Circuit Breaker is OPEN. Skipping checks to prevent error loop."}

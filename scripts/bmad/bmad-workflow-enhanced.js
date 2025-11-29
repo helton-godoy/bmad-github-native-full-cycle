@@ -82,9 +82,19 @@ class EnhancedBMADWorkflow {
         let workflowId;
 
         if (state) {
-            console.log(`${colors.yellow}🔄 Resuming existing workflow ${state.workflowId}...${colors.reset}`);
+            if (state.status === 'completed' && !process.env.BMAD_FORCE_RESUME) {
+                console.log(`${colors.green}✅ Workflow ${state.workflowId} for Issue #${issueNumber} is already completed.${colors.reset}`);
+                console.log(`${colors.gray}Use BMAD_FORCE_RESUME=true to force execution.${colors.reset}`);
+                return;
+            }
+
+            console.log(`${colors.yellow}🔄 Resuming workflow ${state.workflowId} (Status: ${state.status})...${colors.reset}`);
             workflowId = state.workflowId;
-            this.workflowMetrics = state.metrics;
+            this.workflowMetrics = state.metrics || this.workflowMetrics;
+
+            // Track resume count
+            state.resumeCount = (state.resumeCount || 0) + 1;
+            this.saveState(state);
         } else {
             workflowId = this.generateWorkflowId();
             this.logWorkflow(`Workflow ${workflowId} started for Issue #${issueNumber}`);
@@ -92,6 +102,7 @@ class EnhancedBMADWorkflow {
                 workflowId,
                 issueNumber,
                 status: 'running',
+                resumeCount: 0,
                 metrics: this.workflowMetrics
             };
             this.saveState(state);

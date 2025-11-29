@@ -1,0 +1,64 @@
+name: BMAD Watchdog
+
+on:
+  schedule:
+    - cron: '*/5 * * * *' # Run every 5 minutes
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run Health Check
+        id: check
+        run: |
+          OUTPUT=$(node scripts/bmad/health-check.js)
+          echo "Health Check Output: $OUTPUT"
+          
+          if [[ "$OUTPUT" == *"RESUME_NEEDED"* ]]; then
+            ISSUE=$(echo "$OUTPUT" | cut -d':' -f2)
+            echo "issue_number=$ISSUE" >> $GITHUB_OUTPUT
+            echo "status=resume" >> $GITHUB_OUTPUT
+          elif [[ "$OUTPUT" == *"CIRCUIT_OPEN"* ]]; then
+            echo "status=circuit_open" >> $GITHUB_OUTPUT
+          else
+            echo "status=healthy" >> $GITHUB_OUTPUT
+          fi
+        env:
+          BMAD_USE_GIT_STATE: 'true' # Use Git State for persistence
+
+      - name: Trigger Resume
+        if: steps.check.outputs.status == 'resume'
+        run: |
+          echo "🚀 Watchdog triggering resume for Issue #${{ steps.check.outputs.issue_number }}"
+          # Force resume via environment variable
+          export BMAD_FORCE_RESUME=true
+          node scripts/bmad/bmad-workflow-enhanced.js ${{ steps.check.outputs.issue_number }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_OWNER: ${{ github.repository_owner }}
+          GITHUB_REPO: ${{ github.event.repository.name }}
+          BMAD_USE_GIT_STATE: 'true'
+
+      - name: Alert Circuit Open
+        if: steps.check.outputs.status == 'circuit_open'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            console.log('🔥 Circuit Breaker is OPEN. Manual intervention required.');
+            // Ideally create an issue or send a notification here

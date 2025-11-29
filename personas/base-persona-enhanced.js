@@ -6,6 +6,10 @@
 const fs = require('fs');
 const path = require('path');
 const { Octokit } = require('@octokit/rest');
+const ContextManager = require('../scripts/lib/context-manager');
+const Logger = require('../scripts/lib/logger');
+const SecretManager = require('../scripts/lib/secret-manager');
+const CacheManager = require('../scripts/lib/cache-manager');
 
 class EnhancedBasePersona {
     constructor(name, role, githubToken) {
@@ -13,6 +17,14 @@ class EnhancedBasePersona {
         this.role = role;
         this.githubToken = githubToken;
         this.octokit = new Octokit({ auth: githubToken });
+        this.contextManager = new ContextManager();
+        this.secretManager = new SecretManager();
+        this.cacheManager = new CacheManager(); // Default 1h TTL
+        this.logger = new Logger(role); // Use role as component name
+
+        // Validate critical secrets on startup
+        this.secretManager.validateRequired(['GITHUB_TOKEN']);
+
         this.context = this.loadContext();
         this.startTime = new Date();
         this.metrics = {
@@ -32,12 +44,18 @@ class EnhancedBasePersona {
     loadContext() {
         try {
             const context = {
-                activeContext: this.safeReadFile('activeContext.md', ''),
-                productContext: this.safeReadFile('productContext.md', ''),
-                architectureSpec: this.safeReadFile('docs/architecture/SYSTEM_MAP.md', ''),
-                handoverState: this.safeReadFile('.github/BMAD_HANDOVER.md', ''),
-                contextHash: this.getContextHash('activeContext.md')
+                activeContext: this.contextManager.read('activeContext.md') || '',
+                productContext: this.contextManager.read('productContext.md') || '',
+                architectureSpec: this.contextManager.read('docs/architecture/SYSTEM_MAP.md') || '',
+                handoverState: this.contextManager.read('.github/BMAD_HANDOVER.md') || '',
+                contextHash: null // Hash is now managed internally by ContextManager writes, but we keep property for compatibility
             };
+
+            // Calculate hash of loaded activeContext for reference
+            if (context.activeContext) {
+                context.contextHash = this.contextManager.computeHash(context.activeContext);
+            }
+
             return context;
         } catch (error) {
             console.error(`Error loading context: ${error.message}`);
@@ -63,61 +81,51 @@ class EnhancedBasePersona {
     }
 
     /**
-     * @ai-context Enhanced logging with timestamps and metrics
+     * @ai-context Enhanced logging with timestamps and metrics (Delegated to Logger)
      */
     log(message, level = 'INFO') {
-        const timestamp = new Date().toISOString();
-        const prefix = `[${timestamp}] [${level}] [${this.name}]`;
-        console.log(`${prefix} ${message}`);
-
-        // Log to file for audit trail
-        this.appendLogFile(`${prefix} ${message}\n`);
+        // Map legacy log levels to Logger methods
+        switch (level) {
+            case 'ERROR':
+                this.logger.error(message);
+                break;
+            case 'WARNING':
+                this.logger.warn(message);
+                break;
+            default:
+                this.logger.info(message);
+        }
     }
 
+    // appendLogFile is deprecated/removed as Logger handles file writing internally
+
+    // Removed getContextHash and validateContextIntegrity as they are replaced by ContextManager
+
     /**
-     * @ai-context Append to log file
+     * @ai-context Get issue with caching
      */
-    /**
-     * @ai-context Append to log file
-     */
-    appendLogFile(content) {
+    async getIssue(issueNumber) {
+        const cacheKey = `issue-${issueNumber}`;
+        const cached = this.cacheManager.get(cacheKey);
+
+        if (cached) {
+            this.log(`Using cached data for issue #${issueNumber}`);
+            return cached;
+        }
+
         try {
-            const logDir = '.github/logs';
-            if (!fs.existsSync(logDir)) {
-                fs.mkdirSync(logDir, { recursive: true });
-            }
+            const issue = await this.octokit.rest.issues.get({
+                owner: process.env.GITHUB_OWNER || 'helton-godoy',
+                repo: process.env.GITHUB_REPO || 'bmad-github-native-full-cycle',
+                issue_number: issueNumber
+            });
 
-            const logFile = path.join(logDir, `bmad-${this.role.toLowerCase()}.log`);
-            fs.appendFileSync(logFile, content);
+            this.cacheManager.set(cacheKey, issue.data);
+            return issue.data;
         } catch (error) {
-            console.error(`Failed to write log file: ${error.message}`);
+            this.log(`Failed to fetch issue #${issueNumber}: ${error.message}`, 'ERROR');
+            throw error;
         }
-    }
-
-    /**
-     * @ai-context Get SHA256 hash of a file for context locking
-     */
-    getContextHash(filePath) {
-        try {
-            if (!fs.existsSync(filePath)) return null;
-            const content = fs.readFileSync(filePath, 'utf-8');
-            const crypto = require('crypto');
-            return crypto.createHash('sha256').update(content).digest('hex');
-        } catch (error) {
-            this.log(`Failed to compute context hash: ${error.message}`, 'ERROR');
-            return null;
-        }
-    }
-
-    /**
-     * @ai-context Validate context integrity before updates
-     */
-    validateContextIntegrity(filePath, expectedHash) {
-        const currentHash = this.getContextHash(filePath);
-        if (expectedHash && currentHash !== expectedHash) {
-            throw new Error(`Context integrity violation: ${filePath} was modified by another process`);
-        }
-        return true;
     }
 
     /**
@@ -264,22 +272,86 @@ class EnhancedBasePersona {
         const handoverContent = this.generateHandoverContent(nextPersona, artifacts, status);
 
         try {
-            // Context Lock: Validate integrity before writing
-            const contextPath = 'activeContext.md';
-            if (fs.existsSync(contextPath)) {
-                this.validateContextIntegrity(contextPath, this.context.contextHash);
-            }
+            // Use ContextManager for atomic write of handover file
+            // We unify to BMAD_HANDOVER.md to match Orchestrator
+            const handoverPath = '.github/BMAD_HANDOVER.md';
+            this.contextManager.write(handoverPath, handoverContent);
 
-            const enhancedHandoverPath = '.github/BMAD_HANDOVER_ENHANCED.md';
-            fs.writeFileSync(enhancedHandoverPath, handoverContent);
-            this.log(`Updated enhanced handover for ${nextPersona}`);
+            this.log(`Updated handover for ${nextPersona}`);
 
-            // Update context hash after successful write
-            this.context.contextHash = this.getContextHash(contextPath);
+            // Also update activeContext if needed (example)
+            // this.contextManager.write('activeContext.md', this.context.activeContext);
+
         } catch (error) {
             this.log(`Failed to update handover: ${error.message}`, 'ERROR');
-            throw error; // Re-throw to prevent silent failures
+            throw error;
         }
+    }
+
+    /**
+     * @ai-context Update active context with locking
+     */
+    updateActiveContext(content) {
+        try {
+            // Append to existing context or overwrite? 
+            // Original implementation usually appends or updates specific sections.
+            // For simplicity and robustness, we'll append a log entry to activeContext.md
+
+            const contextPath = 'activeContext.md';
+            const timestamp = new Date().toISOString();
+            const entry = `\n- [${timestamp}] [${this.role}] ${content}`;
+
+            // Use ContextManager for atomic append (read + write)
+            // Note: In a real high-concurrency scenario, we might want a specific 'append' operation in ContextManager
+            // but read+write inside a lock (which ContextManager handles if we expose lock, but here we use simple write)
+            // Actually ContextManager.write overwrites. We need read-modify-write.
+
+            // Since ContextManager doesn't expose "withLock" publicly in the simple usage, 
+            // we rely on its internal locking for individual ops. 
+            // Ideally ContextManager should support atomic updates.
+            // For now, we'll read then write, accepting a small race window between read/write 
+            // OR we can implement an 'update' method in ContextManager.
+            // Let's just do read-modify-write here, assuming low collision for this specific file in this phase.
+
+            let currentContent = this.contextManager.read(contextPath) || '# Active Context\n';
+            currentContent += entry;
+
+            this.contextManager.write(contextPath, currentContent);
+
+            // Update local cache
+            this.context.activeContext = currentContent;
+
+        } catch (error) {
+            this.log(`Failed to update active context: ${error.message}`, 'ERROR');
+            // Don't throw, just log error for context updates
+        }
+    }
+
+    /**
+     * @ai-context Micro-commit changes
+     */
+    async microCommit(message, files = []) {
+        // Wrapper around commit for compatibility
+        // In original BMAD, microCommit might have specific logic, but here we map to enhanced commit
+        // If files is an array of objects {path, content}, we need to write them first
+
+        if (files.length > 0 && typeof files[0] === 'object') {
+            for (const file of files) {
+                if (file.path && file.content) {
+                    // Ensure directory exists
+                    const dir = path.dirname(file.path);
+                    if (!fs.existsSync(dir)) {
+                        fs.mkdirSync(dir, { recursive: true });
+                    }
+                    fs.writeFileSync(file.path, file.content);
+                }
+            }
+            // Extract paths for git add
+            const filePaths = files.map(f => f.path);
+            return this.commit(message, filePaths);
+        }
+
+        return this.commit(message, files);
     }
 
     /**

@@ -124,10 +124,46 @@ ${taskStats.summary}
         }
         return { summary: '_No task.md found in project root._' };
     }
+
+    /**
+     * @ai-context Monitor CI status and trigger recovery if needed
+     */
+    async monitorCI() {
+        console.log('🕵️ Monitoring CI Status...');
+        try {
+            const RecoveryPersona = require('../../personas/recovery');
+            // Ensure we have a token
+            const token = process.env.GITHUB_TOKEN;
+            if (!token) {
+                console.warn('⚠️ No GITHUB_TOKEN found. Skipping automated CI monitoring.');
+                return;
+            }
+
+            const recovery = new RecoveryPersona(token);
+            // We pass a dummy issue number or 0 for global monitoring, 
+            // but RecoveryPersona.execute expects an issueNumber for reporting.
+            // We'll use 0 or a dedicated "System" issue if possible, or let it create one.
+            // For now, let's assume issue #0 is for system alerts.
+            const result = await recovery.execute(0);
+
+            if (result.ciStatus && result.ciStatus.failed) {
+                console.log('🚨 CI Failure detected and Recovery triggered!');
+            } else {
+                console.log('✅ CI Status is healthy.');
+            }
+        } catch (error) {
+            console.error(`❌ Error in CI Monitoring: ${error.message}`);
+        }
+    }
 }
 
 if (require.main === module) {
-    new BMADMonitor().generateDashboard();
+    const monitor = new BMADMonitor();
+    monitor.generateDashboard();
+    // Also run CI monitor if flag is present
+    if (process.argv.includes('--monitor-ci')) {
+        monitor.monitorCI();
+    }
 }
 
 module.exports = BMADMonitor;

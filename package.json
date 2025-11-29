@@ -73,7 +73,8 @@
   },
   "bin": {
     "bmad-init": "./bin/setup.js",
-    "bmad-init-enhanced": "./bin/setup-enhanced.js"
+    "bmad-init-enhanced": "./bin/setup-enhanced.js",
+    "bmad": "./bin/bmad-cli.js"
   },
   "files": [
     "bin",

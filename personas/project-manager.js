@@ -3,7 +3,7 @@
  * @ai-invariant PM must analyze requirements and create work plans
  * @ai-connection PM connects to GitHub Issues and creates structured work items
  */
-const BasePersona = require('./base-persona');
+const BasePersona = require('./base-persona-enhanced');
 
 class ProjectManager extends BasePersona {
     constructor(githubToken) {
@@ -15,21 +15,19 @@ class ProjectManager extends BasePersona {
      */
     async execute(issueNumber) {
         this.log('Starting issue analysis');
-        
-        try {
-            // Get issue details
-            const issue = await this.octokit.rest.issues.get({
-                owner: process.env.GITHUB_OWNER || 'helton-godoy',
-                repo: process.env.GITHUB_REPO || 'shantilly-cli',
-                issue_number: issueNumber
-            });
 
-            const issueData = issue.data;
+        try {
+            const issueData = await this.getIssue(issueNumber);
+
+            // SECURITY: Sanitize input to prevent prompt injection
+            issueData.body = this.sanitizeInput(issueData.body);
+            issueData.title = this.sanitizeInput(issueData.title);
+
             this.log(`Analyzing issue: ${issueData.title}`);
 
             // Create work plan
             const workPlan = this.createWorkPlan(issueData);
-            
+
             // Update context
             this.updateActiveContext(`Analisando issue #${issueNumber}: "${issueData.title}"`);
 
@@ -133,6 +131,30 @@ ${workPlan}
 *Created by PM Agent*`;
 
         await this.createIssue(title, body, ['architecture', 'planning']);
+    }
+
+    /**
+     * @ai-context Sanitize input to prevent prompt injection
+     */
+    sanitizeInput(text) {
+        if (!text) return '';
+
+        // Remove dangerous instructions
+        const dangerousPatterns = [
+            /ignore (all )?previous instructions/gi,
+            /system override/gi,
+            /delete (all )?files/gi,
+            /rm -rf/gi,
+            /sudo /gi,
+            /<script>/gi
+        ];
+
+        let sanitized = text;
+        for (const pattern of dangerousPatterns) {
+            sanitized = sanitized.replace(pattern, '[REDACTED_SECURITY]');
+        }
+
+        return sanitized;
     }
 }
 

@@ -8,6 +8,7 @@ require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 const { Octokit } = require('@octokit/rest');
+const ContextManager = require('../lib/context-manager');
 
 const HANDOVER_FILE = '.github/BMAD_HANDOVER.md';
 const CONTEXT_FILE = 'activeContext.md';
@@ -21,6 +22,7 @@ class BMADOrchestrator {
         }
         this.octokit = new Octokit({ auth: this.githubToken });
         this.eventEmitter = eventEmitter;
+        this.contextManager = new ContextManager();
     }
 
     /**
@@ -88,7 +90,9 @@ class BMADOrchestrator {
      * @ai-context Parse BMAD_HANDOVER.md to get current state
      */
     loadHandoverState() {
-        if (!fs.existsSync(HANDOVER_FILE)) {
+        const content = this.contextManager.read(HANDOVER_FILE);
+
+        if (!content) {
             // Return default initial state instead of throwing
             return {
                 persona: 'UNKNOWN',
@@ -97,8 +101,6 @@ class BMADOrchestrator {
                 content: ''
             };
         }
-
-        const content = fs.readFileSync(HANDOVER_FILE, 'utf-8');
 
         const personaMatch = content.match(/\*\*\[(.*?)\]\*\*/);
         const phaseMatch = content.match(/Current Phase\s*\n\s*\*\*(.*?)\*\*/);
@@ -335,11 +337,9 @@ class BMADOrchestrator {
      * @ai-context Update BMAD_HANDOVER.md with new state
      */
     updateHandoverState(action, issueNumber) {
-        let content = '';
+        let content = this.contextManager.read(HANDOVER_FILE) || '';
 
-        if (fs.existsSync(HANDOVER_FILE)) {
-            content = fs.readFileSync(HANDOVER_FILE, 'utf-8');
-        } else {
+        if (!content) {
             // Create initial content if not exists
             content = `# BMAD Handover State\n\nCurrent Persona: **[UNKNOWN]**\nCurrent Phase\n\n**UNKNOWN**\n\nRetry Count: 0\nIssue: #${issueNumber}`;
         }
@@ -391,22 +391,27 @@ class BMADOrchestrator {
             content += `\n\nRetry Count: ${nextRetry}`;
         }
 
-        fs.writeFileSync(HANDOVER_FILE, content);
-        console.log('📝 Handover State Updated');
+        this.contextManager.write(HANDOVER_FILE, content);
+        console.log('📝 Handover State Updated (Atomic)');
     }
 
     /**
      * @ai-context Handle state reset if issue number changes
      */
     handleStateReset(issueNumber) {
-        if (fs.existsSync(HANDOVER_FILE)) {
-            const content = fs.readFileSync(HANDOVER_FILE, 'utf-8');
+        const content = this.contextManager.read(HANDOVER_FILE);
+
+        if (content) {
             const issueMatch = content.match(/Issue:\s*#(\d+)/);
             const storedIssue = issueMatch ? parseInt(issueMatch[1], 10) : null;
 
             if (storedIssue && storedIssue !== issueNumber) {
                 console.log(`🔄 New Issue detected (Current: #${issueNumber}, Stored: #${storedIssue}). Resetting state.`);
-                fs.unlinkSync(HANDOVER_FILE);
+                // We overwrite with empty or delete. ContextManager doesn't have delete yet, so we write empty or specific reset content.
+                // Or we can just ignore it as loadHandoverState handles empty/missing.
+                // But to be clean, let's write a reset state.
+                const resetContent = `# BMAD Handover State\n\nCurrent Persona: **[UNKNOWN]**\nCurrent Phase\n\n**RESET**\n\nRetry Count: 0\nIssue: #${issueNumber}`;
+                this.contextManager.write(HANDOVER_FILE, resetContent);
             }
         }
     }
