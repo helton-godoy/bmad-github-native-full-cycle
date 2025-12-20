@@ -29,13 +29,13 @@ Um sistema de desenvolvimento onde um agente de IA (Antigravity/Kilo Code) atua 
 
 ### GitHub Native Integration
 
-| BMAD Component | GitHub Feature |
-|----------------|----------------|
-| PRD/Specs | Wiki ou `docs/` |
-| Tasks | GitHub Issues |
-| Implementation | Branches + PRs |
-| Testing | GitHub Actions |
-| Release | GitHub Releases + Tags |
+| BMAD Component | GitHub Feature         |
+| -------------- | ---------------------- |
+| PRD/Specs      | Wiki ou `docs/`        |
+| Tasks          | GitHub Issues          |
+| Implementation | Branches + PRs         |
+| Testing        | GitHub Actions         |
+| Release        | GitHub Releases + Tags |
 
 ---
 

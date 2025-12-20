@@ -66,16 +66,16 @@ bmad-github-native-full-cycle/
 
 ## 🎭 Personas BMAD
 
-| Persona | Domínio | Saída | Próxima Persona |
-|---------|--------|--------|--------------|
-| **[PM]** Product Manager | Requisitos | `docs/pt-br/planning/PRD.md` | [ARCHITECT] |
-| **[ARCHITECT]** Architect | Design de Sistema | `docs/pt-br/architecture/TECH_SPEC.md` | [SCRUM] |
-| **[SCRUM]** Scrum Master | Quebra de Tarefas | GitHub Issues | [DEV] |
-| **[DEV]** Developer | Implementação | Código + Commits | [QA] |
-| **[QA]** Quality Assurance | Testes | PR Reviews | [RELEASE] |
-| **[DEVOPS]** DevOps Engineer | CI/CD | `.github/workflows/*.yml` | Sob demanda |
-| **[SECURITY]** Security Engineer | Segurança | `SECURITY.md`, CodeQL | Sob demanda |
-| **[RELEASE]** Release Manager | Deploy | GitHub Releases | [ORCHESTRATOR] |
+| Persona                          | Domínio           | Saída                                  | Próxima Persona |
+| -------------------------------- | ----------------- | -------------------------------------- | --------------- |
+| **[PM]** Product Manager         | Requisitos        | `docs/pt-br/planning/PRD.md`           | [ARCHITECT]     |
+| **[ARCHITECT]** Architect        | Design de Sistema | `docs/pt-br/architecture/TECH_SPEC.md` | [SCRUM]         |
+| **[SCRUM]** Scrum Master         | Quebra de Tarefas | GitHub Issues                          | [DEV]           |
+| **[DEV]** Developer              | Implementação     | Código + Commits                       | [QA]            |
+| **[QA]** Quality Assurance       | Testes            | PR Reviews                             | [RELEASE]       |
+| **[DEVOPS]** DevOps Engineer     | CI/CD             | `.github/workflows/*.yml`              | Sob demanda     |
+| **[SECURITY]** Security Engineer | Segurança         | `SECURITY.md`, CodeQL                  | Sob demanda     |
+| **[RELEASE]** Release Manager    | Deploy            | GitHub Releases                        | [ORCHESTRATOR]  |
 
 ---
 
