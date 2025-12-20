@@ -11,6 +11,10 @@
     "bmad:docs": "node scripts/bmad/agent-doc-enhanced.js",
     "bmad:docs:original": "node scripts/bmad/agent-doc.js",
     "bmad:gatekeeper": "node scripts/bmad/bmad-gatekeeper.js",
+    "bmad:config": "node -e \"const ConfigLoader = require('./scripts/lib/config-loader'); const config = new ConfigLoader(); console.log(JSON.stringify(config.getFullConfig(), null, 2));\"",
+    "bmad:config:validate": "node -e \"const ConfigLoader = require('./scripts/lib/config-loader'); const config = new ConfigLoader(); const result = config.validate(); console.log(result.valid ? 'Configuration is valid' : 'Configuration errors: ' + result.errors.join(', ')); process.exit(result.valid ? 0 : 1);\"",
+    "bmad:health": "node -e \"const BMADOrchestrator = require('./scripts/bmad/bmad-orchestrator'); const orchestrator = new BMADOrchestrator(); console.log(JSON.stringify(orchestrator.getSystemHealth(), null, 2));\"",
+    "bmad:state": "node -e \"const StateCacheManager = require('./scripts/lib/state-cache-manager'); const manager = new StateCacheManager(); manager.getStorageStats().then(stats => console.log(JSON.stringify(stats, null, 2)));\"",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
@@ -26,7 +30,12 @@
     "setup:enhanced": "node bin/setup-enhanced.js",
     "status": "node -e \"console.log('Enhanced BMAD Framework v2.0.0 - Ready for autonomous development!')\"",
     "bmad:search": "node scripts/search-memory.js",
-    "bmad:monitor": "node scripts/bmad/bmad-monitor.js"
+    "bmad:monitor": "node scripts/bmad/bmad-monitor.js",
+    "hooks:install": "husky",
+    "hooks:add": "husky add",
+    "hooks:test": "node scripts/hooks/test-hooks.js",
+    "prepare": "husky",
+    "prepare": "husky"
   },
   "keywords": [
     "bmad",
@@ -61,7 +70,10 @@
     "cors": "^2.8.5",
     "eslint": "^8.55.0",
     "express-validator": "^7.0.1",
+    "fast-check": "^4.4.0",
+    "husky": "^9.1.7",
     "jest": "^29.7.0",
+    "lint-staged": "^16.2.7",
     "nodemon": "^3.0.2",
     "prettier": "^3.1.1",
     "supertest": "^6.3.4",
@@ -120,5 +132,14 @@
       "eslint-rules": "recommended",
       "performance-threshold": "200ms"
     }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
   }
 }
