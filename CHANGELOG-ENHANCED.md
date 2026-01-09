@@ -1,5 +1,17 @@
 # Enhanced BMAD Framework Changelog
 
+## [Unreleased] - 2026-01-09
+
+### ✨ New Features
+
+#### Health Check API
+- **Health Check Implementation**: Added comprehensive health check API for system monitoring
+- **Health Check Documentation**: Created PRD, Tech Spec, and metrics documentation
+- **Health Check Metrics**: Implemented health check metrics and monitoring
+- **Multi-language Support**: Documentation available in English and Portuguese
+
+---
+
 ## [2.0.0] - 2024-11-28
 
 ### 🚀 Major Enhancements
