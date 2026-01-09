@@ -266,7 +266,7 @@ const users = new Map();
 - **Expiration:** 24 hours
 
 - **Payload:**
-  
+
   ```json
   {
     "userId": "uuid",

@@ -42,12 +42,10 @@
 ## 4. Bugs Found & Fixed
 
 1. **Bug:** `authController.getProfile` is not a function
-   
    - **Fix:** Updated route to use `authController.me`
    - **Status:** ✅ Fixed
 
 2. **Bug:** `uuidv4` is not a function
-   
    - **Fix:** Updated repository to use `crypto.randomUUID()`
    - **Status:** ✅ Fixed
 

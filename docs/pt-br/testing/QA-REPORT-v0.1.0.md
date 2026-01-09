@@ -12,8 +12,8 @@
 ## 1. Resumo do Teste
 
 | Suíte de Teste | Total de Testes | Aprovados | Falhas | Duração |
-|----------------|-----------------|-----------|--------|---------|
-| Auth API | 2 | 2 | 0 | ~0.6s |
+| -------------- | --------------- | --------- | ------ | ------- |
+| Auth API       | 2               | 2         | 0      | ~0.6s   |
 
 ## 2. Execução de Casos de Teste
 

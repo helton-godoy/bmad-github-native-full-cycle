@@ -22,13 +22,13 @@ Implementar um endpoint padrão `/health` na API para permitir que sistemas de m
 
 ## 4. Requisitos Funcionais
 
-| ID | Requisito | Prioridade |
-|----|-----------|------------|
-| FR-01 | A API DEVE expor um endpoint GET em `/health`. | P0 |
-| FR-02 | A resposta DEVE estar no formato JSON. | P0 |
-| FR-03 | O corpo da resposta DEVE conter `status: "ok"`. | P0 |
-| FR-04 | O corpo da resposta DEVE conter `uptime` (em segundos). | P1 |
-| FR-05 | O endpoint DEVE retornar HTTP 200 OK quando saudável. | P0 |
+| ID    | Requisito                                               | Prioridade |
+| ----- | ------------------------------------------------------- | ---------- |
+| FR-01 | A API DEVE expor um endpoint GET em `/health`.          | P0         |
+| FR-02 | A resposta DEVE estar no formato JSON.                  | P0         |
+| FR-03 | O corpo da resposta DEVE conter `status: "ok"`.         | P0         |
+| FR-04 | O corpo da resposta DEVE conter `uptime` (em segundos). | P1         |
+| FR-05 | O endpoint DEVE retornar HTTP 200 OK quando saudável.   | P0         |
 
 ## 5. Requisitos Não-Funcionais
 

@@ -22,9 +22,9 @@ Diferente do JSDoc tradicional (focado em tipos), o AgentDoc foca em **Comportam
 
 ### 2.2. A Sintaxe Sugerida (Tags Especiais)
 
-* `@ai-invariant`: Regra absoluta. "Nunca altere o formato de saída X."
-* `@ai-context`: Explicação de alto nível. "Esta função é ineficiente de propósito para evitar Race Condition."
-* `@ai-connection`: Link explícito. "Se alterar isto, verifique o ficheiro Z."
+- `@ai-invariant`: Regra absoluta. "Nunca altere o formato de saída X."
+- `@ai-context`: Explicação de alto nível. "Esta função é ineficiente de propósito para evitar Race Condition."
+- `@ai-connection`: Link explícito. "Se alterar isto, verifique o ficheiro Z."
 
 ## 3. Exemplo Prático
 

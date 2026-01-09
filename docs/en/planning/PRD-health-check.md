@@ -22,13 +22,13 @@ Implement a standard `/health` endpoint in the API to allow monitoring systems (
 
 ## 4. Functional Requirements
 
-| ID | Requirement | Priority |
-|----|-------------|----------|
-| FR-01 | The API MUST expose a GET endpoint at `/health`. | P0 |
-| FR-02 | The response MUST be in JSON format. | P0 |
-| FR-03 | The response body MUST contain `status: "ok"`. | P0 |
-| FR-04 | The response body SHOULD contain `uptime` (in seconds). | P1 |
-| FR-05 | The endpoint MUST return HTTP 200 OK when healthy. | P0 |
+| ID    | Requirement                                             | Priority |
+| ----- | ------------------------------------------------------- | -------- |
+| FR-01 | The API MUST expose a GET endpoint at `/health`.        | P0       |
+| FR-02 | The response MUST be in JSON format.                    | P0       |
+| FR-03 | The response body MUST contain `status: "ok"`.          | P0       |
+| FR-04 | The response body SHOULD contain `uptime` (in seconds). | P1       |
+| FR-05 | The endpoint MUST return HTTP 200 OK when healthy.      | P0       |
 
 ## 5. Non-Functional Requirements
 

@@ -26,6 +26,7 @@ O arquivo deve conter um título e uma lista numerada de passos. O Cline interpr
 
 ```markdown
 # BMAD Daily Cycle
+
 1. **Contextualização:** `read_file activeContext.md`
 2. **Planejamento:** Verifique tarefas e crie docs.
 3. **Implementação:** Code e Teste.

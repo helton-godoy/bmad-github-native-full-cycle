@@ -15,11 +15,11 @@ Portanto, **a lógica crítica de negócio e automação deve residir em scripts
 
 Crie uma camada de abstração na pasta `./bmad/bin/` (ou `./scripts/`) que padronize operações complexas.
 
-* **Em vez de:** Esperar que o agente saiba usar `mcp0_create_issue` ou `gh issue create` corretamente.
-* **Faça:** Crie um script `./bmad/bin/create-issue.sh` que encapsula a lógica:
-  * Verifica se `gh` está instalado.
-  * Se sim, usa `gh`.
-  * Se não, instrui o agente a criar um arquivo markdown `todo.md` como fallback.
+- **Em vez de:** Esperar que o agente saiba usar `mcp0_create_issue` ou `gh issue create` corretamente.
+- **Faça:** Crie um script `./bmad/bin/create-issue.sh` que encapsula a lógica:
+  - Verifica se `gh` está instalado.
+  - Se sim, usa `gh`.
+  - Se não, instrui o agente a criar um arquivo markdown `todo.md` como fallback.
 
 ## 2. Protocolo de Auto-Descoberta (Self-Discovery)
 
@@ -29,14 +29,17 @@ Adicione ao `.clinerules`:
 
 ```markdown
 ### PHASE 0: SELF-DISCOVERY
+
 Ao iniciar, execute: `./bmad/bin/check-capabilities.sh`
 Este script retornará um JSON ou texto informando:
+
 - [x] Git Access
 - [ ] GitHub CLI Access
 - [ ] Node.js Environment
 - [ ] Docker Environment
 
 Baseado nisso, ADAPTE seu fluxo:
+
 - Sem GitHub CLI? -> Use o modo "Offline Draft" (crie arquivos locais para Issues/PRs).
 - Sem Docker? -> Pule testes de container e avise o usuário.
 ```
@@ -46,14 +49,14 @@ Baseado nisso, ADAPTE seu fluxo:
 Classifique os agentes e defina expectativas para cada nível:
 
 | Nível                      | Capacidades             | Comportamento Esperado                                                             |
-|:-------------------------- |:----------------------- |:---------------------------------------------------------------------------------- |
+| :------------------------- | :---------------------- | :--------------------------------------------------------------------------------- |
 | **Nível 1: Básico**        | Apenas Edição de Texto  | O agente deve apenas escrever código e pedir ao usuário para rodar comandos.       |
 | **Nível 2: Intermediário** | Edição + Terminal       | O agente roda scripts de teste e git, mas não interage com APIs externas.          |
 | **Nível 3: Avançado**      | Edição + Terminal + MCP | O agente usa ferramentas nativas para orquestração completa (Issues, PRs, Deploy). |
 
 **Instrução no Prompt:**
 
-> *"Se você não possui a ferramenta X, verifique se existe um script equivalente em `./bmad/bin/`. Se não, solicite a ação ao usuário."*
+> _"Se você não possui a ferramenta X, verifique se existe um script equivalente em `./bmad/bin/`. Se não, solicite a ação ao usuário."_
 
 ## 4. Polyfills para Agentes Limitados
 
@@ -79,6 +82,7 @@ Para garantir a execução dos scripts BMAD, o ambiente deve fornecer um conjunt
 #### Base Toolset (Essencial)
 
 - **git**: Controle de versão.
+
 * **curl**: Transferência de dados e instalação de ferramentas.
 * **jq**: Processamento de JSON (vital para scripts que interagem com APIs).
 * **unzip**: Manipulação de arquivos compactados.
@@ -86,18 +90,19 @@ Para garantir a execução dos scripts BMAD, o ambiente deve fornecer um conjunt
 #### BMAD Toolset (Gerenciado pelo `setup-tools.sh`)
 
 - **gh** (GitHub CLI): Interação com a API do GitHub.
+
 * **act** (Local GitHub Actions): Validação local de workflows.
 
 ## 5. Validação de Pipeline Local (`act`)
 
 Para garantir a qualidade dos workflows e permitir trabalho offline, adotamos o **[act](https://github.com/nektos/act)**.
 
-* **Objetivo:** Rodar GitHub Actions localmente.
-* **Benefício:** Feedback imediato, economia de minutos de CI, histórico de git limpo.
-* **Estratégia de Uso:**
-  * O agente deve verificar se `act` está instalado.
-  * Se sim, executar `act -j test` antes de fazer push de alterações críticas.
-  * Se não, tentar instalar localmente ou pular com aviso (dependendo do nível de rigor).
+- **Objetivo:** Rodar GitHub Actions localmente.
+- **Benefício:** Feedback imediato, economia de minutos de CI, histórico de git limpo.
+- **Estratégia de Uso:**
+  - O agente deve verificar se `act` está instalado.
+  - Se sim, executar `act -j test` antes de fazer push de alterações críticas.
+  - Se não, tentar instalar localmente ou pular com aviso (dependendo do nível de rigor).
 
 ## 6. Gestão de Dependências de Ferramentas (`gh`, `act`)
 
@@ -116,8 +121,8 @@ export PATH=$PWD/.bin:$PATH
 
 Garanta que o "cérebro" do projeto (`productContext.md`, `activeContext.md`) seja puramente Markdown.
 
-* Não dependa de vetores ocultos ou memória proprietária do IDE.
-* Qualquer agente que consiga ler Markdown conseguirá "baixar" o contexto do projeto instantaneamente.
+- Não dependa de vetores ocultos ou memória proprietária do IDE.
+- Qualquer agente que consiga ler Markdown conseguirá "baixar" o contexto do projeto instantaneamente.
 
 ## Resumo da Ação
 
