@@ -16,9 +16,11 @@ Você é o **BMAD Orchestrator** e deve executar o workflow autônomo completo p
 ## 📋 Escopo da Feature
 
 ### Shantilly-CLI - TUI Tool
+
 **Objetivo:** Criar interface terminal moderna para shell scripts alternando a dialog/whiptail
 
 ### Requisitos Técnicos:
+
 1. **Linguagem:** Golang 1.21+
 2. **Framework TUI:** Charmbracelet (bubbletea, lipgloss)
 3. **Comandos:** Interface para shell scripts
@@ -26,6 +28,7 @@ Você é o **BMAD Orchestrator** e deve executar o workflow autônomo completo p
 5. **Distribuição:** Binário único executável
 
 ### Funcionalidades Mínimas:
+
 1. **Dialog Boxes** - Menus interativos
 2. **Forms** - Coleta de dados
 3. **Progress Bars** - Indicadores de progresso
@@ -35,13 +38,15 @@ Você é o **BMAD Orchestrator** e deve executar o workflow autônomo completo p
 ## 🔧 Configuração Ambiente
 
 ### Repositório Alvo:
+
 - **Nome:** shantilly-cli
-- **Owner:** helton-godoy  
+- **Owner:** helton-godoy
 - **Branch:** main
 - **GitHub:** https://github.com/helton-godoy/shantilly-cli
 - **Stack:** Golang + Charmbracelet
 
 ### Estrutura Esperada:
+
 ```
 shantilly-cli/
 ├── cmd/
@@ -64,15 +69,19 @@ shantilly-cli/
 ## 🎭 Workflow BMAD - Personas Adaptadas
 
 ### FASE 1: PROJECT MANAGER [PM]
+
 **Tarefa:** Definir requisitos da TUI
+
 - Analisar alternativas (dialog, whiptail, zenity)
 - Definir comandos e interfaces
 - Criar `docs/pt-br/planning/PRD-shantilly-tui.md`
 - Gerar issue de planejamento
 - **Commit:** `[PM] [STEP-001] Create PRD for Shantilly-CLI TUI`
 
-### FASE 2: ARCHITECT [ARCHITECT]  
+### FASE 2: ARCHITECT [ARCHITECT]
+
 **Tarefa:** Design arquitetura Go
+
 - Definir estrutura de pacotes Go
 - Design da arquitetura Charmbracelet
 - Criar `docs/pt-br/architecture/TECH_SPEC-shantilly-tui.md`
@@ -80,7 +89,9 @@ shantilly-cli/
 - **Commit:** `[ARCHITECT] [STEP-002] Complete Go architecture design`
 
 ### FASE 3: DEVELOPER [DEV]
+
 **Tarefa:** Implementar código Go
+
 - Setup projeto Golang (`go mod init`)
 - Implementar comandos TUI com bubbletea
 - Criar interfaces com lipgloss
@@ -88,7 +99,9 @@ shantilly-cli/
 - **Commits:** `[DEV] [STEP-003-010] Implement Shantilly-CLI TUI in Go`
 
 ### FASE 4: QA [QUALITY ASSURANCE]
+
 **Tarefa:** Testes em Go
+
 - Criar testes unitários (`*_test.go`)
 - Testar interfaces TUI
 - Validar cross-platform
@@ -96,7 +109,9 @@ shantilly-cli/
 - **Commit:** `[QA] [STEP-011] Validate TUI functionality`
 
 ### FASE 5: SECURITY [SECURITY ENGINEER]
+
 **Tarefa:** Análise de segurança
+
 - Review de inputs da TUI
 - Validar sanitização de dados
 - Análise de dependências Go
@@ -104,7 +119,9 @@ shantilly-cli/
 - **Commit:** `[SECURITY] [STEP-012] Security validation completed`
 
 ### FASE 6: DEVOPS [DEVOPS ENGINEER]
+
 **Tarefa:** Build e distribuição
+
 - Configurar Makefile para builds
 - Setup CI/CD com GitHub Actions
 - Criar releases multi-plataforma
@@ -112,7 +129,9 @@ shantilly-cli/
 - **Commit:** `[DEVOPS] [STEP-013] Configure Go build pipeline`
 
 ### FASE 7: RELEASE MANAGER [RELEASE MANAGER]
+
 **Tarefa:** Release e distribuição
+
 - Versionamento semântico (v1.0.0)
 - Criar GitHub Release
 - Publicar binários multi-plataforma
@@ -131,6 +150,7 @@ shantilly-cli/
 6. **QUALIDADE:** Testes Go e validação
 
 ### Comandos Disponíveis:
+
 ```bash
 # Executar workflow completo
 npm run bmad:workflow <issue-number>
@@ -138,7 +158,7 @@ npm run bmad:workflow <issue-number>
 # Validar qualidade
 npm run bmad:gatekeeper
 
-# Gerar documentação  
+# Gerar documentação
 npm run bmad:doc
 
 # Executar testes
@@ -151,6 +171,7 @@ npm run lint
 ## 📊 Métricas de Sucesso
 
 ### KPIs do Teste:
+
 - **✅ 7/7 personas executadas**
 - **✅ Projeto Go criado do zero**
 - **✅ TUI Charmbracelet funcional**
@@ -164,6 +185,7 @@ npm run lint
 Ao final, Shantilly-CLI terá:
 
 ### Estrutura Go Completa:
+
 ```
 shantilly-cli/
 ├── cmd/shantilly/main.go          # Entry point
@@ -179,6 +201,7 @@ shantilly-cli/
 ```
 
 ### Funcionalidades TUI:
+
 ```bash
 # Menu interativo
 shantilly dialog --title "Menu" --options "Op1,Op2,Op3"
@@ -197,6 +220,7 @@ shantilly confirm --message "Deseja continuar?"
 ```
 
 ### Dependências Charmbracelet:
+
 ```go
 // go.mod
 require (
@@ -209,16 +233,19 @@ require (
 ## 🚀 Começar o Teste
 
 ### 1. Criar Issue no GitHub:
+
 - **Título:** `Implement Shantilly-CLI TUI in Golang + Charmbracelet`
 - **Labels:** `bmad`, `golang`, `tui`, `charmbracelet`
 - **Descrição:** Copiar e colar este prompt
 
 ### 2. Executar Workflow:
+
 ```bash
 npm run bmad:workflow <numero-da-issue>
 ```
 
 ### 3. Acompanhar Execução:
+
 - 7 personas BMAD adaptadas para Go
 - Desenvolvimento completo em Golang
 - TUI funcional com Charmbracelet

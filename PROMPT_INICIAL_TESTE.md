@@ -5,7 +5,7 @@
 **Projeto:** Shantilly-CLI como piloto para validação do BMAD-GitHub Native Full Cycle  
 **Objetivo:** Validar o workflow autônomo completo com 7 personas BMAD  
 **Data:** 28/11/2025  
-**Status:** Ready for Testing  
+**Status:** Ready for Testing
 
 ---
 
@@ -17,7 +17,7 @@
 
 ## 📝 Prompt para o Agente BMAD
 
-```
+````
 # 🚀 INÍCIO DO TESTE - BMAD GITHUB NATIVE FULL CYCLE
 
 ## 🎯 MISSÃO PRINCIPAL
@@ -45,7 +45,7 @@ Você é o **BMAD Orchestrator** e deve executar o workflow autônomo completo p
 
 ### Repositório Alvo:
 - **Nome:** shantilly-cli
-- **Owner:** helton-godoy  
+- **Owner:** helton-godoy
 - **Branch:** main
 - **GitHub:** https://github.com/helton-godoy/shantilly-cli
 
@@ -55,20 +55,24 @@ GITHUB_TOKEN=seu_token_aqui
 GITHUB_OWNER=helton-godoy
 GITHUB_REPO=shantilly-cli
 GITHUB_BRANCH=main
-```
+````
 
 ## 🎭 WORKFLOW BMAD - PERSONAS
 
 ### FASE 1: PROJECT MANAGER [PM]
+
 **Tarefa:** Criar PRD (Product Requirements Document)
+
 - Analisar requisitos da feature
-- Definir escopo e prioridades  
+- Definir escopo e prioridades
 - Criar `docs/pt-br/planning/PRD-github-integration.md`
 - Gerar issue de planejamento no GitHub
 - **Commit:** `[PM] [STEP-001] Create PRD for GitHub Integration Manager`
 
-### FASE 2: ARCHITECT [ARCHITECT]  
+### FASE 2: ARCHITECT [ARCHITECT]
+
 **Tarefa:** Criar especificação técnica
+
 - Design da arquitetura do módulo
 - Definir APIs e componentes
 - Criar `docs/pt-br/architecture/TECH_SPEC-github-integration.md`
@@ -76,7 +80,9 @@ GITHUB_BRANCH=main
 - **Commit:** `[ARCHITECT] [STEP-002] Complete architecture specification`
 
 ### FASE 3: DEVELOPER [DEV]
+
 **Tarefa:** Implementar código completo
+
 - Criar estrutura de pastas `src/github-integration/`
 - Implementar API REST endpoints
 - Criar CLI commands
@@ -85,7 +91,9 @@ GITHUB_BRANCH=main
 - **Commits:** `[DEV] [STEP-003-010] Implement GitHub Integration Manager`
 
 ### FASE 4: QA [QUALITY ASSURANCE]
+
 **Tarefa:** Testes e validação
+
 - Criar testes unitários e integração
 - Validar segurança da autenticação
 - Testar API endpoints
@@ -93,7 +101,9 @@ GITHUB_BRANCH=main
 - **Commit:** `[QA] [STEP-011] Validate GitHub Integration Manager`
 
 ### FASE 5: SECURITY [SECURITY ENGINEER]
+
 **Tarefa:** Análise de segurança
+
 - Review de tokens OAuth2
 - Validar permissões e escopos
 - Configurar security scan
@@ -101,7 +111,9 @@ GITHUB_BRANCH=main
 - **Commit:** `[SECURITY] [STEP-012] Security validation completed`
 
 ### FASE 6: DEVOPS [DEVOPS ENGINEER]
+
 **Tarefa:** Preparação deployment
+
 - Configurar CI/CD pipeline
 - Setup de ambiente de staging
 - Monitoramento e logging
@@ -109,7 +121,9 @@ GITHUB_BRANCH=main
 - **Commit:** `[DEVOPS] [STEP-013] Configure deployment pipeline`
 
 ### FASE 7: RELEASE MANAGER [RELEASE MANAGER]
+
 **Tarefa:** Release e deploy
+
 - Versionamento semântico
 - Criar GitHub Release
 - Atualizar changelog
@@ -127,6 +141,7 @@ GITHUB_BRANCH=main
 5. **QUALIDADE:** Execute `npm run bmad:gatekeeper` após cada fase
 
 ### Comandos Disponíveis:
+
 ```bash
 # Executar workflow completo
 npm run bmad:workflow <issue-number>
@@ -134,7 +149,7 @@ npm run bmad:workflow <issue-number>
 # Validar qualidade
 npm run bmad:gatekeeper
 
-# Gerar documentação  
+# Gerar documentação
 npm run bmad:doc
 
 # Executar testes
@@ -147,6 +162,7 @@ npm run lint
 ## 📊 MÉTRICAS DE SUCESSO
 
 ### KPIs do Teste:
+
 - **✅ 7/7 personas executadas com sucesso**
 - **✅ Todos os commits seguindo padrão BMAD**
 - **✅ Feature implementada e funcionando**
@@ -158,9 +174,10 @@ npm run lint
 ## 🎯 RESULTADO ESPERADO
 
 Ao final deste teste, o Shantilly-CLI terá:
+
 1. **Módulo GitHub Integration** completo e funcional
 2. **API REST** para operações GitHub
-3. **CLI Interface** para comandos diretos  
+3. **CLI Interface** para comandos diretos
 4. **Web Dashboard** para gestão visual
 5. **Autenticação OAuth2** segura
 6. **Documentação bilíngue** completa
@@ -193,6 +210,7 @@ npm run bmad:workflow <numero-da-issue>
 **OUTCOME:** GitHub Integration Manager completo
 
 🎉 **Good luck, BMAD Orchestrator!**
+
 ```
 
 ---
@@ -224,3 +242,4 @@ npm run bmad:workflow <numero-da-issue>
 ---
 
 **INÍCIO DO TESTE BMAD - SHANTILLY-CLI PILOT** 🚀
+```

@@ -3,6 +3,7 @@
 ## ⚡ Início Imediato (5 minutos)
 
 ### 1️⃣ Configurar Ambiente
+
 ```bash
 cd /home/helton/git/bmad-github-native-full-cycle
 cp .env.example .env
@@ -10,10 +11,12 @@ cp .env.example .env
 ```
 
 ### 2️⃣ Criar Issue no GitHub
+
 - **Repositório:** helton-godoy/shantilly-cli
 - **Título:** `Implement GitHub Integration Manager`
 - **Labels:** `bmad`, `enhancement`, `feature`
-- **Descrição:** 
+- **Descrição:**
+
 ```
 ## Feature: GitHub Integration Manager
 
@@ -22,7 +25,7 @@ Criar módulo de integração GitHub nativa no Shantilly-CLI
 
 ### Funcionalidades
 - API REST para operações GitHub
-- CLI Interface para comandos diretos  
+- CLI Interface para comandos diretos
 - Web Dashboard para gestão visual
 - Autenticação OAuth2 segura
 - Documentação completa PT-BR/EN
@@ -37,6 +40,7 @@ Criar módulo de integração GitHub nativa no Shantilly-CLI
 ```
 
 ### 3️⃣ Executar Workflow BMAD
+
 ```bash
 # Substituir <numero> pelo número da issue criada
 npm run bmad:workflow <numero>
@@ -48,15 +52,15 @@ npm run bmad:workflow <numero>
 
 O BMAD Orchestrator executará **7 personas** em sequência:
 
-| Fase | Persona | Duração | O que faz |
-|------|---------|----------|-----------|
-| 1️⃣ | **PM** | ~5 min | Cria PRD com requisitos |
-| 2️⃣ | **Architect** | ~8 min | Design da arquitetura |
-| 3️⃣ | **Developer** | ~20 min | Implementa código |
-| 4️⃣ | **QA** | ~10 min | Testa e valida |
-| 5️⃣ | **Security** | ~7 min | Verifica segurança |
-| 6️⃣ | **DevOps** | ~8 min | Configura deployment |
-| 7️⃣ | **Release** | ~5 min | Publica release |
+| Fase | Persona       | Duração | O que faz               |
+| ---- | ------------- | ------- | ----------------------- |
+| 1️⃣   | **PM**        | ~5 min  | Cria PRD com requisitos |
+| 2️⃣   | **Architect** | ~8 min  | Design da arquitetura   |
+| 3️⃣   | **Developer** | ~20 min | Implementa código       |
+| 4️⃣   | **QA**        | ~10 min | Testa e valida          |
+| 5️⃣   | **Security**  | ~7 min  | Verifica segurança      |
+| 6️⃣   | **DevOps**    | ~8 min  | Configura deployment    |
+| 7️⃣   | **Release**   | ~5 min  | Publica release         |
 
 **Total:** ~63 minutos de execução autônoma
 
@@ -65,13 +69,14 @@ O BMAD Orchestrator executará **7 personas** em sequência:
 ## 📊 Acompanhamento em Tempo Real
 
 ### Logs do Workflow:
+
 ```bash
 # O workflow mostrará progresso em tempo real:
 🚀 Starting BMAD Workflow for Issue #123
 =====================================
 📋 Phase 1: Project Manager Analysis
 ✅ PM completed. Architecture issue: #124
-🏗️ Phase 2: Architecture Design  
+🏗️ Phase 2: Architecture Design
 ✅ Architect completed. Implementation issue: #125
 💻 Phase 3: Development
 ✅ Developer completed. QA issue: #126
@@ -86,8 +91,9 @@ O BMAD Orchestrator executará **7 personas** em sequência:
 ```
 
 ### GitHub Issues Criadas:
+
 - **#124** - Architecture Planning (PM → Architect)
-- **#125** - Implementation (Architect → Developer)  
+- **#125** - Implementation (Architect → Developer)
 - **#126** - QA Review (Developer → QA)
 - **#127** - Security Check (QA → Security)
 - **#128** - DevOps Setup (Security → DevOps)
@@ -98,6 +104,7 @@ O BMAD Orchestrator executará **7 personas** em sequência:
 ## 🔧 Comandos Úteis
 
 ### Durante Execução:
+
 ```bash
 # Verificar status
 npm run bmad:gatekeeper
@@ -113,6 +120,7 @@ npm run lint
 ```
 
 ### Se Precisar Parar:
+
 ```bash
 # Ctrl+C para parar workflow
 # Issue continuará de onde parou ao executar novamente
@@ -123,18 +131,21 @@ npm run lint
 ## 📈 Resultado Esperado
 
 ### ✅ Feature Completa:
+
 - **API REST:** `/api/github/*` endpoints
-- **CLI:** `shantilly github <command>`  
+- **CLI:** `shantilly github <command>`
 - **Dashboard:** Interface web em `/dashboard`
 - **OAuth2:** Autenticação segura
 - **Documentação:** PT-BR e EN
 
 ### ✅ GitHub Release:
+
 - **Versão:** v1.0.0
 - **Release Notes:** Completo
 - **Assets:** Código e documentação
 
 ### ✅ Qualidade:
+
 - **Testes:** 100% passando
 - **Security:** Zero vulnerabilidades
 - **Coverage:** >80%
@@ -145,6 +156,7 @@ npm run lint
 ## 🚨 Troubleshooting
 
 ### Se GitHub Token falhar:
+
 ```bash
 # Verificar token
 echo $GITHUB_TOKEN
@@ -152,6 +164,7 @@ echo $GITHUB_TOKEN
 ```
 
 ### Se workflow parar:
+
 ```bash
 # Verificar logs
 cat logs/bmad-workflow.log
@@ -160,6 +173,7 @@ npm run bmad:workflow <numero>
 ```
 
 ### Se testes falharem:
+
 ```bash
 # Verificar detalhes
 npm test -- --verbose
@@ -172,6 +186,7 @@ npm run bmad:workflow <numero>
 ## 🎉 Sucesso!
 
 Ao final você terá:
+
 1. **Feature GitHub Integration** completa
 2. **Workflow BMAD** validado com sucesso
 3. **7 personas** BMAD operacionais

@@ -3,18 +3,21 @@
 ## ⚡ Início Imediato (5 minutos)
 
 ### 1️⃣ Criar Issue no GitHub
+
 - **Repositório:** helton-godoy/shantilly-cli
 - **Título:** `Implement Shantilly-CLI TUI in Golang + Charmbracelet`
 - **Labels:** `bmad`, `golang`, `tui`, `charmbracelet`
 - **Descrição:** Copiar conteúdo de `PROMPT_TUI_GOLANG.md`
 
 ### 2️⃣ Executar Workflow BMAD
+
 ```bash
 cd /home/helton/git/bmad-github-native-full-cycle
 npm run bmad:workflow <numero-da-issue>
 ```
 
 ### 3️⃣ Acompanhar Desenvolvimento
+
 - 7 personas BMAD adaptadas para Go
 - Projeto criado do zero em Golang
 - TUI Charmbracelet implementada
@@ -26,15 +29,15 @@ npm run bmad:workflow <numero-da-issue>
 
 ### Fases do Workflow BMAD:
 
-| Fase | Persona | Duração | O que faz |
-|------|---------|----------|-----------|
-| 1️⃣ | **PM** | ~8 min | Define requisitos TUI vs dialog/whiptail |
-| 2️⃣ | **Architect** | ~10 min | Design arquitetura Go + Charmbracelet |
-| 3️⃣ | **Developer** | ~25 min | Implementa código Go completo |
-| 4️⃣ | **QA** | ~12 min | Testes unitários e TUI |
-| 5️⃣ | **Security** | ~8 min | Análise de segurança de inputs |
-| 6️⃣ | **DevOps** | ~10 min | Build e distribuição multi-plataforma |
-| 7️⃣ | **Release** | ~7 min | GitHub Release com binários |
+| Fase | Persona       | Duração | O que faz                                |
+| ---- | ------------- | ------- | ---------------------------------------- |
+| 1️⃣   | **PM**        | ~8 min  | Define requisitos TUI vs dialog/whiptail |
+| 2️⃣   | **Architect** | ~10 min | Design arquitetura Go + Charmbracelet    |
+| 3️⃣   | **Developer** | ~25 min | Implementa código Go completo            |
+| 4️⃣   | **QA**        | ~12 min | Testes unitários e TUI                   |
+| 5️⃣   | **Security**  | ~8 min  | Análise de segurança de inputs           |
+| 6️⃣   | **DevOps**    | ~10 min | Build e distribuição multi-plataforma    |
+| 7️⃣   | **Release**   | ~7 min  | GitHub Release com binários              |
 
 **Total:** ~80 minutos de execução autônoma
 
@@ -67,26 +70,31 @@ shantilly-cli/
 ## 🔧 Comandos TUI Esperados
 
 ### Menu Interativo:
+
 ```bash
 shantilly dialog --title "Escolha uma opção:" --options "Criar,Listar,Sair"
 ```
 
 ### Formulário:
+
 ```bash
 shantilly form --fields "nome:text,email:email,idade:number"
 ```
 
 ### Progress Bar:
+
 ```bash
 shantilly progress --steps "Build,Test,Deploy" --current 2
 ```
 
 ### Seletor de Arquivos:
+
 ```bash
 shantilly select --path "/home/user" --filter "*.go" --multi
 ```
 
 ### Confirmação:
+
 ```bash
 shantilly confirm --message "Deseja continuar?" --default yes
 ```
@@ -107,7 +115,7 @@ shantilly confirm --message "Deseja continuar?" --default yes
 📋 PM Agent: Creating architecture issue...
 ✅ PM completed. Architecture issue: #457
 
-🏗️ Phase 2: Architecture Design  
+🏗️ Phase 2: Architecture Design
 
 🏗️ Architect Agent: Reading PRD...
 🏗️ Architect Agent: Designing Go package structure...
@@ -182,6 +190,7 @@ shantilly confirm --message "Deseja continuar?" --default yes
 ## 🔧 Comandos Úteis
 
 ### Durante Execução:
+
 ```bash
 # Verificar status
 npm run bmad:gatekeeper
@@ -198,6 +207,7 @@ make build
 ```
 
 ### Se Precisar Parar:
+
 ```bash
 # Ctrl+C para parar workflow
 # Issue continuará de onde parou
@@ -208,12 +218,14 @@ make build
 ## 📈 Resultado Esperado
 
 ### ✅ Shantilly-CLI Completa:
+
 - **Linguagem:** Golang 1.21+
 - **Framework:** Charmbracelet (bubbletea, lipgloss)
 - **Cross-platform:** Linux, macOS, Windows
 - **Distribuição:** Binário único
 
 ### ✅ Funcionalidades TUI:
+
 - **Dialog Boxes** - Menus interativos
 - **Forms** - Coleta de dados
 - **Progress Bars** - Indicadores visuais
@@ -221,6 +233,7 @@ make build
 - **Confirmations** - Diálogos sim/não
 
 ### ✅ Qualidade:
+
 - **Testes Go:** 100% coverage
 - **Security:** Input sanitization
 - **Performance:** Binário otimizado
@@ -231,6 +244,7 @@ make build
 ## 🚨 Troubleshooting
 
 ### Se Go não estiver instalado:
+
 ```bash
 # Verificar instalação
 go version
@@ -242,6 +256,7 @@ go version
 ```
 
 ### Se Charmbracelet falhar:
+
 ```bash
 # Verificar dependências após implementação
 cd /home/helton/git/shantilly-cli
@@ -250,6 +265,7 @@ go mod download
 ```
 
 ### Se build falhar:
+
 ```bash
 # Usar Makefile
 make build
@@ -262,6 +278,7 @@ go build -o shantilly cmd/shantilly/main.go
 ## 🎉 Sucesso!
 
 Ao final você terá:
+
 1. **Shantilly-CLI** completa em Golang
 2. **TUI moderna** com Charmbracelet
 3. **Alternativa funcional** a dialog/whiptail
@@ -274,12 +291,12 @@ Ao final você terá:
 
 ## 🔄 Status vs. Anterior
 
-| Antes (Errado) | Agora (Correto) |
-|----------------|-----------------|
-| Node.js + GitHub Integration | Golang + Charmbracelet |
-| API REST + Dashboard | TUI + CLI Commands |
-| Gerenciar repositórios | Interface para shell scripts |
-| Web-based | Terminal-based |
+| Antes (Errado)               | Agora (Correto)              |
+| ---------------------------- | ---------------------------- |
+| Node.js + GitHub Integration | Golang + Charmbracelet       |
+| API REST + Dashboard         | TUI + CLI Commands           |
+| Gerenciar repositórios       | Interface para shell scripts |
+| Web-based                    | Terminal-based               |
 
 **AGORA SIM:** Shantilly-CLI como **alternativa TUI moderna**! 🎯
 

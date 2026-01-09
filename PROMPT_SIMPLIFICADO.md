@@ -9,7 +9,7 @@ Você é o BMAD Orchestrator. Execute o workflow autônomo completo para impleme
 Implementar módulo GitHub Integration com:
 - API REST para operações GitHub
 - CLI Interface para comandos diretos
-- Web Dashboard para gestão visual  
+- Web Dashboard para gestão visual
 - Autenticação OAuth2 segura
 - Documentação PT-BR/EN
 
@@ -20,7 +20,7 @@ Implementar módulo GitHub Integration com:
 
 ## 🎭 WORKFLOW (7 Fases)
 1. **PM**: Criar PRD em docs/pt-br/planning/PRD-github-integration.md
-2. **Architect**: Criar TECH_SPEC em docs/pt-br/architecture/TECH_SPEC-github-integration.md  
+2. **Architect**: Criar TECH_SPEC em docs/pt-br/architecture/TECH_SPEC-github-integration.md
 3. **Developer**: Implementar código em src/github-integration/
 4. **QA**: Testes e validação completa
 5. **Security**: Análise de segurança OAuth2
@@ -53,17 +53,20 @@ INICIAR WORKFLOW BMAD AGORA! 🚀
 ## 🚀 COMEÇAR AGORA:
 
 ### 1️⃣ Criar Issue GitHub:
+
 - **Repo:** helton-godoy/shantilly-cli
 - **Title:** `Implement GitHub Integration Manager`
 - **Labels:** `bmad`, `enhancement`
 - **Description:** Copiar e colar o prompt acima
 
 ### 2️⃣ Executar Workflow:
+
 ```bash
 npm run bmad:workflow <numero-da-issue>
 ```
 
 ### 3️⃣ Acompanhar:
+
 - Progresso em tempo real
 - 7 personas executando
 - ~1 hora de duração

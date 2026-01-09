@@ -66,16 +66,16 @@ bmad-github-native-full-cycle/
 
 ## 🎭 BMAD Personas
 
-| Persona | Domain | Output | Next Persona |
-|---------|--------|--------|--------------|
-| **[PM]** Product Manager | Requirements | `docs/planning/PRD.md` | [ARCHITECT] |
-| **[ARCHITECT]** Architect | System Design | `docs/architecture/TECH_SPEC.md` | [SCRUM] |
-| **[SCRUM]** Scrum Master | Task Breakdown | GitHub Issues | [DEV] |
-| **[DEV]** Developer | Implementation | Code + Commits | [QA] |
-| **[QA]** Quality Assurance | Testing | PR Reviews | [RELEASE] |
-| **[DEVOPS]** DevOps Engineer | CI/CD | `.github/workflows/*.yml` | On-demand |
-| **[SECURITY]** Security Engineer | Security | `SECURITY.md`, CodeQL | On-demand |
-| **[RELEASE]** Release Manager | Deployment | GitHub Releases | [ORCHESTRATOR] |
+| Persona                          | Domain         | Output                           | Next Persona   |
+| -------------------------------- | -------------- | -------------------------------- | -------------- |
+| **[PM]** Product Manager         | Requirements   | `docs/planning/PRD.md`           | [ARCHITECT]    |
+| **[ARCHITECT]** Architect        | System Design  | `docs/architecture/TECH_SPEC.md` | [SCRUM]        |
+| **[SCRUM]** Scrum Master         | Task Breakdown | GitHub Issues                    | [DEV]          |
+| **[DEV]** Developer              | Implementation | Code + Commits                   | [QA]           |
+| **[QA]** Quality Assurance       | Testing        | PR Reviews                       | [RELEASE]      |
+| **[DEVOPS]** DevOps Engineer     | CI/CD          | `.github/workflows/*.yml`        | On-demand      |
+| **[SECURITY]** Security Engineer | Security       | `SECURITY.md`, CodeQL            | On-demand      |
+| **[RELEASE]** Release Manager    | Deployment     | GitHub Releases                  | [ORCHESTRATOR] |
 
 ---
 
