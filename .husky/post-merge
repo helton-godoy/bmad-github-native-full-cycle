@@ -1,0 +1,137 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# BMAD Git Hooks Automation - Post-merge Hook
+# Requirements: 5.1, 5.2, 5.3, 5.5
+
+# Detect merge type
+MERGE_TYPE="unknown"
+if [ -f .git/MERGE_HEAD ]; then
+  MERGE_TYPE="merge-commit"
+elif git log -1 --pretty=%P | grep -q " "; then
+  MERGE_TYPE="merge-commit"
+else
+  MERGE_TYPE="fast-forward"
+fi
+
+# Execute post-merge automation through Hook Orchestrator
+node -e "
+const HookOrchestrator = require('./scripts/hooks/hook-orchestrator');
+const orchestrator = new HookOrchestrator();
+
+async function runPostMerge() {
+  try {
+    const mergeType = process.env.MERGE_TYPE || 'unknown';
+    
+    console.log('🔄 Running post-merge automation...');
+    console.log(\`📍 Merge type: \${mergeType}\`);
+    
+    const result = await orchestrator.executePostMerge(mergeType);
+    
+    // Post-merge always succeeds to not block the merge
+    console.log('✅ Post-merge automation completed');
+    console.log(\`⏱️  Completed in \${result.duration}ms\`);
+    
+    // Log summary of operations performed
+    const operations = Object.entries(result.results || {}).filter(([_, r]) => r.status !== 'skipped');
+    if (operations.length > 0) {
+      console.log('📋 Operations performed:');
+      operations.forEach(([name, result]) => {
+        const status = result.status === 'passed' ? '✅' : 
+                      result.status === 'warning' ? '⚠️' : '❌';
+        console.log(\`   \${status} \${name}: \${result.status}\`);
+        
+        // Show additional details for key operations
+        if (name === 'workflow' && result.status === 'passed') {
+          console.log(\`      🔄 BMAD workflow executed successfully\`);
+        }
+        
+        if (name === 'repositoryValidation') {
+          if (result.isValid) {
+            console.log(\`      ✅ Repository state is valid\`);
+          } else {
+            console.log(\`      ⚠️  Repository validation found \${result.issues?.length || 0} issue(s)\`);
+            if (result.issues && result.issues.length > 0) {
+              result.issues.forEach(issue => {
+                console.log(\`         • \${issue}\`);
+              });
+            }
+          }
+        }
+        
+        if (name === 'mergeAnalysis' && result.filesChanged !== undefined) {
+          const fileCount = Array.isArray(result.filesChanged) ? result.filesChanged.length : result.filesChanged;
+          console.log(\`      📊 Files changed: \${fileCount}\`);
+          if (result.statistics) {
+            console.log(\`      📈 Lines: +\${result.statistics.linesAdded} -\${result.statistics.linesDeleted}\`);
+          }
+          if (result.reportPath) {
+            console.log(\`      📄 Report: \${result.reportPath}\`);
+          }
+        }
+      });
+    }
+    
+    // Show recovery information if failures occurred
+    if (result.recovery) {
+      console.log('\\n⚠️  INTEGRATION FAILURES DETECTED');
+      
+      if (result.recovery.troubleshooting) {
+        console.log(\`\\n🔍 TROUBLESHOOTING:\`);
+        console.log(\`   Failure type: \${result.recovery.troubleshooting.failureType || 'unknown'}\`);
+        if (result.recovery.troubleshooting.errorMessage) {
+          console.log(\`   Error: \${result.recovery.troubleshooting.errorMessage}\`);
+        }
+        
+        if (result.recovery.troubleshooting.diagnosticSteps && result.recovery.troubleshooting.diagnosticSteps.length > 0) {
+          console.log(\`\\n📋 DIAGNOSTIC STEPS:\`);
+          result.recovery.troubleshooting.diagnosticSteps.forEach((step, index) => {
+            console.log(\`   \${index + 1}. \${step.description}\`);
+          });
+        }
+        
+        if (result.recovery.troubleshooting.multipleFailures) {
+          console.log(\`\\n⚠️  Multiple failures detected (\${result.recovery.troubleshooting.failureCount})\`);
+        }
+      }
+      
+      if (result.recovery.rollbackRecommendations && result.recovery.rollbackRecommendations.length > 0) {
+        console.log(\`\\n🔄 ROLLBACK RECOMMENDATIONS:\`);
+        result.recovery.rollbackRecommendations.forEach((rec, index) => {
+          const priority = rec.priority === 'high' ? '🔴' : rec.priority === 'medium' ? '🟡' : '🟢';
+          console.log(\`   \${priority} \${rec.description}\`);
+          console.log(\`      Command: \${rec.command}\`);
+          if (rec.warning) {
+            console.log(\`      ⚠️  Warning: \${rec.warning}\`);
+          }
+        });
+      }
+      
+      console.log(\`\\n💡 TIP: Review the recovery report for detailed information.\`);
+      console.log(\`   Report location: .github/reports/recovery-report.json\`);
+    }
+    
+    // Show warnings for any failed operations
+    const failedOps = Object.entries(result.results || {}).filter(([_, r]) => r.status === 'failed');
+    if (failedOps.length > 0 && !result.recovery) {
+      console.log('\\n⚠️  Some operations failed but merge is complete:');
+      failedOps.forEach(([name, result]) => {
+        console.log(\`   ❌ \${name}: \${result.error || 'Unknown error'}\`);
+      });
+    }
+    
+    // Always exit successfully - post-merge should never block
+    process.exit(0);
+    
+  } catch (error) {
+    console.error('⚠️  Post-merge automation encountered an error:', error.message);
+    console.error('   The merge is complete, but some automation steps may have failed.');
+    console.error('   Stack trace:', error.stack);
+    
+    // Still exit successfully - post-merge should never block
+    process.exit(0);
+  }
+}
+
+runPostMerge();
+" MERGE_TYPE="$MERGE_TYPE"
