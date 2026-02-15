@@ -91,7 +91,7 @@ async function runDemo() {
         }
 
         console.log('\n✅ Demo completed successfully!');
-        console.log(`📄 Detailed log: .github/logs/demo-process-monitor.json`);
+        console.log('📄 Detailed log: .github/logs/demo-process-monitor.json');
 
     } catch (error) {
         console.error(`❌ Demo failed: ${error.message}`);

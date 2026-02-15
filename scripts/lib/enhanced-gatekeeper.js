@@ -679,6 +679,682 @@ class EnhancedGatekeeper {
 
         return true;
     }
+
+
+    /**
+     * Validate hook-specific context and requirements
+     * Requirements: 1.5, 7.1
+     * @param {string} hookType - Type of hook (pre-commit, commit-msg, pre-push, post-commit, post-merge)
+     * @param {object} context - Hook execution context
+     * @returns {object} Validation result with hook-specific checks
+     */
+    async validateHookContext(hookType, context = {}) {
+        this.logger.info(`Validating hook context for ${hookType}`);
+
+        const validationResult = {
+            hookType,
+            gate: 'FAIL',
+            timestamp: new Date().toISOString(),
+            validations: [],
+            errors: [],
+            warnings: [],
+            waiver: { active: false },
+            hookSpecific: {}
+        };
+
+        try {
+            // Check for development mode bypass
+            if (this.checkBypass(`hook-${hookType}`)) {
+                this.applyDevelopmentBypass(validationResult);
+                return validationResult;
+            }
+
+            // Hook-specific validation logic
+            switch (hookType) {
+            case 'pre-commit':
+                await this.validatePreCommitContext(context, validationResult);
+                break;
+            case 'commit-msg':
+                await this.validateCommitMsgContext(context, validationResult);
+                break;
+            case 'pre-push':
+                await this.validatePrePushContext(context, validationResult);
+                break;
+            case 'post-commit':
+                await this.validatePostCommitContext(context, validationResult);
+                break;
+            case 'post-merge':
+                await this.validatePostMergeContext(context, validationResult);
+                break;
+            case 'pre-rebase':
+                await this.validatePreRebaseContext(context, validationResult);
+                break;
+            case 'post-checkout':
+                await this.validatePostCheckoutContext(context, validationResult);
+                break;
+            case 'pre-receive':
+                await this.validatePreReceiveContext(context, validationResult);
+                break;
+            default:
+                validationResult.warnings.push({
+                    type: 'UNKNOWN_HOOK_TYPE',
+                    message: `Unknown hook type: ${hookType}`,
+                    remediation: 'Verify hook type is supported'
+                });
+            }
+
+            // Evaluate overall results
+            this.evaluateResults(validationResult);
+
+            return validationResult;
+
+        } catch (error) {
+            this.logger.error(`Hook context validation failed: ${error.message}`);
+            validationResult.errors.push({
+                type: 'HOOK_VALIDATION_ERROR',
+                message: error.message,
+                timestamp: new Date().toISOString()
+            });
+            return validationResult;
+        }
+    }
+
+    /**
+     * Validate pre-commit hook context
+     * Requirements: 1.5, 7.1
+     */
+    async validatePreCommitContext(context, result) {
+        // Validate staged files exist
+        if (!context.stagedFiles || context.stagedFiles.length === 0) {
+            result.warnings.push({
+                type: 'NO_STAGED_FILES',
+                message: 'No staged files detected',
+                remediation: 'Stage files with git add before committing'
+            });
+        } else {
+            result.validations.push({
+                name: 'staged_files',
+                status: 'passed',
+                message: `${context.stagedFiles.length} staged file(s) detected`
+            });
+        }
+
+        // Validate linting results if provided
+        if (context.lintingResults) {
+            if (context.lintingResults.success) {
+                result.validations.push({
+                    name: 'linting',
+                    status: 'passed',
+                    message: 'Linting completed successfully'
+                });
+            } else {
+                result.validations.push({
+                    name: 'linting',
+                    status: 'failed',
+                    message: 'Linting failed'
+                });
+                result.errors.push({
+                    type: 'LINTING_ERROR',
+                    message: 'Code linting failed',
+                    details: context.lintingResults.errors,
+                    remediation: 'Fix linting errors or run npm run lint:fix'
+                });
+            }
+        }
+
+        // Validate fast tests if provided
+        if (context.testResults) {
+            if (context.testResults.success) {
+                result.validations.push({
+                    name: 'fast_tests',
+                    status: 'passed',
+                    message: 'Fast tests passed'
+                });
+            } else {
+                result.validations.push({
+                    name: 'fast_tests',
+                    status: 'failed',
+                    message: 'Fast tests failed'
+                });
+                result.errors.push({
+                    type: 'TEST_FAILURE',
+                    message: 'Fast test suite failed',
+                    details: context.testResults.output,
+                    remediation: 'Fix failing tests before committing'
+                });
+            }
+        }
+
+        // Validate context update
+        await this.validateContextUpdate(result);
+    }
+
+    /**
+     * Validate commit-msg hook context
+     * Requirements: 1.5, 7.1
+     */
+    async validateCommitMsgContext(context, result) {
+        if (!context.message) {
+            result.errors.push({
+                type: 'MISSING_COMMIT_MESSAGE',
+                message: 'No commit message provided',
+                remediation: 'Provide a commit message'
+            });
+            return;
+        }
+
+        // Use existing commit message validation
+        await this.validateCommitMessage(context.message, result);
+
+        // Validate persona and step ID if provided
+        if (context.parsedMessage) {
+            const { persona, stepId } = context.parsedMessage;
+
+            if (persona && stepId) {
+                result.validations.push({
+                    name: 'bmad_metadata',
+                    status: 'passed',
+                    message: `BMAD metadata validated: ${persona} ${stepId}`
+                });
+                result.hookSpecific.persona = persona;
+                result.hookSpecific.stepId = stepId;
+            }
+        }
+    }
+
+    /**
+     * Validate pre-push hook context
+     * Requirements: 1.5, 7.1
+     */
+    async validatePrePushContext(context, result) {
+        // Validate branch and remote
+        if (!context.branch || !context.remote) {
+            result.warnings.push({
+                type: 'MISSING_PUSH_INFO',
+                message: 'Branch or remote information missing',
+                remediation: 'Ensure git push includes branch and remote'
+            });
+        } else {
+            result.validations.push({
+                name: 'push_metadata',
+                status: 'passed',
+                message: `Pushing ${context.branch} to ${context.remote}`
+            });
+        }
+
+        // Validate full test suite results
+        if (context.testResults) {
+            if (context.testResults.success) {
+                result.validations.push({
+                    name: 'full_test_suite',
+                    status: 'passed',
+                    message: 'Full test suite passed'
+                });
+
+                // Validate coverage if provided
+                if (context.testResults.coverage) {
+                    const coverage = context.testResults.coverage;
+                    const threshold = context.coverageThreshold || 80;
+
+                    if (coverage.lines >= threshold) {
+                        result.validations.push({
+                            name: 'coverage',
+                            status: 'passed',
+                            message: `Coverage ${coverage.lines}% meets threshold ${threshold}%`
+                        });
+                    } else {
+                        result.validations.push({
+                            name: 'coverage',
+                            status: 'failed',
+                            message: `Coverage ${coverage.lines}% below threshold ${threshold}%`
+                        });
+                        result.errors.push({
+                            type: 'COVERAGE_ERROR',
+                            message: 'Test coverage below threshold',
+                            details: `Current: ${coverage.lines}%, Required: ${threshold}%`,
+                            remediation: 'Add tests to improve coverage'
+                        });
+                    }
+                }
+            } else {
+                result.validations.push({
+                    name: 'full_test_suite',
+                    status: 'failed',
+                    message: 'Full test suite failed'
+                });
+                result.errors.push({
+                    type: 'TEST_FAILURE',
+                    message: 'Full test suite execution failed',
+                    details: context.testResults.output,
+                    remediation: 'Fix failing tests before pushing'
+                });
+            }
+        }
+
+        // Validate build results
+        if (context.buildResults) {
+            if (context.buildResults.success) {
+                result.validations.push({
+                    name: 'build',
+                    status: 'passed',
+                    message: 'Build validation passed'
+                });
+            } else {
+                result.validations.push({
+                    name: 'build',
+                    status: 'failed',
+                    message: 'Build validation failed'
+                });
+                result.errors.push({
+                    type: 'BUILD_ERROR',
+                    message: 'Build validation failed',
+                    details: context.buildResults.output,
+                    remediation: 'Fix build errors before pushing'
+                });
+            }
+        }
+
+        // Validate security audit
+        if (context.securityResults) {
+            if (context.securityResults.vulnerabilities === 0) {
+                result.validations.push({
+                    name: 'security_audit',
+                    status: 'passed',
+                    message: 'No security vulnerabilities detected'
+                });
+            } else {
+                const severity = context.securityResults.severity || 'unknown';
+                if (severity === 'high' || severity === 'critical') {
+                    result.validations.push({
+                        name: 'security_audit',
+                        status: 'failed',
+                        message: `${context.securityResults.vulnerabilities} ${severity} vulnerabilities found`
+                    });
+                    result.errors.push({
+                        type: 'SECURITY_ERROR',
+                        message: 'Security vulnerabilities detected',
+                        details: context.securityResults.details,
+                        remediation: 'Run npm audit fix to resolve vulnerabilities'
+                    });
+                } else {
+                    result.validations.push({
+                        name: 'security_audit',
+                        status: 'warning',
+                        message: `${context.securityResults.vulnerabilities} ${severity} vulnerabilities found`
+                    });
+                    result.warnings.push({
+                        type: 'SECURITY_WARNING',
+                        message: 'Low/moderate security vulnerabilities detected',
+                        remediation: 'Consider running npm audit fix'
+                    });
+                }
+            }
+        }
+    }
+
+    /**
+     * Validate post-commit hook context
+     * Requirements: 1.5, 7.1
+     */
+    async validatePostCommitContext(context, result) {
+        // Validate commit hash
+        if (!context.commitHash) {
+            result.warnings.push({
+                type: 'MISSING_COMMIT_HASH',
+                message: 'Commit hash not provided',
+                remediation: 'Ensure commit hash is passed to post-commit hook'
+            });
+        } else {
+            result.validations.push({
+                name: 'commit_hash',
+                status: 'passed',
+                message: `Commit hash validated: ${context.commitHash.substring(0, 8)}`
+            });
+        }
+
+        // Validate metrics update (non-blocking)
+        if (context.metricsUpdated !== undefined) {
+            if (context.metricsUpdated) {
+                result.validations.push({
+                    name: 'metrics_update',
+                    status: 'passed',
+                    message: 'Project metrics updated'
+                });
+            } else {
+                result.warnings.push({
+                    type: 'METRICS_WARNING',
+                    message: 'Metrics update failed (non-blocking)',
+                    remediation: 'Check metrics update logs'
+                });
+            }
+        }
+
+        // Validate documentation generation (non-blocking)
+        if (context.docsGenerated !== undefined) {
+            if (context.docsGenerated) {
+                result.validations.push({
+                    name: 'documentation',
+                    status: 'passed',
+                    message: 'Documentation regenerated'
+                });
+            } else {
+                result.warnings.push({
+                    type: 'DOCS_WARNING',
+                    message: 'Documentation generation failed (non-blocking)',
+                    remediation: 'Check documentation generation logs'
+                });
+            }
+        }
+
+        // Post-commit validations are non-blocking, so always pass
+        result.gate = 'PASS';
+    }
+
+    /**
+     * Validate post-merge hook context
+     * Requirements: 1.5, 7.1
+     */
+    async validatePostMergeContext(context, result) {
+        // Validate merge type
+        if (!context.mergeType) {
+            result.warnings.push({
+                type: 'MISSING_MERGE_TYPE',
+                message: 'Merge type not provided',
+                remediation: 'Ensure merge type is passed to post-merge hook'
+            });
+        } else {
+            result.validations.push({
+                name: 'merge_type',
+                status: 'passed',
+                message: `Merge type: ${context.mergeType}`
+            });
+        }
+
+        // Validate workflow execution
+        if (context.workflowExecuted !== undefined) {
+            if (context.workflowExecuted) {
+                result.validations.push({
+                    name: 'bmad_workflow',
+                    status: 'passed',
+                    message: 'BMAD workflow executed successfully'
+                });
+            } else {
+                result.errors.push({
+                    type: 'WORKFLOW_ERROR',
+                    message: 'BMAD workflow execution failed',
+                    details: context.workflowError,
+                    remediation: 'Check workflow logs and retry'
+                });
+            }
+        }
+
+        // Validate repository state
+        if (context.repositoryStateValid !== undefined) {
+            if (context.repositoryStateValid) {
+                result.validations.push({
+                    name: 'repository_state',
+                    status: 'passed',
+                    message: 'Repository state validated'
+                });
+            } else {
+                result.errors.push({
+                    type: 'REPOSITORY_STATE_ERROR',
+                    message: 'Repository state validation failed',
+                    details: context.stateError,
+                    remediation: 'Review repository state and resolve conflicts'
+                });
+            }
+        }
+    }
+
+    /**
+     * Validate pre-rebase hook context
+     * Requirements: 1.5, 7.1
+     */
+    async validatePreRebaseContext(context, result) {
+        if (!context.sourceBranch || !context.targetBranch) {
+            result.errors.push({
+                type: 'MISSING_REBASE_INFO',
+                message: 'Source or target branch missing',
+                remediation: 'Ensure rebase includes source and target branches'
+            });
+            return;
+        }
+
+        result.validations.push({
+            name: 'rebase_metadata',
+            status: 'passed',
+            message: `Rebasing ${context.sourceBranch} onto ${context.targetBranch}`
+        });
+
+        // Validate rebase safety
+        if (context.safetyCheck !== undefined) {
+            if (context.safetyCheck.safe) {
+                result.validations.push({
+                    name: 'rebase_safety',
+                    status: 'passed',
+                    message: 'Rebase safety validated'
+                });
+            } else {
+                result.errors.push({
+                    type: 'REBASE_SAFETY_ERROR',
+                    message: 'Rebase operation is unsafe',
+                    details: context.safetyCheck.reason,
+                    remediation: 'Review conflicts and resolve before rebasing'
+                });
+            }
+        }
+    }
+
+    /**
+     * Validate post-checkout hook context
+     * Requirements: 1.5, 7.1
+     */
+    async validatePostCheckoutContext(context, result) {
+        if (!context.newBranch) {
+            result.warnings.push({
+                type: 'MISSING_BRANCH_INFO',
+                message: 'New branch information missing',
+                remediation: 'Ensure branch name is passed to post-checkout hook'
+            });
+        } else {
+            result.validations.push({
+                name: 'checkout_metadata',
+                status: 'passed',
+                message: `Checked out branch: ${context.newBranch}`
+            });
+        }
+
+        // Validate context restoration
+        if (context.contextRestored !== undefined) {
+            if (context.contextRestored) {
+                result.validations.push({
+                    name: 'context_restoration',
+                    status: 'passed',
+                    message: 'Branch context restored'
+                });
+            } else {
+                result.warnings.push({
+                    type: 'CONTEXT_WARNING',
+                    message: 'Context restoration failed (non-blocking)',
+                    remediation: 'Manually restore context if needed'
+                });
+            }
+        }
+
+        // Post-checkout validations are non-blocking
+        result.gate = 'PASS';
+    }
+
+    /**
+     * Validate pre-receive hook context
+     * Requirements: 1.5, 7.1
+     */
+    async validatePreReceiveContext(context, result) {
+        if (!context.oldCommit || !context.newCommit || !context.refName) {
+            result.errors.push({
+                type: 'MISSING_RECEIVE_INFO',
+                message: 'Commit or ref information missing',
+                remediation: 'Ensure pre-receive hook receives all required parameters'
+            });
+            return;
+        }
+
+        result.validations.push({
+            name: 'receive_metadata',
+            status: 'passed',
+            message: `Receiving ${context.refName}: ${context.oldCommit.substring(0, 8)}..${context.newCommit.substring(0, 8)}`
+        });
+
+        // Validate pushed commits
+        if (context.commitsValid !== undefined) {
+            if (context.commitsValid) {
+                result.validations.push({
+                    name: 'commit_validation',
+                    status: 'passed',
+                    message: 'All pushed commits validated'
+                });
+            } else {
+                result.errors.push({
+                    type: 'COMMIT_VALIDATION_ERROR',
+                    message: 'Invalid commits detected',
+                    details: context.invalidCommits,
+                    remediation: 'Fix invalid commits before pushing'
+                });
+            }
+        }
+
+        // Validate branch protection
+        if (context.branchProtected !== undefined && context.branchProtected) {
+            result.errors.push({
+                type: 'BRANCH_PROTECTION_ERROR',
+                message: 'Cannot push to protected branch',
+                details: context.protectionRules,
+                remediation: 'Use pull request workflow for protected branches'
+            });
+        }
+    }
+
+    /**
+     * Generate hook-specific report with unified error formatting
+     * Requirements: 1.5, 7.1
+     */
+    generateHookReport(validationResult) {
+        const { hookType, gate, validations, errors, warnings, waiver, hookSpecific } = validationResult;
+
+        const report = {
+            hookType,
+            gate,
+            timestamp: validationResult.timestamp,
+            summary: this.generateHookSummary(validationResult),
+            validations: {
+                passed: validations.filter(v => v.status === 'passed'),
+                failed: validations.filter(v => v.status === 'failed'),
+                warnings: validations.filter(v => v.status === 'warning'),
+                skipped: validations.filter(v => v.status === 'skipped')
+            },
+            errors: errors.map(error => ({
+                ...error,
+                remediation: error.remediation || this.getRemediationForError(error)
+            })),
+            warnings,
+            waiver,
+            hookSpecific,
+            performance: {
+                timestamp: validationResult.timestamp,
+                hookType
+            },
+            recommendations: this.generateHookRecommendations(validationResult)
+        };
+
+        return report;
+    }
+
+    /**
+     * Generate hook-specific summary
+     * Requirements: 1.5, 7.1
+     */
+    generateHookSummary(validationResult) {
+        const { hookType, gate, validations, errors, warnings } = validationResult;
+
+        const passedCount = validations.filter(v => v.status === 'passed').length;
+        const failedCount = validations.filter(v => v.status === 'failed').length;
+        const warningCount = warnings.length;
+
+        let summary = `${hookType} hook validation ${gate === 'PASS' ? 'passed' : gate === 'WAIVED' ? 'waived' : 'failed'}`;
+
+        if (passedCount > 0) {
+            summary += ` (${passedCount} check${passedCount > 1 ? 's' : ''} passed`;
+        }
+
+        if (failedCount > 0) {
+            summary += `, ${failedCount} failed`;
+        }
+
+        if (warningCount > 0) {
+            summary += `, ${warningCount} warning${warningCount > 1 ? 's' : ''}`;
+        }
+
+        summary += ')';
+
+        return summary;
+    }
+
+    /**
+     * Generate hook-specific recommendations
+     * Requirements: 1.5, 7.1
+     */
+    generateHookRecommendations(validationResult) {
+        const recommendations = [];
+        const { hookType, errors, warnings } = validationResult;
+
+        // Hook-specific recommendations
+        switch (hookType) {
+        case 'pre-commit':
+            if (errors.some(e => e.type === 'LINTING_ERROR')) {
+                recommendations.push('Run npm run lint:fix to automatically fix linting issues');
+            }
+            if (errors.some(e => e.type === 'TEST_FAILURE')) {
+                recommendations.push('Run npm test to see detailed test failure information');
+            }
+            if (errors.some(e => e.type === 'CONTEXT_UPDATE_ERROR')) {
+                recommendations.push('Update activeContext.md to document your changes');
+            }
+            break;
+
+        case 'commit-msg':
+            if (errors.some(e => e.type === 'COMMIT_FORMAT_ERROR')) {
+                recommendations.push('Use format: [PERSONA] [STEP-ID] Description');
+                recommendations.push('Example: [DEVELOPER] [STEP-001] Implement user authentication');
+            }
+            break;
+
+        case 'pre-push':
+            if (errors.some(e => e.type === 'COVERAGE_ERROR')) {
+                recommendations.push('Add tests to improve code coverage');
+                recommendations.push('Run npm run test:coverage to see coverage details');
+            }
+            if (errors.some(e => e.type === 'SECURITY_ERROR')) {
+                recommendations.push('Run npm audit fix to resolve security vulnerabilities');
+            }
+            break;
+
+        case 'post-merge':
+            if (errors.some(e => e.type === 'WORKFLOW_ERROR')) {
+                recommendations.push('Check BMAD workflow logs for detailed error information');
+                recommendations.push('Run npm run bmad:workflow manually to retry');
+            }
+            break;
+        }
+
+        // General recommendations based on warnings
+        if (warnings.length > 0) {
+            recommendations.push('Review warnings to improve code quality');
+        }
+
+        return recommendations;
+    }
+
 }
 
 module.exports = EnhancedGatekeeper;

@@ -51,47 +51,47 @@ class StandaloneProcessMonitor {
             const nextArg = args[i + 1];
 
             switch (arg) {
-                case '--command':
-                    options.command = nextArg;
-                    i++;
-                    break;
-                case '--duration':
-                    options.duration = parseInt(nextArg);
-                    i++;
-                    break;
-                case '--output':
-                    options.output = nextArg;
-                    i++;
-                    break;
-                case '--max-processes':
-                    options.maxProcesses = parseInt(nextArg);
-                    i++;
-                    break;
-                case '--max-memory':
-                    options.maxMemory = parseInt(nextArg);
-                    i++;
-                    break;
-                case '--max-cpu':
-                    options.maxCpu = parseInt(nextArg);
-                    i++;
-                    break;
-                case '--alerts':
-                    options.alerts = true;
-                    break;
-                case '--realtime':
-                    options.realtime = true;
-                    break;
-                case '--no-realtime':
-                    options.realtime = false;
-                    break;
-                case '--help':
-                    options.help = true;
-                    break;
-                default:
-                    if (arg.startsWith('--')) {
-                        console.warn(`Unknown option: ${arg}`);
-                    }
-                    break;
+            case '--command':
+                options.command = nextArg;
+                i++;
+                break;
+            case '--duration':
+                options.duration = parseInt(nextArg);
+                i++;
+                break;
+            case '--output':
+                options.output = nextArg;
+                i++;
+                break;
+            case '--max-processes':
+                options.maxProcesses = parseInt(nextArg);
+                i++;
+                break;
+            case '--max-memory':
+                options.maxMemory = parseInt(nextArg);
+                i++;
+                break;
+            case '--max-cpu':
+                options.maxCpu = parseInt(nextArg);
+                i++;
+                break;
+            case '--alerts':
+                options.alerts = true;
+                break;
+            case '--realtime':
+                options.realtime = true;
+                break;
+            case '--no-realtime':
+                options.realtime = false;
+                break;
+            case '--help':
+                options.help = true;
+                break;
+            default:
+                if (arg.startsWith('--')) {
+                    console.warn(`Unknown option: ${arg}`);
+                }
+                break;
             }
         }
 
