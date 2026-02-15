@@ -9,9 +9,9 @@ const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '24h';
  * @returns {string} JWT token
  */
 function generateToken(payload) {
-    return jwt.sign(payload, JWT_SECRET, {
-        expiresIn: JWT_EXPIRES_IN,
-    });
+  return jwt.sign(payload, JWT_SECRET, {
+    expiresIn: JWT_EXPIRES_IN,
+  });
 }
 
 /**
@@ -21,17 +21,17 @@ function generateToken(payload) {
  * @throws {Error} If token is invalid or expired
  */
 function verifyToken(token) {
-    try {
-        return jwt.verify(token, JWT_SECRET);
-    } catch (error) {
-        if (error.name === 'TokenExpiredError') {
-            throw new Error('TOKEN_EXPIRED');
-        }
-        throw new Error('TOKEN_INVALID');
+  try {
+    return jwt.verify(token, JWT_SECRET);
+  } catch (error) {
+    if (error.name === 'TokenExpiredError') {
+      throw new Error('TOKEN_EXPIRED');
     }
+    throw new Error('TOKEN_INVALID');
+  }
 }
 
 module.exports = {
-    generateToken,
-    verifyToken,
+  generateToken,
+  verifyToken,
 };

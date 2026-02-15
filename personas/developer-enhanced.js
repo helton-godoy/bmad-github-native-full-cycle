@@ -7,391 +7,401 @@ const EnhancedBasePersona = require('./base-persona-enhanced');
 const fs = require('fs');
 
 class EnhancedDeveloper extends EnhancedBasePersona {
-    constructor(githubToken) {
-        super('Enhanced Developer Agent', 'Developer', githubToken);
-        this.techStack = this.detectTechStack();
-        this.codeQuality = {
-            coverage: 0,
-            complexity: 0,
-            tests: 0
-        };
+  constructor(githubToken) {
+    super('Enhanced Developer Agent', 'Developer', githubToken);
+    this.techStack = this.detectTechStack();
+    this.codeQuality = {
+      coverage: 0,
+      complexity: 0,
+      tests: 0,
+    };
+  }
+
+  /**
+   * @ai-context Detect project tech stack from configuration files
+   */
+  detectTechStack() {
+    const stack = {
+      language: 'unknown',
+      framework: 'none',
+      packageManager: 'none',
+      testing: 'none',
+    };
+
+    // Detect language and framework
+    if (fs.existsSync('package.json')) {
+      stack.language = 'javascript';
+      stack.packageManager = 'npm';
+
+      const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
+      if (pkg.dependencies?.react) stack.framework = 'react';
+      if (pkg.dependencies?.express) stack.framework = 'express';
+      if (pkg.dependencies?.vue) stack.framework = 'vue';
+    } else if (fs.existsSync('go.mod')) {
+      stack.language = 'go';
+      stack.packageManager = 'go';
+    } else if (fs.existsSync('Cargo.toml')) {
+      stack.language = 'rust';
+      stack.packageManager = 'cargo';
+    } else if (
+      fs.existsSync('requirements.txt') ||
+      fs.existsSync('pyproject.toml')
+    ) {
+      stack.language = 'python';
+      stack.packageManager = 'pip';
     }
 
-    /**
-     * @ai-context Detect project tech stack from configuration files
-     */
-    detectTechStack() {
-        const stack = {
-            language: 'unknown',
-            framework: 'none',
-            packageManager: 'none',
-            testing: 'none'
-        };
-
-        // Detect language and framework
-        if (fs.existsSync('package.json')) {
-            stack.language = 'javascript';
-            stack.packageManager = 'npm';
-            
-            const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
-            if (pkg.dependencies?.react) stack.framework = 'react';
-            if (pkg.dependencies?.express) stack.framework = 'express';
-            if (pkg.dependencies?.vue) stack.framework = 'vue';
-        } else if (fs.existsSync('go.mod')) {
-            stack.language = 'go';
-            stack.packageManager = 'go';
-        } else if (fs.existsSync('Cargo.toml')) {
-            stack.language = 'rust';
-            stack.packageManager = 'cargo';
-        } else if (fs.existsSync('requirements.txt') || fs.existsSync('pyproject.toml')) {
-            stack.language = 'python';
-            stack.packageManager = 'pip';
-        }
-
-        // Detect testing framework
-        if (fs.existsSync('jest.config.js') || fs.existsSync('jest.config.json')) {
-            stack.testing = 'jest';
-        } else if (fs.existsSync('pytest.ini') || fs.existsSync('pyproject.toml')) {
-            stack.testing = 'pytest';
-        } else if (fs.existsSync('go.mod') && fs.existsSync('*_test.go')) {
-            stack.testing = 'go-test';
-        }
-
-        return stack;
+    // Detect testing framework
+    if (fs.existsSync('jest.config.js') || fs.existsSync('jest.config.json')) {
+      stack.testing = 'jest';
+    } else if (fs.existsSync('pytest.ini') || fs.existsSync('pyproject.toml')) {
+      stack.testing = 'pytest';
+    } else if (fs.existsSync('go.mod') && fs.existsSync('*_test.go')) {
+      stack.testing = 'go-test';
     }
 
-    /**
-     * @ai-context Enhanced implementation with code quality checks
-     */
-    async execute(implementationIssueNumber) {
-        this.log('Starting enhanced implementation');
-        this.validatePrerequisites();
+    return stack;
+  }
 
-        try {
-            // Get implementation issue
-            const issue = await this.octokit.rest.issues.get({
-                owner: process.env.GITHUB_OWNER || 'helton-godoy',
-                repo: process.env.GITHUB_REPO || 'bmad-github-native-full-cycle',
-                issue_number: implementationIssueNumber
-            });
+  /**
+   * @ai-context Enhanced implementation with code quality checks
+   */
+  async execute(implementationIssueNumber) {
+    this.log('Starting enhanced implementation');
+    this.validatePrerequisites();
 
-            this.log(`Implementing: ${issue.data.title}`);
+    try {
+      // Get implementation issue
+      const issue = await this.octokit.rest.issues.get({
+        owner: process.env.GITHUB_OWNER || 'helton-godoy',
+        repo: process.env.GITHUB_REPO || 'bmad-github-native-full-cycle',
+        issue_number: implementationIssueNumber,
+      });
 
-            // Parse implementation requirements
-            const requirements = this.parseImplementationRequirements(issue.data.body);
-            
-            // Generate implementation plan
-            const plan = this.generateImplementationPlan(requirements);
-            
-            // Execute implementation phases
-            const artifacts = [];
-            
-            for (const phase of plan.phases) {
-                this.log(`Executing phase: ${phase.name}`);
-                const phaseArtifacts = await this.executePhase(phase);
-                artifacts.push(...phaseArtifacts);
-                
-                // Commit phase results
-                await this.commit(`Complete ${phase.name} phase`, phaseArtifacts);
-            }
+      this.log(`Implementing: ${issue.data.title}`);
 
-            // Run quality checks
-            await this.runQualityChecks();
+      // Parse implementation requirements
+      const requirements = this.parseImplementationRequirements(
+        issue.data.body
+      );
 
-            // Create completion issue
-            await this.createIssue(
-                `Implementation Complete: ${issue.data.title}`,
-                this.generateImplementationReport(requirements, artifacts),
-                ['implementation-complete', 'ready-for-testing']
-            );
+      // Generate implementation plan
+      const plan = this.generateImplementationPlan(requirements);
 
-            // Update handover
-            this.updateHandover('QA', artifacts, 'Implementation completed');
+      // Execute implementation phases
+      const artifacts = [];
 
-            this.log('Enhanced implementation completed successfully');
-            return this.getSummary();
+      for (const phase of plan.phases) {
+        this.log(`Executing phase: ${phase.name}`);
+        const phaseArtifacts = await this.executePhase(phase);
+        artifacts.push(...phaseArtifacts);
 
-        } catch (error) {
-            this.log(`Implementation failed: ${error.message}`, 'ERROR');
-            throw error;
-        }
+        // Commit phase results
+        await this.commit(`Complete ${phase.name} phase`, phaseArtifacts);
+      }
+
+      // Run quality checks
+      await this.runQualityChecks();
+
+      // Create completion issue
+      await this.createIssue(
+        `Implementation Complete: ${issue.data.title}`,
+        this.generateImplementationReport(requirements, artifacts),
+        ['implementation-complete', 'ready-for-testing']
+      );
+
+      // Update handover
+      this.updateHandover('QA', artifacts, 'Implementation completed');
+
+      this.log('Enhanced implementation completed successfully');
+      return this.getSummary();
+    } catch (error) {
+      this.log(`Implementation failed: ${error.message}`, 'ERROR');
+      throw error;
+    }
+  }
+
+  /**
+   * @ai-context Parse implementation requirements from issue body
+   */
+  parseImplementationRequirements(issueBody) {
+    const requirements = {
+      features: [],
+      technical: [],
+      constraints: [],
+      acceptance: [],
+    };
+
+    // Extract requirements using regex patterns
+    const featurePattern = /Feature:\s*(.+)$/gm;
+    const technicalPattern = /Technical:\s*(.+)$/gm;
+    const constraintPattern = /Constraint:\s*(.+)$/gm;
+    const acceptancePattern = /Acceptance:\s*(.+)$/gm;
+
+    let match;
+    while ((match = featurePattern.exec(issueBody)) !== null) {
+      requirements.features.push(match[1].trim());
+    }
+    while ((match = technicalPattern.exec(issueBody)) !== null) {
+      requirements.technical.push(match[1].trim());
+    }
+    while ((match = constraintPattern.exec(issueBody)) !== null) {
+      requirements.constraints.push(match[1].trim());
+    }
+    while ((match = acceptancePattern.exec(issueBody)) !== null) {
+      requirements.acceptance.push(match[1].trim());
     }
 
-    /**
-     * @ai-context Parse implementation requirements from issue body
-     */
-    parseImplementationRequirements(issueBody) {
-        const requirements = {
-            features: [],
-            technical: [],
-            constraints: [],
-            acceptance: []
-        };
+    return requirements;
+  }
 
-        // Extract requirements using regex patterns
-        const featurePattern = /Feature:\s*(.+)$/gm;
-        const technicalPattern = /Technical:\s*(.+)$/gm;
-        const constraintPattern = /Constraint:\s*(.+)$/gm;
-        const acceptancePattern = /Acceptance:\s*(.+)$/gm;
+  /**
+   * @ai-context Generate detailed implementation plan
+   */
+  generateImplementationPlan(requirements) {
+    const plan = {
+      phases: [
+        {
+          name: 'Setup',
+          description: 'Initialize project structure and dependencies',
+          tasks: this.generateSetupTasks(requirements),
+        },
+        {
+          name: 'Core Implementation',
+          description: 'Implement main functionality',
+          tasks: this.generateCoreTasks(requirements),
+        },
+        {
+          name: 'Testing',
+          description: 'Implement comprehensive tests',
+          tasks: this.generateTestingTasks(requirements),
+        },
+        {
+          name: 'Documentation',
+          description: 'Create technical documentation',
+          tasks: this.generateDocumentationTasks(requirements),
+        },
+      ],
+    };
 
-        let match;
-        while ((match = featurePattern.exec(issueBody)) !== null) {
-            requirements.features.push(match[1].trim());
-        }
-        while ((match = technicalPattern.exec(issueBody)) !== null) {
-            requirements.technical.push(match[1].trim());
-        }
-        while ((match = constraintPattern.exec(issueBody)) !== null) {
-            requirements.constraints.push(match[1].trim());
-        }
-        while ((match = acceptancePattern.exec(issueBody)) !== null) {
-            requirements.acceptance.push(match[1].trim());
-        }
+    return plan;
+  }
 
-        return requirements;
+  /**
+   * @ai-context Generate setup tasks based on requirements
+   */
+  generateSetupTasks(_requirements) {
+    const tasks = [];
+
+    // Project structure
+    tasks.push({
+      type: 'directory',
+      path: 'src',
+      description: 'Create source directory',
+    });
+
+    tasks.push({
+      type: 'directory',
+      path: 'tests',
+      description: 'Create test directory',
+    });
+
+    // Configuration files based on tech stack
+    if (this.techStack.language === 'javascript') {
+      tasks.push({
+        type: 'file',
+        path: 'package.json',
+        description: 'Update package.json with dependencies',
+      });
+    } else if (this.techStack.language === 'go') {
+      tasks.push({
+        type: 'file',
+        path: 'go.mod',
+        description: 'Update go.mod with dependencies',
+      });
     }
 
-    /**
-     * @ai-context Generate detailed implementation plan
-     */
-    generateImplementationPlan(requirements) {
-        const plan = {
-            phases: [
-                {
-                    name: 'Setup',
-                    description: 'Initialize project structure and dependencies',
-                    tasks: this.generateSetupTasks(requirements)
-                },
-                {
-                    name: 'Core Implementation',
-                    description: 'Implement main functionality',
-                    tasks: this.generateCoreTasks(requirements)
-                },
-                {
-                    name: 'Testing',
-                    description: 'Implement comprehensive tests',
-                    tasks: this.generateTestingTasks(requirements)
-                },
-                {
-                    name: 'Documentation',
-                    description: 'Create technical documentation',
-                    tasks: this.generateDocumentationTasks(requirements)
-                }
-            ]
-        };
+    return tasks;
+  }
 
-        return plan;
+  /**
+   * @ai-context Generate core implementation tasks
+   */
+  generateCoreTasks(requirements) {
+    const tasks = [];
+
+    for (const feature of requirements.features) {
+      tasks.push({
+        type: 'implementation',
+        feature: feature,
+        description: `Implement feature: ${feature}`,
+      });
     }
 
-    /**
-     * @ai-context Generate setup tasks based on requirements
-     */
-    generateSetupTasks(_requirements) {
-        const tasks = [];
+    return tasks;
+  }
 
-        // Project structure
-        tasks.push({
-            type: 'directory',
-            path: 'src',
-            description: 'Create source directory'
-        });
+  /**
+   * @ai-context Generate testing tasks
+   */
+  generateTestingTasks(requirements) {
+    const tasks = [];
 
-        tasks.push({
-            type: 'directory',
-            path: 'tests',
-            description: 'Create test directory'
-        });
+    for (const acceptance of requirements.acceptance) {
+      tasks.push({
+        type: 'test',
+        scenario: acceptance,
+        description: `Test scenario: ${acceptance}`,
+      });
+    }
 
-        // Configuration files based on tech stack
-        if (this.techStack.language === 'javascript') {
-            tasks.push({
-                type: 'file',
-                path: 'package.json',
-                description: 'Update package.json with dependencies'
-            });
-        } else if (this.techStack.language === 'go') {
-            tasks.push({
-                type: 'file',
-                path: 'go.mod',
-                description: 'Update go.mod with dependencies'
-            });
+    return tasks;
+  }
+
+  /**
+   * @ai-context Generate documentation tasks
+   */
+  generateDocumentationTasks(_requirements) {
+    return [
+      {
+        type: 'documentation',
+        path: 'docs/api.md',
+        description: 'Create API documentation',
+      },
+      {
+        type: 'documentation',
+        path: 'README.md',
+        description: 'Update README with implementation details',
+      },
+    ];
+  }
+
+  /**
+   * @ai-context Execute implementation phase
+   */
+  async executePhase(phase) {
+    const artifacts = [];
+
+    for (const task of phase.tasks) {
+      this.log(`Executing task: ${task.description}`);
+
+      try {
+        const result = await this.executeTask(task);
+        if (result) {
+          artifacts.push(result);
         }
-
-        return tasks;
+      } catch (error) {
+        this.log(
+          `Task failed: ${task.description} - ${error.message}`,
+          'ERROR'
+        );
+        throw error;
+      }
     }
 
-    /**
-     * @ai-context Generate core implementation tasks
-     */
-    generateCoreTasks(requirements) {
-        const tasks = [];
+    return artifacts;
+  }
 
-        for (const feature of requirements.features) {
-            tasks.push({
-                type: 'implementation',
-                feature: feature,
-                description: `Implement feature: ${feature}`
-            });
+  /**
+   * @ai-context Execute individual task
+   */
+  async executeTask(task) {
+    switch (task.type) {
+      case 'directory':
+        if (!fs.existsSync(task.path)) {
+          fs.mkdirSync(task.path, { recursive: true });
+          this.log(`Created directory: ${task.path}`);
         }
-
-        return tasks;
-    }
-
-    /**
-     * @ai-context Generate testing tasks
-     */
-    generateTestingTasks(requirements) {
-        const tasks = [];
-
-        for (const acceptance of requirements.acceptance) {
-            tasks.push({
-                type: 'test',
-                scenario: acceptance,
-                description: `Test scenario: ${acceptance}`
-            });
-        }
-
-        return tasks;
-    }
-
-    /**
-     * @ai-context Generate documentation tasks
-     */
-    generateDocumentationTasks(_requirements) {
-        return [
-            {
-                type: 'documentation',
-                path: 'docs/api.md',
-                description: 'Create API documentation'
-            },
-            {
-                type: 'documentation',
-                path: 'README.md',
-                description: 'Update README with implementation details'
-            }
-        ];
-    }
-
-    /**
-     * @ai-context Execute implementation phase
-     */
-    async executePhase(phase) {
-        const artifacts = [];
-
-        for (const task of phase.tasks) {
-            this.log(`Executing task: ${task.description}`);
-            
-            try {
-                const result = await this.executeTask(task);
-                if (result) {
-                    artifacts.push(result);
-                }
-            } catch (error) {
-                this.log(`Task failed: ${task.description} - ${error.message}`, 'ERROR');
-                throw error;
-            }
-        }
-
-        return artifacts;
-    }
-
-    /**
-     * @ai-context Execute individual task
-     */
-    async executeTask(task) {
-        switch (task.type) {
-        case 'directory':
-            if (!fs.existsSync(task.path)) {
-                fs.mkdirSync(task.path, { recursive: true });
-                this.log(`Created directory: ${task.path}`);
-            }
-            return task.path;
-
-        case 'file':
-            return await this.createFile(task);
-
-        case 'implementation':
-            return await this.implementFeature(task);
-
-        case 'test':
-            return await this.createTest(task);
-
-        case 'documentation':
-            return await this.createDocumentation(task);
-
-        default:
-            throw new Error(`Unknown task type: ${task.type}`);
-        }
-    }
-
-    /**
-     * @ai-context Create file based on tech stack
-     */
-    async createFile(task) {
-        const content = this.generateFileContent(task.path);
-        fs.writeFileSync(task.path, content, 'utf-8');
-        this.log(`Created file: ${task.path}`);
         return task.path;
+
+      case 'file':
+        return await this.createFile(task);
+
+      case 'implementation':
+        return await this.implementFeature(task);
+
+      case 'test':
+        return await this.createTest(task);
+
+      case 'documentation':
+        return await this.createDocumentation(task);
+
+      default:
+        throw new Error(`Unknown task type: ${task.type}`);
+    }
+  }
+
+  /**
+   * @ai-context Create file based on tech stack
+   */
+  async createFile(task) {
+    const content = this.generateFileContent(task.path);
+    fs.writeFileSync(task.path, content, 'utf-8');
+    this.log(`Created file: ${task.path}`);
+    return task.path;
+  }
+
+  /**
+   * @ai-context Generate file content based on path and tech stack
+   */
+  generateFileContent(filePath) {
+    if (filePath === 'package.json') {
+      let basePackage = {
+        name: 'bmad-enhanced-project',
+        version: '1.0.0',
+        description: 'BMAD Enhanced Framework Project',
+        main: 'src/index.js',
+        scripts: {
+          start: 'node src/index.js',
+          test: 'jest',
+          'test:watch': 'jest --watch',
+          'test:coverage': 'jest --coverage',
+        },
+        dependencies: {
+          express: '^4.18.0',
+          '@octokit/rest': '^19.0.0',
+        },
+        devDependencies: {
+          jest: '^29.0.0',
+          nodemon: '^2.0.0',
+        },
+      };
+
+      // If a package.json already exists, merge defaults without destructive overwrite
+      if (fs.existsSync('package.json')) {
+        try {
+          const existing = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
+
+          // Preserve existing fields and scripts
+          basePackage = {
+            ...basePackage,
+            ...existing,
+            scripts: {
+              ...basePackage.scripts,
+              ...(existing.scripts || {}),
+            },
+            dependencies: {
+              ...basePackage.dependencies,
+              ...(existing.dependencies || {}),
+            },
+            devDependencies: {
+              ...basePackage.devDependencies,
+              ...(existing.devDependencies || {}),
+            },
+          };
+        } catch (error) {
+          this.log(
+            `Failed to merge existing package.json, using defaults: ${error.message}`,
+            'WARNING'
+          );
+        }
+      }
+
+      return JSON.stringify(basePackage, null, 2);
     }
 
-    /**
-     * @ai-context Generate file content based on path and tech stack
-     */
-    generateFileContent(filePath) {
-        if (filePath === 'package.json') {
-            let basePackage = {
-                name: 'bmad-enhanced-project',
-                version: '1.0.0',
-                description: 'BMAD Enhanced Framework Project',
-                main: 'src/index.js',
-                scripts: {
-                    start: 'node src/index.js',
-                    test: 'jest',
-                    'test:watch': 'jest --watch',
-                    'test:coverage': 'jest --coverage'
-                },
-                dependencies: {
-                    express: '^4.18.0',
-                    '@octokit/rest': '^19.0.0'
-                },
-                devDependencies: {
-                    jest: '^29.0.0',
-                    nodemon: '^2.0.0'
-                }
-            };
-
-            // If a package.json already exists, merge defaults without destructive overwrite
-            if (fs.existsSync('package.json')) {
-                try {
-                    const existing = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
-
-                    // Preserve existing fields and scripts
-                    basePackage = {
-                        ...basePackage,
-                        ...existing,
-                        scripts: {
-                            ...basePackage.scripts,
-                            ...(existing.scripts || {})
-                        },
-                        dependencies: {
-                            ...basePackage.dependencies,
-                            ...(existing.dependencies || {})
-                        },
-                        devDependencies: {
-                            ...basePackage.devDependencies,
-                            ...(existing.devDependencies || {})
-                        }
-                    };
-                } catch (error) {
-                    this.log(`Failed to merge existing package.json, using defaults: ${error.message}`, 'WARNING');
-                }
-            }
-
-            return JSON.stringify(basePackage, null, 2);
-        }
-
-        if (filePath === 'go.mod') {
-            return `module bmad-enhanced-project
+    if (filePath === 'go.mod') {
+      return `module bmad-enhanced-project
 
 go 1.21
 
@@ -400,30 +410,30 @@ require (
     github.com/stretchr/testify v1.8.0
 )
 `;
-        }
-
-        return '// Auto-generated file\n';
     }
 
-    /**
-     * @ai-context Implement feature based on requirements
-     */
-    async implementFeature(task) {
-        const featureName = task.feature.toLowerCase().replace(/\s+/g, '-');
-        const fileName = `src/${featureName}.js`;
-        
-        const content = this.generateFeatureCode(task.feature);
-        fs.writeFileSync(fileName, content, 'utf-8');
-        
-        this.log(`Implemented feature: ${task.feature}`);
-        return fileName;
-    }
+    return '// Auto-generated file\n';
+  }
 
-    /**
-     * @ai-context Generate feature code
-     */
-    generateFeatureCode(feature) {
-        return `/**
+  /**
+   * @ai-context Implement feature based on requirements
+   */
+  async implementFeature(task) {
+    const featureName = task.feature.toLowerCase().replace(/\s+/g, '-');
+    const fileName = `src/${featureName}.js`;
+
+    const content = this.generateFeatureCode(task.feature);
+    fs.writeFileSync(fileName, content, 'utf-8');
+
+    this.log(`Implemented feature: ${task.feature}`);
+    return fileName;
+  }
+
+  /**
+   * @ai-context Generate feature code
+   */
+  generateFeatureCode(feature) {
+    return `/**
  * Feature: ${feature}
  * Generated by BMAD Enhanced Developer
  */
@@ -459,27 +469,27 @@ class ${feature.replace(/\s+/g, '')}Feature {
 
 module.exports = ${feature.replace(/\s+/g, '')}Feature;
 `;
-    }
+  }
 
-    /**
-     * @ai-context Create test file
-     */
-    async createTest(task) {
-        const testName = task.scenario.toLowerCase().replace(/\s+/g, '-');
-        const fileName = `tests/${testName}.test.js`;
-        
-        const content = this.generateTestCode(task.scenario);
-        fs.writeFileSync(fileName, content, 'utf-8');
-        
-        this.log(`Created test: ${task.scenario}`);
-        return fileName;
-    }
+  /**
+   * @ai-context Create test file
+   */
+  async createTest(task) {
+    const testName = task.scenario.toLowerCase().replace(/\s+/g, '-');
+    const fileName = `tests/${testName}.test.js`;
 
-    /**
-     * @ai-context Generate test code
-     */
-    generateTestCode(scenario) {
-        return `/**
+    const content = this.generateTestCode(task.scenario);
+    fs.writeFileSync(fileName, content, 'utf-8');
+
+    this.log(`Created test: ${task.scenario}`);
+    return fileName;
+  }
+
+  /**
+   * @ai-context Generate test code
+   */
+  generateTestCode(scenario) {
+    return `/**
  * Test: ${scenario}
  * Generated by BMAD Enhanced Developer
  */
@@ -505,25 +515,25 @@ describe('${scenario}', () => {
     });
 });
 `;
-    }
+  }
 
-    /**
-     * @ai-context Create documentation
-     */
-    async createDocumentation(task) {
-        const content = this.generateDocumentationContent(task.path);
-        fs.writeFileSync(task.path, content, 'utf-8');
-        
-        this.log(`Created documentation: ${task.path}`);
-        return task.path;
-    }
+  /**
+   * @ai-context Create documentation
+   */
+  async createDocumentation(task) {
+    const content = this.generateDocumentationContent(task.path);
+    fs.writeFileSync(task.path, content, 'utf-8');
 
-    /**
-     * @ai-context Generate documentation content
-     */
-    generateDocumentationContent(filePath) {
-        if (filePath.includes('api.md')) {
-            return `# API Documentation
+    this.log(`Created documentation: ${task.path}`);
+    return task.path;
+  }
+
+  /**
+   * @ai-context Generate documentation content
+   */
+  generateDocumentationContent(filePath) {
+    if (filePath.includes('api.md')) {
+      return `# API Documentation
 
 Generated by BMAD Enhanced Framework
 
@@ -551,9 +561,9 @@ Content-Type: application/json
 }
 \`\`\`
 `;
-        }
+    }
 
-        return `# Documentation
+    return `# Documentation
 
 Generated by BMAD Enhanced Framework
 
@@ -574,44 +584,44 @@ This documentation was automatically generated during the implementation phase.
 - Framework: ${this.techStack.framework}
 - Testing: ${this.techStack.testing}
 `;
+  }
+
+  /**
+   * @ai-context Run quality checks on implemented code
+   */
+  async runQualityChecks() {
+    this.log('Running quality checks');
+
+    try {
+      // Run tests
+      if (this.techStack.testing === 'jest') {
+        await this.execCommand('npm test');
+      } else if (this.techStack.testing === 'go-test') {
+        await this.execCommand('go test ./...');
+      }
+
+      // Run linting
+      if (fs.existsSync('.eslintrc.js')) {
+        await this.execCommand('npx eslint src/');
+      }
+
+      // Check code coverage
+      if (this.techStack.testing === 'jest') {
+        await this.execCommand('npm run test:coverage');
+      }
+
+      this.log('Quality checks passed');
+    } catch (error) {
+      this.log(`Quality check failed: ${error.message}`, 'ERROR');
+      throw error;
     }
+  }
 
-    /**
-     * @ai-context Run quality checks on implemented code
-     */
-    async runQualityChecks() {
-        this.log('Running quality checks');
-
-        try {
-            // Run tests
-            if (this.techStack.testing === 'jest') {
-                await this.execCommand('npm test');
-            } else if (this.techStack.testing === 'go-test') {
-                await this.execCommand('go test ./...');
-            }
-
-            // Run linting
-            if (fs.existsSync('.eslintrc.js')) {
-                await this.execCommand('npx eslint src/');
-            }
-
-            // Check code coverage
-            if (this.techStack.testing === 'jest') {
-                await this.execCommand('npm run test:coverage');
-            }
-
-            this.log('Quality checks passed');
-        } catch (error) {
-            this.log(`Quality check failed: ${error.message}`, 'ERROR');
-            throw error;
-        }
-    }
-
-    /**
-     * @ai-context Generate implementation report
-     */
-    generateImplementationReport(requirements, artifacts) {
-        return `# Implementation Report
+  /**
+   * @ai-context Generate implementation report
+   */
+  generateImplementationReport(requirements, artifacts) {
+    return `# Implementation Report
 
 ## Requirements Analysis
 - **Features:** ${requirements.features.length}
@@ -625,7 +635,7 @@ This documentation was automatically generated during the implementation phase.
 - **Test Coverage:** Target: 80%+
 
 ## Artifacts Generated
-${artifacts.map(artifact => `- \`${artifact}\``).join('\n')}
+${artifacts.map((artifact) => `- \`${artifact}\``).join('\n')}
 
 ## Quality Metrics
 - **Tests Written:** ${requirements.acceptance.length}
@@ -641,7 +651,7 @@ ${artifacts.map(artifact => `- \`${artifact}\``).join('\n')}
 ---
 *Generated by Enhanced Developer Persona*
 `;
-    }
+  }
 }
 
 module.exports = EnhancedDeveloper;

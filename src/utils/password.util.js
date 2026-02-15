@@ -8,7 +8,7 @@ const SALT_ROUNDS = parseInt(process.env.BCRYPT_ROUNDS) || 10;
  * @returns {Promise<string>} Hashed password
  */
 async function hashPassword(password) {
-    return await bcrypt.hash(password, SALT_ROUNDS);
+  return await bcrypt.hash(password, SALT_ROUNDS);
 }
 
 /**
@@ -18,10 +18,10 @@ async function hashPassword(password) {
  * @returns {Promise<boolean>} True if passwords match
  */
 async function comparePassword(password, hash) {
-    return await bcrypt.compare(password, hash);
+  return await bcrypt.compare(password, hash);
 }
 
 module.exports = {
-    hashPassword,
-    comparePassword,
+  hashPassword,
+  comparePassword,
 };

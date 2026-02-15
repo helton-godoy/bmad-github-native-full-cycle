@@ -7,82 +7,90 @@ const BasePersona = require('./base-persona');
 const { execSync } = require('child_process');
 
 class QA extends BasePersona {
-    constructor(githubToken) {
-        super('QA Agent', 'QA', githubToken);
+  constructor(githubToken) {
+    super('QA Agent', 'QA', githubToken);
+  }
+
+  async execute(reviewIssueNumber) {
+    this.log('Starting QA review');
+
+    try {
+      const issue = await this.octokit.rest.issues.get({
+        owner: process.env.GITHUB_OWNER || 'helton-godoy',
+        repo: process.env.GITHUB_REPO || 'shantilly-cli',
+        issue_number: reviewIssueNumber,
+      });
+
+      this.updateActiveContext(
+        `Realizando QA review da issue #${reviewIssueNumber}`
+      );
+
+      // Run tests
+      const testResults = await this.runTests();
+
+      // Security validation
+      const securityResults = await this.securityValidation();
+
+      // Performance validation
+      const performanceResults = await this.performanceValidation();
+
+      const qaReport = this.generateQAReport(
+        testResults,
+        securityResults,
+        performanceResults
+      );
+
+      await this.microCommit('QA: Review completed', [
+        {
+          path: 'docs/testing/qa-report.md',
+          content: qaReport,
+        },
+      ]);
+
+      await this.createSecurityReviewIssue(issue.data, qaReport);
+
+      this.log('QA review completed');
+      return qaReport;
+    } catch (error) {
+      this.log(`Error in QA execution: ${error.message}`);
+      throw error;
     }
+  }
 
-    async execute(reviewIssueNumber) {
-        this.log('Starting QA review');
-        
-        try {
-            const issue = await this.octokit.rest.issues.get({
-                owner: process.env.GITHUB_OWNER || 'helton-godoy',
-                repo: process.env.GITHUB_REPO || 'shantilly-cli',
-                issue_number: reviewIssueNumber
-            });
-
-            this.updateActiveContext(`Realizando QA review da issue #${reviewIssueNumber}`);
-
-            // Run tests
-            const testResults = await this.runTests();
-            
-            // Security validation
-            const securityResults = await this.securityValidation();
-            
-            // Performance validation
-            const performanceResults = await this.performanceValidation();
-
-            const qaReport = this.generateQAReport(testResults, securityResults, performanceResults);
-
-            await this.microCommit('QA: Review completed', [
-                {
-                    path: 'docs/testing/qa-report.md',
-                    content: qaReport
-                }
-            ]);
-
-            await this.createSecurityReviewIssue(issue.data, qaReport);
-
-            this.log('QA review completed');
-            return qaReport;
-
-        } catch (error) {
-            this.log(`Error in QA execution: ${error.message}`);
-            throw error;
-        }
+  async runTests() {
+    this.log('Running test suite');
+    try {
+      execSync('npm test', { stdio: 'pipe' });
+      return { status: 'passed', coverage: '85%' };
+    } catch (error) {
+      return { status: 'failed', error: error.message };
     }
+  }
 
-    async runTests() {
-        this.log('Running test suite');
-        try {
-            execSync('npm test', { stdio: 'pipe' });
-            return { status: 'passed', coverage: '85%' };
-        } catch (error) {
-            return { status: 'failed', error: error.message };
-        }
-    }
+  async securityValidation() {
+    this.log('Running security validation');
+    return {
+      status: 'passed',
+      vulnerabilities: 0,
+      recommendations: ['Add rate limiting', 'Implement input sanitization'],
+    };
+  }
 
-    async securityValidation() {
-        this.log('Running security validation');
-        return {
-            status: 'passed',
-            vulnerabilities: 0,
-            recommendations: ['Add rate limiting', 'Implement input sanitization']
-        };
-    }
+  async performanceValidation() {
+    this.log('Running performance validation');
+    return {
+      status: 'passed',
+      responseTime: '120ms',
+      throughput: '1000 req/sec',
+    };
+  }
 
-    async performanceValidation() {
-        this.log('Running performance validation');
-        return {
-            status: 'passed',
-            responseTime: '120ms',
-            throughput: '1000 req/sec'
-        };
-    }
-
-    generateQAReport(testResults, securityResults, performanceResults) {
-        const hasSystemMap = this.context && this.context.architectureSpec && this.context.architectureSpec.trim().length > 0;
-        return `# QA Report
+  generateQAReport(testResults, securityResults, performanceResults) {
+    const hasSystemMap =
+      this.context &&
+      this.context.architectureSpec &&
+      this.context.architectureSpec.trim().length > 0;
+    return `# QA Report
 
 ## Test Results
 - **Status**: ${testResults.status}
@@ -107,11 +115,11 @@ ${hasSystemMap ? '- Referenced SYSTEM_MAP.md for understanding existing componen
 
 ---
 *Generated by QA Agent on ${new Date().toISOString()}*`;
-    }
+  }
 
-    async createSecurityReviewIssue(originalIssue, qaReport) {
-        const title = `Security Review: ${originalIssue.title.replace('QA Review: ', '')}`;
-        const body = `## QA Report
+  async createSecurityReviewIssue(originalIssue, qaReport) {
+    const title = `Security Review: ${originalIssue.title.replace('QA Review: ', '')}`;
+    const body = `## QA Report
 ${qaReport}
 
 ## Security Review Checklist
@@ -126,8 +134,8 @@ ${qaReport}
 ---
 *Created by QA Agent*`;
 
-        await this.createIssue(title, body, ['security', 'review']);
-    }
+    await this.createIssue(title, body, ['security', 'review']);
+  }
 }
 
 module.exports = QA;

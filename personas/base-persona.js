@@ -8,145 +8,153 @@ const path = require('path');
 const { Octokit } = require('@octokit/rest');
 
 class BasePersona {
-    constructor(name, role, githubToken) {
-        this.name = name;
-        this.role = role;
-        this.githubToken = githubToken;
-        this.octokit = new Octokit({ auth: githubToken });
-        this.context = this.loadContext();
-    }
+  constructor(name, role, githubToken) {
+    this.name = name;
+    this.role = role;
+    this.githubToken = githubToken;
+    this.octokit = new Octokit({ auth: githubToken });
+    this.context = this.loadContext();
+  }
 
-    /**
-     * @ai-context Load project context from files
-     */
-    loadContext() {
-        try {
-            const activeContext = fs.readFileSync('activeContext.md', 'utf-8');
-            const productContext = fs.readFileSync('productContext.md', 'utf-8');
+  /**
+   * @ai-context Load project context from files
+   */
+  loadContext() {
+    try {
+      const activeContext = fs.readFileSync('activeContext.md', 'utf-8');
+      const productContext = fs.readFileSync('productContext.md', 'utf-8');
 
-            let architectureSpec = '';
-            let handoverState = '';
+      let architectureSpec = '';
+      let handoverState = '';
 
-            try {
-                architectureSpec = fs.readFileSync('docs/architecture/SYSTEM_MAP.md', 'utf-8');
-            } catch (_) {
-                architectureSpec = '';
-            }
-
-            try {
-                handoverState = fs.readFileSync('.github/BMAD_HANDOVER.md', 'utf-8');
-            } catch (_) {
-                handoverState = '';
-            }
-
-            return { activeContext, productContext, architectureSpec, handoverState };
-        } catch (error) {
-            console.error('Error loading context:', error.message);
-            return { activeContext: '', productContext: '', architectureSpec: '', handoverState: '' };
-        }
-    }
-
-    /**
-     * @ai-context Update active context with current work
-     */
-    updateActiveContext(update) {
-        const contextPath = path.join(process.cwd(), 'activeContext.md');
-        let currentContext = '';
-        
-        try {
-            currentContext = fs.readFileSync(contextPath, 'utf-8');
-        } catch (error) {
-            console.error('Error reading active context:', error.message);
-        }
-
-        // Update persona current section
-        const updatedContext = currentContext.replace(
-            /## Persona Atual\n\*\*.*\*\* - .*/,
-            `## Persona Atual\n**${this.name}** - ${update}`
+      try {
+        architectureSpec = fs.readFileSync(
+          'docs/architecture/SYSTEM_MAP.md',
+          'utf-8'
         );
+      } catch (_) {
+        architectureSpec = '';
+      }
 
-        fs.writeFileSync(contextPath, updatedContext);
-        console.log(`✅ Context updated by ${this.name}`);
+      try {
+        handoverState = fs.readFileSync('.github/BMAD_HANDOVER.md', 'utf-8');
+      } catch (_) {
+        handoverState = '';
+      }
+
+      return { activeContext, productContext, architectureSpec, handoverState };
+    } catch (error) {
+      console.error('Error loading context:', error.message);
+      return {
+        activeContext: '',
+        productContext: '',
+        architectureSpec: '',
+        handoverState: '',
+      };
+    }
+  }
+
+  /**
+   * @ai-context Update active context with current work
+   */
+  updateActiveContext(update) {
+    const contextPath = path.join(process.cwd(), 'activeContext.md');
+    let currentContext = '';
+
+    try {
+      currentContext = fs.readFileSync(contextPath, 'utf-8');
+    } catch (error) {
+      console.error('Error reading active context:', error.message);
     }
 
-    /**
-     * @ai-context Create micro-commit with tracking ID
-     */
-    async microCommit(message, files = []) {
-        const commitId = `${this.role.toLowerCase()}-${Date.now()}`;
-        
-        const commitMessage = `[${commitId}] ${message}`;
-        
+    // Update persona current section
+    const updatedContext = currentContext.replace(
+      /## Persona Atual\n\*\*.*\*\* - .*/,
+      `## Persona Atual\n**${this.name}** - ${update}`
+    );
+
+    fs.writeFileSync(contextPath, updatedContext);
+    console.log(`✅ Context updated by ${this.name}`);
+  }
+
+  /**
+   * @ai-context Create micro-commit with tracking ID
+   */
+  async microCommit(message, files = []) {
+    const commitId = `${this.role.toLowerCase()}-${Date.now()}`;
+
+    const commitMessage = `[${commitId}] ${message}`;
+
+    try {
+      // Add files
+      for (const file of files) {
+        let sha;
         try {
-            // Add files
-            for (const file of files) {
-                let sha;
-                try {
-                    const { data } = await this.octokit.rest.repos.getContent({
-                        owner: process.env.GITHUB_OWNER || 'helton-godoy',
-                        repo: process.env.GITHUB_REPO || 'shantilly-cli',
-                        path: file.path,
-                        ref: process.env.GITHUB_BRANCH || 'main'
-                    });
-                    sha = data.sha;
-                } catch (err) {
-                    // File doesn't exist, sha remains undefined which is correct for creation
-                }
-
-                await this.octokit.rest.repos.createOrUpdateFileContents({
-                    owner: process.env.GITHUB_OWNER || 'helton-godoy',
-                    repo: process.env.GITHUB_REPO || 'shantilly-cli',
-                    path: file.path,
-                    message: commitMessage,
-                    content: Buffer.from(file.content).toString('base64'),
-                    branch: process.env.GITHUB_BRANCH || 'main',
-                    sha: sha
-                });
-            }
-
-            console.log(`✅ Micro-commit created: ${commitId}`);
-            return commitId;
-        } catch (error) {
-            console.error('Error creating micro-commit:', error.message);
-            throw error;
+          const { data } = await this.octokit.rest.repos.getContent({
+            owner: process.env.GITHUB_OWNER || 'helton-godoy',
+            repo: process.env.GITHUB_REPO || 'shantilly-cli',
+            path: file.path,
+            ref: process.env.GITHUB_BRANCH || 'main',
+          });
+          sha = data.sha;
+        } catch (err) {
+          // File doesn't exist, sha remains undefined which is correct for creation
         }
-    }
 
-    /**
-     * @ai-context Create GitHub issue for task tracking
-     */
-    async createIssue(title, body, labels = []) {
-        try {
-            const issue = await this.octokit.rest.issues.create({
-                owner: process.env.GITHUB_OWNER || 'helton-godoy',
-                repo: process.env.GITHUB_REPO || 'shantilly-cli',
-                title: `[${this.role}] ${title}`,
-                body: `**Persona:** ${this.name}\n\n${body}`,
-                labels: [this.role.toLowerCase(), ...labels]
-            });
+        await this.octokit.rest.repos.createOrUpdateFileContents({
+          owner: process.env.GITHUB_OWNER || 'helton-godoy',
+          repo: process.env.GITHUB_REPO || 'shantilly-cli',
+          path: file.path,
+          message: commitMessage,
+          content: Buffer.from(file.content).toString('base64'),
+          branch: process.env.GITHUB_BRANCH || 'main',
+          sha: sha,
+        });
+      }
 
-            console.log(`✅ Issue created: #${issue.data.number}`);
-            return issue.data;
-        } catch (error) {
-            console.error('Error creating issue:', error.message);
-            throw error;
-        }
+      console.log(`✅ Micro-commit created: ${commitId}`);
+      return commitId;
+    } catch (error) {
+      console.error('Error creating micro-commit:', error.message);
+      throw error;
     }
+  }
 
-    /**
-     * @ai-context Abstract method for persona execution
-     */
-    async execute() {
-        throw new Error('Execute method must be implemented by persona');
-    }
+  /**
+   * @ai-context Create GitHub issue for task tracking
+   */
+  async createIssue(title, body, labels = []) {
+    try {
+      const issue = await this.octokit.rest.issues.create({
+        owner: process.env.GITHUB_OWNER || 'helton-godoy',
+        repo: process.env.GITHUB_REPO || 'shantilly-cli',
+        title: `[${this.role}] ${title}`,
+        body: `**Persona:** ${this.name}\n\n${body}`,
+        labels: [this.role.toLowerCase(), ...labels],
+      });
 
-    /**
-     * @ai-context Log persona activity
-     */
-    log(message) {
-        const timestamp = new Date().toISOString();
-        console.log(`[${timestamp}] [${this.role}] ${this.name}: ${message}`);
+      console.log(`✅ Issue created: #${issue.data.number}`);
+      return issue.data;
+    } catch (error) {
+      console.error('Error creating issue:', error.message);
+      throw error;
     }
+  }
+
+  /**
+   * @ai-context Abstract method for persona execution
+   */
+  async execute() {
+    throw new Error('Execute method must be implemented by persona');
+  }
+
+  /**
+   * @ai-context Log persona activity
+   */
+  log(message) {
+    const timestamp = new Date().toISOString();
+    console.log(`[${timestamp}] [${this.role}] ${this.name}: ${message}`);
+  }
 }
 
 module.exports = BasePersona;

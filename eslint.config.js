@@ -28,10 +28,10 @@ module.exports = [
             }
         },
         rules: {
-            'indent': ['error', 4],
+            'indent': 'off',
             'linebreak-style': ['error', 'unix'],
-            'quotes': ['error', 'single'],
-            'semi': ['error', 'always'],
+            'quotes': 'off', // Handled by Prettier
+            'semi': 'off', // Handled by Prettier
             'no-unused-vars': ['error', { 'argsIgnorePattern': '^_' }],
             'no-console': 'off',
             'prefer-const': 'error',

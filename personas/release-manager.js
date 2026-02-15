@@ -6,101 +6,107 @@
 const BasePersona = require('./base-persona');
 
 class ReleaseManager extends BasePersona {
-    constructor(githubToken) {
-        super('Release Manager Agent', 'Release Manager', githubToken);
+  constructor(githubToken) {
+    super('Release Manager Agent', 'Release Manager', githubToken);
+  }
+
+  async execute(releaseIssueNumber) {
+    this.log('Starting release management');
+
+    try {
+      const issue = await this.octokit.rest.issues.get({
+        owner: process.env.GITHUB_OWNER || 'helton-godoy',
+        repo: process.env.GITHUB_REPO || 'bmad-github-native-full-cycle',
+        issue_number: releaseIssueNumber,
+      });
+
+      this.updateActiveContext(
+        `Gerenciando release da issue #${releaseIssueNumber}`
+      );
+
+      // Version management
+      const versionInfo = await this.manageVersion();
+
+      // Generate local changelog preview
+      const changelogPreview = await this.generateChangelogPreview(versionInfo);
+
+      // Trigger Release via Tag (GitHub Actions will handle the rest)
+      await this.pushReleaseTag(versionInfo);
+
+      const releaseReport = this.generateReleaseReport(
+        versionInfo,
+        changelogPreview
+      );
+
+      await this.microCommit('Release Manager: Release tag pushed', [
+        {
+          path: 'docs/release/release-report.md',
+          content: releaseReport,
+        },
+      ]);
+
+      // Close the workflow
+      await this.closeWorkflow(issue.data, versionInfo);
+
+      this.log('Release management completed');
+      return releaseReport;
+    } catch (error) {
+      this.log(`Error in Release Manager execution: ${error.message}`);
+      throw error;
     }
+  }
 
-    async execute(releaseIssueNumber) {
-        this.log('Starting release management');
+  async manageVersion() {
+    const packageJson = require('../package.json');
+    const currentVersion = packageJson.version;
+    const newVersion = this.incrementVersion(currentVersion);
 
-        try {
-            const issue = await this.octokit.rest.issues.get({
-                owner: process.env.GITHUB_OWNER || 'helton-godoy',
-                repo: process.env.GITHUB_REPO || 'bmad-github-native-full-cycle',
-                issue_number: releaseIssueNumber
-            });
+    return {
+      current: currentVersion,
+      new: newVersion,
+      type: 'patch',
+    };
+  }
 
-            this.updateActiveContext(`Gerenciando release da issue #${releaseIssueNumber}`);
+  incrementVersion(version) {
+    const parts = version.split('.');
+    parts[2] = (parseInt(parts[2]) + 1).toString();
+    return parts.join('.');
+  }
 
-            // Version management
-            const versionInfo = await this.manageVersion();
-
-            // Generate local changelog preview
-            const changelogPreview = await this.generateChangelogPreview(versionInfo);
-
-            // Trigger Release via Tag (GitHub Actions will handle the rest)
-            await this.pushReleaseTag(versionInfo);
-
-            const releaseReport = this.generateReleaseReport(versionInfo, changelogPreview);
-
-            await this.microCommit('Release Manager: Release tag pushed', [
-                {
-                    path: 'docs/release/release-report.md',
-                    content: releaseReport
-                }
-            ]);
-
-            // Close the workflow
-            await this.closeWorkflow(issue.data, versionInfo);
-
-            this.log('Release management completed');
-            return releaseReport;
-
-        } catch (error) {
-            this.log(`Error in Release Manager execution: ${error.message}`);
-            throw error;
-        }
+  /**
+   * @ai-context Generate changelog preview using git log
+   */
+  async generateChangelogPreview(versionInfo) {
+    try {
+      // Get commits since last tag or last 10 commits if no tag
+      const commits = await this.execCommand(
+        'git log -n 10 --pretty=format:"- %s"'
+      );
+      return `# Changelog Preview (v${versionInfo.new})\n\n${commits}`;
+    } catch (error) {
+      return `# Changelog Preview\n\nCould not generate preview: ${error.message}`;
     }
+  }
 
-    async manageVersion() {
-        const packageJson = require('../package.json');
-        const currentVersion = packageJson.version;
-        const newVersion = this.incrementVersion(currentVersion);
-
-        return {
-            current: currentVersion,
-            new: newVersion,
-            type: 'patch'
-        };
+  /**
+   * @ai-context Push git tag to trigger release workflow
+   */
+  async pushReleaseTag(versionInfo) {
+    const tagName = `v${versionInfo.new}`;
+    try {
+      await this.execCommand(`git tag ${tagName}`);
+      await this.execCommand(`git push origin ${tagName}`);
+      this.log(`Pushed tag ${tagName} to trigger release workflow`);
+      return tagName;
+    } catch (error) {
+      console.error('Error pushing tag:', error.message);
+      throw error;
     }
+  }
 
-    incrementVersion(version) {
-        const parts = version.split('.');
-        parts[2] = (parseInt(parts[2]) + 1).toString();
-        return parts.join('.');
-    }
-
-    /**
-     * @ai-context Generate changelog preview using git log
-     */
-    async generateChangelogPreview(versionInfo) {
-        try {
-            // Get commits since last tag or last 10 commits if no tag
-            const commits = await this.execCommand('git log -n 10 --pretty=format:"- %s"');
-            return `# Changelog Preview (v${versionInfo.new})\n\n${commits}`;
-        } catch (error) {
-            return `# Changelog Preview\n\nCould not generate preview: ${error.message}`;
-        }
-    }
-
-    /**
-     * @ai-context Push git tag to trigger release workflow
-     */
-    async pushReleaseTag(versionInfo) {
-        const tagName = `v${versionInfo.new}`;
-        try {
-            await this.execCommand(`git tag ${tagName}`);
-            await this.execCommand(`git push origin ${tagName}`);
-            this.log(`Pushed tag ${tagName} to trigger release workflow`);
-            return tagName;
-        } catch (error) {
-            console.error('Error pushing tag:', error.message);
-            throw error;
-        }
-    }
-
-    generateReleaseReport(versionInfo, release) {
-        return `# Release Report
+  generateReleaseReport(versionInfo, release) {
+    return `# Release Report
 
 ## Version Information
 - **Previous**: ${versionInfo.current}
@@ -132,11 +138,11 @@ class ReleaseManager extends BasePersona {
 
 ---
 *Generated by Release Manager Agent on ${new Date().toISOString()}*`;
-    }
+  }
 
-    async closeWorkflow(originalIssue, release) {
-        // Add final comment to original issue
-        const comment = `## 🎉 BMAD Workflow Completed
+  async closeWorkflow(originalIssue, release) {
+    // Add final comment to original issue
+    const comment = `## 🎉 BMAD Workflow Completed
 
 **Release**: ${release.name}
 **Tag**: ${release.tag_name}
@@ -162,21 +168,21 @@ The BMAD autonomous workflow has been successfully completed! 🚀
 ---
 *Workflow completed by Release Manager Agent*`;
 
-        await this.octokit.rest.issues.createComment({
-            owner: process.env.GITHUB_OWNER || 'helton-godoy',
-            repo: process.env.GITHUB_REPO || 'shantilly-cli',
-            issue_number: originalIssue.number,
-            body: comment
-        });
+    await this.octokit.rest.issues.createComment({
+      owner: process.env.GITHUB_OWNER || 'helton-godoy',
+      repo: process.env.GITHUB_REPO || 'shantilly-cli',
+      issue_number: originalIssue.number,
+      body: comment,
+    });
 
-        // Close the original issue
-        await this.octokit.rest.issues.update({
-            owner: process.env.GITHUB_OWNER || 'helton-godoy',
-            repo: process.env.GITHUB_REPO || 'shantilly-cli',
-            issue_number: originalIssue.number,
-            state: 'closed'
-        });
-    }
+    // Close the original issue
+    await this.octokit.rest.issues.update({
+      owner: process.env.GITHUB_OWNER || 'helton-godoy',
+      repo: process.env.GITHUB_REPO || 'shantilly-cli',
+      issue_number: originalIssue.number,
+      state: 'closed',
+    });
+  }
 }
 
 module.exports = ReleaseManager;

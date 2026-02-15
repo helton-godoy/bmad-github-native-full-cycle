@@ -7,75 +7,84 @@ const BasePersona = require('./base-persona');
 const ProductContextValidator = require('../scripts/bmad/product-context-validator');
 
 class Architect extends BasePersona {
-    constructor(githubToken) {
-        super('Architect Agent', 'Architect', githubToken);
-    }
+  constructor(githubToken) {
+    super('Architect Agent', 'Architect', githubToken);
+  }
 
-    /**
-     * @ai-context Design system architecture based on requirements
-     */
-    async execute(planningIssueNumber) {
-        this.log('Starting architecture design');
+  /**
+   * @ai-context Design system architecture based on requirements
+   */
+  async execute(planningIssueNumber) {
+    this.log('Starting architecture design');
 
-        try {
-            // Validate product context before proceeding
-            try {
-                const validator = new ProductContextValidator();
-                const result = validator.validate();
-                if (!result.valid) {
-                    throw new Error(`productContext.md validation failed: ${result.errors.join('; ')}`);
-                }
-            } catch (validationError) {
-                this.log(`Product context validation error: ${validationError.message}`);
-                throw validationError;
-            }
-
-            // Get planning issue
-            const issue = await this.octokit.rest.issues.get({
-                owner: process.env.GITHUB_OWNER || 'helton-godoy',
-                repo: process.env.GITHUB_REPO || 'shantilly-cli',
-                issue_number: planningIssueNumber
-            });
-
-            this.log(`Designing architecture for: ${issue.data.title}`);
-
-            // Create architecture design
-            const architectureDesign = this.createArchitectureDesign(issue.data);
-
-            // Update context
-            this.updateActiveContext(`Designing arquitetura para issue #${planningIssueNumber}`);
-
-            // Create implementation issue
-            await this.createImplementationIssue(issue.data, architectureDesign);
-
-            // Micro-commit architecture documents
-            await this.microCommit('Architect: System design completed', [
-                {
-                    path: 'docs/architecture/system-design.md',
-                    content: architectureDesign
-                }
-            ]);
-
-            this.log('Architecture design completed');
-            return architectureDesign;
-
-        } catch (error) {
-            this.log(`Error in Architect execution: ${error.message}`);
-            throw error;
+    try {
+      // Validate product context before proceeding
+      try {
+        const validator = new ProductContextValidator();
+        const result = validator.validate();
+        if (!result.valid) {
+          throw new Error(
+            `productContext.md validation failed: ${result.errors.join('; ')}`
+          );
         }
+      } catch (validationError) {
+        this.log(
+          `Product context validation error: ${validationError.message}`
+        );
+        throw validationError;
+      }
+
+      // Get planning issue
+      const issue = await this.octokit.rest.issues.get({
+        owner: process.env.GITHUB_OWNER || 'helton-godoy',
+        repo: process.env.GITHUB_REPO || 'shantilly-cli',
+        issue_number: planningIssueNumber,
+      });
+
+      this.log(`Designing architecture for: ${issue.data.title}`);
+
+      // Create architecture design
+      const architectureDesign = this.createArchitectureDesign(issue.data);
+
+      // Update context
+      this.updateActiveContext(
+        `Designing arquitetura para issue #${planningIssueNumber}`
+      );
+
+      // Create implementation issue
+      await this.createImplementationIssue(issue.data, architectureDesign);
+
+      // Micro-commit architecture documents
+      await this.microCommit('Architect: System design completed', [
+        {
+          path: 'docs/architecture/system-design.md',
+          content: architectureDesign,
+        },
+      ]);
+
+      this.log('Architecture design completed');
+      return architectureDesign;
+    } catch (error) {
+      this.log(`Error in Architect execution: ${error.message}`);
+      throw error;
     }
+  }
 
-    /**
-     * @ai-context Create comprehensive architecture design
-     */
-    createArchitectureDesign(planningIssue) {
-        // Extract context or use defaults
-        const productContext = this.context.productContext || '';
-        const techStackMatch = productContext.match(/## Technical Stack([\s\S]*?)##/);
-        const techStack = techStackMatch ? techStackMatch[1].trim() : 'Node.js (Default)';
-        const systemMap = (this.context.architectureSpec || '').trim();
+  /**
+   * @ai-context Create comprehensive architecture design
+   */
+  createArchitectureDesign(planningIssue) {
+    // Extract context or use defaults
+    const productContext = this.context.productContext || '';
+    const techStackMatch = productContext.match(
+      /## Technical Stack([\s\S]*?)##/
+    );
+    const techStack = techStackMatch
+      ? techStackMatch[1].trim()
+      : 'Node.js (Default)';
+    const systemMap = (this.context.architectureSpec || '').trim();
 
-        const design = `# System Architecture Design
+    const design = `# System Architecture Design
 
 ## Overview
 Architecture design for: ${planningIssue.title}
@@ -168,15 +177,15 @@ src/ or cmd/
 ---
 *Designed by Architect Agent on ${new Date().toISOString()}*`;
 
-        return design;
-    }
+    return design;
+  }
 
-    /**
-     * @ai-context Create implementation issue for developers
-     */
-    async createImplementationIssue(planningIssue, architectureDesign) {
-        const title = `Implementation: ${planningIssue.title.replace('Architecture Planning: ', '')}`;
-        const body = `## Planning Issue
+  /**
+   * @ai-context Create implementation issue for developers
+   */
+  async createImplementationIssue(planningIssue, architectureDesign) {
+    const title = `Implementation: ${planningIssue.title.replace('Architecture Planning: ', '')}`;
+    const body = `## Planning Issue
 #${planningIssue.number}: ${planningIssue.title}
 
 ## Architecture Design
@@ -225,8 +234,8 @@ ${architectureDesign}
 ---
 *Created by Architect Agent*`;
 
-        await this.createIssue(title, body, ['implementation', 'development']);
-    }
+    await this.createIssue(title, body, ['implementation', 'development']);
+  }
 }
 
 module.exports = Architect;

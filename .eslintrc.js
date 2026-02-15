@@ -14,7 +14,7 @@ module.exports = {
         'no-unused-vars': 'error',
         'semi': ['error', 'always'],
         'quotes': ['error', 'single'],
-        'indent': ['error', 2],
+        'indent': 'off', // Handled by Prettier
         'comma-dangle': ['error', 'always-multiline'],
     },
 };

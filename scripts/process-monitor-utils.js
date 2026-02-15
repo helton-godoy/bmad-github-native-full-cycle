@@ -9,74 +9,86 @@ const fs = require('fs');
 const path = require('path');
 
 class ProcessMonitorUtils {
-    /**
-     * Analyze existing log files
-     */
-    static async analyzeLogs(logPath) {
-        if (!fs.existsSync(logPath)) {
-            throw new Error(`Log file not found: ${logPath}`);
-        }
-
-        const logContent = fs.readFileSync(logPath, 'utf8');
-        const logLines = logContent.trim().split('\n').filter(line => line.trim());
-
-        const analysis = {
-            totalEntries: logLines.length,
-            processEvents: {
-                created: 0,
-                destroyed: 0,
-                alerts: 0
-            },
-            timeRange: {
-                start: null,
-                end: null
-            },
-            processTypes: {},
-            alerts: [],
-            errors: []
-        };
-
-        for (const line of logLines) {
-            try {
-                const entry = JSON.parse(line);
-
-                // Update time range
-                if (!analysis.timeRange.start || entry.timestamp < analysis.timeRange.start) {
-                    analysis.timeRange.start = entry.timestamp;
-                }
-                if (!analysis.timeRange.end || entry.timestamp > analysis.timeRange.end) {
-                    analysis.timeRange.end = entry.timestamp;
-                }
-
-                // Count events
-                switch (entry.type) {
-                case 'process_created': {
-                    analysis.processEvents.created++;
-                    const processType = entry.processType || 'unknown';
-                    analysis.processTypes[processType] = (analysis.processTypes[processType] || 0) + 1;
-                    break;
-                }
-                case 'process_destroyed':
-                    analysis.processEvents.destroyed++;
-                    break;
-                case 'alert':
-                    analysis.processEvents.alerts++;
-                    analysis.alerts.push(entry);
-                    break;
-                }
-            } catch (error) {
-                analysis.errors.push(`Failed to parse line: ${line.substring(0, 100)}...`);
-            }
-        }
-
-        return analysis;
+  /**
+   * Analyze existing log files
+   */
+  static async analyzeLogs(logPath) {
+    if (!fs.existsSync(logPath)) {
+      throw new Error(`Log file not found: ${logPath}`);
     }
 
-    /**
-     * Generate HTML report from JSON report
-     */
-    static generateHtmlReport(jsonReport, outputPath) {
-        const html = `
+    const logContent = fs.readFileSync(logPath, 'utf8');
+    const logLines = logContent
+      .trim()
+      .split('\n')
+      .filter((line) => line.trim());
+
+    const analysis = {
+      totalEntries: logLines.length,
+      processEvents: {
+        created: 0,
+        destroyed: 0,
+        alerts: 0,
+      },
+      timeRange: {
+        start: null,
+        end: null,
+      },
+      processTypes: {},
+      alerts: [],
+      errors: [],
+    };
+
+    for (const line of logLines) {
+      try {
+        const entry = JSON.parse(line);
+
+        // Update time range
+        if (
+          !analysis.timeRange.start ||
+          entry.timestamp < analysis.timeRange.start
+        ) {
+          analysis.timeRange.start = entry.timestamp;
+        }
+        if (
+          !analysis.timeRange.end ||
+          entry.timestamp > analysis.timeRange.end
+        ) {
+          analysis.timeRange.end = entry.timestamp;
+        }
+
+        // Count events
+        switch (entry.type) {
+          case 'process_created': {
+            analysis.processEvents.created++;
+            const processType = entry.processType || 'unknown';
+            analysis.processTypes[processType] =
+              (analysis.processTypes[processType] || 0) + 1;
+            break;
+          }
+          case 'process_destroyed':
+            analysis.processEvents.destroyed++;
+            break;
+          case 'alert':
+            analysis.processEvents.alerts++;
+            analysis.alerts.push(entry);
+            break;
+        }
+      } catch (error) {
+        analysis.errors.push(
+          `Failed to parse line: ${line.substring(0, 100)}...`
+        );
+      }
+    }
+
+    return analysis;
+  }
+
+  /**
+   * Generate HTML report from JSON report
+   */
+  static generateHtmlReport(jsonReport, outputPath) {
+    const html = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -140,13 +152,17 @@ class ProcessMonitorUtils {
                     </tr>
                 </thead>
                 <tbody>
-                    ${Object.entries(jsonReport.processTypes).map(([type, data]) => `
+                    ${Object.entries(jsonReport.processTypes)
+                      .map(
+                        ([type, data]) => `
                         <tr>
                             <td>${type}</td>
                             <td>${data.count}</td>
                             <td>${data.percentage}%</td>
                         </tr>
-                    `).join('')}
+                    `
+                      )
+                      .join('')}
                 </tbody>
             </table>
         </div>
@@ -181,17 +197,25 @@ class ProcessMonitorUtils {
             </table>
         </div>
 
-        ${jsonReport.alerts.length > 0 ? `
+        ${
+          jsonReport.alerts.length > 0
+            ? `
         <div class="section">
             <h2>🚨 Alerts</h2>
-            ${jsonReport.alerts.map(alert => `
+            ${jsonReport.alerts
+              .map(
+                (alert) => `
                 <div class="alert ${alert.type.includes('error') ? 'error' : ''}">
                     <strong>${alert.type}</strong> - ${alert.timestamp}<br>
                     ${JSON.stringify(alert.data, null, 2)}
                 </div>
-            `).join('')}
+            `
+              )
+              .join('')}
         </div>
-        ` : ''}
+        `
+            : ''
+        }
 
         <div class="section">
             <h2>📋 Detailed Process List</h2>
@@ -207,7 +231,9 @@ class ProcessMonitorUtils {
                         </tr>
                     </thead>
                     <tbody>
-                        ${jsonReport.detailedProcesses.map(process => `
+                        ${jsonReport.detailedProcesses
+                          .map(
+                            (process) => `
                             <tr>
                                 <td>${process.pid}</td>
                                 <td>${process.type}</td>
@@ -215,13 +241,17 @@ class ProcessMonitorUtils {
                                 <td>${process.lifetime ? (process.lifetime / 1000).toFixed(2) : 'N/A'}</td>
                                 <td>${process.status}</td>
                             </tr>
-                        `).join('')}
+                        `
+                          )
+                          .join('')}
                     </tbody>
                 </table>
             </div>
         </div>
 
-        ${jsonReport.jestSpecific ? `
+        ${
+          jsonReport.jestSpecific
+            ? `
         <div class="section">
             <h2>🧪 Jest-Specific Statistics</h2>
             <div class="summary">
@@ -243,173 +273,191 @@ class ProcessMonitorUtils {
                 </div>
             </div>
         </div>
-        ` : ''}
+        `
+            : ''
+        }
     </div>
 </body>
 </html>`;
 
-        fs.writeFileSync(outputPath, html);
-        return outputPath;
+    fs.writeFileSync(outputPath, html);
+    return outputPath;
+  }
+
+  /**
+   * Clean old log files
+   */
+  static cleanOldLogs(logDir, maxAgeMs = 7 * 24 * 60 * 60 * 1000) {
+    // 7 days default
+    if (!fs.existsSync(logDir)) {
+      return { cleaned: 0, errors: [] };
     }
 
-    /**
-     * Clean old log files
-     */
-    static cleanOldLogs(logDir, maxAgeMs = 7 * 24 * 60 * 60 * 1000) { // 7 days default
-        if (!fs.existsSync(logDir)) {
-            return { cleaned: 0, errors: [] };
+    const files = fs.readdirSync(logDir);
+    const now = Date.now();
+    let cleaned = 0;
+    const errors = [];
+
+    for (const file of files) {
+      if (!file.includes('process-monitor') || !file.endsWith('.json')) {
+        continue;
+      }
+
+      const filePath = path.join(logDir, file);
+      try {
+        const stats = fs.statSync(filePath);
+        const age = now - stats.mtime.getTime();
+
+        if (age > maxAgeMs) {
+          fs.unlinkSync(filePath);
+          cleaned++;
+        }
+      } catch (error) {
+        errors.push(`Failed to process ${file}: ${error.message}`);
+      }
+    }
+
+    return { cleaned, errors };
+  }
+
+  /**
+   * Get system process information
+   */
+  static async getSystemProcessInfo() {
+    const { exec } = require('child_process');
+
+    return new Promise((resolve, reject) => {
+      exec('ps aux --no-headers | wc -l', (error, stdout) => {
+        if (error) {
+          reject(error);
+          return;
         }
 
-        const files = fs.readdirSync(logDir);
-        const now = Date.now();
-        let cleaned = 0;
-        const errors = [];
+        const totalProcesses = parseInt(stdout.trim());
 
-        for (const file of files) {
-            if (!file.includes('process-monitor') || !file.endsWith('.json')) {
-                continue;
+        exec(
+          'ps aux --no-headers | grep -E "(node|npm|jest)" | wc -l',
+          (error2, stdout2) => {
+            if (error2) {
+              reject(error2);
+              return;
             }
 
-            const filePath = path.join(logDir, file);
-            try {
-                const stats = fs.statSync(filePath);
-                const age = now - stats.mtime.getTime();
+            const nodeProcesses = parseInt(stdout2.trim());
 
-                if (age > maxAgeMs) {
-                    fs.unlinkSync(filePath);
-                    cleaned++;
-                }
-            } catch (error) {
-                errors.push(`Failed to process ${file}: ${error.message}`);
-            }
+            resolve({
+              totalSystemProcesses: totalProcesses,
+              nodeRelatedProcesses: nodeProcesses,
+              timestamp: new Date().toISOString(),
+            });
+          }
+        );
+      });
+    });
+  }
+
+  /**
+   * Kill processes by pattern
+   */
+  static async killProcessesByPattern(pattern, signal = 'SIGTERM') {
+    const { exec } = require('child_process');
+
+    return new Promise((resolve) => {
+      exec(
+        `pkill -${signal.replace('SIG', '')} -f "${pattern}"`,
+        (error, stdout, stderr) => {
+          // pkill returns non-zero if no processes found, which is not an error
+          resolve({
+            success: true,
+            pattern,
+            signal,
+            stdout: stdout.trim(),
+            stderr: stderr.trim(),
+          });
         }
-
-        return { cleaned, errors };
-    }
-
-    /**
-     * Get system process information
-     */
-    static async getSystemProcessInfo() {
-        const { exec } = require('child_process');
-
-        return new Promise((resolve, reject) => {
-            exec('ps aux --no-headers | wc -l', (error, stdout) => {
-                if (error) {
-                    reject(error);
-                    return;
-                }
-
-                const totalProcesses = parseInt(stdout.trim());
-
-                exec('ps aux --no-headers | grep -E "(node|npm|jest)" | wc -l', (error2, stdout2) => {
-                    if (error2) {
-                        reject(error2);
-                        return;
-                    }
-
-                    const nodeProcesses = parseInt(stdout2.trim());
-
-                    resolve({
-                        totalSystemProcesses: totalProcesses,
-                        nodeRelatedProcesses: nodeProcesses,
-                        timestamp: new Date().toISOString()
-                    });
-                });
-            });
-        });
-    }
-
-    /**
-     * Kill processes by pattern
-     */
-    static async killProcessesByPattern(pattern, signal = 'SIGTERM') {
-        const { exec } = require('child_process');
-
-        return new Promise((resolve) => {
-            exec(`pkill -${signal.replace('SIG', '')} -f "${pattern}"`, (error, stdout, stderr) => {
-                // pkill returns non-zero if no processes found, which is not an error
-                resolve({
-                    success: true,
-                    pattern,
-                    signal,
-                    stdout: stdout.trim(),
-                    stderr: stderr.trim()
-                });
-            });
-        });
-    }
+      );
+    });
+  }
 }
 
 // CLI interface
 if (require.main === module) {
-    const command = process.argv[2];
-    const args = process.argv.slice(3);
+  const command = process.argv[2];
+  const args = process.argv.slice(3);
 
-    switch (command) {
+  switch (command) {
     case 'analyze':
-        if (args.length === 0) {
-            console.error('Usage: node process-monitor-utils.js analyze <log-file>');
-            process.exit(1);
-        }
-        ProcessMonitorUtils.analyzeLogs(args[0])
-            .then(analysis => console.log(JSON.stringify(analysis, null, 2)))
-            .catch(error => {
-                console.error(`Analysis failed: ${error.message}`);
-                process.exit(1);
-            });
-        break;
+      if (args.length === 0) {
+        console.error(
+          'Usage: node process-monitor-utils.js analyze <log-file>'
+        );
+        process.exit(1);
+      }
+      ProcessMonitorUtils.analyzeLogs(args[0])
+        .then((analysis) => console.log(JSON.stringify(analysis, null, 2)))
+        .catch((error) => {
+          console.error(`Analysis failed: ${error.message}`);
+          process.exit(1);
+        });
+      break;
 
     case 'html-report':
-        if (args.length < 2) {
-            console.error('Usage: node process-monitor-utils.js html-report <json-report> <output-html>');
-            process.exit(1);
-        }
-        try {
-            const jsonReport = JSON.parse(fs.readFileSync(args[0], 'utf8'));
-            const htmlPath = ProcessMonitorUtils.generateHtmlReport(jsonReport, args[1]);
-            console.log(`HTML report generated: ${htmlPath}`);
-        } catch (error) {
-            console.error(`HTML report generation failed: ${error.message}`);
-            process.exit(1);
-        }
-        break;
+      if (args.length < 2) {
+        console.error(
+          'Usage: node process-monitor-utils.js html-report <json-report> <output-html>'
+        );
+        process.exit(1);
+      }
+      try {
+        const jsonReport = JSON.parse(fs.readFileSync(args[0], 'utf8'));
+        const htmlPath = ProcessMonitorUtils.generateHtmlReport(
+          jsonReport,
+          args[1]
+        );
+        console.log(`HTML report generated: ${htmlPath}`);
+      } catch (error) {
+        console.error(`HTML report generation failed: ${error.message}`);
+        process.exit(1);
+      }
+      break;
 
     case 'clean': {
-        const logDir = args[0] || '.github/logs';
-        const maxAge = args[1] ? parseInt(args[1]) : undefined;
-        const result = ProcessMonitorUtils.cleanOldLogs(logDir, maxAge);
-        console.log(`Cleaned ${result.cleaned} old log files`);
-        if (result.errors.length > 0) {
-            console.error('Errors:', result.errors);
-        }
-        break;
+      const logDir = args[0] || '.github/logs';
+      const maxAge = args[1] ? parseInt(args[1]) : undefined;
+      const result = ProcessMonitorUtils.cleanOldLogs(logDir, maxAge);
+      console.log(`Cleaned ${result.cleaned} old log files`);
+      if (result.errors.length > 0) {
+        console.error('Errors:', result.errors);
+      }
+      break;
     }
 
     case 'system-info':
-        ProcessMonitorUtils.getSystemProcessInfo()
-            .then(info => console.log(JSON.stringify(info, null, 2)))
-            .catch(error => {
-                console.error(`System info failed: ${error.message}`);
-                process.exit(1);
-            });
-        break;
+      ProcessMonitorUtils.getSystemProcessInfo()
+        .then((info) => console.log(JSON.stringify(info, null, 2)))
+        .catch((error) => {
+          console.error(`System info failed: ${error.message}`);
+          process.exit(1);
+        });
+      break;
 
     case 'kill':
-        if (args.length === 0) {
-            console.error('Usage: node process-monitor-utils.js kill <pattern> [signal]');
-            process.exit(1);
-        }
-        ProcessMonitorUtils.killProcessesByPattern(args[0], args[1])
-            .then(result => console.log(JSON.stringify(result, null, 2)))
-            .catch(error => {
-                console.error(`Kill failed: ${error.message}`);
-                process.exit(1);
-            });
-        break;
+      if (args.length === 0) {
+        console.error(
+          'Usage: node process-monitor-utils.js kill <pattern> [signal]'
+        );
+        process.exit(1);
+      }
+      ProcessMonitorUtils.killProcessesByPattern(args[0], args[1])
+        .then((result) => console.log(JSON.stringify(result, null, 2)))
+        .catch((error) => {
+          console.error(`Kill failed: ${error.message}`);
+          process.exit(1);
+        });
+      break;
 
     default:
-        console.log(`
+      console.log(`
 Process Monitor Utilities
 
 Usage: node process-monitor-utils.js <command> [args]
@@ -427,8 +475,8 @@ Examples:
   node process-monitor-utils.js clean .github/logs 604800000
   node process-monitor-utils.js kill "jest" SIGTERM
             `);
-        break;
-    }
+      break;
+  }
 }
 
 module.exports = ProcessMonitorUtils;

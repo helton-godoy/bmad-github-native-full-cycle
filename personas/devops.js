@@ -6,67 +6,72 @@
 const BasePersona = require('./base-persona');
 
 class DevOps extends BasePersona {
-    constructor(githubToken) {
-        super('DevOps Agent', 'DevOps', githubToken);
+  constructor(githubToken) {
+    super('DevOps Agent', 'DevOps', githubToken);
+  }
+
+  async execute(deploymentIssueNumber) {
+    this.log('Starting deployment preparation');
+
+    try {
+      const issue = await this.octokit.rest.issues.get({
+        owner: process.env.GITHUB_OWNER || 'helton-godoy',
+        repo: process.env.GITHUB_REPO || 'shantilly-cli',
+        issue_number: deploymentIssueNumber,
+      });
+
+      this.updateActiveContext(
+        `Preparando deployment da issue #${deploymentIssueNumber}`
+      );
+
+      // Infrastructure setup
+      const infrastructureSetup = await this.setupInfrastructure();
+
+      // CI/CD pipeline
+      const pipelineConfig = await this.configureCICD();
+
+      // Monitoring setup
+      const monitoringConfig = await this.setupMonitoring();
+
+      const deploymentReport = this.generateDeploymentReport(
+        infrastructureSetup,
+        pipelineConfig,
+        monitoringConfig
+      );
+
+      await this.microCommit('DevOps: Deployment preparation completed', [
+        {
+          path: '.github/workflows/ci-cd.yml',
+          content: pipelineConfig,
+        },
+        {
+          path: 'docs/deployment/deployment-guide.md',
+          content: deploymentReport,
+        },
+      ]);
+
+      await this.createReleaseIssue(issue.data, deploymentReport);
+
+      this.log('Deployment preparation completed');
+      return deploymentReport;
+    } catch (error) {
+      this.log(`Error in DevOps execution: ${error.message}`);
+      throw error;
     }
+  }
 
-    async execute(deploymentIssueNumber) {
-        this.log('Starting deployment preparation');
-        
-        try {
-            const issue = await this.octokit.rest.issues.get({
-                owner: process.env.GITHUB_OWNER || 'helton-godoy',
-                repo: process.env.GITHUB_REPO || 'shantilly-cli',
-                issue_number: deploymentIssueNumber
-            });
+  async setupInfrastructure() {
+    return {
+      environment: 'Production ready',
+      database: 'File-based storage',
+      caching: 'In-memory cache',
+      monitoring: 'Configured',
+      backup: 'Git-based',
+    };
+  }
 
-            this.updateActiveContext(`Preparando deployment da issue #${deploymentIssueNumber}`);
-
-            // Infrastructure setup
-            const infrastructureSetup = await this.setupInfrastructure();
-            
-            // CI/CD pipeline
-            const pipelineConfig = await this.configureCICD();
-            
-            // Monitoring setup
-            const monitoringConfig = await this.setupMonitoring();
-
-            const deploymentReport = this.generateDeploymentReport(infrastructureSetup, pipelineConfig, monitoringConfig);
-
-            await this.microCommit('DevOps: Deployment preparation completed', [
-                {
-                    path: '.github/workflows/ci-cd.yml',
-                    content: pipelineConfig
-                },
-                {
-                    path: 'docs/deployment/deployment-guide.md',
-                    content: deploymentReport
-                }
-            ]);
-
-            await this.createReleaseIssue(issue.data, deploymentReport);
-
-            this.log('Deployment preparation completed');
-            return deploymentReport;
-
-        } catch (error) {
-            this.log(`Error in DevOps execution: ${error.message}`);
-            throw error;
-        }
-    }
-
-    async setupInfrastructure() {
-        return {
-            environment: 'Production ready',
-            database: 'File-based storage',
-            caching: 'In-memory cache',
-            monitoring: 'Configured',
-            backup: 'Git-based'
-        };
-    }
-
-    async configureCICD() {
-        return `name: BMAD CI/CD Pipeline
+  async configureCICD() {
+    return `name: BMAD CI/CD Pipeline
 
 on:
   push:
@@ -101,19 +106,19 @@ jobs:
     - uses: actions/checkout@v3
     - name: Deploy
       run: echo "Deployment step"`;
-    }
+  }
 
-    async setupMonitoring() {
-        return {
-            logging: 'Winston configured',
-            metrics: 'Prometheus ready',
-            alerts: 'Email notifications',
-            healthChecks: 'Endpoint configured'
-        };
-    }
+  async setupMonitoring() {
+    return {
+      logging: 'Winston configured',
+      metrics: 'Prometheus ready',
+      alerts: 'Email notifications',
+      healthChecks: 'Endpoint configured',
+    };
+  }
 
-    generateDeploymentReport(infrastructure, pipeline, monitoring) {
-        return `# Deployment Report
+  generateDeploymentReport(infrastructure, pipeline, monitoring) {
+    return `# Deployment Report
 
 ## Infrastructure Setup
 - **Environment**: ${infrastructure.environment}
@@ -138,11 +143,11 @@ jobs:
 
 ---
 *Generated by DevOps Agent on ${new Date().toISOString()}*`;
-    }
+  }
 
-    async createReleaseIssue(originalIssue, deploymentReport) {
-        const title = `Release: ${originalIssue.title.replace('Deployment Preparation: ', '')}`;
-        const body = `## Deployment Report
+  async createReleaseIssue(originalIssue, deploymentReport) {
+    const title = `Release: ${originalIssue.title.replace('Deployment Preparation: ', '')}`;
+    const body = `## Deployment Report
 ${deploymentReport}
 
 ## Release Checklist
@@ -157,8 +162,8 @@ ${deploymentReport}
 ---
 *Created by DevOps Agent*`;
 
-        await this.createIssue(title, body, ['release', 'deployment']);
-    }
+    await this.createIssue(title, body, ['release', 'deployment']);
+  }
 }
 
 module.exports = DevOps;

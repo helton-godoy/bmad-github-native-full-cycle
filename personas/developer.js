@@ -8,122 +8,138 @@ const fs = require('fs');
 const path = require('path');
 
 class Developer extends BasePersona {
-    constructor(githubToken) {
-        super('Developer Agent', 'Developer', githubToken);
+  constructor(githubToken) {
+    super('Developer Agent', 'Developer', githubToken);
+  }
+
+  /**
+   * @ai-context Implement features based on architecture design
+   */
+  async execute(implementationIssueNumber) {
+    this.log('Starting implementation');
+
+    try {
+      // Get implementation issue
+      const issue = await this.octokit.rest.issues.get({
+        owner: process.env.GITHUB_OWNER || 'helton-godoy',
+        repo: process.env.GITHUB_REPO || 'shantilly-cli',
+        issue_number: implementationIssueNumber,
+      });
+
+      this.log(`Implementing: ${issue.data.title}`);
+
+      // Update context
+      this.updateActiveContext(
+        `Implementando feature da issue #${implementationIssueNumber}`
+      );
+
+      // Implement core components
+      await this.implementCoreComponents();
+
+      // Implement API endpoints
+      await this.implementAPIEndpoints();
+
+      // Implement GitHub integration
+      await this.implementGitHubIntegration();
+
+      // Create tests
+      await this.createTests();
+
+      // Micro-commit implementation
+      await this.microCommit('Developer: Core implementation completed', [
+        {
+          path: 'src/app.js',
+          content: this.getAppJS(),
+        },
+        {
+          path: 'src/config/index.js',
+          content: this.getConfigJS(),
+        },
+        {
+          path: 'src/services/github-service.js',
+          content: this.getGitHubServiceJS(),
+        },
+        {
+          path: 'src/controllers/persona-controller.js',
+          content: this.getPersonaControllerJS(),
+        },
+        {
+          path: 'tests/integration.test.js',
+          content: this.getIntegrationTests(),
+        },
+      ]);
+
+      // Create QA review issue
+      await this.createQAReviewIssue(issue.data);
+
+      this.log('Implementation completed');
+      return {
+        status: 'completed',
+        files: [
+          'src/app.js',
+          'src/config/index.js',
+          'src/services/github-service.js',
+          'src/controllers/persona-controller.js',
+        ],
+      };
+    } catch (error) {
+      this.log(`Error in Developer execution: ${error.message}`);
+      throw error;
     }
+  }
 
-    /**
-     * @ai-context Implement features based on architecture design
-     */
-    async execute(implementationIssueNumber) {
-        this.log('Starting implementation');
-        
-        try {
-            // Get implementation issue
-            const issue = await this.octokit.rest.issues.get({
-                owner: process.env.GITHUB_OWNER || 'helton-godoy',
-                repo: process.env.GITHUB_REPO || 'shantilly-cli',
-                issue_number: implementationIssueNumber
-            });
+  /**
+   * @ai-context Implement core application structure
+   */
+  async implementCoreComponents() {
+    this.log('Setting up core application structure');
 
-            this.log(`Implementing: ${issue.data.title}`);
+    // Ensure directories exist
+    const dirs = [
+      'src/config',
+      'src/controllers',
+      'src/services',
+      'src/middleware',
+      'src/utils',
+      'tests',
+    ];
+    dirs.forEach((dir) => {
+      const fullPath = path.join(process.cwd(), dir);
+      if (!fs.existsSync(fullPath)) {
+        fs.mkdirSync(fullPath, { recursive: true });
+      }
+    });
+  }
 
-            // Update context
-            this.updateActiveContext(`Implementando feature da issue #${implementationIssueNumber}`);
+  /**
+   * @ai-context Implement API endpoints
+   */
+  async implementAPIEndpoints() {
+    this.log('Implementing API endpoints');
+    // Implementation handled in getPersonaControllerJS()
+  }
 
-            // Implement core components
-            await this.implementCoreComponents();
+  /**
+   * @ai-context Implement GitHub integration
+   */
+  async implementGitHubIntegration() {
+    this.log('Implementing GitHub integration');
+    // Implementation handled in getGitHubServiceJS()
+  }
 
-            // Implement API endpoints
-            await this.implementAPIEndpoints();
+  /**
+   * @ai-context Create test suite
+   */
+  async createTests() {
+    this.log('Creating test suite');
+    // Implementation handled in getIntegrationTests()
+  }
 
-            // Implement GitHub integration
-            await this.implementGitHubIntegration();
-
-            // Create tests
-            await this.createTests();
-
-            // Micro-commit implementation
-            await this.microCommit('Developer: Core implementation completed', [
-                {
-                    path: 'src/app.js',
-                    content: this.getAppJS()
-                },
-                {
-                    path: 'src/config/index.js',
-                    content: this.getConfigJS()
-                },
-                {
-                    path: 'src/services/github-service.js',
-                    content: this.getGitHubServiceJS()
-                },
-                {
-                    path: 'src/controllers/persona-controller.js',
-                    content: this.getPersonaControllerJS()
-                },
-                {
-                    path: 'tests/integration.test.js',
-                    content: this.getIntegrationTests()
-                }
-            ]);
-
-            // Create QA review issue
-            await this.createQAReviewIssue(issue.data);
-
-            this.log('Implementation completed');
-            return { status: 'completed', files: ['src/app.js', 'src/config/index.js', 'src/services/github-service.js', 'src/controllers/persona-controller.js'] };
-
-        } catch (error) {
-            this.log(`Error in Developer execution: ${error.message}`);
-            throw error;
-        }
-    }
-
-    /**
-     * @ai-context Implement core application structure
-     */
-    async implementCoreComponents() {
-        this.log('Setting up core application structure');
-        
-        // Ensure directories exist
-        const dirs = ['src/config', 'src/controllers', 'src/services', 'src/middleware', 'src/utils', 'tests'];
-        dirs.forEach(dir => {
-            const fullPath = path.join(process.cwd(), dir);
-            if (!fs.existsSync(fullPath)) {
-                fs.mkdirSync(fullPath, { recursive: true });
-            }
-        });
-    }
-
-    /**
-     * @ai-context Implement API endpoints
-     */
-    async implementAPIEndpoints() {
-        this.log('Implementing API endpoints');
-        // Implementation handled in getPersonaControllerJS()
-    }
-
-    /**
-     * @ai-context Implement GitHub integration
-     */
-    async implementGitHubIntegration() {
-        this.log('Implementing GitHub integration');
-        // Implementation handled in getGitHubServiceJS()
-    }
-
-    /**
-     * @ai-context Create test suite
-     */
-    async createTests() {
-        this.log('Creating test suite');
-        // Implementation handled in getIntegrationTests()
-    }
-
-    /**
-     * @ai-context Get Express app configuration
-     */
-    getAppJS() {
-        return `const express = require('express');
+  /**
+   * @ai-context Get Express app configuration
+   */
+  getAppJS() {
+    return `const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const personaController = require('./controllers/persona-controller');
@@ -170,13 +186,13 @@ app.use('*', (req, res) => {
 });
 
 module.exports = app;`;
-    }
+  }
 
-    /**
-     * @ai-context Get configuration module
-     */
-    getConfigJS() {
-        return `require('dotenv').config();
+  /**
+   * @ai-context Get configuration module
+   */
+  getConfigJS() {
+    return `require('dotenv').config();
 
 module.exports = {
     // Server Configuration
@@ -204,13 +220,13 @@ module.exports = {
         enableAutoTesting: process.env.BMAD_AUTO_TESTING !== 'false'
     }
 };`;
-    }
+  }
 
-    /**
-     * @ai-context Get GitHub service implementation
-     */
-    getGitHubServiceJS() {
-        return `const { Octokit } = require('@octokit/rest');
+  /**
+   * @ai-context Get GitHub service implementation
+   */
+  getGitHubServiceJS() {
+    return `const { Octokit } = require('@octokit/rest');
 const config = require('../config');
 
 class GitHubService {
@@ -302,13 +318,13 @@ class GitHubService {
 }
 
 module.exports = new GitHubService();`;
-    }
+  }
 
-    /**
-     * @ai-context Get persona controller implementation
-     */
-    getPersonaControllerJS() {
-        return `const express = require('express');
+  /**
+   * @ai-context Get persona controller implementation
+   */
+  getPersonaControllerJS() {
+    return `const express = require('express');
 const githubService = require('../services/github-service');
 const ProjectManager = require('../../personas/project-manager');
 const Architect = require('../../personas/architect');
@@ -371,13 +387,13 @@ router.get('/status', (req, res) => {
 });
 
 module.exports = router;`;
-    }
+  }
 
-    /**
-     * @ai-context Get integration tests
-     */
-    getIntegrationTests() {
-        return `const request = require('supertest');
+  /**
+   * @ai-context Get integration tests
+   */
+  getIntegrationTests() {
+    return `const request = require('supertest');
 const app = require('../src/app');
 
 describe('BMAD Integration Tests', () => {
@@ -415,14 +431,14 @@ describe('BMAD Integration Tests', () => {
         });
     });
 });`;
-    }
+  }
 
-    /**
-     * @ai-context Create QA review issue
-     */
-    async createQAReviewIssue(implementationIssue) {
-        const title = `QA Review: ${implementationIssue.title.replace('Implementation: ', '')}`;
-        const body = `## Implementation Issue
+  /**
+   * @ai-context Create QA review issue
+   */
+  async createQAReviewIssue(implementationIssue) {
+    const title = `QA Review: ${implementationIssue.title.replace('Implementation: ', '')}`;
+    const body = `## Implementation Issue
 #${implementationIssue.number}: ${implementationIssue.title}
 
 ## Implementation Details
@@ -470,8 +486,8 @@ Core components implemented:
 ---
 *Created by Developer Agent*`;
 
-        await this.createIssue(title, body, ['qa', 'review', 'testing']);
-    }
+    await this.createIssue(title, body, ['qa', 'review', 'testing']);
+  }
 }
 
 module.exports = Developer;

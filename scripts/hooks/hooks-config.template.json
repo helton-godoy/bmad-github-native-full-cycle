@@ -1,65 +1,58 @@
 {
-    "$schema": "https://json-schema.org/draft-07/schema#",
-    "title": "BMAD Git Hooks Configuration",
-    "description": "Configuration for BMAD Git Hooks Automation System",
-    "preCommit": {
-        "linting": true,
-        "testing": true,
-        "contextValidation": true,
-        "gatekeeper": true
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "BMAD Git Hooks Configuration",
+  "description": "Configuration for BMAD Git Hooks Automation System",
+  "preCommit": {
+    "linting": true,
+    "testing": true,
+    "contextValidation": true,
+    "gatekeeper": true
+  },
+  "commitMsg": {
+    "bmadPattern": true,
+    "conventionalCommits": true
+  },
+  "prePush": {
+    "fullTests": true,
+    "build": false,
+    "security": true,
+    "bmadSync": true
+  },
+  "postCommit": {
+    "metrics": true,
+    "documentation": true,
+    "notifications": true,
+    "contextUpdate": true
+  },
+  "postMerge": {
+    "workflow": true,
+    "validation": true,
+    "reporting": true,
+    "personaSync": true
+  },
+  "githubActionsSync": {
+    "enabled": true,
+    "monitorConsistency": true,
+    "reportInconsistencies": true
+  },
+  "developmentMode": {
+    "enabled": false,
+    "bypassPrefixes": ["WIP:", "TEMP:", "DEV:"],
+    "emergencyKeywords": ["emergency", "hotfix"]
+  },
+  "performance": {
+    "testCaching": true,
+    "parallelExecution": true,
+    "timeoutMs": 300000
+  },
+  "notifications": {
+    "slack": {
+      "enabled": false,
+      "webhookUrl": ""
     },
-    "commitMsg": {
-        "bmadPattern": true,
-        "conventionalCommits": true
-    },
-    "prePush": {
-        "fullTests": true,
-        "build": false,
-        "security": true,
-        "bmadSync": true
-    },
-    "postCommit": {
-        "metrics": true,
-        "documentation": true,
-        "notifications": true,
-        "contextUpdate": true
-    },
-    "postMerge": {
-        "workflow": true,
-        "validation": true,
-        "reporting": true,
-        "personaSync": true
-    },
-    "githubActionsSync": {
-        "enabled": true,
-        "monitorConsistency": true,
-        "reportInconsistencies": true
-    },
-    "developmentMode": {
-        "enabled": false,
-        "bypassPrefixes": [
-            "WIP:",
-            "TEMP:",
-            "DEV:"
-        ],
-        "emergencyKeywords": [
-            "emergency",
-            "hotfix"
-        ]
-    },
-    "performance": {
-        "testCaching": true,
-        "parallelExecution": true,
-        "timeoutMs": 300000
-    },
-    "notifications": {
-        "slack": {
-            "enabled": false,
-            "webhookUrl": ""
-        },
-        "email": {
-            "enabled": false,
-            "recipients": []
-        }
+    "email": {
+      "enabled": false,
+      "recipients": []
     }
+  }
 }
