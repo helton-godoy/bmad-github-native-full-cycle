@@ -665,7 +665,7 @@ class HookOrchestrator {
      * Check for bypass mechanisms in development mode
      * Requirements: Development mode bypass controls
      */
-    checkBypassMechanisms(message, validationResult) {
+    checkBypassMechanisms(message, _validationResult) {
         const bypassResult = {
             bypassed: false,
             reason: null,
@@ -835,7 +835,7 @@ class HookOrchestrator {
             return false;
         }
 
-        const [, prefix, number] = match;
+        const [, , number] = match;
         const numericValue = parseInt(number, 10);
 
         // Step ID should be reasonable (not too high, not zero)
@@ -1192,7 +1192,6 @@ class HookOrchestrator {
             // Determine if audit passed based on severity
             const criticalVulns = auditResults.vulnerabilities.critical || 0;
             const highVulns = auditResults.vulnerabilities.high || 0;
-            const moderateVulns = auditResults.vulnerabilities.moderate || 0;
 
             // Fail if critical or high vulnerabilities found
             const auditPassed = criticalVulns === 0 && highVulns === 0;
@@ -1517,39 +1516,39 @@ class HookOrchestrator {
         Object.entries(results).forEach(([checkName, result]) => {
             if (result.status === 'failed') {
                 switch (checkName) {
-                    case 'fullTestSuite':
-                        remediation.steps.push('Fix failing tests before pushing');
-                        remediation.commands.push('npm test');
-                        if (result.coverage && !result.coverageMet) {
-                            remediation.steps.push('Increase test coverage to meet minimum thresholds');
-                            remediation.commands.push('npm run test:coverage');
-                        }
-                        break;
+                case 'fullTestSuite':
+                    remediation.steps.push('Fix failing tests before pushing');
+                    remediation.commands.push('npm test');
+                    if (result.coverage && !result.coverageMet) {
+                        remediation.steps.push('Increase test coverage to meet minimum thresholds');
+                        remediation.commands.push('npm run test:coverage');
+                    }
+                    break;
 
-                    case 'buildValidation':
-                        remediation.steps.push('Fix build errors before pushing');
-                        remediation.commands.push('npm run build');
-                        break;
+                case 'buildValidation':
+                    remediation.steps.push('Fix build errors before pushing');
+                    remediation.commands.push('npm run build');
+                    break;
 
-                    case 'securityAudit':
-                        remediation.steps.push('Fix security vulnerabilities before pushing');
-                        if (result.recommendations) {
-                            remediation.commands.push(...result.recommendations);
-                        } else {
-                            remediation.commands.push('npm audit fix');
-                        }
-                        break;
+                case 'securityAudit':
+                    remediation.steps.push('Fix security vulnerabilities before pushing');
+                    if (result.recommendations) {
+                        remediation.commands.push(...result.recommendations);
+                    } else {
+                        remediation.commands.push('npm audit fix');
+                    }
+                    break;
 
-                    case 'bmadWorkflowSync':
-                        remediation.steps.push('Synchronize BMAD workflow state');
-                        remediation.steps.push('Update activeContext.md with current work');
-                        remediation.commands.push('git add activeContext.md');
-                        break;
+                case 'bmadWorkflowSync':
+                    remediation.steps.push('Synchronize BMAD workflow state');
+                    remediation.steps.push('Update activeContext.md with current work');
+                    remediation.commands.push('git add activeContext.md');
+                    break;
 
-                    case 'gatekeeperIntegration':
-                        remediation.steps.push('Resolve Enhanced Gatekeeper validation issues');
-                        remediation.commands.push('npm run bmad:gatekeeper');
-                        break;
+                case 'gatekeeperIntegration':
+                    remediation.steps.push('Resolve Enhanced Gatekeeper validation issues');
+                    remediation.commands.push('npm run bmad:gatekeeper');
+                    break;
                 }
             }
         });
@@ -2429,44 +2428,44 @@ class HookOrchestrator {
         // Add failure-specific diagnostic steps
         const newSteps = [];
         switch (failureType) {
-            case 'workflow_execution_failed':
-                newSteps.push(
-                    { description: 'Check if bmad:workflow script is properly configured' },
-                    { description: 'Verify all workflow dependencies are installed' },
-                    { description: 'Review workflow logs for specific errors' }
-                );
-                break;
+        case 'workflow_execution_failed':
+            newSteps.push(
+                { description: 'Check if bmad:workflow script is properly configured' },
+                { description: 'Verify all workflow dependencies are installed' },
+                { description: 'Review workflow logs for specific errors' }
+            );
+            break;
 
-            case 'repository_validation_failed':
-                newSteps.push(
-                    { description: 'Run git status to check repository state' },
-                    { description: 'Check for unmerged files or conflicts' },
-                    { description: 'Verify .git directory integrity' }
-                );
-                break;
+        case 'repository_validation_failed':
+            newSteps.push(
+                { description: 'Run git status to check repository state' },
+                { description: 'Check for unmerged files or conflicts' },
+                { description: 'Verify .git directory integrity' }
+            );
+            break;
 
-            case 'test_suite_failed':
-                newSteps.push(
-                    { description: 'Run npm test to see specific test failures' },
-                    { description: 'Check if merge introduced breaking changes' },
-                    { description: 'Review test output for failure details' }
-                );
-                break;
+        case 'test_suite_failed':
+            newSteps.push(
+                { description: 'Run npm test to see specific test failures' },
+                { description: 'Check if merge introduced breaking changes' },
+                { description: 'Review test output for failure details' }
+            );
+            break;
 
-            case 'report_generation_failed':
-                newSteps.push(
-                    { description: 'Check file system permissions for report directory' },
-                    { description: 'Verify .github/reports directory exists and is writable' },
-                    { description: 'Review error logs for file system issues' }
-                );
-                break;
+        case 'report_generation_failed':
+            newSteps.push(
+                { description: 'Check file system permissions for report directory' },
+                { description: 'Verify .github/reports directory exists and is writable' },
+                { description: 'Review error logs for file system issues' }
+            );
+            break;
 
-            default:
-                newSteps.push(
-                    { description: 'Review error message for specific issues' },
-                    { description: 'Check system logs for additional context' },
-                    { description: 'Verify repository is in a consistent state' }
-                );
+        default:
+            newSteps.push(
+                { description: 'Review error message for specific issues' },
+                { description: 'Check system logs for additional context' },
+                { description: 'Verify repository is in a consistent state' }
+            );
         }
 
         // Add new steps, avoiding duplicates
@@ -2484,7 +2483,7 @@ class HookOrchestrator {
      * Generate rollback recommendations
      * Requirement 5.5
      */
-    async generateRollbackRecommendations(recovery, results, mergeType) {
+    async generateRollbackRecommendations(recovery, _results, _mergeType) {
         this.logger.info('Generating rollback recommendations');
 
         try {

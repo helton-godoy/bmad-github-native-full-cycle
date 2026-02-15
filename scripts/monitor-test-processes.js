@@ -3,7 +3,7 @@
 /**
  * Standalone Test Process Monitor
  * Usage: node scripts/monitor-test-processes.js [options]
- * 
+ *
  * Options:
  *   --command <cmd>     Command to monitor (default: npm test)
  *   --duration <ms>     Maximum monitoring duration in ms
@@ -15,6 +15,7 @@
  *   --max-cpu <pct>     Maximum CPU usage percentage
  *   --help              Show help
  */
+/* global setTimeout, setInterval */
 
 const ProcessMonitor = require('./lib/process-monitor');
 const { spawn } = require('child_process');

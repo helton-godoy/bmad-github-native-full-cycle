@@ -3,9 +3,10 @@
  * Tracks process creation, lifecycle, and resource usage with detailed logging
  */
 
+/* global setInterval, clearInterval */
 const fs = require('fs');
 const path = require('path');
-const { spawn, exec } = require('child_process');
+const { exec } = require('child_process');
 const EventEmitter = require('events');
 const Logger = require('./logger');
 
@@ -160,7 +161,7 @@ class ProcessMonitor extends EventEmitter {
      */
     async getSystemProcesses() {
         return new Promise((resolve, reject) => {
-            exec('ps -eo pid,ppid,command,etime,pcpu,pmem --no-headers', (error, stdout, stderr) => {
+            exec('ps -eo pid,ppid,command,etime,pcpu,pmem --no-headers', (error, stdout, _stderr) => {
                 if (error) {
                     reject(error);
                     return;
@@ -314,7 +315,6 @@ class ProcessMonitor extends EventEmitter {
 
         try {
             const systemProcesses = await this.getSystemProcesses();
-            const systemPids = new Set(systemProcesses.map(p => p.pid));
 
             // Update existing processes
             for (const [pid, processData] of this.processes.entries()) {
@@ -392,13 +392,10 @@ class ProcessMonitor extends EventEmitter {
     updateResourceStatistics() {
         let totalMemory = 0;
         let totalCpu = 0;
-        let activeCount = 0;
-
         for (const processData of this.processes.values()) {
             if (processData.status === 'running') {
                 totalMemory += processData.memoryUsage || 0;
                 totalCpu += processData.cpuUsage || 0;
-                activeCount++;
             }
         }
 

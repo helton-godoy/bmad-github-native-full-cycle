@@ -4,6 +4,7 @@
  * Process Monitoring Demo
  * Demonstrates the process monitoring capabilities
  */
+/* global setTimeout */
 
 const ProcessMonitor = require('./lib/process-monitor');
 const { spawn } = require('child_process');

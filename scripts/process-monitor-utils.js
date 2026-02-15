@@ -7,7 +7,6 @@
 
 const fs = require('fs');
 const path = require('path');
-const ProcessMonitor = require('./lib/process-monitor');
 
 class ProcessMonitorUtils {
     /**
@@ -51,11 +50,12 @@ class ProcessMonitorUtils {
 
                 // Count events
                 switch (entry.type) {
-                case 'process_created':
+                case 'process_created': {
                     analysis.processEvents.created++;
                     const processType = entry.processType || 'unknown';
                     analysis.processTypes[processType] = (analysis.processTypes[processType] || 0) + 1;
                     break;
+                }
                 case 'process_destroyed':
                     analysis.processEvents.destroyed++;
                     break;
@@ -326,7 +326,7 @@ class ProcessMonitorUtils {
     static async killProcessesByPattern(pattern, signal = 'SIGTERM') {
         const { exec } = require('child_process');
 
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
             exec(`pkill -${signal.replace('SIG', '')} -f "${pattern}"`, (error, stdout, stderr) => {
                 // pkill returns non-zero if no processes found, which is not an error
                 resolve({
@@ -375,7 +375,7 @@ if (require.main === module) {
         }
         break;
 
-    case 'clean':
+    case 'clean': {
         const logDir = args[0] || '.github/logs';
         const maxAge = args[1] ? parseInt(args[1]) : undefined;
         const result = ProcessMonitorUtils.cleanOldLogs(logDir, maxAge);
@@ -384,6 +384,7 @@ if (require.main === module) {
             console.error('Errors:', result.errors);
         }
         break;
+    }
 
     case 'system-info':
         ProcessMonitorUtils.getSystemProcessInfo()

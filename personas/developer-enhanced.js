@@ -5,7 +5,6 @@
  */
 const EnhancedBasePersona = require('./base-persona-enhanced');
 const fs = require('fs');
-const path = require('path');
 
 class EnhancedDeveloper extends EnhancedBasePersona {
     constructor(githubToken) {
@@ -187,7 +186,7 @@ class EnhancedDeveloper extends EnhancedBasePersona {
     /**
      * @ai-context Generate setup tasks based on requirements
      */
-    generateSetupTasks(requirements) {
+    generateSetupTasks(_requirements) {
         const tasks = [];
 
         // Project structure
@@ -258,7 +257,7 @@ class EnhancedDeveloper extends EnhancedBasePersona {
     /**
      * @ai-context Generate documentation tasks
      */
-    generateDocumentationTasks(requirements) {
+    generateDocumentationTasks(_requirements) {
         return [
             {
                 type: 'documentation',

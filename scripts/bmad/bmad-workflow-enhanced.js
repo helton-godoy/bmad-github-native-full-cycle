@@ -4,6 +4,7 @@
  * @ai-invariant Must execute all personas in sequence with enhanced coordination
  * @ai-connection Coordinates all personas, GitHub integration, and advanced monitoring
  */
+/* global setTimeout */
 require('dotenv').config();
 const EnhancedProjectManager = require('../../personas/project-manager');
 const EnhancedArchitect = require('../../personas/architect');
@@ -365,7 +366,7 @@ class EnhancedBMADWorkflow {
 
 ## Phase Summary
 
-${Object.entries(report.phases).map(([key, phase]) => `
+${Object.entries(report.phases).map(([_key, phase]) => `
 ### ${phase.name}
 - **Status:** ${phase.status === 'completed' ? '✅' : '❌'}
 - **Duration:** ${Math.round(phase.duration / 1000)}s

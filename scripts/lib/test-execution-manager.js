@@ -2,7 +2,7 @@
  * Test Execution Manager - Controls test execution serialization and resource usage
  * Prevents multiple test processes from running simultaneously
  */
-
+/* global setTimeout */
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');

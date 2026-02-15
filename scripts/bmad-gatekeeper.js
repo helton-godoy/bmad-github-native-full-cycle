@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 const { execSync } = require('child_process');
-const fs = require('fs');
 const path = require('path');
 
 const colors = { red: '\x1b[31m', green: '\x1b[32m', yellow: '\x1b[33m', reset: '\x1b[0m' };
@@ -12,7 +11,9 @@ let config = { requireContextUpdate: true };
 try {
     const pkg = require(path.join(process.cwd(), 'package.json'));
     if (pkg.bmad) config = { ...config, ...pkg.bmad };
-} catch (e) {}
+} catch (e) {
+    // Configuração opcional - ignora erro se não existir
+}
 
 // 1. Validar Mensagem de Commit (Conventional Commits)
 const commitMsg = process.argv[2];

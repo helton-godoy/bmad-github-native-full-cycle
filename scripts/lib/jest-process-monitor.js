@@ -94,7 +94,7 @@ class JestProcessMonitor {
                 });
 
                 // Monitor process exit
-                child.on('exit', (code, signal) => {
+                child.on('exit', (code, _signal) => {
                     this.monitor.handleProcessDestruction(child.pid, code);
                 });
             }
@@ -120,7 +120,7 @@ class JestProcessMonitor {
                     parentPid: process.pid
                 });
 
-                child.on('exit', (code, signal) => {
+                child.on('exit', (code, _signal) => {
                     this.monitor.handleProcessDestruction(child.pid, code);
                 });
             }

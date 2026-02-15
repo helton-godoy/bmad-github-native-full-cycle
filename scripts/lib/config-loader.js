@@ -5,7 +5,6 @@
  */
 
 const fs = require('fs');
-const path = require('path');
 
 /**
  * Configuration loader that merges default config, file config, and environment variables
@@ -222,7 +221,7 @@ class ConfigLoader {
         const result = { ...target };
 
         for (const key in source) {
-            if (source.hasOwnProperty(key)) {
+            if (Object.prototype.hasOwnProperty.call(source, key)) {
                 if (
                     typeof source[key] === 'object' &&
                     source[key] !== null &&

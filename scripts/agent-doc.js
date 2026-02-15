@@ -4,6 +4,7 @@
  * Extracts semantic tags (@ai-invariant, @ai-context, @ai-connection) from code
  * and generates docs/architecture/SYSTEM_MAP.md.
  */
+/* global fetch */
 const fs = require('fs');
 const path = require('path');
 

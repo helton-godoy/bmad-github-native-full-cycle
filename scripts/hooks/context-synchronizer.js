@@ -570,15 +570,6 @@ class ContextSynchronizer {
      */
     async syncContextWithPersona(persona, stepId) {
         try {
-            const contextUpdate = {
-                timestamp: new Date().toISOString(),
-                persona,
-                stepId,
-                workflowPhase: this.determineWorkflowPhase({ persona }),
-                summary: `${persona} persona active with step ${stepId}`,
-                changedFiles: this.getChangedFiles()
-            };
-
             const result = await this.updateActiveContext({
                 persona,
                 stepId,
@@ -606,7 +597,7 @@ class ContextSynchronizer {
      * @param {string} stepId - Step ID
      * @returns {Promise<Object>} - Sync result
      */
-    async syncBMADHandover(persona, stepId) {
+    async syncBMADHandover(persona, _stepId) {
         try {
             const handoverPath = path.join(process.cwd(), '.github', 'BMAD_HANDOVER.md');
 

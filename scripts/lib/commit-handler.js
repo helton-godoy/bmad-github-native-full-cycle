@@ -6,7 +6,6 @@
 
 const { execSync } = require('child_process');
 const fs = require('fs');
-const path = require('path');
 const ExponentialBackoff = require('./exponential-backoff');
 const Logger = require('./logger');
 
@@ -255,7 +254,7 @@ class CommitHandler {
                 return result;
             }
 
-            const [fullMatch, persona, stepId, description] = match;
+            const [, persona, stepId, description] = match;
 
             // Validate persona
             const personaValidation = this._validatePersona(persona);

@@ -6,12 +6,10 @@
  */
 require('dotenv').config();
 const fs = require('fs');
-const path = require('path');
 const { Octokit } = require('@octokit/rest');
 const ContextManager = require('../lib/context-manager');
 
 const HANDOVER_FILE = '.github/BMAD_HANDOVER.md';
-const CONTEXT_FILE = 'activeContext.md';
 
 class BMADOrchestrator {
     constructor(eventEmitter = null) {

@@ -221,32 +221,33 @@ if (require.main === module) {
     let exitCode = 0;
 
     switch (command) {
-        case 'validate':
-            exitCode = cli.validate(options);
-            break;
+    case 'validate':
+        exitCode = cli.validate(options);
+        break;
 
-        case 'report':
-            const outputPath = args[1];
-            exitCode = cli.generateReport(outputPath);
-            break;
+    case 'report': {
+        const outputPath = args[1];
+        exitCode = cli.generateReport(outputPath);
+        break;
+    }
 
-        case 'show':
-            exitCode = cli.showConfig();
-            break;
+    case 'show':
+        exitCode = cli.showConfig();
+        break;
 
-        case 'reset':
-            exitCode = cli.resetConfig(options);
-            break;
+    case 'reset':
+        exitCode = cli.resetConfig(options);
+        break;
 
-        case '--help':
-        case '-h':
-            exitCode = cli.showHelp();
-            break;
+    case '--help':
+    case '-h':
+        exitCode = cli.showHelp();
+        break;
 
-        default:
-            console.error(`Unknown command: ${command}`);
-            console.log('Run with --help for usage information');
-            exitCode = 1;
+    default:
+        console.error(`Unknown command: ${command}`);
+        console.log('Run with --help for usage information');
+        exitCode = 1;
     }
 
     process.exit(exitCode);

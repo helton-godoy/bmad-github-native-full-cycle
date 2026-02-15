@@ -1,5 +1,4 @@
 const { execSync } = require('child_process');
-const fs = require('fs');
 const path = require('path');
 const Logger = require('./logger');
 
@@ -1275,7 +1274,7 @@ class EnhancedGatekeeper {
      * Requirements: 1.5, 7.1
      */
     generateHookSummary(validationResult) {
-        const { hookType, gate, validations, errors, warnings } = validationResult;
+        const { hookType, gate, validations, warnings } = validationResult;
 
         const passedCount = validations.filter(v => v.status === 'passed').length;
         const failedCount = validations.filter(v => v.status === 'failed').length;

@@ -53,7 +53,7 @@ class ContextManager {
     /**
      * @ai-context Atomic Write with Lock and Validation
      */
-    write(filePath, content, options = {}) {
+    write(filePath, content, _options = {}) {
         const absolutePath = path.resolve(this.rootDir, filePath);
         const lockName = this.getLockName(filePath);
 
@@ -160,14 +160,16 @@ class ContextManager {
     /**
      * @ai-context Circuit Breaker: Record a failure
      */
-    recordFailure(component = 'workflow') {
+    recordFailure(_component = 'workflow') {
         const cbFile = 'circuit-breaker.json';
         let state = { failures: 0, lastFailure: null, isOpen: false };
 
         try {
             const content = this.read(cbFile);
             if (content) state = JSON.parse(content);
-        } catch (e) { }
+        } catch (e) {
+            // State file doesn't exist yet - will be created with defaults
+        }
 
         state.failures++;
         state.lastFailure = new Date().toISOString();
@@ -197,7 +199,7 @@ class ContextManager {
     /**
      * @ai-context Circuit Breaker: Reset failures (on success)
      */
-    resetFailure(component = 'workflow') {
+    resetFailure(_component = 'workflow') {
         const cbFile = 'circuit-breaker.json';
         this.write(cbFile, JSON.stringify({ failures: 0, lastFailure: null, isOpen: false, firstFailure: null }, null, 2));
     }
@@ -205,7 +207,7 @@ class ContextManager {
     /**
      * @ai-context Circuit Breaker: Check status
      */
-    isCircuitOpen(component = 'workflow') {
+    isCircuitOpen(_component = 'workflow') {
         const cbFile = 'circuit-breaker.json';
         try {
             const content = this.read(cbFile);
@@ -213,7 +215,9 @@ class ContextManager {
                 const state = JSON.parse(content);
                 return state.isOpen === true;
             }
-        } catch (e) { }
+        } catch (e) {
+            // Circuit breaker state unavailable - assume closed
+        }
         return false;
     }
 }

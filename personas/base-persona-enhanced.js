@@ -244,7 +244,7 @@ class EnhancedBasePersona {
     async execCommand(command) {
         return new Promise((resolve, reject) => {
             const { exec } = require('child_process');
-            exec(command, (error, stdout, stderr) => {
+            exec(command, (error, stdout) => {
                 if (error) {
                     reject(error);
                 } else {

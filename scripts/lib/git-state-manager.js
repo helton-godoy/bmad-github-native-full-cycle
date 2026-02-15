@@ -4,7 +4,6 @@
  */
 const { execSync } = require('child_process');
 const fs = require('fs');
-const path = require('path');
 
 class GitStateManager {
     constructor(branchName = 'bmad-state') {
@@ -71,7 +70,9 @@ class GitStateManager {
             try {
                 const parentHash = execSync(`git rev-parse ${this.branchName}`, { encoding: 'utf-8' }).toString().trim();
                 parentArg = `-p ${parentHash}`;
-            } catch (e) { }
+            } catch (e) {
+                // Ignore error - parentArg will remain empty for orphan commits
+            }
 
             const commitMsg = `Update ${filePath}`;
             const commitHash = execSync(`echo "${commitMsg}" | git commit-tree ${treeHash} ${parentArg}`, { encoding: 'utf-8' }).toString().trim();

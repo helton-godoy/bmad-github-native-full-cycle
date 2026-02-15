@@ -4,6 +4,7 @@
  * Searches the Qdrant vector database for semantic context.
  * Usage: node scripts/search-memory.js "authentication rules"
  */
+/* global fetch */
 
 const QDRANT_URL = 'http://localhost:6333';
 const COLLECTION_NAME = 'bmad_agent_memory';
