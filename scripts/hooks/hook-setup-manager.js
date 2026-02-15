@@ -27,13 +27,14 @@ class HookSetupManager {
         this.huskyPath = path.join(this.options.projectRoot, this.options.huskyDir);
 
         // Define required hooks
-        this.requiredHooks = ['commit-msg', 'pre-commit', 'pre-push'];
+        this.requiredHooks = ['commit-msg', 'pre-commit', 'pre-push', 'post-commit'];
 
         // Hook templates
         this.hookTemplates = {
             'commit-msg': this.getCommitMsgTemplate(),
             'pre-commit': this.getPreCommitTemplate(),
-            'pre-push': this.getPrePushTemplate()
+            'pre-push': this.getPrePushTemplate(),
+            'post-commit': this.getPostCommitTemplate()
         };
     }
 
@@ -823,6 +824,59 @@ async function runPrePush() {
 
 runPrePush();
 " BRANCH="$BRANCH" REMOTE="$REMOTE"
+`;
+    }
+
+    /**
+     * Get post-commit hook template
+     * @private
+     */
+    getPostCommitTemplate() {
+        return `#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# BMAD Git Hooks Automation - Post-commit Hook
+# Requirements: 4.1, 4.2, 4.3, 4.4, 4.5
+
+# Get current commit hash
+COMMIT_HASH=$(git rev-parse HEAD)
+
+# Execute post-commit automation through Hook Orchestrator
+node -e "
+const HookOrchestrator = require('./scripts/hooks/hook-orchestrator');
+const orchestrator = new HookOrchestrator();
+
+async function runPostCommit() {
+  try {
+    const commitHash = process.env.COMMIT_HASH;
+
+    if (!commitHash) {
+      console.warn('⚠️ Commit hash not found, skipping post-commit automation');
+      process.exit(0);
+    }
+
+    console.log('🔄 Running post-commit automation...');
+
+    const result = await orchestrator.executePostCommit(commitHash);
+
+    if (result.success) {
+      console.log('✅ Post-commit automation completed');
+      console.log(\`⏱️  Completed in \${result.duration}ms\`);
+    } else {
+      // Requirement 4.5: never block commit completion
+      console.warn('⚠️ Post-commit automation completed with warnings');
+    }
+
+    process.exit(0);
+  } catch (error) {
+    // Requirement 4.5: never block commit completion
+    console.warn('⚠️ Post-commit automation crashed:', error.message);
+    process.exit(0);
+  }
+}
+
+runPostCommit();
+" COMMIT_HASH="$COMMIT_HASH"
 `;
     }
 }

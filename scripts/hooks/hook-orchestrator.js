@@ -12,6 +12,8 @@ const EnhancedGatekeeper = require('../lib/enhanced-gatekeeper');
 const ContextManager = require('../lib/context-manager');
 const TestExecutionManager = require('../lib/test-execution-manager');
 const ProcessMonitor = require('../lib/process-monitor');
+const GitHubActionsSync = require('./github-actions-sync');
+const HookErrorHandler = require('./hook-error-handler');
 
 class HookOrchestrator {
     constructor(config = {}) {
@@ -30,6 +32,11 @@ class HookOrchestrator {
         this.gatekeeper = new EnhancedGatekeeper();
         this.contextManager = new ContextManager();
         this.testManager = new TestExecutionManager();
+        this.githubActionsSync = new GitHubActionsSync();
+        this.errorHandler = new HookErrorHandler({
+            enableAutoRecovery: !this.config.developmentMode,
+            enableBypass: this.config.developmentMode,
+        });
 
         // Initialize process monitor if enabled
         if (process.env.ENABLE_PROCESS_MONITORING === 'true') {
@@ -41,6 +48,15 @@ class HookOrchestrator {
                 enableAlerts: true
             });
         }
+
+        // Color codes for console output
+        this.colors = {
+            red: '\x1b[31m',
+            green: '\x1b[32m',
+            yellow: '\x1b[33m',
+            blue: '\x1b[34m',
+            reset: '\x1b[0m'
+        };
 
         // Performance monitoring
         this.startTime = null;
@@ -208,7 +224,7 @@ class HookOrchestrator {
 
             // Use lint-staged for performance optimization
             let lintOutput = '';
-            let issuesFixed = 0;
+            const issuesFixed = 0;
 
             try {
                 // Run ESLint with --fix flag
@@ -501,8 +517,14 @@ class HookOrchestrator {
                 ...context
             };
 
-            // Use existing gatekeeper validation
-            const validationResult = await this.gatekeeper.validateWorkflowConditions(gatekeeperContext);
+            // Use hook-specific gatekeeper validation
+            const validationResult = await this.gatekeeper.validateHookContext(hookType, gatekeeperContext);
+
+            // Generate comprehensive hook report
+            const hookReport = this.gatekeeper.generateHookReport(validationResult);
+
+            // Log the report for visibility
+            this.logGatekeeperReport(hookReport);
 
             return {
                 status: validationResult.gate === 'PASS' ? 'passed' :
@@ -511,7 +533,9 @@ class HookOrchestrator {
                 validations: validationResult.validations,
                 errors: validationResult.errors,
                 warnings: validationResult.warnings,
-                waiver: validationResult.waiver
+                waiver: validationResult.waiver,
+                hookSpecific: validationResult.hookSpecific,
+                report: hookReport
             };
         } catch (error) {
             this.logger.error(`Gatekeeper integration failed: ${error.message}`);
@@ -520,6 +544,33 @@ class HookOrchestrator {
                 error: error.message,
                 gate: 'FAIL'
             };
+        }
+    }
+
+    /**
+     * Log gatekeeper report with formatted output
+     * Requirements: 1.5, 7.1
+     */
+    logGatekeeperReport(report) {
+        const { colors } = this;
+
+        // Log summary
+        const statusColor = report.gate === 'PASS' ? colors.green :
+            report.gate === 'WAIVED' ? colors.yellow : colors.red;
+
+        this.logger.info(`${statusColor}${report.summary}${colors.reset}`);
+
+        // Log recommendations if any
+        if (report.recommendations && report.recommendations.length > 0) {
+            this.logger.info(`${colors.blue}Recommendations:${colors.reset}`);
+            report.recommendations.forEach(rec => {
+                this.logger.info(`  • ${rec}`);
+            });
+        }
+
+        // Log hook-specific information
+        if (report.hookSpecific && Object.keys(report.hookSpecific).length > 0) {
+            this.logger.debug('Hook-specific data:', report.hookSpecific);
         }
     }
 
@@ -1273,6 +1324,7 @@ class HookOrchestrator {
             return {
                 status: 'failed',
                 error: error.message,
+                message: `BMAD workflow synchronization failed: ${error.message}`,
                 workflowActive: false,
                 personaConsistency: false,
                 contextSynchronized: false
@@ -1350,7 +1402,7 @@ class HookOrchestrator {
             const hasRecentTimestamp = timestampPattern.test(contextContent);
 
             // Check if context reflects recent changes
-            const recentChanges = execSync(`git diff --name-only HEAD~5..HEAD`, {
+            const recentChanges = execSync('git diff --name-only HEAD~5..HEAD', {
                 encoding: 'utf8',
                 stdio: 'pipe'
             }).trim();
@@ -1528,7 +1580,9 @@ class HookOrchestrator {
             const results = {
                 metricsUpdate: { status: 'skipped' },
                 documentation: { status: 'skipped' },
-                contextUpdate: { status: 'skipped' }
+                contextUpdate: { status: 'skipped' },
+                notifications: { status: 'skipped' },
+                orchestratorNotification: { status: 'skipped' }
             };
 
             // 1. Update project metrics (Requirement 4.1)
@@ -1567,6 +1621,25 @@ class HookOrchestrator {
                 };
             }
 
+            // 4. Notify BMAD orchestrator (Requirement 4.3)
+            try {
+                const notificationResult = await this.notifyBMADOrchestrator(commitHash, results);
+                results.notifications = notificationResult;
+                // Backward compatibility for older tests/contracts
+                results.orchestratorNotification = notificationResult;
+            } catch (error) {
+                // Non-blocking error (Requirement 4.5)
+                this.logger.error(`Orchestrator notification failed: ${error.message}`);
+                const warningResult = {
+                    status: 'warning',
+                    error: error.message,
+                    auditTrail: null,
+                    debugInfo: null
+                };
+                results.notifications = warningResult;
+                results.orchestratorNotification = warningResult;
+            }
+
             const duration = this.endTimer('post-commit', true);
 
             return {
@@ -1584,8 +1657,145 @@ class HookOrchestrator {
                 success: true, // Always succeeds
                 duration,
                 error: error.message,
-                results: {}
+                results: {
+                    metricsUpdate: { status: 'warning', error: 'Post-commit execution failed before completion' },
+                    documentation: { status: 'warning', error: 'Post-commit execution failed before completion' },
+                    contextUpdate: { status: 'warning', error: 'Post-commit execution failed before completion' },
+                    notifications: { status: 'warning', error: 'Post-commit execution failed before completion', auditTrail: null, debugInfo: null },
+                    orchestratorNotification: { status: 'warning', error: 'Post-commit execution failed before completion', auditTrail: null, debugInfo: null }
+                }
             };
+        }
+    }
+
+    /**
+     * Notify BMAD orchestrator with post-commit context
+     * Requirement 4.3
+     */
+    async notifyBMADOrchestrator(commitHash, postCommitResults = {}) {
+        const orchestratorPath = path.join(process.cwd(), 'scripts/bmad/bmad-orchestrator.js');
+
+        if (!fs.existsSync(orchestratorPath)) {
+            return {
+                status: 'skipped',
+                message: 'BMAD orchestrator not available',
+                auditTrail: null,
+                debugInfo: null
+            };
+        }
+
+        try {
+            const commitInfo = this.getCommitInfoForNotification(commitHash);
+            const payload = {
+                hookType: 'post-commit',
+                commitHash,
+                shortCommitHash: commitHash.substring(0, 8),
+                persona: commitInfo.persona,
+                stepId: commitInfo.stepId,
+                message: commitInfo.message,
+                resultsSummary: {
+                    metricsUpdate: postCommitResults.metricsUpdate?.status || 'unknown',
+                    documentation: postCommitResults.documentation?.status || 'unknown',
+                    contextUpdate: postCommitResults.contextUpdate?.status || 'unknown'
+                },
+                timestamp: new Date().toISOString()
+            };
+
+            await this.sendBMADNotification('post-commit', payload);
+
+            return {
+                status: 'passed',
+                message: 'BMAD orchestrator notified successfully',
+                commitHash,
+                persona: payload.persona,
+                stepId: payload.stepId,
+                notificationType: 'post-commit',
+                auditTrail: {
+                    timestamp: payload.timestamp,
+                    notificationType: 'post-commit',
+                    commitHash: payload.shortCommitHash
+                },
+                debugInfo: {
+                    orchestratorPath,
+                    payloadSize: JSON.stringify(payload).length
+                }
+            };
+        } catch (error) {
+            this.logger.warn(`BMAD orchestrator notification warning: ${error.message}`);
+            return {
+                status: 'warning',
+                error: error.message,
+                commitHash,
+                auditTrail: {
+                    timestamp: new Date().toISOString(),
+                    notificationType: 'post-commit',
+                    commitHash: commitHash.substring(0, 8),
+                    outcome: 'warning'
+                },
+                debugInfo: {
+                    orchestratorPath,
+                    error: error.message
+                }
+            };
+        }
+    }
+
+    /**
+     * Send notification to BMAD orchestrator process
+     */
+    async sendBMADNotification(notificationType, payload) {
+        const command = 'node scripts/bmad/bmad-orchestrator.js --hook-event post-commit';
+        const output = execSync(command, {
+            encoding: 'utf8',
+            stdio: 'pipe',
+            timeout: 10000,
+            env: {
+                ...process.env,
+                BMAD_HOOK_EVENT: notificationType,
+                BMAD_HOOK_PAYLOAD: JSON.stringify(payload)
+            }
+        });
+
+        return {
+            success: true,
+            output: output || ''
+        };
+    }
+
+    /**
+     * Extract commit details for notification payloads
+     */
+    getCommitInfoForNotification(commitHash) {
+        const defaultInfo = {
+            persona: 'UNKNOWN',
+            stepId: 'N/A',
+            message: ''
+        };
+
+        try {
+            const logOutput = execSync(`git log --oneline -1 ${commitHash}`, {
+                encoding: 'utf8',
+                stdio: 'pipe'
+            }).trim();
+
+            const message = logOutput.replace(/^[a-f0-9]+\s+/i, '');
+            const bmadMatch = message.match(/\[([A-Z_]+)\]\s+\[([A-Z]+-\d+)\]\s*(.*)/);
+
+            if (!bmadMatch) {
+                return {
+                    ...defaultInfo,
+                    message
+                };
+            }
+
+            return {
+                persona: bmadMatch[1],
+                stepId: bmadMatch[2],
+                message: bmadMatch[3] || ''
+            };
+        } catch (error) {
+            this.logger.warn(`Could not extract commit info for notification: ${error.message}`);
+            return defaultInfo;
         }
     }
 
@@ -1861,6 +2071,11 @@ class HookOrchestrator {
             // 2. Validate repository state (Requirement 5.2)
             try {
                 results.repositoryValidation = await this.validateRepositoryState(mergeType);
+                // Check if validation returned a failed status (not an exception)
+                if (results.repositoryValidation.status === 'failed') {
+                    const validationError = new Error(results.repositoryValidation.summary || 'Repository validation failed');
+                    this.addRecoveryInformation(recovery, 'repository_validation_failed', validationError);
+                }
             } catch (error) {
                 this.logger.error(`Repository validation failed: ${error.message}`);
                 results.repositoryValidation = {
@@ -1885,7 +2100,13 @@ class HookOrchestrator {
             const hasFailures = Object.values(results).some(r => r.status === 'failed');
             if (hasFailures) {
                 await this.generateRollbackRecommendations(recovery, results, mergeType);
-                await this.generateRecoveryReport(recovery, results, mergeType);
+                try {
+                    await this.generateRecoveryReport(recovery, results, mergeType);
+                } catch (error) {
+                    this.logger.error(`Recovery report generation failed: ${error.message}`);
+                    // Track report generation failure
+                    this.addRecoveryInformation(recovery, 'report_generation_failed', error);
+                }
             }
 
             const duration = this.endTimer('post-merge', true);
@@ -2178,14 +2399,38 @@ class HookOrchestrator {
      * Requirement 5.5
      */
     addRecoveryInformation(recovery, failureType, error) {
-        recovery.troubleshooting.failureType = failureType;
-        recovery.troubleshooting.errorMessage = error.message;
-        recovery.troubleshooting.diagnosticSteps = [];
+        // Initialize failures array if not exists
+        if (!recovery.troubleshooting.failures) {
+            recovery.troubleshooting.failures = [];
+        }
+
+        // Add this failure to the list
+        recovery.troubleshooting.failures.push({
+            type: failureType,
+            message: error.message
+        });
+
+        // Set the primary failure type (first failure or most recent)
+        if (!recovery.troubleshooting.failureType) {
+            recovery.troubleshooting.failureType = failureType;
+            recovery.troubleshooting.errorMessage = error.message;
+        }
+
+        // Track multiple failures
+        const failureCount = recovery.troubleshooting.failures.length;
+        recovery.troubleshooting.multipleFailures = failureCount > 1;
+        recovery.troubleshooting.failureCount = failureCount;
+
+        // Add failure-specific diagnostic steps (only if not already added)
+        if (!recovery.troubleshooting.diagnosticSteps) {
+            recovery.troubleshooting.diagnosticSteps = [];
+        }
 
         // Add failure-specific diagnostic steps
+        const newSteps = [];
         switch (failureType) {
             case 'workflow_execution_failed':
-                recovery.troubleshooting.diagnosticSteps.push(
+                newSteps.push(
                     { description: 'Check if bmad:workflow script is properly configured' },
                     { description: 'Verify all workflow dependencies are installed' },
                     { description: 'Review workflow logs for specific errors' }
@@ -2193,7 +2438,7 @@ class HookOrchestrator {
                 break;
 
             case 'repository_validation_failed':
-                recovery.troubleshooting.diagnosticSteps.push(
+                newSteps.push(
                     { description: 'Run git status to check repository state' },
                     { description: 'Check for unmerged files or conflicts' },
                     { description: 'Verify .git directory integrity' }
@@ -2201,20 +2446,38 @@ class HookOrchestrator {
                 break;
 
             case 'test_suite_failed':
-                recovery.troubleshooting.diagnosticSteps.push(
+                newSteps.push(
                     { description: 'Run npm test to see specific test failures' },
                     { description: 'Check if merge introduced breaking changes' },
                     { description: 'Review test output for failure details' }
                 );
                 break;
 
+            case 'report_generation_failed':
+                newSteps.push(
+                    { description: 'Check file system permissions for report directory' },
+                    { description: 'Verify .github/reports directory exists and is writable' },
+                    { description: 'Review error logs for file system issues' }
+                );
+                break;
+
             default:
-                recovery.troubleshooting.diagnosticSteps.push(
+                newSteps.push(
                     { description: 'Review error message for specific issues' },
                     { description: 'Check system logs for additional context' },
                     { description: 'Verify repository is in a consistent state' }
                 );
         }
+
+        // Add new steps, avoiding duplicates
+        newSteps.forEach(newStep => {
+            const exists = recovery.troubleshooting.diagnosticSteps.some(
+                step => step.description === newStep.description
+            );
+            if (!exists) {
+                recovery.troubleshooting.diagnosticSteps.push(newStep);
+            }
+        });
     }
 
     /**
@@ -2364,6 +2627,7 @@ class HookOrchestrator {
             this.logger.info(`Recovery report written to ${reportPath}`);
         } catch (error) {
             this.logger.error(`Failed to generate recovery report: ${error.message}`);
+            throw error; // Re-throw to allow outer catch to handle it
         }
     }
 
@@ -2395,6 +2659,697 @@ class HookOrchestrator {
         } catch (error) {
             return 'unknown';
         }
+    }
+
+    /**
+     * Execute pre-rebase hook with safety validation
+     * Requirements: 6.1
+     */
+    async executePreRebase(sourceBranch, targetBranch) {
+        this.startTimer('pre-rebase');
+        this.logger.info(`Executing pre-rebase hook: ${sourceBranch} onto ${targetBranch}`);
+
+        try {
+            const results = {
+                safetyValidation: { status: 'skipped' },
+                bmadCompatibility: { status: 'skipped' },
+                conflictDetection: { status: 'skipped' },
+                commitAnalysis: { status: 'skipped' }
+            };
+
+            // 1. Validate rebase safety
+            results.safetyValidation = await this.validateRebaseSafety(sourceBranch, targetBranch);
+
+            // 2. Check BMAD compatibility
+            results.bmadCompatibility = await this.validateBMADCompatibility(sourceBranch);
+
+            // 3. Detect potential conflicts
+            results.conflictDetection = await this.detectRebaseConflicts(sourceBranch, targetBranch);
+
+            // 4. Analyze commits to be rebased
+            results.commitAnalysis = await this.analyzeRebaseCommits(sourceBranch, targetBranch);
+
+            const success = this.allResultsSuccessful(results);
+            const duration = this.endTimer('pre-rebase', success);
+
+            return {
+                success,
+                duration,
+                results,
+                metrics: this.getMetrics()
+            };
+        } catch (error) {
+            this.logger.error(`Pre-rebase hook failed: ${error.message}`);
+            const duration = this.endTimer('pre-rebase', false);
+
+            return {
+                success: false,
+                duration,
+                error: error.message,
+                results: {}
+            };
+        }
+    }
+
+    /**
+     * Validate rebase safety
+     */
+    async validateRebaseSafety(sourceBranch, targetBranch) {
+        this.logger.info(`Validating rebase safety for ${sourceBranch} onto ${targetBranch}`);
+
+        try {
+            // Check if branches exist
+            const branchesOutput = execSync('git branch -a', { encoding: 'utf8', stdio: 'pipe' });
+            const branches = branchesOutput.split('\n').map(b => b.trim().replace(/^\*\s+/, ''));
+
+            const sourceExists = branches.some(b => b === sourceBranch || b.endsWith(`/${sourceBranch}`));
+            const targetExists = branches.some(b => b === targetBranch || b.endsWith(`/${targetBranch}`));
+
+            if (!sourceExists || !targetExists) {
+                return {
+                    status: 'failed',
+                    error: 'One or both branches do not exist',
+                    sourceExists,
+                    targetExists
+                };
+            }
+
+            // Check for uncommitted changes
+            const statusOutput = execSync('git status --porcelain', { encoding: 'utf8', stdio: 'pipe' });
+            const hasUncommittedChanges = statusOutput.trim().length > 0;
+
+            if (hasUncommittedChanges) {
+                return {
+                    status: 'warning',
+                    message: 'Uncommitted changes detected - consider stashing',
+                    hasUncommittedChanges: true
+                };
+            }
+
+            return {
+                status: 'passed',
+                message: 'Rebase safety validation passed',
+                sourceExists: true,
+                targetExists: true,
+                hasUncommittedChanges: false
+            };
+        } catch (error) {
+            this.logger.error(`Rebase safety validation failed: ${error.message}`);
+            return {
+                status: 'failed',
+                error: error.message
+            };
+        }
+    }
+
+    /**
+     * Validate BMAD compatibility for rebase
+     */
+    async validateBMADCompatibility(sourceBranch) {
+        this.logger.info(`Validating BMAD compatibility for ${sourceBranch}`);
+
+        try {
+            // Get commits on source branch
+            const commitsOutput = execSync(`git log --oneline ${sourceBranch} --not main develop`, {
+                encoding: 'utf8',
+                stdio: 'pipe'
+            }).trim();
+
+            if (!commitsOutput) {
+                return {
+                    status: 'passed',
+                    message: 'No commits to validate',
+                    commitsAnalyzed: 0,
+                    invalidCommits: 0
+                };
+            }
+
+            const commits = commitsOutput.split('\n');
+            const bmadPattern = /^\[([A-Z_]+)\]\s+\[([A-Z]+-\d+)\]\s+(.+)$/;
+
+            let invalidCommits = 0;
+            const invalidCommitDetails = [];
+
+            commits.forEach(commit => {
+                const message = commit.substring(8); // Remove hash
+                if (!bmadPattern.test(message)) {
+                    invalidCommits++;
+                    invalidCommitDetails.push(commit);
+                }
+            });
+
+            return {
+                status: invalidCommits === 0 ? 'passed' : 'warning',
+                message: invalidCommits === 0 ? 'All commits follow BMAD pattern' : `${invalidCommits} commits do not follow BMAD pattern`,
+                commitsAnalyzed: commits.length,
+                invalidCommits,
+                invalidCommitDetails: invalidCommitDetails.slice(0, 5) // Limit to first 5
+            };
+        } catch (error) {
+            // If git log fails, it might be because there are no commits or branch doesn't exist
+            this.logger.warn(`BMAD compatibility check warning: ${error.message}`);
+            return {
+                status: 'warning',
+                message: 'Could not analyze commits',
+                commitsAnalyzed: 0,
+                invalidCommits: 0
+            };
+        }
+    }
+
+    /**
+     * Detect potential rebase conflicts
+     */
+    async detectRebaseConflicts(sourceBranch, targetBranch) {
+        this.logger.info(`Detecting potential conflicts between ${sourceBranch} and ${targetBranch}`);
+
+        try {
+            // Get files changed in source branch
+            const sourceFilesOutput = execSync(`git diff --name-only ${targetBranch}...${sourceBranch}`, {
+                encoding: 'utf8',
+                stdio: 'pipe'
+            }).trim();
+
+            if (!sourceFilesOutput) {
+                return {
+                    status: 'passed',
+                    message: 'No file changes detected',
+                    hasConflicts: false,
+                    conflictingFiles: []
+                };
+            }
+
+            const sourceFiles = sourceFilesOutput.split('\n');
+
+            // Check if any of these files have been modified in target branch
+            const targetFilesOutput = execSync(`git diff --name-only ${sourceBranch}...${targetBranch}`, {
+                encoding: 'utf8',
+                stdio: 'pipe'
+            }).trim();
+
+            const targetFiles = targetFilesOutput ? targetFilesOutput.split('\n') : [];
+            const conflictingFiles = sourceFiles.filter(file => targetFiles.includes(file));
+
+            return {
+                status: conflictingFiles.length > 0 ? 'warning' : 'passed',
+                message: conflictingFiles.length > 0 ? `${conflictingFiles.length} files may have conflicts` : 'No conflicts detected',
+                hasConflicts: conflictingFiles.length > 0,
+                conflictingFiles: conflictingFiles.slice(0, 10), // Limit to first 10
+                totalFiles: sourceFiles.length
+            };
+        } catch (error) {
+            this.logger.warn(`Conflict detection warning: ${error.message}`);
+            return {
+                status: 'warning',
+                message: 'Could not detect conflicts',
+                hasConflicts: false,
+                conflictingFiles: []
+            };
+        }
+    }
+
+    /**
+     * Analyze commits to be rebased
+     */
+    async analyzeRebaseCommits(sourceBranch, targetBranch) {
+        this.logger.info(`Analyzing commits to be rebased from ${sourceBranch}`);
+
+        try {
+            // Count commits to be rebased
+            const commitCountOutput = execSync(`git rev-list --count ${targetBranch}..${sourceBranch}`, {
+                encoding: 'utf8',
+                stdio: 'pipe'
+            }).trim();
+
+            const commitCount = parseInt(commitCountOutput, 10);
+
+            return {
+                status: 'passed',
+                message: `${commitCount} commits will be rebased`,
+                commitCount,
+                sourceBranch,
+                targetBranch
+            };
+        } catch (error) {
+            this.logger.warn(`Commit analysis warning: ${error.message}`);
+            return {
+                status: 'warning',
+                message: 'Could not analyze commits',
+                commitCount: 0
+            };
+        }
+    }
+
+    /**
+     * Execute post-checkout hook with context restoration
+     * Requirements: 6.2
+     */
+    async executePostCheckout(previousBranch, newBranch, isNewBranch) {
+        this.startTimer('post-checkout');
+        this.logger.info(`Executing post-checkout hook: ${previousBranch} -> ${newBranch} (new: ${isNewBranch})`);
+
+        try {
+            const results = {
+                contextRestoration: { status: 'skipped' },
+                branchInfo: {
+                    previousBranch,
+                    newBranch,
+                    isNewBranch
+                }
+            };
+
+            // Restore BMAD context for the target branch
+            results.contextRestoration = await this.restoreBranchContext(newBranch, isNewBranch);
+
+            const duration = this.endTimer('post-checkout', true);
+
+            return {
+                success: true, // Post-checkout always succeeds
+                duration,
+                results,
+                metrics: this.getMetrics()
+            };
+        } catch (error) {
+            this.logger.error(`Post-checkout hook failed: ${error.message}`);
+            const duration = this.endTimer('post-checkout', true);
+
+            return {
+                success: true, // Always succeeds even on error
+                duration,
+                error: error.message,
+                results: {
+                    contextRestoration: { status: 'warning', error: error.message },
+                    branchInfo: { previousBranch, newBranch, isNewBranch }
+                }
+            };
+        }
+    }
+
+    /**
+     * Restore BMAD context for a branch
+     */
+    async restoreBranchContext(branchName, isNewBranch) {
+        this.logger.info(`Restoring BMAD context for branch: ${branchName}`);
+
+        try {
+            const contextPath = path.join(process.cwd(), 'activeContext.md');
+            const branchContextPath = path.join(
+                process.cwd(),
+                '.github/contexts',
+                `${branchName.replace(/\//g, '-')}.md`
+            );
+
+            // For new branches, initialize context
+            if (isNewBranch) {
+                const initialContext = `# Active Context\n\nBranch: ${branchName}\nCreated: ${new Date().toISOString()}\nStatus: New branch - context to be established\n`;
+
+                // Ensure context directory exists
+                const contextDir = path.dirname(contextPath);
+                if (!fs.existsSync(contextDir)) {
+                    fs.mkdirSync(contextDir, { recursive: true });
+                }
+
+                fs.writeFileSync(contextPath, initialContext);
+
+                return {
+                    status: 'passed',
+                    message: 'Initialized context for new branch',
+                    isNewBranch: true,
+                    contextPath
+                };
+            }
+
+            // For existing branches, restore saved context
+            if (fs.existsSync(branchContextPath)) {
+                const branchContext = fs.readFileSync(branchContextPath, 'utf8');
+
+                // Update activeContext.md with branch-specific context
+                const updatedContext = `# Active Context\n\nBranch: ${branchName}\nRestored: ${new Date().toISOString()}\n\n${branchContext}`;
+
+                fs.writeFileSync(contextPath, updatedContext);
+
+                return {
+                    status: 'passed',
+                    message: 'Restored context from branch-specific file',
+                    isNewBranch: false,
+                    contextPath,
+                    branchContextPath
+                };
+            }
+
+            // If no branch-specific context exists, create minimal context
+            const minimalContext = `# Active Context\n\nBranch: ${branchName}\nRestored: ${new Date().toISOString()}\nStatus: No previous context found - starting fresh\n`;
+
+            fs.writeFileSync(contextPath, minimalContext);
+
+            return {
+                status: 'warning',
+                message: 'No branch-specific context found - created minimal context',
+                isNewBranch: false,
+                contextPath
+            };
+        } catch (error) {
+            this.logger.error(`Context restoration failed: ${error.message}`);
+            return {
+                status: 'warning',
+                error: error.message,
+                message: 'Failed to restore context'
+            };
+        }
+    }
+
+    /**
+     * Execute pre-receive hook for server-side validation
+     * Requirements: 6.3
+     */
+    async executePreReceive(oldCommit, newCommit, refName) {
+        this.startTimer('pre-receive');
+        this.logger.info(`Executing pre-receive hook: ${refName} (${oldCommit.substring(0, 8)}..${newCommit.substring(0, 8)})`);
+
+        try {
+            const results = {
+                commitValidation: { status: 'skipped' },
+                branchProtection: { status: 'skipped' },
+                authorValidation: { status: 'skipped' },
+                sizeValidation: { status: 'skipped' },
+                forcePushDetection: { status: 'skipped' }
+            };
+
+            // 1. Validate all commits being pushed
+            results.commitValidation = await this.validatePushedCommits(oldCommit, newCommit);
+
+            // 2. Check branch protection rules
+            results.branchProtection = await this.checkBranchProtection(refName);
+
+            // 3. Validate author information
+            results.authorValidation = await this.validateCommitAuthors(oldCommit, newCommit);
+
+            // 4. Check push size limits
+            results.sizeValidation = await this.validatePushSize(oldCommit, newCommit);
+
+            // 5. Detect force pushes
+            results.forcePushDetection = await this.detectForcePush(oldCommit, newCommit, refName);
+
+            // Determine overall success
+            const success = this.isPreReceiveValid(results);
+            const duration = this.endTimer('pre-receive', success);
+
+            return {
+                success,
+                duration,
+                results,
+                metrics: this.getMetrics()
+            };
+        } catch (error) {
+            this.logger.error(`Pre-receive hook failed: ${error.message}`);
+            const duration = this.endTimer('pre-receive', false);
+
+            return {
+                success: false,
+                duration,
+                error: error.message,
+                results: {}
+            };
+        }
+    }
+
+    /**
+     * Validate all commits being pushed
+     */
+    async validatePushedCommits(oldCommit, newCommit) {
+        this.logger.info('Validating pushed commits');
+
+        try {
+            // Get list of commits being pushed
+            const commitsOutput = execSync(`git rev-list ${oldCommit}..${newCommit}`, {
+                encoding: 'utf8',
+                stdio: 'pipe'
+            }).trim();
+
+            if (!commitsOutput) {
+                return {
+                    status: 'passed',
+                    message: 'No commits to validate',
+                    commitsAnalyzed: 0,
+                    invalidCommits: 0
+                };
+            }
+
+            const commitHashes = commitsOutput.split('\n');
+            const bmadPattern = /^\[([A-Z_]+)\]\s+\[([A-Z]+-\d+)\]\s+(.+)$/;
+
+            let invalidCommits = 0;
+            const invalidCommitDetails = [];
+
+            for (const hash of commitHashes) {
+                try {
+                    const message = execSync(`git show -s --format=%B ${hash}`, {
+                        encoding: 'utf8',
+                        stdio: 'pipe'
+                    }).trim();
+
+                    if (!bmadPattern.test(message)) {
+                        invalidCommits++;
+                        invalidCommitDetails.push({
+                            hash: hash.substring(0, 8),
+                            message: message.substring(0, 50)
+                        });
+                    }
+                } catch (error) {
+                    this.logger.warn(`Could not validate commit ${hash}: ${error.message}`);
+                }
+            }
+
+            return {
+                status: invalidCommits === 0 ? 'passed' : 'failed',
+                message: invalidCommits === 0 ? 'All commits follow BMAD pattern' : `${invalidCommits} commits do not follow BMAD pattern`,
+                commitsAnalyzed: commitHashes.length,
+                invalidCommits,
+                invalidCommitDetails: invalidCommitDetails.slice(0, 5)
+            };
+        } catch (error) {
+            this.logger.error(`Commit validation failed: ${error.message}`);
+            return {
+                status: 'failed',
+                error: error.message,
+                commitsAnalyzed: 0,
+                invalidCommits: 0
+            };
+        }
+    }
+
+    /**
+     * Check branch protection rules
+     */
+    async checkBranchProtection(refName) {
+        this.logger.info(`Checking branch protection for ${refName}`);
+
+        try {
+            // Extract branch name from ref
+            const branchName = refName.replace('refs/heads/', '');
+
+            // Define protected branches
+            const protectedBranches = ['main', 'master', 'production', 'release'];
+            const isProtected = protectedBranches.includes(branchName);
+
+            return {
+                status: 'passed',
+                message: isProtected ? 'Branch is protected - strict validation applied' : 'Branch is not protected',
+                isProtected,
+                branchName,
+                protectedBranches
+            };
+        } catch (error) {
+            this.logger.error(`Branch protection check failed: ${error.message}`);
+            return {
+                status: 'warning',
+                error: error.message,
+                isProtected: false
+            };
+        }
+    }
+
+    /**
+     * Validate commit authors
+     */
+    async validateCommitAuthors(oldCommit, newCommit) {
+        this.logger.info('Validating commit authors');
+
+        try {
+            const commitsOutput = execSync(`git rev-list ${oldCommit}..${newCommit}`, {
+                encoding: 'utf8',
+                stdio: 'pipe'
+            }).trim();
+
+            if (!commitsOutput) {
+                return {
+                    status: 'passed',
+                    message: 'No commits to validate',
+                    commitsChecked: 0
+                };
+            }
+
+            const commitHashes = commitsOutput.split('\n');
+            let invalidAuthors = 0;
+
+            for (const hash of commitHashes) {
+                try {
+                    const author = execSync(`git show -s --format=%an ${hash}`, {
+                        encoding: 'utf8',
+                        stdio: 'pipe'
+                    }).trim();
+
+                    const email = execSync(`git show -s --format=%ae ${hash}`, {
+                        encoding: 'utf8',
+                        stdio: 'pipe'
+                    }).trim();
+
+                    // Basic validation - author and email should not be empty
+                    if (!author || !email || author.length < 2 || !email.includes('@')) {
+                        invalidAuthors++;
+                    }
+                } catch (error) {
+                    this.logger.warn(`Could not validate author for commit ${hash}: ${error.message}`);
+                    invalidAuthors++;
+                }
+            }
+
+            return {
+                status: invalidAuthors === 0 ? 'passed' : 'warning',
+                message: invalidAuthors === 0 ? 'All authors validated' : `${invalidAuthors} commits have invalid author information`,
+                commitsChecked: commitHashes.length,
+                invalidAuthors
+            };
+        } catch (error) {
+            this.logger.error(`Author validation failed: ${error.message}`);
+            return {
+                status: 'warning',
+                error: error.message,
+                commitsChecked: 0
+            };
+        }
+    }
+
+    /**
+     * Validate push size limits
+     */
+    async validatePushSize(oldCommit, newCommit) {
+        this.logger.info('Validating push size');
+
+        try {
+            const commitCountOutput = execSync(`git rev-list --count ${oldCommit}..${newCommit}`, {
+                encoding: 'utf8',
+                stdio: 'pipe'
+            }).trim();
+
+            const commitCount = parseInt(commitCountOutput, 10);
+
+            // Define size limits
+            const maxCommits = 50;
+            const warningCommits = 20;
+
+            let status = 'passed';
+            let message = `Push contains ${commitCount} commits`;
+
+            if (commitCount > maxCommits) {
+                status = 'failed';
+                message = `Push exceeds maximum commit limit (${commitCount} > ${maxCommits})`;
+            } else if (commitCount > warningCommits) {
+                status = 'warning';
+                message = `Push contains many commits (${commitCount} > ${warningCommits})`;
+            }
+
+            return {
+                status,
+                message,
+                commitCount,
+                maxCommits,
+                warningCommits
+            };
+        } catch (error) {
+            this.logger.error(`Size validation failed: ${error.message}`);
+            return {
+                status: 'warning',
+                error: error.message,
+                commitCount: 0
+            };
+        }
+    }
+
+    /**
+     * Detect force pushes
+     */
+    async detectForcePush(oldCommit, newCommit, refName) {
+        this.logger.info('Detecting force push');
+
+        try {
+            // Check if old commit is zero (new branch)
+            if (oldCommit === '0000000000000000000000000000000000000000') {
+                return {
+                    status: 'passed',
+                    message: 'New branch creation',
+                    isForcePush: false,
+                    isNewBranch: true
+                };
+            }
+
+            // Check if new commit is ancestor of old commit
+            try {
+                execSync(`git merge-base --is-ancestor ${oldCommit} ${newCommit}`, {
+                    encoding: 'utf8',
+                    stdio: 'pipe'
+                });
+
+                // If command succeeds, it's not a force push
+                return {
+                    status: 'passed',
+                    message: 'Normal push (fast-forward)',
+                    isForcePush: false,
+                    isNewBranch: false
+                };
+            } catch (error) {
+                // If command fails, it's a force push
+                const branchName = refName.replace('refs/heads/', '');
+                const protectedBranches = ['main', 'master', 'production', 'release'];
+                const isProtected = protectedBranches.includes(branchName);
+
+                const auditTrail = {
+                    timestamp: new Date().toISOString(),
+                    refName,
+                    oldCommit: oldCommit.substring(0, 8),
+                    newCommit: newCommit.substring(0, 8),
+                    isProtected
+                };
+
+                return {
+                    status: isProtected ? 'failed' : 'warning',
+                    message: isProtected ? 'Force push to protected branch rejected' : 'Force push detected',
+                    isForcePush: true,
+                    isNewBranch: false,
+                    auditTrail
+                };
+            }
+        } catch (error) {
+            this.logger.error(`Force push detection failed: ${error.message}`);
+            return {
+                status: 'warning',
+                error: error.message,
+                isForcePush: false
+            };
+        }
+    }
+
+    /**
+     * Check if pre-receive validation passed
+     */
+    isPreReceiveValid(results) {
+        // Pre-receive fails if any critical validation fails
+        if (results.commitValidation.status === 'failed') return false;
+        if (results.forcePushDetection.status === 'failed') return false;
+        if (results.sizeValidation.status === 'failed') return false;
+
+        // Warnings don't cause failure
+        return true;
     }
 
     /**
@@ -2474,6 +3429,198 @@ class HookOrchestrator {
     isCacheValid(cachedResult) {
         const fiveMinutes = 5 * 60 * 1000;
         return cachedResult.timestamp && (Date.now() - cachedResult.timestamp) < fiveMinutes;
+    }
+
+    /**
+     * Get validation configuration for GitHub Actions consistency
+     * Requirements: 7.2
+     */
+    getValidationConfig() {
+        return {
+            linting: this.config.enableLinting,
+            testing: this.config.enableTesting,
+            build: this.config.enableBuild || false,
+            security: this.config.enableSecurity || false,
+            contextValidation: this.config.enableContextValidation,
+            gatekeeper: this.config.enableGatekeeper
+        };
+    }
+
+    /**
+     * Get validation command for a specific validation type
+     * Requirements: 7.2
+     */
+    getValidationCommand(validationType) {
+        const commands = {
+            'lint': 'npm run lint',
+            'test': 'npm run test',
+            'build': 'npm run build',
+            'validate': 'npm run validate',
+            'security': 'npm audit'
+        };
+        return commands[validationType] || null;
+    }
+
+    /**
+     * Export configuration for GitHub Actions synchronization
+     * Requirements: 7.2
+     */
+    exportConfigForGitHubActions() {
+        return {
+            preCommit: {
+                linting: this.config.enableLinting,
+                testing: this.config.enableTesting,
+                contextValidation: this.config.enableContextValidation
+            },
+            prePush: {
+                fullTests: this.config.enableTesting,
+                build: this.config.enableBuild || false,
+                security: this.config.enableSecurity || false
+            },
+            postCommit: {
+                metrics: true,
+                documentation: true,
+                notifications: true
+            },
+            postMerge: {
+                workflow: true,
+                validation: true,
+                reporting: true
+            }
+        };
+    }
+
+    /**
+     * Format validation result for local display
+     * Requirements: 7.2
+     */
+    formatValidationResult(validationResult) {
+        return {
+            success: validationResult.success,
+            errors: validationResult.errors || [],
+            warnings: validationResult.warnings || [],
+            timestamp: new Date().toISOString(),
+            source: 'local'
+        };
+    }
+
+    /**
+     * Format validation result for GitHub Actions
+     * Requirements: 7.2
+     */
+    formatValidationResultForGitHub(validationResult) {
+        return {
+            success: validationResult.success,
+            errors: validationResult.errors || [],
+            warnings: validationResult.warnings || [],
+            timestamp: new Date().toISOString(),
+            source: 'github-actions'
+        };
+    }
+
+    /**
+     * Check if GitHub Actions will run for a given branch
+     * Requirements: 7.2
+     */
+    willGitHubActionsRun(branch) {
+        // GitHub Actions typically run on main, develop, and PRs
+        const protectedBranches = ['main', 'develop', 'master'];
+        return protectedBranches.includes(branch) || branch.startsWith('feature/');
+    }
+
+    /**
+     * Determine validation level based on branch and remote execution
+     * Requirements: 7.2
+     */
+    determineValidationLevel(branch, willRunRemote) {
+        if (willRunRemote) {
+            // GitHub Actions will run comprehensive checks
+            return 'standard';
+        } else {
+            // No remote validation, must be comprehensive locally
+            return 'comprehensive';
+        }
+    }
+
+    /**
+     * Analyze validation consistency between local and remote
+     * Requirements: 7.2
+     */
+    analyzeValidationConsistency(validationHistory) {
+        const totalValidations = validationHistory.length;
+        const consistentCount = validationHistory.filter(
+            v => v.local === v.remote
+        ).length;
+
+        const consistencyRate = totalValidations > 0
+            ? consistentCount / totalValidations
+            : 0;
+
+        return {
+            totalValidations,
+            consistentCount,
+            inconsistentCount: totalValidations - consistentCount,
+            consistencyRate,
+            timestamp: new Date().toISOString()
+        };
+    }
+
+    /**
+     * Synchronize with GitHub Actions before push
+     * Requirements: 7.2
+     */
+    synchronizeWithGitHubActions(branch) {
+        try {
+            // Get remote coordination status
+            const coordination = this.githubActionsSync.validateRemoteCoordination(branch);
+
+            this.logger.info(`GitHub Actions sync: ${coordination.recommendation.level} validation recommended`);
+
+            // Log any inconsistencies
+            if (!coordination.syncReport.consistent) {
+                this.logger.warn('Configuration inconsistencies detected:');
+                coordination.syncReport.inconsistencies.forEach(inc => {
+                    this.logger.warn(`  - ${inc.message}`);
+                });
+            }
+
+            return coordination;
+        } catch (error) {
+            this.logger.error(`GitHub Actions sync failed: ${error.message}`);
+            return {
+                willRunRemote: false,
+                syncReport: { consistent: false, error: error.message },
+                recommendation: { level: 'comprehensive', reason: 'Sync failed - using comprehensive validation' }
+            };
+        }
+    }
+
+    /**
+     * Monitor validation consistency
+     * Requirements: 7.2
+     */
+    recordValidationConsistency(localResult, remoteExpected) {
+        const validationResult = {
+            local: localResult,
+            remote: remoteExpected
+        };
+
+        return this.githubActionsSync.monitorConsistency(validationResult);
+    }
+
+    /**
+     * Generate GitHub Actions consistency report
+     * Requirements: 7.2
+     */
+    generateConsistencyReport() {
+        const syncReport = this.githubActionsSync.synchronizeConfiguration();
+        const consistencyReport = this.githubActionsSync.generateConsistencyReport();
+
+        return {
+            synchronization: syncReport,
+            consistency: consistencyReport,
+            timestamp: new Date().toISOString()
+        };
     }
 }
 
