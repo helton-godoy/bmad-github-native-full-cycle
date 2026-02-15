@@ -86,14 +86,14 @@ class EnhancedBasePersona {
     log(message, level = 'INFO') {
         // Map legacy log levels to Logger methods
         switch (level) {
-            case 'ERROR':
-                this.logger.error(message);
-                break;
-            case 'WARNING':
-                this.logger.warn(message);
-                break;
-            default:
-                this.logger.info(message);
+        case 'ERROR':
+            this.logger.error(message);
+            break;
+        case 'WARNING':
+            this.logger.warn(message);
+            break;
+        default:
+            this.logger.info(message);
         }
     }
 

@@ -301,27 +301,27 @@ class EnhancedDeveloper extends EnhancedBasePersona {
      */
     async executeTask(task) {
         switch (task.type) {
-            case 'directory':
-                if (!fs.existsSync(task.path)) {
-                    fs.mkdirSync(task.path, { recursive: true });
-                    this.log(`Created directory: ${task.path}`);
-                }
-                return task.path;
+        case 'directory':
+            if (!fs.existsSync(task.path)) {
+                fs.mkdirSync(task.path, { recursive: true });
+                this.log(`Created directory: ${task.path}`);
+            }
+            return task.path;
 
-            case 'file':
-                return await this.createFile(task);
+        case 'file':
+            return await this.createFile(task);
 
-            case 'implementation':
-                return await this.implementFeature(task);
+        case 'implementation':
+            return await this.implementFeature(task);
 
-            case 'test':
-                return await this.createTest(task);
+        case 'test':
+            return await this.createTest(task);
 
-            case 'documentation':
-                return await this.createDocumentation(task);
+        case 'documentation':
+            return await this.createDocumentation(task);
 
-            default:
-                throw new Error(`Unknown task type: ${task.type}`);
+        default:
+            throw new Error(`Unknown task type: ${task.type}`);
         }
     }
 
