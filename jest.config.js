@@ -43,7 +43,6 @@ module.exports = {
 
     // Memory optimizations
     logHeapUsage: false,
-    exposedGC: false,
 
     // CI optimizations (will be overridden by environment)
     ci: process.env.CI === 'true',
