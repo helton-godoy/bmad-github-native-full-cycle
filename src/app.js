@@ -18,6 +18,10 @@ app.use('/api/auth', authRoutes);
 app.use('/api', orchestrationRoutes);
 
 // Health check
-app.get('/health', (req, res) => res.status(200).json({ status: 'ok' }));
+app.get('/health', (req, res) => {
+  const uptime = process.uptime();
+  const timestamp = new Date().toISOString();
+  res.status(200).json({ status: 'ok', uptime, timestamp });
+});
 
 module.exports = app;
