@@ -773,7 +773,7 @@ ${this.formatSemanticTags('ai-deprecated')}
             this.generateDocumentation();
 
             console.log('✅ Enhanced documentation generation completed!');
-            console.log(`📊 Final Metrics:`, this.getMetrics());
+            console.log('📊 Final Metrics:', this.getMetrics());
 
         } catch (error) {
             console.error('❌ Documentation generation failed:', error.message);

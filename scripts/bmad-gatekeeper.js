@@ -18,7 +18,7 @@ try {
 const commitMsg = process.argv[2];
 if (commitMsg && !/^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([\w-]+\))?: .+/.test(commitMsg)) {
     console.error(`${colors.red}❌ ERRO: Mensagem de commit inválida.${colors.reset}`);
-    console.error(`   Esperado: "type(scope): description" (ex: feat(auth): add login)`);
+    console.error('   Esperado: "type(scope): description" (ex: feat(auth): add login)');
     process.exit(1);
 }
 
@@ -34,8 +34,8 @@ if (config.requireContextUpdate) {
 
         if (hasCodeChanges && !hasContextUpdate) {
             console.error(`${colors.red}❌ BLOQUEIO DE PROCESSO:${colors.reset}`);
-            console.error(`   Detectadas alterações de código sem atualização do 'activeContext.md'.`);
-            console.error(`   Regra: O Agente DEVE atualizar a memória do projeto antes de finalizar.`);
+            console.error('   Detectadas alterações de código sem atualização do \'activeContext.md\'.');
+            console.error('   Regra: O Agente DEVE atualizar a memória do projeto antes de finalizar.');
             process.exit(1);
         }
     } catch (e) {
@@ -49,10 +49,10 @@ try {
     // Verifica se existe script de teste no package.json
     const pkg = require(path.join(process.cwd(), 'package.json'));
     if (pkg.scripts && pkg.scripts.test) {
-         execSync('npm test --if-present', { stdio: 'inherit' });
-         console.log(`${colors.green}✅ Testes aprovados.${colors.reset}`);
+        execSync('npm test --if-present', { stdio: 'inherit' });
+        console.log(`${colors.green}✅ Testes aprovados.${colors.reset}`);
     } else {
-         console.log(`${colors.yellow}⚠️  Nenhum script de teste encontrado. Pulando testes.${colors.reset}`);
+        console.log(`${colors.yellow}⚠️  Nenhum script de teste encontrado. Pulando testes.${colors.reset}`);
     }
    
 } catch (e) {

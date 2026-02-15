@@ -441,7 +441,7 @@ ${phase.error ? `- **Error:** ${phase.error}` : ''}
         console.log(`${colors.gray}${logEntry.trim()}${colors.reset}`);
 
         // Log to file
-        const logPath = `.github/logs/workflow.log`;
+        const logPath = '.github/logs/workflow.log';
         require('fs').appendFileSync(logPath, logEntry);
     }
 

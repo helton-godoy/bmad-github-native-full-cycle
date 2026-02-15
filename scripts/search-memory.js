@@ -41,17 +41,17 @@ async function search(query) {
                 console.log(`   (Score: ${hit.score.toFixed(4)})\n`);
             });
         } else {
-            console.log("No results found.");
+            console.log('No results found.');
         }
 
     } catch (e) {
-        console.error("Search failed:", e.message);
+        console.error('Search failed:', e.message);
     }
 }
 
 const query = process.argv[2];
 if (!query) {
-    console.log("Usage: npm run bmad:search 'your query here'");
+    console.log('Usage: npm run bmad:search \'your query here\'');
     process.exit(1);
 }
 

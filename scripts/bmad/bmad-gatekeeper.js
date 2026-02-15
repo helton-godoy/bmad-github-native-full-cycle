@@ -47,7 +47,7 @@ if (config.requireContextUpdate) {
 // 3. Rodar Testes (Se existirem)
 console.log(`${colors.yellow}🧪 A verificar integridade (testes)...${colors.reset}`);
 
-let gateResult = {
+const gateResult = {
     gate: 'FAIL',
     timestamp: new Date().toISOString(),
     waiver: { active: false }

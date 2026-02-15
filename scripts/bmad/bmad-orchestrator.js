@@ -133,7 +133,7 @@ class BMADOrchestrator {
             if (state.persona === 'UNKNOWN' || (state.persona === 'PM' && state.phase === 'UNKNOWN')) {
                 return {
                     persona: 'pm',
-                    prompt: "AUDIT_MODE: Analyze the project state against productContext.md and generate MASTER_PLAN.md.",
+                    prompt: 'AUDIT_MODE: Analyze the project state against productContext.md and generate MASTER_PLAN.md.',
                     source: 'Audit Request',
                     nextPhase: 'Audit Planning',
                     resetRetry: true
@@ -149,7 +149,7 @@ class BMADOrchestrator {
                     console.log('✅ MASTER_PLAN.md validated, transitioning to Architect');
                     return {
                         persona: 'architect',
-                        prompt: "AUDIT_MODE: Read MASTER_PLAN.md and create granular GitHub issues for the roadmap.",
+                        prompt: 'AUDIT_MODE: Read MASTER_PLAN.md and create granular GitHub issues for the roadmap.',
                         source: 'MASTER_PLAN.md',
                         nextPhase: 'Audit Breakdown',
                         resetRetry: true
@@ -164,7 +164,7 @@ class BMADOrchestrator {
                     console.warn(`⚠️ MASTER_PLAN.md not found. Retrying PM (Attempt ${state.retryCount + 1}/${MAX_RETRIES})`);
                     return {
                         persona: 'pm',
-                        prompt: "RETRY AUDIT_MODE: Analyze project state and generate MASTER_PLAN.md.",
+                        prompt: 'RETRY AUDIT_MODE: Analyze project state and generate MASTER_PLAN.md.',
                         source: 'Audit Retry',
                         nextPhase: 'Audit Planning',
                         incrementRetry: true
@@ -185,7 +185,7 @@ class BMADOrchestrator {
         if (state.persona === 'PM' && state.phase.includes('Planning')) {
             const prdPath = 'docs/planning/PRD-user-authentication.md'; // TODO: Dynamic path
             if (fs.existsSync(prdPath)) {
-                const prompt = this.extractSection(prdPath, 'Architect Prompt') || "Design the system architecture based on the PRD.";
+                const prompt = this.extractSection(prdPath, 'Architect Prompt') || 'Design the system architecture based on the PRD.';
                 return {
                     persona: 'architect',
                     prompt: prompt,
@@ -203,7 +203,7 @@ class BMADOrchestrator {
                 console.warn(`⚠️ PRD not found. Retrying PM (Attempt ${state.retryCount + 1}/${MAX_RETRIES})`);
                 return {
                     persona: 'pm',
-                    prompt: "Analyze the issue and create a PRD.",
+                    prompt: 'Analyze the issue and create a PRD.',
                     source: 'System Init',
                     nextPhase: 'Planning',
                     incrementRetry: true
@@ -217,7 +217,7 @@ class BMADOrchestrator {
             if (fs.existsSync(specPath)) {
                 return {
                     persona: 'developer',
-                    prompt: "Implement the specification defined in " + specPath,
+                    prompt: 'Implement the specification defined in ' + specPath,
                     source: specPath,
                     nextPhase: 'Implementation',
                     resetRetry: true
@@ -231,7 +231,7 @@ class BMADOrchestrator {
             // For now, we transition to QA to test the implementation
             return {
                 persona: 'qa',
-                prompt: "Verify the implementation against the PRD and Architecture Spec.",
+                prompt: 'Verify the implementation against the PRD and Architecture Spec.',
                 source: 'Implementation',
                 nextPhase: 'Quality Assurance',
                 resetRetry: true
@@ -243,7 +243,7 @@ class BMADOrchestrator {
             // Assuming QA produces a test report
             return {
                 persona: 'security',
-                prompt: "Perform a security review of the code and dependencies.",
+                prompt: 'Perform a security review of the code and dependencies.',
                 source: 'QA Report',
                 nextPhase: 'Security Review',
                 resetRetry: true
@@ -255,7 +255,7 @@ class BMADOrchestrator {
             // Assuming Security produces a security audit
             return {
                 persona: 'devops',
-                prompt: "Prepare the deployment pipeline and infrastructure.",
+                prompt: 'Prepare the deployment pipeline and infrastructure.',
                 source: 'Security Audit',
                 nextPhase: 'DevOps & Deployment',
                 resetRetry: true
@@ -267,7 +267,7 @@ class BMADOrchestrator {
             // Assuming DevOps confirms deployment readiness
             return {
                 persona: 'releasemanager',
-                prompt: "Coordinate the final release, close the issue, and publish release notes.",
+                prompt: 'Coordinate the final release, close the issue, and publish release notes.',
                 source: 'Deployment Readiness',
                 nextPhase: 'Release Management',
                 resetRetry: true
@@ -284,7 +284,7 @@ class BMADOrchestrator {
         if (state.persona === 'UNKNOWN') {
             return {
                 persona: 'pm',
-                prompt: "Analyze the issue and create a PRD.",
+                prompt: 'Analyze the issue and create a PRD.',
                 source: 'System Init',
                 nextPhase: 'Planning',
                 resetRetry: true
