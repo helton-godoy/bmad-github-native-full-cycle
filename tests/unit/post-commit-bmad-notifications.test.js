@@ -9,6 +9,11 @@ const HookOrchestrator = require('../../scripts/hooks/hook-orchestrator');
 const fs = require('fs');
 const path = require('path');
 
+const commitHashArb = fc.array(fc.constantFrom('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'), {
+    minLength: 8,
+    maxLength: 40
+}).map(chars => chars.join(''));
+
 // Mock dependencies
 jest.mock('child_process');
 jest.mock('fs');
@@ -49,7 +54,7 @@ describe('BMAD Orchestrator Notifications Property Tests', () => {
      */
     test('should send appropriate signals to BMAD orchestrator for any condition requiring notification', async () => {
         await fc.assert(fc.asyncProperty(
-            fc.string({ minLength: 8, maxLength: 40 }).filter(s => /^[a-f0-9]+$/.test(s)), // commit hash
+            commitHashArb, // commit hash
             fc.record({
                 persona: fc.constantFrom('DEVELOPER', 'ARCHITECT', 'QA', 'DEVOPS', 'SECURITY'),
                 stepId: fc.string({ minLength: 6, maxLength: 10 }).map(s => `STEP-${s.slice(0, 3).toUpperCase()}`),
@@ -138,7 +143,7 @@ describe('BMAD Orchestrator Notifications Property Tests', () => {
 
     test('should handle orchestrator notification failures gracefully without blocking commit', async () => {
         await fc.assert(fc.asyncProperty(
-            fc.string({ minLength: 8, maxLength: 40 }).filter(s => /^[a-f0-9]+$/.test(s)), // commit hash
+            commitHashArb, // commit hash
             fc.record({
                 errorType: fc.constantFrom('timeout', 'not_found', 'permission_denied', 'network_error'),
                 errorMessage: fc.string({ minLength: 10, maxLength: 100 })
@@ -186,7 +191,7 @@ describe('BMAD Orchestrator Notifications Property Tests', () => {
 
     test('should include relevant workflow context in orchestrator notifications', async () => {
         await fc.assert(fc.asyncProperty(
-            fc.string({ minLength: 8, maxLength: 40 }).filter(s => /^[a-f0-9]+$/.test(s)), // commit hash
+            commitHashArb, // commit hash
             fc.record({
                 persona: fc.constantFrom('DEVELOPER', 'ARCHITECT', 'QA', 'DEVOPS', 'SECURITY'),
                 stepId: fc.string({ minLength: 6, maxLength: 10 }).map(s => `STEP-${s.slice(0, 3).toUpperCase()}`),
@@ -260,7 +265,7 @@ describe('BMAD Orchestrator Notifications Property Tests', () => {
 
     test('should handle different notification priorities and workflow phases appropriately', async () => {
         await fc.assert(fc.asyncProperty(
-            fc.string({ minLength: 8, maxLength: 40 }).filter(s => /^[a-f0-9]+$/.test(s)), // commit hash
+            commitHashArb, // commit hash
             fc.record({
                 workflowPhase: fc.constantFrom('planning', 'design', 'implementation', 'testing', 'deployment', 'maintenance'),
                 priority: fc.constantFrom('low', 'medium', 'high', 'critical'),
@@ -329,7 +334,7 @@ describe('BMAD Orchestrator Notifications Property Tests', () => {
 
     test('should maintain notification audit trail for compliance and debugging', async () => {
         await fc.assert(fc.asyncProperty(
-            fc.string({ minLength: 8, maxLength: 40 }).filter(s => /^[a-f0-9]+$/.test(s)), // commit hash
+            commitHashArb, // commit hash
             fc.record({
                 auditRequired: fc.boolean(),
                 complianceMode: fc.boolean(),

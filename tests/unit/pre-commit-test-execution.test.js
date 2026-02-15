@@ -10,14 +10,37 @@ const HookOrchestrator = require('../../scripts/hooks/hook-orchestrator');
 // Mock dependencies
 jest.mock('child_process');
 jest.mock('fs');
-jest.mock('../../scripts/lib/logger');
-jest.mock('../../scripts/lib/enhanced-gatekeeper');
-jest.mock('../../scripts/lib/context-manager');
+jest.mock('../../scripts/lib/logger', () => {
+    return jest.fn().mockImplementation(() => ({
+        info: jest.fn(),
+        warn: jest.fn(),
+        error: jest.fn()
+    }));
+});
+jest.mock('../../scripts/lib/enhanced-gatekeeper', () => {
+    return jest.fn().mockImplementation(() => ({}));
+});
+jest.mock('../../scripts/lib/context-manager', () => {
+    return jest.fn().mockImplementation(() => ({}));
+});
+jest.mock('../../scripts/lib/test-execution-manager', () => {
+    return jest.fn().mockImplementation(() => ({
+        hasEnoughResources: jest.fn().mockReturnValue(true),
+        executeTestsWithLock: jest.fn().mockResolvedValue({
+            success: true,
+            output: 'Tests: 5 passed, 0 failed\nTime: 2.5s'
+        })
+    }));
+});
+jest.mock('../../scripts/lib/process-monitor', () => {
+    return jest.fn().mockImplementation(() => ({}));
+});
 
 describe('Pre-commit Test Execution Property Tests', () => {
     let orchestrator;
     let mockExecSync;
     let mockFs;
+    let mockTestManager;
 
     beforeEach(() => {
         // Clear all mocks
@@ -29,7 +52,12 @@ describe('Pre-commit Test Execution Property Tests', () => {
 
         // Default mock implementations
         mockExecSync.mockReturnValue('Tests: 5 passed, 0 failed\nTime: 2.5s');
-        mockFs.existsSync.mockReturnValue(true);
+        mockFs.existsSync.mockImplementation((filePath) => {
+            // Return false for cache file to prevent cached results
+            if (filePath.includes('hooks-cache.json')) return false;
+            // Return true for package.json
+            return true;
+        });
         mockFs.readFileSync.mockReturnValue('{"scripts":{"test":"jest"}}');
 
         orchestrator = new HookOrchestrator({
@@ -38,6 +66,9 @@ describe('Pre-commit Test Execution Property Tests', () => {
             enableContextValidation: false,
             enableGatekeeper: false
         });
+
+        // Get the mocked testManager instance
+        mockTestManager = orchestrator.testManager;
     });
 
     /**
@@ -51,19 +82,25 @@ describe('Pre-commit Test Execution Property Tests', () => {
             fc.integer({ min: 0, max: 10 }),
             fc.float({ min: Math.fround(0.1), max: Math.fround(30.0) }),
             async (stagedFiles, passedTests, failedTests, duration) => {
+                // Reset mock for this iteration
+                mockTestManager.executeTestsWithLock.mockClear();
+
                 // Mock test output based on generated values
                 const testOutput = `Tests: ${passedTests} passed, ${failedTests} failed\nTime: ${duration}s`;
 
                 if (failedTests > 0) {
                     // Mock failing tests
-                    const error = new Error('Tests failed');
-                    error.stdout = testOutput;
-                    mockExecSync.mockImplementationOnce(() => {
-                        throw error;
+                    mockTestManager.executeTestsWithLock.mockResolvedValueOnce({
+                        success: false,
+                        error: 'Tests failed',
+                        output: testOutput
                     });
                 } else {
                     // Mock passing tests
-                    mockExecSync.mockReturnValueOnce(testOutput);
+                    mockTestManager.executeTestsWithLock.mockResolvedValueOnce({
+                        success: true,
+                        output: testOutput
+                    });
                 }
 
                 const result = await orchestrator.executePreCommit(stagedFiles);
@@ -73,22 +110,20 @@ describe('Pre-commit Test Execution Property Tests', () => {
                 expect(result.results.testing.status).toMatch(/^(passed|failed|warning|skipped)$/);
 
                 // Property: Test execution should be attempted when testing is enabled
-                if (orchestrator.config.enableTesting) {
-                    expect(mockExecSync).toHaveBeenCalledWith(
-                        expect.stringContaining('npm test'),
+                if (orchestrator.config.enableTesting && result.results.testing.status !== 'skipped' && result.results.testing.status !== 'warning') {
+                    expect(mockTestManager.executeTestsWithLock).toHaveBeenCalledWith(
+                        'npm test',
                         expect.objectContaining({
-                            encoding: 'utf8',
-                            stdio: 'pipe',
-                            timeout: 30000
+                            processId: 'fast-tests',
+                            maxWorkers: 1,
+                            timeout: 15000
                         })
                     );
 
                     // Property: Test results should be reported
-                    if (result.results.testing.status !== 'warning') {
-                        expect(result.results.testing.testsRun).toBeDefined();
-                        expect(typeof result.results.testing.testsRun).toBe('number');
-                        expect(result.results.testing.testsRun).toBeGreaterThanOrEqual(0);
-                    }
+                    expect(result.results.testing.testsRun).toBeDefined();
+                    expect(typeof result.results.testing.testsRun).toBe('number');
+                    expect(result.results.testing.testsRun).toBeGreaterThanOrEqual(0);
 
                     // Property: Test status should reflect actual test results
                     if (failedTests > 0) {
@@ -138,7 +173,7 @@ describe('Pre-commit Test Execution Property Tests', () => {
                     expect(result.results.testing.testsRun).toBe(0);
                 } else {
                     // Should attempt to run tests if configuration exists
-                    expect(mockExecSync).toHaveBeenCalled();
+                    expect(mockTestManager.executeTestsWithLock).toHaveBeenCalled();
                 }
             }
         ), { numRuns: 50 });
@@ -149,19 +184,19 @@ describe('Pre-commit Test Execution Property Tests', () => {
             fc.array(fc.string(), { maxLength: 3 }),
             async (stagedFiles) => {
                 // Mock timeout scenario
-                const timeoutError = new Error('Command timed out');
-                timeoutError.code = 'ETIMEDOUT';
-                mockExecSync.mockImplementationOnce(() => {
-                    throw timeoutError;
+                mockTestManager.executeTestsWithLock.mockResolvedValueOnce({
+                    success: false,
+                    error: 'Command timed out',
+                    output: ''
                 });
 
                 const result = await orchestrator.executePreCommit(stagedFiles);
 
                 // Property: Timeout should be enforced for fast execution
-                expect(mockExecSync).toHaveBeenCalledWith(
-                    expect.any(String),
+                expect(mockTestManager.executeTestsWithLock).toHaveBeenCalledWith(
+                    'npm test',
                     expect.objectContaining({
-                        timeout: 30000 // 30 second timeout
+                        timeout: 15000 // 15 second timeout for fast tests
                     })
                 );
 

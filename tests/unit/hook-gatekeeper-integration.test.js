@@ -51,13 +51,14 @@ describe('Enhanced Gatekeeper Integration Property Tests', () => {
             async (stagedFiles, gatekeeperResult, validations) => {
                 // Mock gatekeeper response
                 const mockGatekeeper = orchestrator.gatekeeper;
-                mockGatekeeper.validateWorkflowConditions = jest.fn().mockResolvedValue({
+                mockGatekeeper.validateHookContext = jest.fn().mockResolvedValue({
                     gate: gatekeeperResult,
                     validations: validations,
                     errors: gatekeeperResult === 'FAIL' ? [{ type: 'TEST_ERROR', message: 'Test failed' }] : [],
                     warnings: [],
                     waiver: { active: gatekeeperResult === 'WAIVED' }
                 });
+                mockGatekeeper.generateHookReport = jest.fn().mockReturnValue('Mock report');
 
                 const result = await orchestrator.executePreCommit(stagedFiles);
 
@@ -66,7 +67,8 @@ describe('Enhanced Gatekeeper Integration Property Tests', () => {
                 expect(result.results.gatekeeperIntegration.gate).toBe(gatekeeperResult);
 
                 // Verify gatekeeper was called with correct context
-                expect(mockGatekeeper.validateWorkflowConditions).toHaveBeenCalledWith(
+                expect(mockGatekeeper.validateHookContext).toHaveBeenCalledWith(
+                    'pre-commit',
                     expect.objectContaining({
                         hookType: 'pre-commit',
                         stagedFiles,
@@ -92,9 +94,10 @@ describe('Enhanced Gatekeeper Integration Property Tests', () => {
             async (stagedFiles, errorMessage) => {
                 // Mock gatekeeper to fail
                 const mockGatekeeper = orchestrator.gatekeeper;
-                mockGatekeeper.validateWorkflowConditions = jest.fn().mockRejectedValue(
+                mockGatekeeper.validateHookContext = jest.fn().mockRejectedValue(
                     new Error(errorMessage)
                 );
+                mockGatekeeper.generateHookReport = jest.fn().mockReturnValue('Mock report');
 
                 const result = await orchestrator.executePreCommit(stagedFiles);
 
@@ -123,7 +126,8 @@ describe('Enhanced Gatekeeper Integration Property Tests', () => {
             async (hookType, gatekeeperResponse) => {
                 // Mock gatekeeper response
                 const mockGatekeeper = orchestrator.gatekeeper;
-                mockGatekeeper.validateWorkflowConditions = jest.fn().mockResolvedValue(gatekeeperResponse);
+                mockGatekeeper.validateHookContext = jest.fn().mockResolvedValue(gatekeeperResponse);
+                mockGatekeeper.generateHookReport = jest.fn().mockReturnValue('Mock report');
 
                 let result;
                 switch (hookType) {
@@ -152,7 +156,8 @@ describe('Enhanced Gatekeeper Integration Property Tests', () => {
                 // For pre-commit, verify gatekeeper integration
                 if (hookType === 'pre-commit') {
                     expect(result.results.gatekeeperIntegration.gate).toBe(gatekeeperResponse.gate);
-                    expect(mockGatekeeper.validateWorkflowConditions).toHaveBeenCalledWith(
+                    expect(mockGatekeeper.validateHookContext).toHaveBeenCalledWith(
+                        'pre-commit',
                         expect.objectContaining({
                             hookType: 'pre-commit'
                         })
@@ -173,7 +178,7 @@ describe('Enhanced Gatekeeper Integration Property Tests', () => {
             async (stagedFiles, contextMetadata) => {
                 // Mock gatekeeper with metadata
                 const mockGatekeeper = orchestrator.gatekeeper;
-                mockGatekeeper.validateWorkflowConditions = jest.fn().mockResolvedValue({
+                mockGatekeeper.validateHookContext = jest.fn().mockResolvedValue({
                     gate: 'PASS',
                     validations: [],
                     errors: [],
@@ -181,11 +186,13 @@ describe('Enhanced Gatekeeper Integration Property Tests', () => {
                     waiver: { active: false },
                     metadata: contextMetadata
                 });
+                mockGatekeeper.generateHookReport = jest.fn().mockReturnValue('Mock report');
 
                 const result = await orchestrator.executePreCommit(stagedFiles);
 
                 // Property: Context and metadata should be preserved through integration
-                expect(mockGatekeeper.validateWorkflowConditions).toHaveBeenCalledWith(
+                expect(mockGatekeeper.validateHookContext).toHaveBeenCalledWith(
+                    'pre-commit',
                     expect.objectContaining({
                         hookType: 'pre-commit',
                         stagedFiles,

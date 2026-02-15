@@ -9,6 +9,11 @@ const HookOrchestrator = require('../../scripts/hooks/hook-orchestrator');
 const fs = require('fs');
 const path = require('path');
 
+const commitHashArb = fc.array(fc.constantFrom('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'), {
+    minLength: 8,
+    maxLength: 40
+}).map(chars => chars.join(''));
+
 // Mock dependencies
 jest.mock('child_process');
 jest.mock('fs');
@@ -49,7 +54,7 @@ describe('Non-blocking Error Handling Property Tests', () => {
      */
     test('should log errors without blocking commit process for any post-commit action failure', async () => {
         await fc.assert(fc.asyncProperty(
-            fc.string({ minLength: 8, maxLength: 40 }).filter(s => /^[a-f0-9]+$/.test(s)), // commit hash
+            commitHashArb, // commit hash
             fc.record({
                 metricsUpdateFails: fc.boolean(),
                 docGenerationFails: fc.boolean(),
@@ -152,7 +157,7 @@ describe('Non-blocking Error Handling Property Tests', () => {
 
     test('should handle multiple simultaneous failures without blocking commit', async () => {
         await fc.assert(fc.asyncProperty(
-            fc.string({ minLength: 8, maxLength: 40 }).filter(s => /^[a-f0-9]+$/.test(s)), // commit hash
+            commitHashArb, // commit hash
             fc.array(
                 fc.constantFrom(
                     'metrics_update',
@@ -216,7 +221,7 @@ describe('Non-blocking Error Handling Property Tests', () => {
 
     test('should provide detailed error logs for any failure type without blocking', async () => {
         await fc.assert(fc.asyncProperty(
-            fc.string({ minLength: 8, maxLength: 40 }).filter(s => /^[a-f0-9]+$/.test(s)), // commit hash
+            commitHashArb, // commit hash
             fc.record({
                 errorCode: fc.constantFrom('ENOENT', 'EACCES', 'ETIMEDOUT', 'ECONNREFUSED', 'EPERM'),
                 errorMessage: fc.string({ minLength: 10, maxLength: 100 }),
@@ -281,7 +286,7 @@ describe('Non-blocking Error Handling Property Tests', () => {
 
     test('should continue executing remaining operations after one fails', async () => {
         await fc.assert(fc.asyncProperty(
-            fc.string({ minLength: 8, maxLength: 40 }).filter(s => /^[a-f0-9]+$/.test(s)), // commit hash
+            commitHashArb, // commit hash
             fc.integer({ min: 0, max: 3 }), // Which operation fails (0-3)
             async (commitHash, failingOperationIndex) => {
                 // Mock git commands
@@ -353,7 +358,7 @@ describe('Non-blocking Error Handling Property Tests', () => {
 
     test('should handle catastrophic failures gracefully without blocking commit', async () => {
         await fc.assert(fc.asyncProperty(
-            fc.string({ minLength: 8, maxLength: 40 }).filter(s => /^[a-f0-9]+$/.test(s)), // commit hash
+            commitHashArb, // commit hash
             fc.constantFrom(
                 'out_of_memory',
                 'disk_full',

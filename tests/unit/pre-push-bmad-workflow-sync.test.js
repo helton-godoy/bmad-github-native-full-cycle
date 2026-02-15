@@ -149,7 +149,7 @@ describe('BMAD Workflow Synchronization Property Tests', () => {
      * **Validates: Requirements 3.4, 7.4**
      */
     test('should synchronize validation requirements with active BMAD workflows and coordinate with existing scripts', async () => {
-        await fc.assert(fc.property(
+        await fc.assert(fc.asyncProperty(
             fc.record({
                 branch: fc.constantFrom('main', 'develop'),
                 remote: fc.constantFrom('origin', 'upstream'),
@@ -222,39 +222,65 @@ describe('BMAD Workflow Synchronization Property Tests', () => {
                 const result = await freshOrchestrator.executePrePush(branch, remote);
 
                 // Property: BMAD workflow synchronization should always be attempted
-                if (!result.results.bmadWorkflowSync) return false;
-                if (!result.results.bmadWorkflowSync.status.match(/^(passed|failed|warning|skipped)$/)) return false;
+                if (!result.results.bmadWorkflowSync) {
+                    console.log('Missing bmadWorkflowSync in result:', JSON.stringify(result, null, 2));
+                    return false;
+                }
+                if (!result.results.bmadWorkflowSync.status.match(/^(passed|failed|warning|skipped)$/)) {
+                    console.log('Invalid status:', result.results.bmadWorkflowSync.status);
+                    return false;
+                }
 
                 const syncResult = result.results.bmadWorkflowSync;
 
                 // Property: Workflow active status should be boolean when defined
                 if (syncResult.workflowActive !== undefined && typeof syncResult.workflowActive !== 'boolean') {
+                    console.log('workflowActive is not boolean:', syncResult.workflowActive);
                     return false;
                 }
 
                 // Property: Workflow synchronization should provide meaningful status message
                 if (!syncResult.message || typeof syncResult.message !== 'string' || syncResult.message.length === 0) {
+                    console.log('Invalid message:', syncResult.message, 'Full syncResult:', JSON.stringify(syncResult, null, 2));
                     return false;
                 }
 
                 // Property: Synchronization should correctly detect workflow state
                 if (hasActiveContext) {
                     // When context exists, workflow should be active
-                    if (syncResult.workflowActive !== true) return false;
+                    if (syncResult.workflowActive !== true) {
+                        console.log('Expected workflowActive=true but got:', syncResult.workflowActive);
+                        return false;
+                    }
                     // Message should indicate successful synchronization
-                    if (!syncResult.message.includes('BMAD workflow synchronization completed')) return false;
+                    if (!syncResult.message.includes('BMAD workflow synchronization completed')) {
+                        console.log('Expected success message but got:', syncResult.message);
+                        return false;
+                    }
                 } else {
                     // When no context exists, workflow should not be active
-                    if (syncResult.workflowActive !== false) return false;
+                    if (syncResult.workflowActive !== false) {
+                        console.log('Expected workflowActive=false but got:', syncResult.workflowActive, 'Full syncResult:', JSON.stringify(syncResult, null, 2));
+                        return false;
+                    }
                     // Message should indicate no workflow detected
-                    if (!syncResult.message.includes('No active BMAD workflow detected')) return false;
+                    if (!syncResult.message.includes('No active BMAD workflow detected')) {
+                        console.log('Expected no workflow message but got:', syncResult.message);
+                        return false;
+                    }
                 }
 
                 // Property: When workflow is active, should have additional context
                 if (hasActiveContext && syncResult.workflowActive) {
                     // Should have persona information when workflow is active
-                    if (syncResult.currentPersona === undefined) return false;
-                    if (syncResult.workflowPhase === undefined) return false;
+                    if (syncResult.currentPersona === undefined) {
+                        console.log('Missing currentPersona when workflow is active');
+                        return false;
+                    }
+                    if (syncResult.workflowPhase === undefined) {
+                        console.log('Missing workflowPhase when workflow is active');
+                        return false;
+                    }
                 }
 
                 // All properties hold

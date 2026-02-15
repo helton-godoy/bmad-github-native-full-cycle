@@ -92,19 +92,21 @@ describe('HookOrchestrator Simple Tests', () => {
 
         // Mock gatekeeper response
         const mockGatekeeper = orchestrator.gatekeeper;
-        mockGatekeeper.validateWorkflowConditions = jest.fn().mockResolvedValue({
+        mockGatekeeper.validateHookContext = jest.fn().mockResolvedValue({
             gate: 'PASS',
             validations: [],
             errors: [],
             warnings: [],
             waiver: { active: false }
         });
+        mockGatekeeper.generateHookReport = jest.fn().mockReturnValue('Mock report');
 
         const result = await orchestrator.executePreCommit(['test.js']);
 
         expect(result.results.gatekeeperIntegration.status).toBe('passed');
         expect(result.results.gatekeeperIntegration.gate).toBe('PASS');
-        expect(mockGatekeeper.validateWorkflowConditions).toHaveBeenCalledWith(
+        expect(mockGatekeeper.validateHookContext).toHaveBeenCalledWith(
+            'pre-commit',
             expect.objectContaining({
                 hookType: 'pre-commit',
                 stagedFiles: ['test.js'],

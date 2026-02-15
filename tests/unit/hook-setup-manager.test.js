@@ -63,13 +63,14 @@ describe('HookSetupManager', () => {
         });
 
         test('should define required hooks', () => {
-            expect(manager.requiredHooks).toEqual(['commit-msg', 'pre-commit', 'pre-push']);
+            expect(manager.requiredHooks).toEqual(['commit-msg', 'pre-commit', 'pre-push', 'post-commit']);
         });
 
         test('should have hook templates for all required hooks', () => {
             expect(manager.hookTemplates).toHaveProperty('commit-msg');
             expect(manager.hookTemplates).toHaveProperty('pre-commit');
             expect(manager.hookTemplates).toHaveProperty('pre-push');
+            expect(manager.hookTemplates).toHaveProperty('post-commit');
         });
     });
 
@@ -85,6 +86,7 @@ describe('HookSetupManager', () => {
                 if (path.includes('.husky/commit-msg')) return hooksCreated;
                 if (path.includes('.husky/pre-commit')) return hooksCreated;
                 if (path.includes('.husky/pre-push')) return hooksCreated;
+                if (path.includes('.husky/post-commit')) return hooksCreated;
                 if (path.includes('hook-orchestrator.js')) return true;
                 return false;
             });
@@ -129,7 +131,7 @@ describe('HookSetupManager', () => {
 
             expect(result.success).toBe(true);
             expect(result.huskyInstalled).toBe(true);
-            expect(result.hooksCreated).toEqual(['commit-msg', 'pre-commit', 'pre-push']);
+            expect(result.hooksCreated).toEqual(['commit-msg', 'pre-commit', 'pre-push', 'post-commit']);
             expect(result.errors).toHaveLength(0);
         });
 
@@ -242,7 +244,7 @@ describe('HookSetupManager', () => {
 
             expect(result.hasHooks).toBe(false);
             expect(result.huskyInstalled).toBe(false);
-            expect(result.hooks).toHaveLength(3);
+            expect(result.hooks).toHaveLength(4);
             expect(result.hooks.every(h => !h.exists)).toBe(true);
         });
 
@@ -263,7 +265,7 @@ describe('HookSetupManager', () => {
 
             expect(result.hasHooks).toBe(true);
             expect(result.huskyInstalled).toBe(true);
-            expect(result.hooks).toHaveLength(3);
+            expect(result.hooks).toHaveLength(4);
 
             result.hooks.forEach(hook => {
                 expect(hook.exists).toBe(true);
@@ -340,9 +342,9 @@ describe('HookSetupManager', () => {
             const result = await manager.updateHooks();
 
             expect(result.success).toBe(true);
-            expect(result.hooksUpdated).toEqual(['commit-msg', 'pre-commit', 'pre-push']);
+            expect(result.hooksUpdated).toEqual(['commit-msg', 'pre-commit', 'pre-push', 'post-commit']);
             expect(result.errors).toHaveLength(0);
-            expect(fs.copyFileSync).toHaveBeenCalledTimes(3); // Backup each hook
+            expect(fs.copyFileSync).toHaveBeenCalledTimes(4); // Backup each hook
         });
 
         test('should warn when no existing hooks to update', async () => {
@@ -386,7 +388,7 @@ describe('HookSetupManager', () => {
 
             expect(result.success).toBe(false);
             expect(result.errors.length).toBeGreaterThan(0);
-            expect(result.hooksUpdated.length).toBeLessThan(3);
+            expect(result.hooksUpdated.length).toBeLessThan(4);
         });
     });
 
@@ -611,7 +613,7 @@ describe('HookSetupManager', () => {
             expect(report.configuration.gitVersion).toBe('git version 2.40.0');
             expect(report.configuration.nodeVersion).toBe(process.version);
 
-            expect(report.hooks).toHaveLength(3);
+            expect(report.hooks).toHaveLength(4);
             expect(report.validation).toBeDefined();
         });
 
@@ -712,6 +714,16 @@ describe('HookSetupManager', () => {
             expect(template).toContain('executePrePush');
             expect(template).toContain('BRANCH');
             expect(template).toContain('REMOTE');
+        });
+
+        test('post-commit template should contain required elements', () => {
+            const template = manager.getPostCommitTemplate();
+
+            expect(template).toContain('#!/usr/bin/env sh');
+            expect(template).toContain('husky.sh');
+            expect(template).toContain('HookOrchestrator');
+            expect(template).toContain('executePostCommit');
+            expect(template).toContain('COMMIT_HASH');
         });
     });
 });
