@@ -8,12 +8,16 @@ graph TD
     devops_js -->|"DevOps connects to security approval and provides ..."| security_approval_and_provides...
     project_manager_js -->|"PM connects to GitHub Issues and creates structure..."| GitHub_Issues_and_creates_stru...
     qa_js -->|"QA connects to developer implementation and provid..."| developer_implementation_and_p...
+    recovery_js -->|"Monitors CI/CD failures and reverts problematic co..."| System
     release_manager_js -->|"Release Manager connects to DevOps preparation and..."| DevOps_preparation_and_manages...
     security_js -->|"Security connects to QA results and provides secur..."| QA_results_and_provides_securi...
     agent_doc_enhanced_js -->|"Connects code analysis to comprehensive documentat..."| System
     bmad_orchestrator_js -->|"Reads BMAD_HANDOVER.md and activeContext.md to dec..."| System
     bmad_workflow_enhanced_js -->|"Coordinates all personas, GitHub integration, and ..."| System
     bmad_workflow_js -->|"Coordinates all personas and GitHub integration..."| System
+    bmad_message_validator_js -->|"Integrates with Hook Orchestrator for commit messa..."| System
+    commit_handler_js -->|"Integrates with ExponentialBackoff for retry logic..."| System
+    config_loader_js -->|"Integrates with all BMAD components for consistent..."| System
     octokit_js -->|"Provides consistent mock responses for GitHub oper..."| System
     personas_test_js -->|"Tests validate persona integration and workflow..."| System
     setup_js -->|"Setup consistent test environment across all tests..."| System

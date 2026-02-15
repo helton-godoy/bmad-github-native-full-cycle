@@ -14,6 +14,7 @@
 - **DevOps Persona - Infrastructure and deployment preparation** (`devops.js`)
 - **Project Manager Persona - Planning and requirements definition** (`project-manager.js`)
 - **QA Persona - Testing and quality assurance** (`qa.js`)
+- **Recovery Persona - Self-healing and rollback automation** (`recovery.js`)
 - **Release Manager Persona - Version management and release coordination** (`release-manager.js`)
 - **Security Persona - Security analysis and compliance** (`security.js`)
 - **Generate persona documentation** (`agent-doc-enhanced.js`)

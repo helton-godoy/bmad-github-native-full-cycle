@@ -2,8 +2,10 @@
 
 ## Available APIs
 - **Implement API endpoints** (`developer.js`)
+- **Check CI/CD status via GitHub API** (`recovery.js`)
 - **Generate API documentation** (`agent-doc-enhanced.js`)
 - **Delay between API calls** (`bmad-workflow-enhanced.js`)
+- **Simple File-based LRU Cache for API calls** (`cache-manager.js`)
 
 ## API Endpoints
 - Implement API endpoints

@@ -1,0 +1,20 @@
+{"timestamp":"2026-02-08T17:29:09.830Z","level":"INFO","component":"HookSetupManager","message":"Generating hook configuration report"}
+{"timestamp":"2026-02-08T17:29:10.340Z","level":"INFO","component":"HookSetupManager","message":"Detecting existing git hooks"}
+{"timestamp":"2026-02-08T17:29:10.342Z","level":"INFO","component":"HookSetupManager","message":"Found 3 existing hooks"}
+{"timestamp":"2026-02-08T17:29:10.343Z","level":"INFO","component":"HookSetupManager","message":"Validating git hooks installation"}
+{"timestamp":"2026-02-08T17:29:10.347Z","level":"INFO","component":"HookSetupManager","message":"Validation completed: PASSED"}
+{"timestamp":"2026-02-08T17:29:10.347Z","level":"INFO","component":"HookSetupManager","message":"Configuration report generated successfully"}
+{"timestamp":"2026-02-08T17:29:10.348Z","level":"INFO","component":"HookSetupManager","message":"Detecting existing git hooks"}
+{"timestamp":"2026-02-08T17:29:10.348Z","level":"INFO","component":"HookSetupManager","message":"Found 3 existing hooks"}
+{"timestamp":"2026-02-08T17:29:10.348Z","level":"INFO","component":"HookSetupManager","message":"Validating git hooks installation"}
+{"timestamp":"2026-02-08T17:29:10.352Z","level":"INFO","component":"HookSetupManager","message":"Validation completed: PASSED"}
+{"timestamp":"2026-02-08T17:30:08.220Z","level":"INFO","component":"HookSetupManager","message":"Generating hook configuration report"}
+{"timestamp":"2026-02-08T17:30:08.627Z","level":"INFO","component":"HookSetupManager","message":"Detecting existing git hooks"}
+{"timestamp":"2026-02-08T17:30:08.628Z","level":"INFO","component":"HookSetupManager","message":"Found 3 existing hooks"}
+{"timestamp":"2026-02-08T17:30:08.629Z","level":"INFO","component":"HookSetupManager","message":"Validating git hooks installation"}
+{"timestamp":"2026-02-08T17:30:08.634Z","level":"INFO","component":"HookSetupManager","message":"Validation completed: PASSED"}
+{"timestamp":"2026-02-08T17:30:08.634Z","level":"INFO","component":"HookSetupManager","message":"Configuration report generated successfully"}
+{"timestamp":"2026-02-08T17:30:08.635Z","level":"INFO","component":"HookSetupManager","message":"Detecting existing git hooks"}
+{"timestamp":"2026-02-08T17:30:08.635Z","level":"INFO","component":"HookSetupManager","message":"Found 3 existing hooks"}
+{"timestamp":"2026-02-08T17:30:08.636Z","level":"INFO","component":"HookSetupManager","message":"Validating git hooks installation"}
+{"timestamp":"2026-02-08T17:30:08.641Z","level":"INFO","component":"HookSetupManager","message":"Validation completed: PASSED"}

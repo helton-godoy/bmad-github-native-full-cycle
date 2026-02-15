@@ -1,0 +1,12 @@
+{"timestamp":"2025-12-20T07:50:27.231Z","level":"INFO","component":"RECOVERY","message":"Starting recovery analysis"}
+{"timestamp":"2025-12-20T07:50:27.232Z","level":"ERROR","component":"RECOVERY","message":"Failed to check CI status: this.octokit.rest.repos.listCommits is not a function"}
+{"timestamp":"2025-12-20T07:50:27.232Z","level":"INFO","component":"RECOVERY","message":"No failures detected, recovery not needed"}
+{"timestamp":"2025-12-20T09:23:22.426Z","level":"INFO","component":"RECOVERY","message":"Starting recovery analysis"}
+{"timestamp":"2025-12-20T09:23:22.429Z","level":"ERROR","component":"RECOVERY","message":"Failed to check CI status: this.octokit.rest.repos.listCommits is not a function"}
+{"timestamp":"2025-12-20T09:23:22.429Z","level":"INFO","component":"RECOVERY","message":"No failures detected, recovery not needed"}
+{"timestamp":"2025-12-20T09:30:08.277Z","level":"INFO","component":"RECOVERY","message":"Starting recovery analysis"}
+{"timestamp":"2025-12-20T09:30:08.295Z","level":"ERROR","component":"RECOVERY","message":"Failed to check CI status: this.octokit.rest.repos.listCommits is not a function"}
+{"timestamp":"2025-12-20T09:30:08.295Z","level":"INFO","component":"RECOVERY","message":"No failures detected, recovery not needed"}
+{"timestamp":"2025-12-20T09:30:49.970Z","level":"INFO","component":"RECOVERY","message":"Starting recovery analysis"}
+{"timestamp":"2025-12-20T09:30:49.971Z","level":"ERROR","component":"RECOVERY","message":"Failed to check CI status: this.octokit.rest.repos.listCommits is not a function"}
+{"timestamp":"2025-12-20T09:30:49.971Z","level":"INFO","component":"RECOVERY","message":"No failures detected, recovery not needed"}

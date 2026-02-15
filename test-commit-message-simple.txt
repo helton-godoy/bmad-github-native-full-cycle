@@ -1,0 +1,1 @@
+[DEVELOPER] [STEP-001] Test commit message validation

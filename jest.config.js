@@ -24,12 +24,30 @@ module.exports = {
         }
     },
     setupFilesAfterEnv: ['<rootDir>/tests/setup.js'],
-    testTimeout: 30000,
+    testTimeout: 10000, // Reduced from 30000
     transformIgnorePatterns: [
         'node_modules/(?!(@octokit)/)'
     ],
     moduleNameMapper: {
         '^@octokit/rest': '<rootDir>/tests/mocks/octokit.js'
     },
-    verbose: true
+    verbose: false, // Reduced verbosity
+    silent: false,
+
+    // Performance optimizations
+    maxWorkers: 1, // Force single worker by default
+    cache: false, // Disable cache to reduce I/O
+    bail: 1, // Stop on first failure
+    forceExit: true, // Force exit after tests
+    detectOpenHandles: false, // Disable handle detection for speed
+
+    // Memory optimizations
+    logHeapUsage: false,
+    exposedGC: false,
+
+    // CI optimizations (will be overridden by environment)
+    ci: process.env.CI === 'true',
+
+    // Custom test sequencer for better resource management
+    testSequencer: '<rootDir>/tests/utils/resource-aware-sequencer.js'
 };

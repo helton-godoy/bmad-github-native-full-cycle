@@ -1,0 +1,119 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# BMAD Git Hooks Automation - Commit Message Hook
+# Requirements: 2.1, 2.2, 2.3, 2.4
+
+# Get commit message from file
+COMMIT_MSG_FILE="$1"
+
+# Check if commit message file exists
+if [ ! -f "$COMMIT_MSG_FILE" ]; then
+  echo "❌ Error: Commit message file not found: $COMMIT_MSG_FILE"
+  exit 1
+fi
+
+# Execute commit message validation through Hook Orchestrator
+node -e "
+const fs = require('fs');
+const HookOrchestrator = require('./scripts/hooks/hook-orchestrator');
+
+async function runCommitMsgValidation() {
+  try {
+    const commitMsgFile = process.argv[1];
+    
+    if (!fs.existsSync(commitMsgFile)) {
+      console.error('❌ Commit message file not found:', commitMsgFile);
+      process.exit(1);
+    }
+    
+    const message = fs.readFileSync(commitMsgFile, 'utf8').trim();
+    
+    if (!message) {
+      console.error('❌ Commit message is empty');
+      process.exit(1);
+    }
+    
+    console.log('🔍 Validating commit message...');
+    console.log(\`📝 Message: \${message}\`);
+    
+    const orchestrator = new HookOrchestrator();
+    const result = await orchestrator.executeCommitMsg(message);
+    
+    if (result.success) {
+      console.log('✅ Commit message validation passed');
+      console.log(\`📋 Format: \${result.validationSummary}\`);
+      console.log(\`⏱️  Completed in \${result.duration}ms\`);
+      
+      // Show validation details
+      if (result.results.messageValidation.format === 'bmad' && result.results.messageValidation.parsed) {
+        const parsed = result.results.messageValidation.parsed;
+        console.log(\`👤 Persona: \${parsed.persona}\`);
+        console.log(\`🔢 Step ID: \${parsed.stepId}\`);
+        console.log(\`📄 Description: \${parsed.description}\`);
+      }
+      
+      // Show warnings if any
+      if (result.results.messageValidation.warnings && result.results.messageValidation.warnings.length > 0) {
+        console.log('⚠️  Warnings:');
+        result.results.messageValidation.warnings.forEach(warning => {
+          console.log(\`   • \${warning}\`);
+        });
+      }
+      
+      // Show bypass information if applicable
+      if (result.results.bypass && result.results.bypass.bypassed) {
+        console.log(\`🚪 Bypassed: \${result.results.bypass.reason}\`);
+      }
+      
+      process.exit(0);
+    } else {
+      console.error('❌ Commit message validation failed');
+      console.error(\`⏱️  Failed after \${result.duration}ms\`);
+      
+      // Show detailed error message
+      if (result.errorMessage) {
+        console.error('\\n' + result.errorMessage);
+      }
+      
+      // Show remediation guidance
+      if (result.remediation) {
+        console.error('\\n🔧 REMEDIATION STEPS:');
+        result.remediation.steps.forEach((step, index) => {
+          console.error(\`   \${index + 1}. \${step}\`);
+        });
+        
+        if (result.remediation.examples.length > 0) {
+          console.error('\\n💡 EXAMPLES:');
+          result.remediation.examples.forEach(example => {
+            console.error(\`   • \${example}\`);
+          });
+        }
+        
+        if (result.remediation.quickFixes.length > 0) {
+          console.error('\\n⚡ QUICK FIXES:');
+          result.remediation.quickFixes.forEach(fix => {
+            console.error(\`   • \${fix}\`);
+          });
+        }
+      }
+      
+      // Show validation details for debugging
+      if (result.results.messageValidation && result.results.messageValidation.errors) {
+        console.error('\\n🐛 VALIDATION ERRORS:');
+        result.results.messageValidation.errors.forEach((error, index) => {
+          console.error(\`   \${index + 1}. \${error}\`);
+        });
+      }
+      
+      process.exit(1);
+    }
+  } catch (error) {
+    console.error('💥 Commit message validation crashed:', error.message);
+    console.error('Stack trace:', error.stack);
+    process.exit(1);
+  }
+}
+
+runCommitMsgValidation();
+" "$COMMIT_MSG_FILE"

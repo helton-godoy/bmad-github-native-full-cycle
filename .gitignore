@@ -27,3 +27,15 @@ yarn-error.log*
 .secrets
 .bin/
 
+# Git Hooks Cache
+.git/hooks-cache.json
+
+# Jest Cache
+.jest-cache/
+# Test Execution Management
+.git/test-execution.lock
+.env.test
+# Process Monitoring
+.github/logs/*process-monitor*.json
+.github/reports/*process-monitor*.json
+.github/reports/*process-monitor*.html

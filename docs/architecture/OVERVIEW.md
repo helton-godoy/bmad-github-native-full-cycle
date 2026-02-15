@@ -2,11 +2,13 @@
 
 ## Description
 - Load project context from files with enhanced error handling
+- Load project context from files with enhanced error handling
 - Load project context from files
 - Detect project tech stack from configuration files
 - Project Manager Persona - Planning and requirements definition
 - Get all code files from the project
 - Generate project overview
+- BMAD Project Monitor
 
 ## Key Components
 - **Generate component documentation** (`scripts/bmad/agent-doc-enhanced.js`)

@@ -1,6 +1,7 @@
 # Workflow Documentation
 
 ## Available Workflows
+- **Execute recovery workflow** (`recovery.js`)
 - **Push git tag to trigger release workflow** (`release-manager.js`)
 - **Generate workflow documentation** (`agent-doc-enhanced.js`)
 - **Enhanced BMAD Workflow Orchestrator with advanced features** (`bmad-workflow-enhanced.js`)

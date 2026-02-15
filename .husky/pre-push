@@ -1,0 +1,125 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# BMAD Git Hooks Automation - Pre-push Hook
+# Requirements: 3.1, 3.2, 3.3, 3.4, 3.5
+
+# Get branch and remote information
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+REMOTE="$1"
+
+# Execute pre-push validation through Hook Orchestrator
+node -e "
+const HookOrchestrator = require('./scripts/hooks/hook-orchestrator');
+const orchestrator = new HookOrchestrator();
+
+async function runPrePush() {
+  try {
+    const branch = process.env.BRANCH || 'main';
+    const remote = process.env.REMOTE || 'origin';
+    
+    console.log('🚀 Running pre-push validation...');
+    console.log(\`📍 Branch: \${branch}\`);
+    console.log(\`🌐 Remote: \${remote}\`);
+    
+    const result = await orchestrator.executePrePush(branch, remote);
+    
+    if (result.success) {
+      console.log('✅ Pre-push validation passed');
+      console.log(\`⏱️  Completed in \${result.duration}ms\`);
+      
+      // Log summary of validations performed
+      const validations = Object.entries(result.results).filter(([_, r]) => r.status !== 'skipped');
+      if (validations.length > 0) {
+        console.log('📋 Validations performed:');
+        validations.forEach(([name, result]) => {
+          const status = result.status === 'passed' ? '✅' : 
+                        result.status === 'warning' ? '⚠️' : '❌';
+          console.log(\`   \${status} \${name}: \${result.status}\`);
+          
+          // Show additional details for key validations
+          if (name === 'fullTestSuite' && result.testsRun) {
+            console.log(\`      📊 Tests: \${result.passed}/\${result.testsRun} passed\`);
+            if (result.coverage) {
+              console.log(\`      📈 Coverage: \${result.coverage.lines.pct.toFixed(1)}% lines, \${result.coverage.branches.pct.toFixed(1)}% branches\`);
+            }
+          }
+          
+          if (name === 'securityAudit' && result.totalVulnerabilities !== undefined) {
+            if (result.totalVulnerabilities === 0) {
+              console.log(\`      🔒 No security vulnerabilities found\`);
+            } else {
+              console.log(\`      ⚠️  \${result.totalVulnerabilities} vulnerabilities found\`);
+            }
+          }
+          
+          if (name === 'bmadWorkflowSync' && result.workflowActive) {
+            console.log(\`      👤 Persona: \${result.currentPersona || 'unknown'}\`);
+            console.log(\`      📋 Phase: \${result.workflowPhase || 'unknown'}\`);
+          }
+        });
+      }
+      
+      process.exit(0);
+    } else {
+      console.error('❌ Pre-push validation failed');
+      console.error(\`⏱️  Failed after \${result.duration}ms\`);
+      
+      // Show detailed failure information
+      if (result.failureReport) {
+        console.error(\`\\n📊 FAILURE SUMMARY:\`);
+        console.error(\`   Total checks: \${result.failureReport.summary.totalChecks}\`);
+        console.error(\`   Failed checks: \${result.failureReport.summary.failedChecks}\`);
+        console.error(\`   Warning checks: \${result.failureReport.summary.warningChecks}\`);
+        
+        console.error(\`\\n🚫 FAILED VALIDATIONS:\`);
+        result.failureReport.failures.forEach((failure, index) => {
+          const icon = failure.severity === 'error' ? '❌' : '⚠️';
+          console.error(\`   \${icon} \${failure.check}: \${failure.error}\`);
+        });
+      }
+      
+      // Show remediation guidance
+      if (result.remediation) {
+        console.error(\`\\n🔧 REMEDIATION STEPS:\`);
+        result.remediation.steps.forEach((step, index) => {
+          console.error(\`   \${index + 1}. \${step}\`);
+        });
+        
+        if (result.remediation.commands.length > 0) {
+          console.error(\`\\n⚡ COMMANDS TO RUN:\`);
+          result.remediation.commands.forEach(command => {
+            console.error(\`   • \${command}\`);
+          });
+        }
+      }
+      
+      // Show detailed validation results for debugging
+      Object.entries(result.results).forEach(([name, result]) => {
+        if (result.status === 'failed') {
+          console.error(\`\\n🐛 \${name.toUpperCase()} DETAILS:\`);
+          if (result.error) {
+            console.error(\`   Error: \${result.error}\`);
+          }
+          if (result.output && result.output.length < 500) {
+            console.error(\`   Output: \${result.output}\`);
+          }
+        }
+      });
+      
+      if (result.error) {
+        console.error(\`\\n💥 Hook execution error: \${result.error}\`);
+      }
+      
+      console.error(\`\\n💡 TIP: Fix the issues above and try pushing again.\`);
+      process.exit(1);
+    }
+  } catch (error) {
+    console.error('💥 Pre-push hook crashed:', error.message);
+    console.error('Stack trace:', error.stack);
+    process.exit(1);
+  }
+}
+
+runPrePush();
+" BRANCH="$BRANCH" REMOTE="$REMOTE"

@@ -1,0 +1,24 @@
+{
+  "mcpServers": {
+    "serena": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/oraios/serena",
+        "serena",
+        "start-mcp-server",
+        "--context",
+        "ide-assistant",
+        "--project",
+        "/home/helton/git/bmad-github-native-full-cycle"
+      ],
+      "alwaysAllow": [
+        "read_file", "create_text_file", "list_dir", "find_file",
+        "replace_content", "search_for_pattern", "get_symbols_overview",
+        "find_symbol", "find_referencing_symbols", "replace_symbol_body",
+        "insert_after_symbol", "insert_before_symbol", "rename_symbol",
+        "write_memory", "read_memory", "list_memories"
+      ]
+    }
+  }
+}
