@@ -13,6 +13,12 @@ describe('GitStateManager', () => {
     const testContent = JSON.stringify({ status: 'active', step: 1 });
 
     beforeAll(() => {
+        // Configure git identity for CI
+        try {
+            execSync('git config --local user.email "test@example.com"');
+            execSync('git config --local user.name "Test User"');
+        } catch (e) { }
+
         // Cleanup existing test branch if any
         try {
             execSync(`git branch -D ${TEST_BRANCH}`, { stdio: 'ignore' });
