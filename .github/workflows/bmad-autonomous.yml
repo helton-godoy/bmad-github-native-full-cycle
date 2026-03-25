@@ -26,7 +26,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20'
         cache: 'npm'
         
     - name: Install dependencies
@@ -47,7 +47,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20'
         cache: 'npm'
         
     - name: Install dependencies
@@ -60,7 +60,7 @@ jobs:
       run: npm run bmad:gatekeeper
       
     - name: Generate AgentDoc
-      run: npm run bmad:doc
+      run: npm run bmad:docs
 
   security-scan:
     runs-on: ubuntu-latest
@@ -68,6 +68,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
       
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
     - name: Run security audit
       run: npm audit --audit-level=moderate
       
@@ -86,7 +91,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20'
         cache: 'npm'
         
     - name: Install dependencies
@@ -116,7 +121,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20'
         cache: 'npm'
         
     - name: Install dependencies
@@ -135,14 +140,14 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
+        node-version: '20'
         cache: 'npm'
         
     - name: Install dependencies
       run: npm ci
       
     - name: Generate documentation
-      run: npm run bmad:doc
+      run: npm run bmad:docs
       
     - name: Commit documentation
       run: |
@@ -150,7 +155,7 @@ jobs:
         git config --local user.name "GitHub Action"
         git add docs/architecture/SYSTEM_MAP.md
         git diff --staged --quiet || git commit -m "docs: update system map [skip ci]"
-        git push
+        git push origin HEAD:${{ github.head_ref || github.ref_name }}
 
   # Deployment readiness
   deployment-ready:

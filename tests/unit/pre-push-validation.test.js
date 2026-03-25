@@ -176,7 +176,7 @@ describe('Pre-push Validation Property Tests', () => {
     });
 
     test('should handle test suite execution with various configurations', async () => {
-        await fc.assert(fc.property(
+        await fc.assert(fc.asyncProperty(
             fc.record({
                 hasPackageJson: fc.boolean(),
                 hasTestScript: fc.boolean(),
@@ -228,12 +228,13 @@ describe('Pre-push Validation Property Tests', () => {
                 if (result.status === 'passed') {
                     expect(result.failed).toBe(0);
                 }
+                return true;
             }
         ), { numRuns: 20 });
     });
 
     test('should validate build process with different project configurations', async () => {
-        await fc.assert(fc.property(
+        await fc.assert(fc.asyncProperty(
             fc.record({
                 hasPackageJson: fc.boolean(),
                 hasBuildScript: fc.boolean()
@@ -287,12 +288,13 @@ describe('Pre-push Validation Property Tests', () => {
                 if (result.status === 'passed') {
                     expect(result.message).toContain('successful');
                 }
+                return true;
             }
         ), { numRuns: 15 });
     });
 
     test('should perform security audit with vulnerability reporting', async () => {
-        await fc.assert(fc.property(
+        await fc.assert(fc.asyncProperty(
             fc.record({
                 severityDistribution: fc.record({
                     critical: fc.integer({ min: 0, max: 3 }),
@@ -342,12 +344,13 @@ describe('Pre-push Validation Property Tests', () => {
                 if (totalVulns === 0) {
                     expect(result.status).toBe('passed');
                 }
+                return true;
             }
         ), { numRuns: 20 });
     });
 
     test('should handle edge cases and error conditions gracefully', async () => {
-        await fc.assert(fc.property(
+        await fc.assert(fc.asyncProperty(
             fc.record({
                 branch: fc.constantFrom('main', 'develop', 'feature-test'),
                 remote: fc.constantFrom('origin', 'upstream')
@@ -420,6 +423,7 @@ describe('Pre-push Validation Property Tests', () => {
                 expect(result.branch).toBe(branch);
                 expect(result.remote).toBe(remote);
                 expect(result.duration).toBeGreaterThanOrEqual(0);
+                return true;
             }
         ), { numRuns: 10 });
     });

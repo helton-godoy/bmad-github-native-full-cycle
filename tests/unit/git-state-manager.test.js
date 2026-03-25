@@ -13,10 +13,21 @@ describe('GitStateManager', () => {
     const testContent = JSON.stringify({ status: 'active', step: 1 });
 
     beforeAll(() => {
+        // Configure git identity for CI
+        try {
+            execSync('git config --local user.email "test@example.com"');
+            execSync('git config --local user.name "Test User"');
+        } catch (error) {
+            console.warn('Failed to set git identity, may already be set:',
+                error.message);
+        }
+
         // Cleanup existing test branch if any
         try {
             execSync(`git branch -D ${TEST_BRANCH}`, { stdio: 'ignore' });
-        } catch (e) { }
+        } catch (error) {
+            // Branch might not exist, which is fine
+        }
     });
 
     afterAll(() => {
