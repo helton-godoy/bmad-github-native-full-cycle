@@ -5,6 +5,7 @@ const {
   validateRegistration,
   validateLogin,
 } = require('../utils/validator.util');
+const { sanitizeUser } = require('../utils/user.util');
 
 class AuthService {
   /**
@@ -39,9 +40,7 @@ class AuthService {
     });
 
     // Return user without password
-    // eslint-disable-next-line no-unused-vars
-    const { passwordHash: _passwordHash, ...userWithoutPassword } = user;
-    return userWithoutPassword;
+    return sanitizeUser(user);
   }
 
   /**
@@ -73,12 +72,10 @@ class AuthService {
     });
 
     // Return token and user
-    // eslint-disable-next-line no-unused-vars
-    const { passwordHash: _passwordHash, ...userWithoutPassword } = user;
     return {
       token,
       expiresIn: '24h',
-      user: userWithoutPassword,
+      user: sanitizeUser(user),
     };
   }
 
@@ -91,9 +88,7 @@ class AuthService {
       throw new Error('USER_NOT_FOUND: User not found');
     }
 
-    // eslint-disable-next-line no-unused-vars
-    const { passwordHash: _passwordHash, ...userWithoutPassword } = user;
-    return userWithoutPassword;
+    return sanitizeUser(user);
   }
 }
 
