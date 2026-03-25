@@ -349,7 +349,7 @@ class HookOrchestrator {
           testTimeout: 5000,
           bail: true,
           silent: true,
-          findRelatedTests: this.getChangedFiles(),
+          findRelatedTests: this.getStagedFiles(),
         }
       );
 
