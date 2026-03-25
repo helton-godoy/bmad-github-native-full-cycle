@@ -126,6 +126,7 @@ class BMADOrchestrator {
    */
   async determineNextAction(state, issue, issueType) {
     const MAX_RETRIES = 3;
+    const persona = (state.persona || 'UNKNOWN').toUpperCase();
 
     // --- SPECIAL FLOW: AUDIT ---
     if (issueType === 'AUDIT') {
@@ -133,8 +134,8 @@ class BMADOrchestrator {
 
       // 1. Audit Start: PM
       if (
-        state.persona === 'UNKNOWN' ||
-        (state.persona === 'PM' && state.phase === 'UNKNOWN')
+        persona === 'UNKNOWN' ||
+        (persona === 'PM' && state.phase === 'UNKNOWN')
       ) {
         return {
           persona: 'pm',
@@ -147,14 +148,12 @@ class BMADOrchestrator {
       }
 
       // 2. PM -> Architect (Audit)
-      if (state.persona === 'PM' && state.phase === 'Audit Planning') {
-        const masterPlanPath = 'docs/planning/MASTER_PLAN.md'; // PM output for audit
+      if (persona === 'PM' && state.phase === 'Audit Planning') {
+        const masterPlanPath = 'docs/planning/MASTER_PLAN.md';
 
-        // CRITICAL FIX: Validate MASTER_PLAN existence before transition
-        if (fs.existsSync(masterPlanPath)) {
-          console.log(
-            '✅ MASTER_PLAN.md validated, transitioning to Architect'
-          );
+        // Validate MASTER_PLAN existence before transition
+        if (this.contextManager.read(masterPlanPath) !== null) {
+          console.log('✅ MASTER_PLAN.md validated, transitioning to Architect');
           return {
             persona: 'architect',
             prompt:
@@ -187,130 +186,140 @@ class BMADOrchestrator {
       }
 
       // 3. Architect -> Done (Audit)
-      if (state.persona === 'ARCHITECT' && state.phase === 'Audit Breakdown') {
+      if (persona === 'ARCHITECT' && state.phase === 'Audit Breakdown') {
         console.log('✅ Audit Breakdown completed. Issues created.');
-        return null; // Audit flow ends here, ready for standard execution of new issues
+        return null;
       }
     }
 
     // --- STANDARD FLOW ---
+    else {
+      // 1. PM -> Architect
+      if (persona === 'PM' && state.phase.includes('Planning')) {
+        const prdPath = 'docs/planning/PRD-user-authentication.md'; // TODO: Dynamic path
+        if (this.contextManager.read(prdPath) !== null) {
+          const prompt =
+            this.extractSection(prdPath, 'Architect Prompt') ||
+            'Design the system architecture based on the PRD.';
+          return {
+            persona: 'architect',
+            prompt: prompt,
+            source: prdPath,
+            nextPhase: 'Architecture Design',
+            resetRetry: true,
+          };
+        } else {
+          if (state.retryCount >= MAX_RETRIES) {
+            console.error(
+              `❌ CRITICAL: PM Loop detected. Failed to generate PRD after ${MAX_RETRIES} attempts.`
+            );
+            return null;
+          }
 
-    // 1. PM -> Architect
-    if (state.persona === 'PM' && state.phase.includes('Planning')) {
-      const prdPath = 'docs/planning/PRD-user-authentication.md'; // TODO: Dynamic path
-      if (fs.existsSync(prdPath)) {
-        const prompt =
-          this.extractSection(prdPath, 'Architect Prompt') ||
-          'Design the system architecture based on the PRD.';
+          console.warn(
+            `⚠️ PRD not found. Retrying PM (Attempt ${state.retryCount + 1}/${MAX_RETRIES})`
+          );
+          return {
+            persona: 'pm',
+            prompt: 'Analyze the issue and create a PRD.',
+            source: 'System Init',
+            nextPhase: 'Planning',
+            incrementRetry: true,
+          };
+        }
+      }
+
+      // 2. Architect -> Developer
+      if (persona === 'ARCHITECT') {
+        const specPath = 'docs/architecture/SPEC-user-authentication.md'; // TODO: Dynamic path
+        if (this.contextManager.read(specPath) !== null) {
+          return {
+            persona: 'developer',
+            prompt: 'Implement the specification defined in ' + specPath,
+            source: specPath,
+            nextPhase: 'Implementation',
+            resetRetry: true,
+          };
+        } else {
+          if (state.retryCount >= MAX_RETRIES) {
+            console.error(
+              `❌ CRITICAL: Architect Loop detected. Failed to generate SPEC after ${MAX_RETRIES} attempts.`
+            );
+            return null;
+          }
+
+          console.warn(
+            `⚠️ SPEC not found. Retrying Architect (Attempt ${state.retryCount + 1}/${MAX_RETRIES})`
+          );
+          return {
+            persona: 'architect',
+            prompt: 'Design the system architecture based on the PRD.',
+            source: 'System Retry',
+            nextPhase: 'Architecture Design',
+            incrementRetry: true,
+          };
+        }
+      }
+
+      // 3. Developer -> QA
+      if (persona === 'DEVELOPER') {
         return {
-          persona: 'architect',
-          prompt: prompt,
-          source: prdPath,
-          nextPhase: 'Architecture Design',
+          persona: 'qa',
+          prompt: 'Verify the implementation against the PRD and Architecture Spec.',
+          source: 'Implementation',
+          nextPhase: 'Quality Assurance',
           resetRetry: true,
         };
-      } else {
-        // If PRD doesn't exist, run PM
-        if (state.retryCount >= MAX_RETRIES) {
-          console.error(
-            `❌ CRITICAL: PM Loop detected. Failed to generate PRD after ${MAX_RETRIES} attempts.`
-          );
-          return null; // Stop execution
-        }
+      }
 
-        console.warn(
-          `⚠️ PRD not found. Retrying PM (Attempt ${state.retryCount + 1}/${MAX_RETRIES})`
-        );
+      // 4. QA -> Security
+      if (persona === 'QA') {
+        return {
+          persona: 'security',
+          prompt: 'Perform a security review of the code and dependencies.',
+          source: 'QA Report',
+          nextPhase: 'Security Review',
+          resetRetry: true,
+        };
+      }
+
+      // 5. Security -> DevOps
+      if (persona === 'SECURITY') {
+        return {
+          persona: 'devops',
+          prompt: 'Prepare the deployment pipeline and infrastructure.',
+          source: 'Security Audit',
+          nextPhase: 'DevOps & Deployment',
+          resetRetry: true,
+        };
+      }
+
+      // 6. DevOps -> Release Manager
+      if (persona === 'DEVOPS') {
+        return {
+          persona: 'releasemanager',
+          prompt: 'Coordinate the final release, close the issue, and publish release notes.',
+          source: 'Deployment Readiness',
+          nextPhase: 'Release Management',
+          resetRetry: true,
+        };
+      }
+
+      // 7. Release Manager -> Done
+      if (persona === 'RELEASEMANAGER') {
+        return null;
+      }
+
+      // Default: Start with PM if unknown
+      if (persona === 'UNKNOWN') {
         return {
           persona: 'pm',
           prompt: 'Analyze the issue and create a PRD.',
           source: 'System Init',
           nextPhase: 'Planning',
-          incrementRetry: true,
-        };
-      }
-    }
-
-    // 2. Architect -> Developer
-    if (state.persona === 'ARCHITECT') {
-      const specPath = 'docs/architecture/SPEC-user-authentication.md'; // TODO: Dynamic path
-      if (fs.existsSync(specPath)) {
-        return {
-          persona: 'developer',
-          prompt: 'Implement the specification defined in ' + specPath,
-          source: specPath,
-          nextPhase: 'Implementation',
           resetRetry: true,
         };
       }
-    }
-
-    // 3. Developer -> QA
-    if (state.persona === 'DEVELOPER') {
-      // Assuming Developer produces code and maybe a PR reference in context
-      // For now, we transition to QA to test the implementation
-      return {
-        persona: 'qa',
-        prompt:
-          'Verify the implementation against the PRD and Architecture Spec.',
-        source: 'Implementation',
-        nextPhase: 'Quality Assurance',
-        resetRetry: true,
-      };
-    }
-
-    // 4. QA -> Security
-    if (state.persona === 'QA') {
-      // Assuming QA produces a test report
-      return {
-        persona: 'security',
-        prompt: 'Perform a security review of the code and dependencies.',
-        source: 'QA Report',
-        nextPhase: 'Security Review',
-        resetRetry: true,
-      };
-    }
-
-    // 5. Security -> DevOps
-    if (state.persona === 'SECURITY') {
-      // Assuming Security produces a security audit
-      return {
-        persona: 'devops',
-        prompt: 'Prepare the deployment pipeline and infrastructure.',
-        source: 'Security Audit',
-        nextPhase: 'DevOps & Deployment',
-        resetRetry: true,
-      };
-    }
-
-    // 6. DevOps -> Release Manager
-    if (state.persona === 'DEVOPS') {
-      // Assuming DevOps confirms deployment readiness
-      return {
-        persona: 'releasemanager',
-        prompt:
-          'Coordinate the final release, close the issue, and publish release notes.',
-        source: 'Deployment Readiness',
-        nextPhase: 'Release Management',
-        resetRetry: true,
-      };
-    }
-
-    // 7. Release Manager -> Done
-    if (state.persona === 'RELEASEMANAGER') {
-      // Workflow is complete
-      return null;
-    }
-
-    // Default: Start with PM if unknown
-    if (state.persona === 'UNKNOWN') {
-      return {
-        persona: 'pm',
-        prompt: 'Analyze the issue and create a PRD.',
-        source: 'System Init',
-        nextPhase: 'Planning',
-        resetRetry: true,
-      };
     }
 
     return null;
