@@ -276,15 +276,17 @@ describe('Error Retry Logic Property Tests', () => {
             expect(delay1).toBe(config.initialDelay);
 
             // Second delay should be initialDelay * multiplier^1
+            // Note: calculateDelay does NOT round (jitterFactor <= 0 skips rounding)
             const expectedDelay2 = Math.min(
-              Math.round(config.initialDelay * config.multiplier),
+              config.initialDelay * config.multiplier,
               config.maxDelay
             );
             expect(delay2).toBe(expectedDelay2);
 
             // Third delay should be initialDelay * multiplier^2
+            // Note: calculateDelay does NOT round (jitterFactor <= 0 skips rounding)
             const expectedDelay3 = Math.min(
-              Math.round(config.initialDelay * Math.pow(config.multiplier, 2)),
+              config.initialDelay * Math.pow(config.multiplier, 2),
               config.maxDelay
             );
             expect(delay3).toBe(expectedDelay3);

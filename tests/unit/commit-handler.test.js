@@ -1,7 +1,7 @@
-const { CommitHandler } = require('../../scripts/lib/commit-handler');
+const CommitHandler = require('../../scripts/lib/commit-handler');
 const fc = require('fast-check');
 
-describe('CommitHandler', () => {
+describe('CommitHandler Property Tests', () => {
   let handler;
 
   beforeEach(() => {
