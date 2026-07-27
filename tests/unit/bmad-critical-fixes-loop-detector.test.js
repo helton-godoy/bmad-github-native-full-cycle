@@ -12,6 +12,7 @@ const fc = require('fast-check');
 const fs = require('fs');
 const path = require('path');
 const LoopDetector = require('../../scripts/lib/loop-detector');
+const BMADOrchestrator = require('../../scripts/bmad/bmad-orchestrator');
 
 describe('Loop Detector Property Tests', () => {
   const testHistoryFile = path.join(process.cwd(), '.github', 'test-transition-history.json');
@@ -51,7 +52,7 @@ describe('Loop Detector Property Tests', () => {
           }
         }
       ),
-      { numRuns: 20 }
+      { numRuns: 100 }
     );
   });
 
@@ -79,7 +80,7 @@ describe('Loop Detector Property Tests', () => {
           expect(newDetector.getTransitionCount(fromPersona, toPersona)).toBe(1);
         }
       ),
-      { numRuns: 20 }
+      { numRuns: 100 }
     );
   });
 
@@ -110,7 +111,7 @@ describe('Loop Detector Property Tests', () => {
           expect(fs.existsSync(testHistoryFile)).toBe(false);
         }
       ),
-      { numRuns: 20 }
+      { numRuns: 100 }
     );
   });
 
@@ -120,22 +121,20 @@ describe('Loop Detector Property Tests', () => {
    */
   test('Property 4: should validate requirements document existence before PM to Architect transition', async () => {
     await fc.assert(
-      fc.asyncProperty(fc.boolean(), async (prdExists) => {
-        const docPath = path.join(process.cwd(), '.github', 'test-prd.md');
-        if (prdExists) {
-          fs.writeFileSync(docPath, '# PRD\nRequirements complete.');
-        } else if (fs.existsSync(docPath)) {
-          fs.unlinkSync(docPath);
-        }
-
-        const isDocValid = fs.existsSync(docPath) && fs.readFileSync(docPath, 'utf8').length > 10;
-        expect(isDocValid).toBe(prdExists);
-
-        if (fs.existsSync(docPath)) {
-          fs.unlinkSync(docPath);
-        }
+      fc.asyncProperty(fc.boolean(), async (validEars) => {
+        const orchestrator = Object.create(BMADOrchestrator.prototype);
+        orchestrator.contextManager = {
+          read: jest.fn().mockReturnValue(
+            validEars
+              ? 'WHEN planning completes THE BMAD_System SHALL allow architecture.'
+              : '# PRD\nRequirements complete.'
+          ),
+        };
+        const result = orchestrator.validateRequirementsDocument('PRD.md');
+        expect(result.valid).toBe(validEars);
+        if (!validEars) expect(result.error).toContain('EARS');
       }),
-      { numRuns: 20 }
+      { numRuns: 100 }
     );
   });
 });

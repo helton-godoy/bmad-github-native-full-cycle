@@ -332,7 +332,7 @@ class HookSetupCLI {
         this.displayInstallationResult(result);
 
         this.rl.close();
-        process.exit(result.success ? 0 : 1);
+        return result.success ? 0 : 1;
       } else if (!existingHooks.hasHooks) {
         // Husky installed but no hooks - offer to create hooks
         this.printInfo('Husky is installed but git hooks are not configured');
@@ -357,7 +357,7 @@ class HookSetupCLI {
         this.displayInstallationResult(result);
 
         this.rl.close();
-        process.exit(result.success ? 0 : 1);
+        return result.success ? 0 : 1;
       } else {
         // Hooks already exist - offer to update or skip
         this.printInfo('Git hooks are already installed');
@@ -389,7 +389,7 @@ class HookSetupCLI {
           this.displayUpdateResult(result);
 
           this.rl.close();
-          process.exit(result.success ? 0 : 1);
+          return result.success ? 0 : 1;
         } else {
           // Hooks are valid - ask if user wants to update anyway
           const shouldUpdate = await this.askYesNo(
@@ -413,7 +413,7 @@ class HookSetupCLI {
           this.displayUpdateResult(result);
 
           this.rl.close();
-          process.exit(result.success ? 0 : 1);
+          return result.success ? 0 : 1;
         }
       }
     } catch (error) {
@@ -422,7 +422,7 @@ class HookSetupCLI {
       console.log('');
       this.logger.error(`Setup failed: ${error.message}`, error);
       this.rl.close();
-      process.exit(1);
+      return 1;
     }
   }
 }
@@ -430,9 +430,8 @@ class HookSetupCLI {
 // Run the CLI if executed directly
 if (require.main === module) {
   const cli = new HookSetupCLI();
-  cli.run().catch((error) => {
-    console.error('Fatal error:', error);
-    process.exit(1);
+  cli.run().then((exitCode) => {
+    process.exitCode = exitCode || 0;
   });
 }
 

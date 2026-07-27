@@ -28,7 +28,7 @@ describe('Enhanced Gatekeeper Property Tests', () => {
         expect(mockData.testResults).toBeDefined();
         expect(typeof mockData.testResults.passed).toBe('number');
       }),
-      { numRuns: 20 }
+      { numRuns: 100 }
     );
   });
 
@@ -60,7 +60,7 @@ describe('Enhanced Gatekeeper Property Tests', () => {
           }
         }
       ),
-      { numRuns: 20 }
+      { numRuns: 100 }
     );
   });
 
@@ -82,7 +82,7 @@ describe('Enhanced Gatekeeper Property Tests', () => {
           expect(Array.isArray(report.remediationSuggestions)).toBe(true);
         }
       ),
-      { numRuns: 20 }
+      { numRuns: 100 }
     );
   });
 
@@ -99,7 +99,7 @@ describe('Enhanced Gatekeeper Property Tests', () => {
         expect(gatekeeper.config.developmentMode).toBe(true);
         expect(gatekeeper.config.bypassEnabled).toBe(true);
       }),
-      { numRuns: 20 }
+      { numRuns: 100 }
     );
   });
 
@@ -121,7 +121,7 @@ describe('Enhanced Gatekeeper Property Tests', () => {
         expect(result).toBeDefined();
         expect(result.timestamp).toBeDefined();
       }),
-      { numRuns: 20 }
+      { numRuns: 100 }
     );
   });
 });

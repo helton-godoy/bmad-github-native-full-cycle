@@ -35,7 +35,7 @@ describe('Commit Handler Property Tests', () => {
         const result = await mockHandler.prepareCommit();
         expect(result).toBe(hasStagedFiles);
       }),
-      { numRuns: 20 }
+      { numRuns: 100 }
     );
   });
 
@@ -50,6 +50,10 @@ describe('Commit Handler Property Tests', () => {
         jest.spyOn(mockHandler, '_hasChangesToCommit').mockResolvedValue(hasChanges);
 
         if (hasChanges) {
+          jest.spyOn(mockHandler, 'validateCommit').mockResolvedValue({
+            verified: true,
+            hash: 'abc1234',
+          });
           jest.spyOn(mockHandler.backoff, 'execute').mockResolvedValue({
             success: true,
             result: 'abc1234',
@@ -65,7 +69,7 @@ describe('Commit Handler Property Tests', () => {
           expect(result).toBe('abc1234');
         }
       }),
-      { numRuns: 20 }
+      { numRuns: 100 }
     );
   });
 
@@ -105,7 +109,7 @@ describe('Commit Handler Property Tests', () => {
           }
         }
       ),
-      { numRuns: 20 }
+      { numRuns: 100 }
     );
   });
 
@@ -128,7 +132,7 @@ describe('Commit Handler Property Tests', () => {
           expect(message).toContain(`[${persona}]`);
         }
       ),
-      { numRuns: 20 }
+      { numRuns: 100 }
     );
   });
 
@@ -139,13 +143,25 @@ describe('Commit Handler Property Tests', () => {
   test('Property 9: should verify commit existence in repository after commit execution', async () => {
     await fc.assert(
       fc.asyncProperty(fc.boolean(), async (commitExists) => {
-        const handler = new CommitHandler();
-        jest.spyOn(handler, 'validateCommit').mockResolvedValue(commitExists);
-
-        const verified = await handler.validateCommit('hash123');
-        expect(verified).toBe(commitExists);
+        const handler = new CommitHandler({ enableRollback: false });
+        jest.spyOn(handler, '_getCommitInfo').mockResolvedValue({
+          message: '[DEVELOPER] [STEP-001] Verified commit',
+          author: 'BMAD',
+          timestamp: new Date().toISOString(),
+          files: ['src/index.js'],
+        });
+        jest.spyOn(handler, '_isCommitInCurrentBranch').mockResolvedValue(commitExists);
+        if (commitExists) {
+          await expect(handler.validateCommit('hash123')).resolves.toEqual(
+            expect.objectContaining({ hash: 'hash123', verified: true })
+          );
+        } else {
+          await expect(handler.validateCommit('hash123')).rejects.toThrow(
+            'not in the current branch'
+          );
+        }
       }),
-      { numRuns: 20 }
+      { numRuns: 100 }
     );
   });
 });

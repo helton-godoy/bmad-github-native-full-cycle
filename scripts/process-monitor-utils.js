@@ -380,10 +380,9 @@ class ProcessMonitorUtils {
   }
 }
 
-// CLI interface
-if (require.main === module) {
-  const command = process.argv[2];
-  const args = process.argv.slice(3);
+async function main(argv = process.argv.slice(2)) {
+  const command = argv[0];
+  const args = argv.slice(1);
 
   switch (command) {
     case 'analyze':
@@ -391,22 +390,23 @@ if (require.main === module) {
         console.error(
           'Usage: node process-monitor-utils.js analyze <log-file>'
         );
-        process.exit(1);
+        return 1;
       }
-      ProcessMonitorUtils.analyzeLogs(args[0])
-        .then((analysis) => console.log(JSON.stringify(analysis, null, 2)))
-        .catch((error) => {
-          console.error(`Analysis failed: ${error.message}`);
-          process.exit(1);
-        });
-      break;
+      try {
+        const analysis = await ProcessMonitorUtils.analyzeLogs(args[0]);
+        console.log(JSON.stringify(analysis, null, 2));
+        return 0;
+      } catch (error) {
+        console.error(`Analysis failed: ${error.message}`);
+        return 1;
+      }
 
     case 'html-report':
       if (args.length < 2) {
         console.error(
           'Usage: node process-monitor-utils.js html-report <json-report> <output-html>'
         );
-        process.exit(1);
+        return 1;
       }
       try {
         const jsonReport = JSON.parse(fs.readFileSync(args[0], 'utf8'));
@@ -417,9 +417,9 @@ if (require.main === module) {
         console.log(`HTML report generated: ${htmlPath}`);
       } catch (error) {
         console.error(`HTML report generation failed: ${error.message}`);
-        process.exit(1);
+        return 1;
       }
-      break;
+      return 0;
 
     case 'clean': {
       const logDir = args[0] || '.github/logs';
@@ -429,32 +429,37 @@ if (require.main === module) {
       if (result.errors.length > 0) {
         console.error('Errors:', result.errors);
       }
-      break;
+      return 0;
     }
 
     case 'system-info':
-      ProcessMonitorUtils.getSystemProcessInfo()
-        .then((info) => console.log(JSON.stringify(info, null, 2)))
-        .catch((error) => {
-          console.error(`System info failed: ${error.message}`);
-          process.exit(1);
-        });
-      break;
+      try {
+        const info = await ProcessMonitorUtils.getSystemProcessInfo();
+        console.log(JSON.stringify(info, null, 2));
+        return 0;
+      } catch (error) {
+        console.error(`System info failed: ${error.message}`);
+        return 1;
+      }
 
     case 'kill':
       if (args.length === 0) {
         console.error(
           'Usage: node process-monitor-utils.js kill <pattern> [signal]'
         );
-        process.exit(1);
+        return 1;
       }
-      ProcessMonitorUtils.killProcessesByPattern(args[0], args[1])
-        .then((result) => console.log(JSON.stringify(result, null, 2)))
-        .catch((error) => {
-          console.error(`Kill failed: ${error.message}`);
-          process.exit(1);
-        });
-      break;
+      try {
+        const result = await ProcessMonitorUtils.killProcessesByPattern(
+          args[0],
+          args[1]
+        );
+        console.log(JSON.stringify(result, null, 2));
+        return 0;
+      } catch (error) {
+        console.error(`Kill failed: ${error.message}`);
+        return 1;
+      }
 
     default:
       console.log(`
@@ -475,8 +480,15 @@ Examples:
   node process-monitor-utils.js clean .github/logs 604800000
   node process-monitor-utils.js kill "jest" SIGTERM
             `);
-      break;
+      return 0;
   }
 }
 
+if (require.main === module) {
+  main().then((exitCode) => {
+    process.exitCode = exitCode;
+  });
+}
+
 module.exports = ProcessMonitorUtils;
+module.exports.main = main;
