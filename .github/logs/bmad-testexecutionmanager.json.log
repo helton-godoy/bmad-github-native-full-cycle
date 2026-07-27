@@ -150,3 +150,49 @@
 {"timestamp":"2026-07-27T02:50:32.696Z","level":"INFO","component":"TestExecutionManager","message":"Executing serialized test: npm test -- --maxWorkers=1 --testTimeout=5000 --passWithNoTests --no-cache --forceExit --bail=1 --silent --findRelatedTests .bmad-loop/profiles/claude.toml .github/logs/bmad-commithandler.json.log .github/logs/bmad-enhancedgatekeeper.json.log .github/logs/bmad-errorrecoverymanager.json.log .github/logs/bmad-hookorchestrator.json.log .github/logs/bmad-testexecutionmanager.json.log .github/logs/bmad-watchdog.json.log .kiro/specs/bmad-critical-fixes/requirements.md .kiro/specs/bmad-critical-fixes/tasks.md .kiro/specs/bmad-critical-fixes/tasks.meta.json bmad-ui/components/task-card.tsx bmad-ui/components/ui/badge.tsx bmad-ui/components/ui/button.tsx bmad-ui/components/ui/card.tsx bmad-ui/components/ui/collapsible.tsx bmad-ui/lib/utils.ts debug-test.js docs/architecture/SYSTEM_MAP.md docs/workflow/release-reports.md docs/workflow/workflow-state.md jest.config.js scripts/bmad/bmad-orchestrator.js scripts/bmad/bmad-workflow.js scripts/hooks/bmad-message-validator.js scripts/hooks/context-synchronizer.js scripts/lib/bmad-error.js scripts/lib/error-recovery-manager.js scripts/lib/exponential-backoff.js scripts/lib/loop-detector.js scripts/lib/performance-monitor.js scripts/lib/secret-manager.js scripts/lib/state-cache-manager.js src/app.js src/app/page.tsx src/hooks/useCustomHook.ts src/lib/stores.ts src/middleware/auth.middleware.js src/routes/orchestration.routes.js src/utils/validator.util.js tests/context-manager.test.js tests/integration/auth.test.js tests/integration/workflow.test.js tests/security.test.js tests/unit/bmad-critical-fixes-commit-handler.test.js tests/unit/bmad-critical-fixes-error-retry.test.js tests/unit/bmad-critical-fixes-gatekeeper.test.js tests/unit/bmad-critical-fixes-loop-detector.test.js tests/unit/commit-handler.test.js tests/unit/context-synchronizer-edge-cases.test.js tests/unit/context-synchronizer.test.js tests/unit/error-recovery.test.js tests/unit/gatekeeper.test.js tests/unit/loop-detection.test.js tests/unit/orchestrator.test.js tests/unit/post-merge-integration-failure-recovery.test.js tests/unit/pre-push-validation.test.js tests/unit/state-cache.test.js tests/unit/utils/jwt.util.test.js tests/unit/utils/password.util.test.js tests/unit/utils/validator.util.test.js"}
 {"timestamp":"2026-07-27T02:50:47.702Z","level":"ERROR","component":"TestExecutionManager","message":"Serialized test execution failed: spawnSync /bin/sh ETIMEDOUT"}
 {"timestamp":"2026-07-27T02:50:47.703Z","level":"INFO","component":"TestExecutionManager","message":"Released test execution lock for fast-tests"}
+{"timestamp":"2026-07-27T04:20:37.753Z","level":"INFO","component":"TestExecutionManager","message":"Acquired test execution lock for one"}
+{"timestamp":"2026-07-27T04:20:37.753Z","level":"INFO","component":"TestExecutionManager","message":"Released test execution lock for one"}
+{"timestamp":"2026-07-27T04:20:37.753Z","level":"WARN","component":"TestExecutionManager","message":"Removing stale lock (age: 1785126037753ms)"}
+{"timestamp":"2026-07-27T04:20:37.753Z","level":"INFO","component":"TestExecutionManager","message":"Acquired test execution lock for two"}
+{"timestamp":"2026-07-27T04:20:37.754Z","level":"INFO","component":"TestExecutionManager","message":"Released test execution lock for two"}
+{"timestamp":"2026-07-27T04:20:37.754Z","level":"WARN","component":"TestExecutionManager","message":"Removing lock from dead process (PID: 999)"}
+{"timestamp":"2026-07-27T04:20:37.754Z","level":"INFO","component":"TestExecutionManager","message":"Acquired test execution lock for three"}
+{"timestamp":"2026-07-27T04:20:37.754Z","level":"INFO","component":"TestExecutionManager","message":"Test execution locked by process busy (PID: 123), waiting..."}
+{"timestamp":"2026-07-27T04:20:37.754Z","level":"INFO","component":"TestExecutionManager","message":"Test execution locked by process busy (PID: 123), waiting..."}
+{"timestamp":"2026-07-27T04:20:37.766Z","level":"WARN","component":"TestExecutionManager","message":"Cannot release lock owned by PID 194087 (we are 194086)"}
+{"timestamp":"2026-07-27T04:20:37.766Z","level":"ERROR","component":"TestExecutionManager","message":"Failed to release lock: Expected property name or '}' in JSON at position 1 (line 1 column 2)"}
+{"timestamp":"2026-07-27T04:20:37.768Z","level":"INFO","component":"TestExecutionManager","message":"Acquired test execution lock for success"}
+{"timestamp":"2026-07-27T04:20:37.768Z","level":"INFO","component":"TestExecutionManager","message":"Executing serialized test: npm test -- --maxWorkers=1 --testTimeout=5000 --passWithNoTests --no-cache --forceExit --bail=1 --silent"}
+{"timestamp":"2026-07-27T04:20:37.768Z","level":"INFO","component":"TestExecutionManager","message":"Released test execution lock for success"}
+{"timestamp":"2026-07-27T04:20:37.771Z","level":"INFO","component":"TestExecutionManager","message":"Acquired test execution lock for test-execution"}
+{"timestamp":"2026-07-27T04:20:37.772Z","level":"INFO","component":"TestExecutionManager","message":"Executing serialized test: npm test -- --maxWorkers=1 --testTimeout=5000 --passWithNoTests --no-cache --forceExit --bail=1 --silent"}
+{"timestamp":"2026-07-27T04:20:37.772Z","level":"ERROR","component":"TestExecutionManager","message":"Serialized test execution failed: failed"}
+{"timestamp":"2026-07-27T04:20:37.772Z","level":"INFO","component":"TestExecutionManager","message":"Released test execution lock for test-execution"}
+{"timestamp":"2026-07-27T04:20:37.773Z","level":"INFO","component":"TestExecutionManager","message":"Executing 3 test files in batches of 2"}
+{"timestamp":"2026-07-27T04:20:37.773Z","level":"INFO","component":"TestExecutionManager","message":"Executing batch 1/2 (2 files)"}
+{"timestamp":"2026-07-27T04:20:37.773Z","level":"INFO","component":"TestExecutionManager","message":"Executing batch 2/2 (1 files)"}
+{"timestamp":"2026-07-27T04:20:37.774Z","level":"WARN","component":"TestExecutionManager","message":"High memory usage: 90.0%"}
+{"timestamp":"2026-07-27T04:20:37.774Z","level":"WARN","component":"TestExecutionManager","message":"High load average: 5"}
+{"timestamp":"2026-07-27T04:21:16.467Z","level":"INFO","component":"TestExecutionManager","message":"Acquired test execution lock for one"}
+{"timestamp":"2026-07-27T04:21:16.467Z","level":"INFO","component":"TestExecutionManager","message":"Released test execution lock for one"}
+{"timestamp":"2026-07-27T04:21:16.467Z","level":"WARN","component":"TestExecutionManager","message":"Removing stale lock (age: 1785126076467ms)"}
+{"timestamp":"2026-07-27T04:21:16.468Z","level":"INFO","component":"TestExecutionManager","message":"Acquired test execution lock for two"}
+{"timestamp":"2026-07-27T04:21:16.468Z","level":"INFO","component":"TestExecutionManager","message":"Released test execution lock for two"}
+{"timestamp":"2026-07-27T04:21:16.468Z","level":"WARN","component":"TestExecutionManager","message":"Removing lock from dead process (PID: 999)"}
+{"timestamp":"2026-07-27T04:21:16.468Z","level":"INFO","component":"TestExecutionManager","message":"Acquired test execution lock for three"}
+{"timestamp":"2026-07-27T04:21:16.469Z","level":"INFO","component":"TestExecutionManager","message":"Test execution locked by process busy (PID: 123), waiting..."}
+{"timestamp":"2026-07-27T04:21:16.469Z","level":"INFO","component":"TestExecutionManager","message":"Test execution locked by process busy (PID: 123), waiting..."}
+{"timestamp":"2026-07-27T04:21:16.480Z","level":"WARN","component":"TestExecutionManager","message":"Cannot release lock owned by PID 194669 (we are 194668)"}
+{"timestamp":"2026-07-27T04:21:16.480Z","level":"ERROR","component":"TestExecutionManager","message":"Failed to release lock: Expected property name or '}' in JSON at position 1 (line 1 column 2)"}
+{"timestamp":"2026-07-27T04:21:16.482Z","level":"INFO","component":"TestExecutionManager","message":"Acquired test execution lock for success"}
+{"timestamp":"2026-07-27T04:21:16.482Z","level":"INFO","component":"TestExecutionManager","message":"Executing serialized test: npm test -- --maxWorkers=1 --testTimeout=5000 --passWithNoTests --no-cache --forceExit --bail=1 --silent"}
+{"timestamp":"2026-07-27T04:21:16.482Z","level":"INFO","component":"TestExecutionManager","message":"Released test execution lock for success"}
+{"timestamp":"2026-07-27T04:21:16.482Z","level":"INFO","component":"TestExecutionManager","message":"Acquired test execution lock for test-execution"}
+{"timestamp":"2026-07-27T04:21:16.482Z","level":"INFO","component":"TestExecutionManager","message":"Executing serialized test: npm test -- --maxWorkers=1 --testTimeout=5000 --passWithNoTests --no-cache --forceExit --bail=1 --silent"}
+{"timestamp":"2026-07-27T04:21:16.483Z","level":"ERROR","component":"TestExecutionManager","message":"Serialized test execution failed: failed"}
+{"timestamp":"2026-07-27T04:21:16.483Z","level":"INFO","component":"TestExecutionManager","message":"Released test execution lock for test-execution"}
+{"timestamp":"2026-07-27T04:21:16.483Z","level":"INFO","component":"TestExecutionManager","message":"Executing 3 test files in batches of 2"}
+{"timestamp":"2026-07-27T04:21:16.483Z","level":"INFO","component":"TestExecutionManager","message":"Executing batch 1/2 (2 files)"}
+{"timestamp":"2026-07-27T04:21:16.483Z","level":"INFO","component":"TestExecutionManager","message":"Executing batch 2/2 (1 files)"}
+{"timestamp":"2026-07-27T04:21:16.485Z","level":"WARN","component":"TestExecutionManager","message":"High memory usage: 90.0%"}
+{"timestamp":"2026-07-27T04:21:16.485Z","level":"WARN","component":"TestExecutionManager","message":"High load average: 5"}

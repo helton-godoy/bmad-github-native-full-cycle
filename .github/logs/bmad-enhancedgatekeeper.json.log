@@ -2091,3 +2091,465 @@
 {"timestamp":"2026-07-27T02:50:43.424Z","level":"WARN","component":"EnhancedGatekeeper","message":"Bypassing hook-pre-commit validation (development mode)"}
 {"timestamp":"2026-07-27T02:50:43.424Z","level":"WARN","component":"EnhancedGatekeeper","message":"Applying development mode bypass to validation"}
 {"timestamp":"2026-07-27T02:50:47.709Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:20:31.899Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.899Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.899Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.899Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.899Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.899Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.899Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.899Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.900Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.900Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.900Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.900Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.900Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.900Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.900Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.900Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.900Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.900Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.901Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.901Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.901Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.901Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.901Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.901Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.901Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.901Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.901Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.901Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.902Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.902Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.902Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.902Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.902Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.902Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.902Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.902Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.902Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.902Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.902Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.902Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.903Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.903Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.903Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.903Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.903Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.903Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.903Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.903Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.903Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.903Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.903Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.903Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.904Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.904Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.904Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.904Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.904Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.904Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.904Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.904Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.904Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.904Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.904Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.904Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.904Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.904Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.905Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.905Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.905Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.905Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.905Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.905Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.905Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.905Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.905Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.905Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.905Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.905Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.905Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.905Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.906Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.906Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.906Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.906Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.907Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.907Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.907Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.907Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.907Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.907Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.907Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.907Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.907Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.907Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.907Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.907Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.908Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.908Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.908Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.908Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.908Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.908Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.908Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.908Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.908Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.908Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.909Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.909Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.909Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.909Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.909Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.909Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.909Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.909Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.909Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.909Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.909Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.909Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.909Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.909Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.910Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.910Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.910Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.910Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.910Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.910Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.910Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.910Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.910Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.910Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.910Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.910Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.911Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.911Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.911Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.911Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.911Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.911Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.911Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.911Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.911Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.911Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.911Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.911Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.912Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.912Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.912Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.912Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.912Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.912Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.912Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.912Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.913Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.913Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.913Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.913Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.913Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.913Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.913Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.913Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.913Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.913Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.914Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.914Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.914Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.914Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.914Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.914Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.914Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.914Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.914Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.914Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.914Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.914Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.915Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.915Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.915Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.915Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.915Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.915Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.915Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.915Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.915Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.915Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.915Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.915Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.916Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.916Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.916Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.916Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.916Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.916Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.916Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.916Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.916Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.916Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.916Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.916Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.917Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:20:31.917Z\"}"}
+{"timestamp":"2026-07-27T04:20:31.944Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.944Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.944Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.944Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.945Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.945Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.945Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.945Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.945Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.946Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.946Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.946Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.946Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.946Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.946Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.947Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.947Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.947Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.947Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.947Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.947Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.948Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.948Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.948Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.948Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.948Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.948Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.949Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.949Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.949Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.949Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.949Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.949Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.949Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.950Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.950Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.950Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.950Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.950Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.950Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.951Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.951Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.951Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.951Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.951Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.951Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.952Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.952Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.952Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.952Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.952Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.952Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.953Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.953Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.953Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.953Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.953Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.953Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.953Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.954Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.954Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.954Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.954Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.954Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.954Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.955Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.955Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.955Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.955Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.955Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.955Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.955Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.956Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.956Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.956Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.956Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.956Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.956Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.957Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.957Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.957Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.958Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.958Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.958Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.958Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.958Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.959Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.959Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.959Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.959Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.959Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.959Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.959Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.960Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.960Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.960Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.960Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.960Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.960Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:31.961Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:20:45.570Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:20:45.570Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:20:45.574Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:20:45.576Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T04:20:45.576Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:20:45.576Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T04:20:45.577Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T04:20:45.577Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:20:45.577Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T04:20:45.578Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T04:20:45.578Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T04:20:45.578Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:20:45.579Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T04:20:45.579Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:20:45.579Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T04:20:45.579Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:20:45.580Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T04:20:45.580Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T04:20:45.580Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:20:45.580Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T04:20:45.581Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-checkout"}
+{"timestamp":"2026-07-27T04:20:45.581Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:20:45.582Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T04:20:45.582Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:20:45.582Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T04:20:45.583Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for unknown-hook"}
+{"timestamp":"2026-07-27T04:20:45.583Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:20:45.584Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Testing bypass"}
+{"timestamp":"2026-07-27T04:20:45.584Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:20:45.584Z","level":"WARN","component":"EnhancedGatekeeper","message":"Bypassing hook-pre-commit validation (development mode)"}
+{"timestamp":"2026-07-27T04:20:45.584Z","level":"WARN","component":"EnhancedGatekeeper","message":"Applying development mode bypass to validation"}
+{"timestamp":"2026-07-27T04:21:10.377Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.377Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.377Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.377Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.377Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.377Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.377Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.377Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.378Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.378Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.378Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.378Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.378Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.378Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.378Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.378Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.378Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.378Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.379Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.379Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.379Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.379Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.379Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.379Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.379Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.379Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.379Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.379Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.380Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.380Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.380Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.380Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.380Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.380Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.380Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.380Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.380Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.380Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.380Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.380Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.381Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.381Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.381Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.381Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.381Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.381Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.381Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.381Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.381Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.381Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.381Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.381Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.382Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.382Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.382Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.382Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.382Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.382Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.382Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.382Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.382Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.382Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.382Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.382Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.383Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.383Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.383Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.383Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.384Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.384Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.384Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.384Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.384Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.384Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.384Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.384Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.384Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.384Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.384Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.384Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.385Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.385Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.385Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.385Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.385Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.385Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.385Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.385Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.385Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.385Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.385Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.385Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.386Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.386Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.386Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.386Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.386Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.386Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.386Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.386Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.386Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.386Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.386Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.386Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.387Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.386Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.387Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.387Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.387Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.387Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.387Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.387Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.387Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.387Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.387Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.387Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.387Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.387Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.388Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.388Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.388Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.388Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.388Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.388Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.388Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.388Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.388Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.388Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.388Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.388Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.389Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.389Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.389Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.389Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.389Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.389Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.389Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.389Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.389Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.389Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.389Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.389Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.390Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.390Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.390Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.390Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.390Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.390Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.390Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.390Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.390Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.390Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.390Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.390Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.390Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.390Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.391Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.391Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.391Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.391Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.391Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.391Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.391Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.391Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.391Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.391Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.391Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.391Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.391Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.391Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.391Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.391Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.392Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.392Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.392Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.392Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.392Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.392Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.392Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.392Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.392Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"PASSED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.392Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.392Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.392Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.392Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.392Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.393Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.393Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.393Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.393Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.393Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.393Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.393Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.393Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.393Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.393Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.393Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.393Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.393Z","level":"INFO","component":"EnhancedGatekeeper","message":"{\"event\":\"gatekeeper-result\",\"phase\":\"unknown\",\"status\":\"FAILED\",\"method\":\"test-suite\",\"timestamp\":\"2026-07-27T04:21:10.393Z\"}"}
+{"timestamp":"2026-07-27T04:21:10.421Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.421Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.421Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.422Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.422Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.422Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.422Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.422Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.422Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.423Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.423Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.423Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.423Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.423Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.423Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.424Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.424Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.424Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.424Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.424Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.424Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.424Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.424Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.425Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.425Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.425Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.425Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.425Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.425Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.425Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.426Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.426Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.426Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.426Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.426Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.426Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.426Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.426Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.427Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.427Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.427Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.427Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.427Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.427Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.427Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.428Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.428Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.428Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.428Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.428Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.428Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.429Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.429Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.429Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.429Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.429Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.429Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.429Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.429Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.430Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.430Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.430Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.430Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.430Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.430Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.430Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.431Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.431Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.431Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.431Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.431Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.431Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.431Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.432Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.432Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.432Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.433Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.433Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.433Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.433Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.433Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.433Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.433Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.434Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.434Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.434Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.434Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.434Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.434Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.434Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.435Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.435Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.435Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.435Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.435Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.435Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.435Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.435Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.436Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:10.436Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:21:24.217Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:21:24.218Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:21:24.218Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:21:24.219Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T04:21:24.219Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:21:24.220Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T04:21:24.220Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T04:21:24.220Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:21:24.221Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T04:21:24.221Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T04:21:24.222Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T04:21:24.222Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:21:24.222Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T04:21:24.222Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:21:24.225Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T04:21:24.225Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:21:24.226Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T04:21:24.226Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T04:21:24.226Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:21:24.227Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T04:21:24.227Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-checkout"}
+{"timestamp":"2026-07-27T04:21:24.227Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:21:24.228Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T04:21:24.228Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:21:24.228Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T04:21:24.229Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for unknown-hook"}
+{"timestamp":"2026-07-27T04:21:24.229Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:21:24.229Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Testing bypass"}
+{"timestamp":"2026-07-27T04:21:24.229Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:21:24.229Z","level":"WARN","component":"EnhancedGatekeeper","message":"Bypassing hook-pre-commit validation (development mode)"}
+{"timestamp":"2026-07-27T04:21:24.229Z","level":"WARN","component":"EnhancedGatekeeper","message":"Applying development mode bypass to validation"}

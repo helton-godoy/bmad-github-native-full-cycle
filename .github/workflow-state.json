@@ -1,0 +1,14 @@
+{
+  "workflowId": "issue-4",
+  "currentPersona": "PM",
+  "persona": "PM",
+  "stepId": "Planning",
+  "context": {
+    "issueNumber": 4,
+    "source": "System Init",
+    "previousPersona": "PM"
+  },
+  "status": "running",
+  "timestamp": "2026-07-27T04:21:14.557Z",
+  "version": "2.0.0"
+}
