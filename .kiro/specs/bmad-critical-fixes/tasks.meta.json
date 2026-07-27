@@ -1,5 +1,14 @@
 {
-  "pbtResults": {},
+  "pbtResults": {
+    "1.4 Write property test for backoff timing": {
+      "status": "passed",
+      "lastRunTimestamp": 1785130390461
+    },
+    "2.2 Write property test for loop detection": {
+      "status": "passed",
+      "lastRunTimestamp": 1785130551827
+    }
+  },
   "executionHistory": {
     "1.2 Write property test for error retry logic": [
       {
@@ -11,6 +20,11 @@
         "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
         "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
         "timestamp": 1785119023127
+      },
+      {
+        "executionId": "0756cdaa-36ad-4402-9664-8d4f04d25d80",
+        "chatSessionId": "sess_fb1cc260-3bc8-41aa-865e-9f42e5c51969",
+        "timestamp": 1785128603535
       }
     ],
     "1.4 Write property test for backoff timing": [
@@ -23,6 +37,11 @@
         "executionId": "c3ade947-94dc-4724-b4a7-8f666e50e462",
         "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
         "timestamp": 1785119774311
+      },
+      {
+        "executionId": "882a3d73-be94-44ac-ba26-059250718cb5",
+        "chatSessionId": "sess_9a5a65f3-df83-4b26-b08b-d765fc08bb32",
+        "timestamp": 1785129610115
       }
     ],
     "2.2 Write property test for loop detection": [
@@ -30,6 +49,16 @@
         "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
         "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
         "timestamp": 1785119007889
+      },
+      {
+        "executionId": "7ed13563-e0e2-48c7-a196-3cce1057d396",
+        "chatSessionId": "sess_9a5a65f3-df83-4b26-b08b-d765fc08bb32",
+        "timestamp": 1785130471018
+      },
+      {
+        "executionId": "7ed13563-e0e2-48c7-a196-3cce1057d396",
+        "chatSessionId": "sess_9a5a65f3-df83-4b26-b08b-d765fc08bb32",
+        "timestamp": 1785130580822
       }
     ],
     "2.4 Write property test for history persistence": [

@@ -16,9 +16,16 @@ graph TD
     bmad_workflow_enhanced_js -->|"Coordinates all personas, GitHub integration, and ..."| System
     bmad_workflow_js -->|"Coordinates all personas and GitHub integration..."| System
     bmad_message_validator_js -->|"Integrates with Hook Orchestrator for commit messa..."| System
+    context_synchronizer_js -->|"Integrates with Hook Orchestrator and Context Mana..."| System
+    hook_setup_manager_js -->|"Integrates with Hook Orchestrator for hook executi..."| System
+    setup_hooks_js -->|"Integrates with HookSetupManager for hook installa..."| System
     commit_handler_js -->|"Integrates with ExponentialBackoff for retry logic..."| System
     config_loader_js -->|"Integrates with all BMAD components for consistent..."| System
+    auth_test_js -->|"Tests validate the complete authentication workflo..."| System
     octokit_js -->|"Provides consistent mock responses for GitHub oper..."| System
     personas_test_js -->|"Tests validate persona integration and workflow..."| System
     setup_js -->|"Setup consistent test environment across all tests..."| System
+    jwt_util_test_js -->|"JWT utilities are used by auth.service.js..."| System
+    password_util_test_js -->|"Password utilities are used by auth.service.js..."| System
+    validator_util_test_js -->|"Validation utilities are used by auth.service.js..."| System
     workflow_test_js -->|"Tests validate workflow execution and GitHub integ..."| System

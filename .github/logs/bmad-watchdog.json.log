@@ -4399,3 +4399,98 @@
 {"timestamp":"2026-07-27T02:44:48.256Z","level":"WARN","component":"Watchdog","message":"⚠️ Workflow workflow-state-999.json appears STALLED."}
 {"timestamp":"2026-07-27T02:44:48.283Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
 {"timestamp":"2026-07-27T02:44:48.285Z","level":"ERROR","component":"Watchdog","message":"⛔ Circuit Breaker is OPEN. Skipping checks to prevent error loop."}
+{"timestamp":"2026-07-27T04:44:21.664Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T04:44:21.667Z","level":"INFO","component":"Watchdog","message":"Checking workflow-state-999.json: Last update 15m ago."}
+{"timestamp":"2026-07-27T04:44:21.667Z","level":"WARN","component":"Watchdog","message":"⚠️ Workflow workflow-state-999.json appears STALLED."}
+{"timestamp":"2026-07-27T04:44:21.698Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T04:44:21.700Z","level":"ERROR","component":"Watchdog","message":"⛔ Circuit Breaker is OPEN. Skipping checks to prevent error loop."}
+{"timestamp":"2026-07-27T04:44:50.904Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T04:44:50.907Z","level":"INFO","component":"Watchdog","message":"Checking workflow-state-999.json: Last update 15m ago."}
+{"timestamp":"2026-07-27T04:44:50.907Z","level":"WARN","component":"Watchdog","message":"⚠️ Workflow workflow-state-999.json appears STALLED."}
+{"timestamp":"2026-07-27T04:44:50.940Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T04:44:50.942Z","level":"ERROR","component":"Watchdog","message":"⛔ Circuit Breaker is OPEN. Skipping checks to prevent error loop."}
+{"timestamp":"2026-07-27T04:45:28.076Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T04:45:28.079Z","level":"INFO","component":"Watchdog","message":"Checking workflow-state-999.json: Last update 15m ago."}
+{"timestamp":"2026-07-27T04:45:28.080Z","level":"WARN","component":"Watchdog","message":"⚠️ Workflow workflow-state-999.json appears STALLED."}
+{"timestamp":"2026-07-27T04:45:28.132Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T04:45:28.136Z","level":"ERROR","component":"Watchdog","message":"⛔ Circuit Breaker is OPEN. Skipping checks to prevent error loop."}
+{"timestamp":"2026-07-27T05:43:31.847Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T05:43:31.849Z","level":"INFO","component":"Watchdog","message":"Checking workflow-state-999.json: Last update 15m ago."}
+{"timestamp":"2026-07-27T05:43:31.849Z","level":"WARN","component":"Watchdog","message":"⚠️ Workflow workflow-state-999.json appears STALLED."}
+{"timestamp":"2026-07-27T05:43:31.889Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T05:43:31.892Z","level":"ERROR","component":"Watchdog","message":"⛔ Circuit Breaker is OPEN. Skipping checks to prevent error loop."}
+{"timestamp":"2026-07-27T05:44:06.256Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T05:44:06.259Z","level":"INFO","component":"Watchdog","message":"Checking workflow-state-999.json: Last update 15m ago."}
+{"timestamp":"2026-07-27T05:44:06.260Z","level":"WARN","component":"Watchdog","message":"⚠️ Workflow workflow-state-999.json appears STALLED."}
+{"timestamp":"2026-07-27T05:44:06.294Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T05:44:06.297Z","level":"ERROR","component":"Watchdog","message":"⛔ Circuit Breaker is OPEN. Skipping checks to prevent error loop."}
+{"timestamp":"2026-07-27T05:55:46.737Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T05:55:46.740Z","level":"INFO","component":"Watchdog","message":"Checking workflow-state-999.json: Last update 15m ago."}
+{"timestamp":"2026-07-27T05:55:46.740Z","level":"WARN","component":"Watchdog","message":"⚠️ Workflow workflow-state-999.json appears STALLED."}
+{"timestamp":"2026-07-27T05:55:46.778Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T05:55:46.780Z","level":"ERROR","component":"Watchdog","message":"⛔ Circuit Breaker is OPEN. Skipping checks to prevent error loop."}
+{"timestamp":"2026-07-27T05:57:06.225Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T05:57:06.228Z","level":"INFO","component":"Watchdog","message":"Checking workflow-state-999.json: Last update 15m ago."}
+{"timestamp":"2026-07-27T05:57:06.228Z","level":"WARN","component":"Watchdog","message":"⚠️ Workflow workflow-state-999.json appears STALLED."}
+{"timestamp":"2026-07-27T05:57:06.265Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T05:57:06.268Z","level":"ERROR","component":"Watchdog","message":"⛔ Circuit Breaker is OPEN. Skipping checks to prevent error loop."}
+{"timestamp":"2026-07-27T05:57:41.827Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T05:57:41.831Z","level":"INFO","component":"Watchdog","message":"Checking workflow-state-999.json: Last update 15m ago."}
+{"timestamp":"2026-07-27T05:57:41.831Z","level":"WARN","component":"Watchdog","message":"⚠️ Workflow workflow-state-999.json appears STALLED."}
+{"timestamp":"2026-07-27T05:57:41.873Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T05:57:41.876Z","level":"ERROR","component":"Watchdog","message":"⛔ Circuit Breaker is OPEN. Skipping checks to prevent error loop."}
+{"timestamp":"2026-07-27T05:58:22.150Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T05:58:22.156Z","level":"INFO","component":"Watchdog","message":"Checking workflow-state-999.json: Last update 15m ago."}
+{"timestamp":"2026-07-27T05:58:22.156Z","level":"WARN","component":"Watchdog","message":"⚠️ Workflow workflow-state-999.json appears STALLED."}
+{"timestamp":"2026-07-27T05:58:22.247Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T05:58:22.262Z","level":"ERROR","component":"Watchdog","message":"⛔ Circuit Breaker is OPEN. Skipping checks to prevent error loop."}
+{"timestamp":"2026-07-27T05:58:42.841Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T05:58:42.844Z","level":"INFO","component":"Watchdog","message":"Checking workflow-state-999.json: Last update 15m ago."}
+{"timestamp":"2026-07-27T05:58:42.845Z","level":"WARN","component":"Watchdog","message":"⚠️ Workflow workflow-state-999.json appears STALLED."}
+{"timestamp":"2026-07-27T05:58:42.896Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T05:58:42.899Z","level":"ERROR","component":"Watchdog","message":"⛔ Circuit Breaker is OPEN. Skipping checks to prevent error loop."}
+{"timestamp":"2026-07-27T06:02:27.305Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T06:02:27.307Z","level":"INFO","component":"Watchdog","message":"Checking workflow-state-999.json: Last update 15m ago."}
+{"timestamp":"2026-07-27T06:02:27.307Z","level":"WARN","component":"Watchdog","message":"⚠️ Workflow workflow-state-999.json appears STALLED."}
+{"timestamp":"2026-07-27T06:02:27.343Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T06:02:27.346Z","level":"ERROR","component":"Watchdog","message":"⛔ Circuit Breaker is OPEN. Skipping checks to prevent error loop."}
+{"timestamp":"2026-07-27T06:04:45.933Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T06:04:45.935Z","level":"INFO","component":"Watchdog","message":"Checking workflow-state-999.json: Last update 15m ago."}
+{"timestamp":"2026-07-27T06:04:45.935Z","level":"WARN","component":"Watchdog","message":"⚠️ Workflow workflow-state-999.json appears STALLED."}
+{"timestamp":"2026-07-27T06:04:45.974Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T06:04:45.977Z","level":"ERROR","component":"Watchdog","message":"⛔ Circuit Breaker is OPEN. Skipping checks to prevent error loop."}
+{"timestamp":"2026-07-27T06:06:39.108Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T06:06:39.110Z","level":"INFO","component":"Watchdog","message":"Checking workflow-state-999.json: Last update 15m ago."}
+{"timestamp":"2026-07-27T06:06:39.111Z","level":"WARN","component":"Watchdog","message":"⚠️ Workflow workflow-state-999.json appears STALLED."}
+{"timestamp":"2026-07-27T06:06:39.141Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T06:06:39.144Z","level":"ERROR","component":"Watchdog","message":"⛔ Circuit Breaker is OPEN. Skipping checks to prevent error loop."}
+{"timestamp":"2026-07-27T06:07:27.619Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T06:07:27.621Z","level":"INFO","component":"Watchdog","message":"Checking workflow-state-999.json: Last update 15m ago."}
+{"timestamp":"2026-07-27T06:07:27.621Z","level":"WARN","component":"Watchdog","message":"⚠️ Workflow workflow-state-999.json appears STALLED."}
+{"timestamp":"2026-07-27T06:07:27.656Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T06:07:27.659Z","level":"ERROR","component":"Watchdog","message":"⛔ Circuit Breaker is OPEN. Skipping checks to prevent error loop."}
+{"timestamp":"2026-07-27T06:08:08.816Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T06:08:08.819Z","level":"INFO","component":"Watchdog","message":"Checking workflow-state-999.json: Last update 15m ago."}
+{"timestamp":"2026-07-27T06:08:08.819Z","level":"WARN","component":"Watchdog","message":"⚠️ Workflow workflow-state-999.json appears STALLED."}
+{"timestamp":"2026-07-27T06:08:08.858Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T06:08:08.861Z","level":"ERROR","component":"Watchdog","message":"⛔ Circuit Breaker is OPEN. Skipping checks to prevent error loop."}
+{"timestamp":"2026-07-27T06:08:44.585Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T06:08:44.588Z","level":"INFO","component":"Watchdog","message":"Checking workflow-state-999.json: Last update 15m ago."}
+{"timestamp":"2026-07-27T06:08:44.588Z","level":"WARN","component":"Watchdog","message":"⚠️ Workflow workflow-state-999.json appears STALLED."}
+{"timestamp":"2026-07-27T06:08:44.629Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T06:08:44.631Z","level":"ERROR","component":"Watchdog","message":"⛔ Circuit Breaker is OPEN. Skipping checks to prevent error loop."}
+{"timestamp":"2026-07-27T06:09:03.989Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T06:09:03.991Z","level":"INFO","component":"Watchdog","message":"Checking workflow-state-999.json: Last update 15m ago."}
+{"timestamp":"2026-07-27T06:09:03.991Z","level":"WARN","component":"Watchdog","message":"⚠️ Workflow workflow-state-999.json appears STALLED."}
+{"timestamp":"2026-07-27T06:09:04.026Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T06:09:04.029Z","level":"ERROR","component":"Watchdog","message":"⛔ Circuit Breaker is OPEN. Skipping checks to prevent error loop."}
+{"timestamp":"2026-07-27T06:10:00.471Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T06:10:00.473Z","level":"INFO","component":"Watchdog","message":"Checking workflow-state-999.json: Last update 15m ago."}
+{"timestamp":"2026-07-27T06:10:00.473Z","level":"WARN","component":"Watchdog","message":"⚠️ Workflow workflow-state-999.json appears STALLED."}
+{"timestamp":"2026-07-27T06:10:00.508Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T06:10:00.511Z","level":"ERROR","component":"Watchdog","message":"⛔ Circuit Breaker is OPEN. Skipping checks to prevent error loop."}
+{"timestamp":"2026-07-27T06:11:46.803Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T06:11:46.806Z","level":"INFO","component":"Watchdog","message":"Checking workflow-state-999.json: Last update 15m ago."}
+{"timestamp":"2026-07-27T06:11:46.806Z","level":"WARN","component":"Watchdog","message":"⚠️ Workflow workflow-state-999.json appears STALLED."}
+{"timestamp":"2026-07-27T06:11:46.837Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T06:11:46.840Z","level":"ERROR","component":"Watchdog","message":"⛔ Circuit Breaker is OPEN. Skipping checks to prevent error loop."}

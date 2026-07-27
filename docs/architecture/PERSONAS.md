@@ -20,6 +20,7 @@
 - **Generate persona documentation** (`agent-doc-enhanced.js`)
 - **Execute the determined persona** (`bmad-orchestrator.js`)
 - **Execute single persona (for testing/debugging)** (`bmad-workflow-enhanced.js`)
+- **Loop Detector for BMAD persona transition tracking and infinite loop prevention** (`loop-detector.js`)
 - **Test suite for BMAD personas** (`personas.test.js`)
 
 ## Persona Responsibilities

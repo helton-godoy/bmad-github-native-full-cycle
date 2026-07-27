@@ -1,0 +1,406 @@
+/**
+ * Property-Based Tests for State Cache Manager
+ * **Feature: bmad-critical-fixes**
+ *
+ * Properties:
+ * - Property 20: State Persistence
+ * - Property 24: Atomic State Operations
+ * - Property 21: State Restoration on Restart
+ * - Property 22: State Validation
+ * - Property 23: Invalid State Fallback
+ *
+ * **Validates: Requirements 5.1, 5.2, 5.3, 5.4, 5.5**
+ */
+
+const fs = require('fs');
+const path = require('path');
+const os = require('os');
+const fc = require('fast-check');
+const { StateCacheManager } = require('../../scripts/lib/state-cache-manager');
+
+describe('StateCacheManager Property Tests', () => {
+  let tmpDir;
+  let cacheManager;
+
+  beforeEach(() => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'bmad-state-test-'));
+    cacheManager = new StateCacheManager({
+      stateFile: path.join(tmpDir, 'state.json'),
+      backupFile: path.join(tmpDir, 'state.backup.json'),
+      lockFile: path.join(tmpDir, 'state.lock'),
+    });
+  });
+
+  afterEach(() => {
+    try {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    } catch {
+      // cleanup best-effort
+    }
+  });
+
+  /**
+   * **Feature: bmad-critical-fixes, Property 20: State Persistence**
+   * **Validates: Requirements 5.1**
+   *
+   * Core property: For any valid persona, stepId, and context,
+   * persisting state and then restoring it should return the same values.
+   */
+  describe('Property 20: State Persistence', () => {
+    test('should persist and restore state correctly for any valid persona/step/context combo', async () => {
+      await fc.assert(
+        fc.asyncProperty(
+          fc.constantFrom('DEVELOPER', 'ARCHITECT', 'PM', 'QA', 'DEVOPS', 'SECURITY', 'RELEASE_MANAGER', 'ORCHESTRATOR'),
+          fc.string({ minLength: 1, maxLength: 20 }).filter(s => /^[A-Z0-9-]+$/.test(s)),
+          fc.dictionary(fc.string({ minLength: 1, maxLength: 10 }), fc.string({ minLength: 0, maxLength: 30 }), { minLength: 0, maxLength: 5 }),
+          async (persona, stepId, context) => {
+            const persisted = await cacheManager.persistState(persona, stepId, context);
+            expect(persisted.currentPersona).toBe(persona);
+            expect(persisted.stepId).toBe(stepId);
+            expect(persisted.context).toEqual(context);
+            expect(persisted.timestamp).toBeTruthy();
+            expect(persisted.version).toBe('2.0.0');
+
+            // Verify the state file exists
+            expect(fs.existsSync(cacheManager.stateFile)).toBe(true);
+
+            // Restore and verify
+            const restored = await cacheManager.restoreState();
+            expect(restored.currentPersona).toBe(persona);
+            expect(restored.stepId).toBe(stepId);
+            expect(restored.context).toEqual(context);
+          }
+        ),
+        { numRuns: 50 }
+      );
+    });
+  });
+
+
+    test('should create backup before overwriting existing state', async () => {
+      await fc.assert(
+        fc.asyncProperty(
+          fc.string({ minLength: 1, maxLength: 15 }).filter(s => /^[A-Z0-9-]+$/.test(s)),
+          fc.string({ minLength: 1, maxLength: 15 }).filter(s => /^[A-Z0-9-]+$/.test(s)),
+          async (step1, step2) => {
+            // Persist first state
+            await cacheManager.persistState('PM', step1, { phase: 'planning' });
+
+            // Persist second state (should create backup of first)
+            await cacheManager.persistState('ARCHITECT', step2, { phase: 'design' });
+
+            // Verify backup exists and contains original state
+            expect(fs.existsSync(cacheManager.backupFile)).toBe(true);
+            const backupState = JSON.parse(fs.readFileSync(cacheManager.backupFile, 'utf8'));
+            expect(backupState.stepId).toBe(step1);
+            expect(backupState.currentPersona).toBe('PM');
+
+            // Current state should be the new one
+  /**
+   * **Feature: bmad-critical-fixes, Property 24: Atomic State Operations**
+   * **Validates: Requirements 5.5**
+   *
+   * Core property: Atomic writes should ensure state consistency even under concurrent operations.
+   * The state file should always contain valid JSON after any sequence of operations.
+   */
+  describe('Property 24: Atomic State Operations', () => {
+    test('should maintain valid state after multiple sequential atomic writes', async () => {
+      await fc.assert(
+        fc.asyncProperty(
+          fc.array(
+            fc.record({
+              persona: fc.constantFrom('DEVELOPER', 'ARCHITECT', 'PM', 'QA'),
+              stepId: fc.string({ minLength: 1, maxLength: 10 }).filter(s => /^[A-Z0-9-]+$/.test(s)),
+            }),
+            { minLength: 1, maxLength: 10 }
+          ),
+          async (operations) => {
+            // Execute a sequence of state persist operations
+            for (const op of operations) {
+              await cacheManager.persistState(op.persona, op.stepId, {});
+            }
+
+            // After all operations, the state file must be valid JSON
+            const content = fs.readFileSync(cacheManager.stateFile, 'utf8');
+            let state;
+            expect(() => { state = JSON.parse(content); }).not.toThrow();
+
+            // State should contain valid properties
+            expect(state.currentPersona).toBeTruthy();
+            expect(state.stepId).toBeTruthy();
+            expect(state.version).toBe('2.0.0');
+
+            // The last operation should be reflected in the final state
+            const lastOp = operations[operations.length - 1];
+            expect(state.currentPersona).toBe(lastOp.persona);
+            expect(state.stepId).toBe(lastOp.stepId);
+          }
+        ),
+        { numRuns: 30 }
+      );
+    });
+
+    test('should not leave partial or corrupted state files on write failure', async () => {
+      await fc.assert(
+        fc.asyncProperty(
+          fc.record({
+            persona: fc.constantFrom('DEVELOPER', 'ARCHITECT', 'PM', 'QA'),
+            stepId: fc.string({ minLength: 1, maxLength: 10 }).filter(s => /^[A-Z0-9-]+$/.test(s)),
+            context: fc.dictionary(
+              fc.string({ minLength: 1, maxLength: 5 }),
+              fc.string({ minLength: 0, maxLength: 10 }),
+              { minLength: 0, maxLength: 3 }
+            ),
+          }),
+          async (data) => {
+            // Persist initial valid state
+            await cacheManager.persistState('ORCHESTRATOR', 'INIT-000', {});
+
+            // Try to persist
+            let persistError = null;
+            try {
+              await cacheManager.persistState(data.persona, data.stepId, data.context);
+            } catch (err) {
+              persistError = err;
+            }
+
+            // If persist failed, the state file should still contain valid JSON
+            if (persistError) {
+              const content = fs.readFileSync(cacheManager.stateFile, 'utf8');
+              expect(() => JSON.parse(content)).not.toThrow();
+              // The state should still be readable
+              const restored = await cacheManager.restoreState();
+              expect(restored).not.toBeNull();
+            }
+          }
+        ),
+        { numRuns: 20 }
+      );
+    });
+  });
+
+  /**
+   * **Feature: bmad-critical-fixes, Property 21: State Restoration on Restart**
+   * **Validates: Requirements 5.2**
+   *
+   * Core property: On restore, the StateCacheManager should load the last persisted state
+   * or fall back to backup if main file is missing.
+   */
+  describe('Property 21: State Restoration on Restart', () => {
+    test('should restore the last persisted state on restart', async () => {
+      await fc.assert(
+        fc.asyncProperty(
+          fc.record({
+            persona: fc.constantFrom('DEVELOPER', 'ARCHITECT', 'PM', 'QA'),
+            stepId: fc.string({ minLength: 1, maxLength: 15 }).filter(s => /^[A-Z0-9-]+$/.test(s)),
+            contextKey: fc.string({ minLength: 1, maxLength: 10 }),
+            contextValue: fc.string({ minLength: 1, maxLength: 20 }),
+          }),
+          async (data) => {
+            const context = { [data.contextKey]: data.contextValue };
+            await cacheManager.persistState(data.persona, data.stepId, context);
+
+            // Create a new manager instance (simulating restart)
+            const newManager = new StateCacheManager({
+              stateFile: cacheManager.stateFile,
+              backupFile: cacheManager.backupFile,
+              lockFile: cacheManager.lockFile,
+            });
+
+            const restored = await newManager.restoreState();
+            expect(restored.currentPersona).toBe(data.persona);
+            expect(restored.stepId).toBe(data.stepId);
+            expect(restored.context[data.contextKey]).toBe(data.contextValue);
+          }
+        ),
+        { numRuns: 30 }
+      );
+    });
+
+    test('should restore from backup file when state file is missing', async () => {
+      // Persist state, then remove state file but keep backup
+      await cacheManager.persistState('DEVELOPER', 'DEV-001', { task: 'implement' });
+
+      // Remove state file, keep backup
+      fs.unlinkSync(cacheManager.stateFile);
+      expect(fs.existsSync(cacheManager.stateFile)).toBe(false);
+      expect(fs.existsSync(cacheManager.backupFile)).toBe(true);
+
+      // Restore should work from backup
+      const restored = await cacheManager.restoreState();
+      expect(restored).not.toBeNull();
+      expect(restored.currentPersona).toBe('DEVELOPER');
+      expect(restored.stepId).toBe('DEV-001');
+
+      // State file should be recreated from backup
+      expect(fs.existsSync(cacheManager.stateFile)).toBe(true);
+    });
+
+    test('should return null when no state or backup exists', async () => {
+  /**
+   * **Feature: bmad-critical-fixes, Property 22: State Validation**
+   * **Validates: Requirements 5.3**
+   *
+   * Core property: State validation should reject invalid states and accept valid ones.
+   */
+  describe('Property 22: State Validation', () => {
+    test('should validate correct states and reject invalid ones', async () => {
+      await fc.assert(
+        fc.asyncProperty(
+          fc.option(fc.string({ minLength: 1, maxLength: 20 }), { nil: undefined }),
+          fc.option(fc.string({ minLength: 1, maxLength: 20 }), { nil: undefined }),
+          async (currentPersona, stepId) => {
+            const testState = {
+              currentPersona,
+              stepId,
+              context: {},
+              timestamp: new Date().toISOString(),
+            };
+
+            const isValid = await cacheManager.validateState(testState);
+
+            // Valid if both currentPersona AND stepId are non-empty strings
+            const expectedValid =
+              typeof currentPersona === 'string' && currentPersona.length > 0 &&
+              typeof stepId === 'string' && stepId.length > 0;
+
+            expect(isValid).toBe(expectedValid);
+          }
+        ),
+        { numRuns: 50 }
+      );
+    });
+
+    test('should reject null and undefined states', async () => {
+      const isValidNull = await cacheManager.validateState(null);
+      expect(isValidNull).toBe(false);
+
+      const isValidUndefined = await cacheManager.validateState(undefined);
+      expect(isValidUndefined).toBe(false);
+    });
+
+    test('should reject states with missing required fields', async () => {
+      const noPersona = await cacheManager.validateState({ stepId: 'TEST-001', context: {} });
+      expect(noPersona).toBe(false);
+
+      const noStepId = await cacheManager.validateState({ currentPersona: 'TEST', context: {} });
+      expect(noStepId).toBe(false);
+
+      const emptyPersona = await cacheManager.validateState({ currentPersona: '', stepId: 'TEST-001', context: {} });
+      expect(emptyPersona).toBe(false);
+
+  /**
+   * **Feature: bmad-critical-fixes, Property 23: Invalid State Fallback**
+   * **Validates: Requirements 5.4**
+   *
+   * Core property: When state validation fails during restore, the system should
+   * fall back to the initial state instead of returning invalid data.
+   */
+  describe('Property 23: Invalid State Fallback', () => {
+    test('should reset to initial state when restored state is invalid', async () => {
+      await fc.assert(
+        fc.asyncProperty(
+          fc.record({
+            stepId: fc.string({ minLength: 1, maxLength: 10 }),
+            contextKey: fc.string({ minLength: 1, maxLength: 10 }),
+            contextValue: fc.string({ minLength: 1, maxLength: 20 }),
+          }),
+          async (data) => {
+            // Write an invalid state directly to the file (bypassing persistState)
+            const invalidState = {
+              stepId: data.stepId,               // missing currentPersona
+              context: { [data.contextKey]: data.contextValue },
+              timestamp: new Date().toISOString(),
+              version: '2.0.0',
+            };
+            fs.writeFileSync(cacheManager.stateFile, JSON.stringify(invalidState), 'utf8');
+
+            // Restore should detect invalid state and fall back to initial
+            const restored = await cacheManager.restoreState();
+            expect(restored).not.toBeNull();
+            expect(restored.currentPersona).toBe('ORCHESTRATOR');
+            expect(restored.stepId).toBe('INIT-000');
+            expect(restored.resetReason).toBe('State validation failed or explicitly reset');
+          }
+        ),
+        { numRuns: 20 }
+      );
+    });
+
+    test('should fall back to initial state when JSON parsing fails', async () => {
+      // Write corrupted data to state file
+      fs.writeFileSync(cacheManager.stateFile, 'not valid json {{{', 'utf8');
+
+      const restored = await cacheManager.restoreState();
+      expect(restored).not.toBeNull();
+      expect(restored.currentPersona).toBe('ORCHESTRATOR');
+      expect(restored.stepId).toBe('INIT-000');
+    });
+
+    test('should fall back to initial state when both state and backup are invalid', async () => {
+      // Write invalid data to both files
+      fs.writeFileSync(cacheManager.stateFile, '{invalid}', 'utf8');
+      fs.writeFileSync(cacheManager.backupFile, '{also invalid}', 'utf8');
+
+      const restored = await cacheManager.restoreState();
+      expect(restored).not.toBeNull();
+      expect(restored.currentPersona).toBe('ORCHESTRATOR');
+      expect(restored.stepId).toBe('INIT-000');
+    });
+  });
+});
+
+      const emptyStepId = await cacheManager.validateState({ currentPersona: 'TEST', stepId: '', context: {} });
+      expect(emptyStepId).toBe(false);
+    });
+  });
+
+      // Fresh state directory with no files
+      const freshManager = new StateCacheManager({
+        stateFile: path.join(tmpDir, 'nonexistent.json'),
+        backupFile: path.join(tmpDir, 'nonexistent.backup.json'),
+      });
+
+      const result = await freshManager.restoreState();
+      expect(result).toBeNull();
+    });
+  });
+
+            ),
+          }),
+          async (data) => {
+            // Persist initial valid state
+            await cacheManager.persistState('ORCHESTRATOR', 'INIT-000', {});
+
+            // Try to persist
+            let persistError = null;
+            try {
+              await cacheManager.persistState(data.persona, data.stepId, data.context);
+            } catch (err) {
+              persistError = err;
+            }
+
+            // If persist failed, the state file should still contain valid JSON
+            if (persistError) {
+              const content = fs.readFileSync(cacheManager.stateFile, 'utf8');
+              expect(() => JSON.parse(content)).not.toThrow();
+              // The state should still be readable
+              const restored = await cacheManager.restoreState();
+              expect(restored).not.toBeNull();
+            }
+          }
+        ),
+        { numRuns: 20 }
+      );
+    });
+  });
+
+            const currentState = JSON.parse(fs.readFileSync(cacheManager.stateFile, 'utf8'));
+            expect(currentState.stepId).toBe(step2);
+            expect(currentState.currentPersona).toBe('ARCHITECT');
+          }
+        ),
+        { numRuns: 30 }
+      );
+    });
+  });

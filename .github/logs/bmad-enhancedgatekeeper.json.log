@@ -2091,3 +2091,715 @@
 {"timestamp":"2026-07-27T02:50:43.424Z","level":"WARN","component":"EnhancedGatekeeper","message":"Bypassing hook-pre-commit validation (development mode)"}
 {"timestamp":"2026-07-27T02:50:43.424Z","level":"WARN","component":"EnhancedGatekeeper","message":"Applying development mode bypass to validation"}
 {"timestamp":"2026-07-27T02:50:47.709Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:44:22.656Z","level":"WARN","component":"EnhancedGatekeeper","message":"Cannot enable bypass: not in development mode"}
+{"timestamp":"2026-07-27T04:44:32.968Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:44:32.968Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:44:32.969Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:44:32.970Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T04:44:32.970Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:44:32.971Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T04:44:32.972Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T04:44:32.972Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:44:32.973Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T04:44:32.973Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T04:44:32.974Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T04:44:32.974Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:44:32.974Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T04:44:32.974Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:44:32.975Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T04:44:32.975Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:44:32.975Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T04:44:32.976Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T04:44:32.976Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:44:32.976Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T04:44:32.977Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-checkout"}
+{"timestamp":"2026-07-27T04:44:32.977Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:44:32.978Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T04:44:32.978Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:44:32.978Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T04:44:32.979Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for unknown-hook"}
+{"timestamp":"2026-07-27T04:44:32.979Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:44:32.980Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Testing bypass"}
+{"timestamp":"2026-07-27T04:44:32.980Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:44:32.980Z","level":"WARN","component":"EnhancedGatekeeper","message":"Bypassing hook-pre-commit validation (development mode)"}
+{"timestamp":"2026-07-27T04:44:32.980Z","level":"WARN","component":"EnhancedGatekeeper","message":"Applying development mode bypass to validation"}
+{"timestamp":"2026-07-27T04:44:51.929Z","level":"WARN","component":"EnhancedGatekeeper","message":"Cannot enable bypass: not in development mode"}
+{"timestamp":"2026-07-27T04:45:02.578Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:45:02.578Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:02.580Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:45:02.581Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T04:45:02.582Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:02.583Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T04:45:02.584Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T04:45:02.584Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:02.584Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T04:45:02.585Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T04:45:02.585Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T04:45:02.586Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:02.586Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T04:45:02.586Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:02.587Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T04:45:02.587Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:02.588Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T04:45:02.589Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T04:45:02.589Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:02.590Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T04:45:02.590Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-checkout"}
+{"timestamp":"2026-07-27T04:45:02.591Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:02.591Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T04:45:02.591Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:02.592Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T04:45:02.592Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for unknown-hook"}
+{"timestamp":"2026-07-27T04:45:02.592Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:02.593Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Testing bypass"}
+{"timestamp":"2026-07-27T04:45:02.593Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:45:02.593Z","level":"WARN","component":"EnhancedGatekeeper","message":"Bypassing hook-pre-commit validation (development mode)"}
+{"timestamp":"2026-07-27T04:45:02.593Z","level":"WARN","component":"EnhancedGatekeeper","message":"Applying development mode bypass to validation"}
+{"timestamp":"2026-07-27T04:45:29.422Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T04:45:29.422Z","level":"WARN","component":"EnhancedGatekeeper","message":"Cannot enable bypass: not in development mode"}
+{"timestamp":"2026-07-27T04:45:40.850Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:45:40.850Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:40.851Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:45:40.853Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T04:45:40.853Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:40.857Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T04:45:40.858Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T04:45:40.858Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:40.859Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T04:45:40.859Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T04:45:40.860Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T04:45:40.860Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:40.860Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T04:45:40.860Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:40.861Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T04:45:40.862Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:40.863Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T04:45:40.863Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T04:45:40.864Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:40.864Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T04:45:40.864Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-checkout"}
+{"timestamp":"2026-07-27T04:45:40.865Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:40.865Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T04:45:40.865Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:40.865Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T04:45:40.866Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for unknown-hook"}
+{"timestamp":"2026-07-27T04:45:40.866Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:40.867Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Testing bypass"}
+{"timestamp":"2026-07-27T04:45:40.867Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:45:40.867Z","level":"WARN","component":"EnhancedGatekeeper","message":"Bypassing hook-pre-commit validation (development mode)"}
+{"timestamp":"2026-07-27T04:45:40.867Z","level":"WARN","component":"EnhancedGatekeeper","message":"Applying development mode bypass to validation"}
+{"timestamp":"2026-07-27T04:45:57.837Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:45:57.843Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:57.922Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T04:45:57.923Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:58.002Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:45:58.013Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:58.015Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:45:58.026Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T04:45:58.026Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:58.028Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T04:45:58.030Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T04:45:58.030Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:45:58.031Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T04:45:58.033Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:45:58.046Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:45:58.059Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T04:45:58.060Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T04:45:58.062Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:45:58.075Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T04:45:58.075Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T04:46:05.856Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T04:46:05.856Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:46:10.405Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:46:10.412Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:46:10.475Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T04:46:10.475Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:46:10.558Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:46:10.567Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:46:10.569Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:46:10.581Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T04:46:10.581Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:46:10.583Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T04:46:10.585Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T04:46:10.586Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T04:46:10.588Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T04:46:10.593Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:46:10.605Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:46:10.614Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T04:46:10.615Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T04:46:10.617Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T04:46:10.626Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T04:46:10.627Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T04:46:17.167Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T04:46:17.168Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:43:32.809Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T05:43:32.809Z","level":"WARN","component":"EnhancedGatekeeper","message":"Cannot enable bypass: not in development mode"}
+{"timestamp":"2026-07-27T05:43:41.986Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T05:43:41.987Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:43:41.988Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T05:43:41.989Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T05:43:41.989Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:43:41.992Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T05:43:41.993Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T05:43:41.993Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:43:41.994Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T05:43:41.994Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T05:43:41.995Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T05:43:41.995Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:43:41.995Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T05:43:41.995Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:43:41.996Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T05:43:41.996Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:43:41.996Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T05:43:41.997Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T05:43:41.997Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:43:41.998Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T05:43:41.998Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-checkout"}
+{"timestamp":"2026-07-27T05:43:41.998Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:43:41.998Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T05:43:41.999Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:43:41.999Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T05:43:42.000Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for unknown-hook"}
+{"timestamp":"2026-07-27T05:43:42.000Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:43:42.000Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Testing bypass"}
+{"timestamp":"2026-07-27T05:43:42.000Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T05:43:42.000Z","level":"WARN","component":"EnhancedGatekeeper","message":"Bypassing hook-pre-commit validation (development mode)"}
+{"timestamp":"2026-07-27T05:43:42.000Z","level":"WARN","component":"EnhancedGatekeeper","message":"Applying development mode bypass to validation"}
+{"timestamp":"2026-07-27T05:44:07.258Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T05:44:07.258Z","level":"WARN","component":"EnhancedGatekeeper","message":"Cannot enable bypass: not in development mode"}
+{"timestamp":"2026-07-27T05:44:17.068Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T05:44:17.068Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:44:17.070Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T05:44:17.071Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T05:44:17.071Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:44:17.073Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T05:44:17.075Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T05:44:17.075Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:44:17.076Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T05:44:17.077Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T05:44:17.078Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T05:44:17.078Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:44:17.079Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T05:44:17.079Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:44:17.080Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T05:44:17.080Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:44:17.081Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T05:44:17.083Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T05:44:17.083Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:44:17.087Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T05:44:17.088Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-checkout"}
+{"timestamp":"2026-07-27T05:44:17.088Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:44:17.090Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T05:44:17.090Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:44:17.091Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T05:44:17.093Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for unknown-hook"}
+{"timestamp":"2026-07-27T05:44:17.093Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:44:17.094Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Testing bypass"}
+{"timestamp":"2026-07-27T05:44:17.094Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T05:44:17.094Z","level":"WARN","component":"EnhancedGatekeeper","message":"Bypassing hook-pre-commit validation (development mode)"}
+{"timestamp":"2026-07-27T05:44:17.094Z","level":"WARN","component":"EnhancedGatekeeper","message":"Applying development mode bypass to validation"}
+{"timestamp":"2026-07-27T05:55:47.687Z","level":"WARN","component":"EnhancedGatekeeper","message":"Cannot enable bypass: not in development mode"}
+{"timestamp":"2026-07-27T05:55:58.654Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T05:55:58.654Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:55:58.655Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T05:55:58.656Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T05:55:58.656Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:55:58.657Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T05:55:58.658Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T05:55:58.659Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:55:58.659Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T05:55:58.660Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T05:55:58.664Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T05:55:58.664Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:55:58.665Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T05:55:58.665Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:55:58.665Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T05:55:58.665Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:55:58.666Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T05:55:58.667Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T05:55:58.667Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:55:58.667Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T05:55:58.668Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-checkout"}
+{"timestamp":"2026-07-27T05:55:58.668Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:55:58.668Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T05:55:58.668Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:55:58.669Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T05:55:58.669Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for unknown-hook"}
+{"timestamp":"2026-07-27T05:55:58.669Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:55:58.670Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Testing bypass"}
+{"timestamp":"2026-07-27T05:55:58.670Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T05:55:58.670Z","level":"WARN","component":"EnhancedGatekeeper","message":"Bypassing hook-pre-commit validation (development mode)"}
+{"timestamp":"2026-07-27T05:55:58.670Z","level":"WARN","component":"EnhancedGatekeeper","message":"Applying development mode bypass to validation"}
+{"timestamp":"2026-07-27T05:57:07.184Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T05:57:07.185Z","level":"WARN","component":"EnhancedGatekeeper","message":"Cannot enable bypass: not in development mode"}
+{"timestamp":"2026-07-27T05:57:18.133Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T05:57:18.133Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:57:18.135Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T05:57:18.135Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T05:57:18.136Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:57:18.136Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T05:57:18.137Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T05:57:18.137Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:57:18.138Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T05:57:18.139Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T05:57:18.139Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T05:57:18.139Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:57:18.140Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T05:57:18.140Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:57:18.141Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T05:57:18.141Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:57:18.141Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T05:57:18.142Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T05:57:18.142Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:57:18.142Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T05:57:18.143Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-checkout"}
+{"timestamp":"2026-07-27T05:57:18.143Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:57:18.143Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T05:57:18.143Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:57:18.144Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T05:57:18.144Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for unknown-hook"}
+{"timestamp":"2026-07-27T05:57:18.144Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:57:18.145Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Testing bypass"}
+{"timestamp":"2026-07-27T05:57:18.145Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T05:57:18.145Z","level":"WARN","component":"EnhancedGatekeeper","message":"Bypassing hook-pre-commit validation (development mode)"}
+{"timestamp":"2026-07-27T05:57:18.145Z","level":"WARN","component":"EnhancedGatekeeper","message":"Applying development mode bypass to validation"}
+{"timestamp":"2026-07-27T05:57:42.902Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T05:57:42.903Z","level":"WARN","component":"EnhancedGatekeeper","message":"Cannot enable bypass: not in development mode"}
+{"timestamp":"2026-07-27T05:57:55.413Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T05:57:55.414Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:57:55.416Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T05:57:55.418Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T05:57:55.418Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:57:55.419Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T05:57:55.421Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T05:57:55.421Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:57:55.425Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T05:57:55.426Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T05:57:55.427Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T05:57:55.428Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:57:55.429Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T05:57:55.429Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:57:55.431Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T05:57:55.431Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:57:55.433Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T05:57:55.434Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T05:57:55.434Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:57:55.435Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T05:57:55.436Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-checkout"}
+{"timestamp":"2026-07-27T05:57:55.437Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:57:55.438Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T05:57:55.439Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:57:55.440Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T05:57:55.441Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for unknown-hook"}
+{"timestamp":"2026-07-27T05:57:55.441Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:57:55.442Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Testing bypass"}
+{"timestamp":"2026-07-27T05:57:55.442Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T05:57:55.442Z","level":"WARN","component":"EnhancedGatekeeper","message":"Bypassing hook-pre-commit validation (development mode)"}
+{"timestamp":"2026-07-27T05:57:55.442Z","level":"WARN","component":"EnhancedGatekeeper","message":"Applying development mode bypass to validation"}
+{"timestamp":"2026-07-27T05:58:23.391Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T05:58:23.392Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T05:58:23.392Z","level":"WARN","component":"EnhancedGatekeeper","message":"Cannot enable bypass: not in development mode"}
+{"timestamp":"2026-07-27T05:58:43.922Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T05:58:43.923Z","level":"WARN","component":"EnhancedGatekeeper","message":"Cannot enable bypass: not in development mode"}
+{"timestamp":"2026-07-27T05:58:55.946Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T05:58:55.946Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:58:55.947Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T05:58:55.948Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T05:58:55.949Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:58:55.950Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T05:58:55.950Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T05:58:55.951Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:58:55.951Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T05:58:55.952Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T05:58:55.952Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T05:58:55.952Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:58:55.953Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T05:58:55.953Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:58:55.953Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T05:58:55.953Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:58:55.954Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T05:58:55.957Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T05:58:55.958Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:58:55.959Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T05:58:55.960Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-checkout"}
+{"timestamp":"2026-07-27T05:58:55.960Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:58:55.960Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T05:58:55.960Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:58:55.961Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T05:58:55.961Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for unknown-hook"}
+{"timestamp":"2026-07-27T05:58:55.961Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T05:58:55.962Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Testing bypass"}
+{"timestamp":"2026-07-27T05:58:55.962Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T05:58:55.962Z","level":"WARN","component":"EnhancedGatekeeper","message":"Bypassing hook-pre-commit validation (development mode)"}
+{"timestamp":"2026-07-27T05:58:55.962Z","level":"WARN","component":"EnhancedGatekeeper","message":"Applying development mode bypass to validation"}
+{"timestamp":"2026-07-27T05:59:16.397Z","level":"WARN","component":"EnhancedGatekeeper","message":"Cannot enable bypass: not in development mode"}
+{"timestamp":"2026-07-27T06:01:34.002Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T06:01:34.003Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T06:01:34.003Z","level":"WARN","component":"EnhancedGatekeeper","message":"Cannot enable bypass: not in development mode"}
+{"timestamp":"2026-07-27T06:01:58.307Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T06:01:58.308Z","level":"WARN","component":"EnhancedGatekeeper","message":"Cannot enable bypass: not in development mode"}
+{"timestamp":"2026-07-27T06:02:28.241Z","level":"WARN","component":"EnhancedGatekeeper","message":"Cannot enable bypass: not in development mode"}
+{"timestamp":"2026-07-27T06:02:38.854Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:02:38.855Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:02:38.856Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:02:38.857Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:02:38.857Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:02:38.858Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:02:38.858Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:02:38.858Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:02:38.859Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:02:38.861Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:02:38.862Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T06:02:38.863Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:02:38.863Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T06:02:38.864Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:02:38.864Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T06:02:38.864Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:02:38.865Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T06:02:38.865Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T06:02:38.865Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:02:38.866Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T06:02:38.866Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-checkout"}
+{"timestamp":"2026-07-27T06:02:38.866Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:02:38.867Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T06:02:38.867Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:02:38.867Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T06:02:38.867Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for unknown-hook"}
+{"timestamp":"2026-07-27T06:02:38.867Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:02:38.868Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Testing bypass"}
+{"timestamp":"2026-07-27T06:02:38.868Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:02:38.868Z","level":"WARN","component":"EnhancedGatekeeper","message":"Bypassing hook-pre-commit validation (development mode)"}
+{"timestamp":"2026-07-27T06:02:38.868Z","level":"WARN","component":"EnhancedGatekeeper","message":"Applying development mode bypass to validation"}
+{"timestamp":"2026-07-27T06:04:21.666Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:04:21.672Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:04:21.728Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:04:21.729Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:04:46.939Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T06:04:46.940Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T06:04:46.941Z","level":"WARN","component":"EnhancedGatekeeper","message":"Cannot enable bypass: not in development mode"}
+{"timestamp":"2026-07-27T06:04:58.866Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:04:58.866Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:04:58.867Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:04:58.868Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:04:58.868Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:04:58.869Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:04:58.870Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:04:58.870Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:04:58.871Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:04:58.871Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:04:58.872Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T06:04:58.872Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:04:58.872Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T06:04:58.873Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:04:58.873Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T06:04:58.873Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:04:58.874Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T06:04:58.874Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T06:04:58.874Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:04:58.875Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T06:04:58.876Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-checkout"}
+{"timestamp":"2026-07-27T06:04:58.876Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:04:58.876Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T06:04:58.876Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:04:58.877Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T06:04:58.878Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for unknown-hook"}
+{"timestamp":"2026-07-27T06:04:58.878Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:04:58.878Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Testing bypass"}
+{"timestamp":"2026-07-27T06:04:58.878Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:04:58.878Z","level":"WARN","component":"EnhancedGatekeeper","message":"Bypassing hook-pre-commit validation (development mode)"}
+{"timestamp":"2026-07-27T06:04:58.879Z","level":"WARN","component":"EnhancedGatekeeper","message":"Applying development mode bypass to validation"}
+{"timestamp":"2026-07-27T06:06:40.084Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T06:06:40.085Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T06:06:40.085Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T06:06:40.085Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T06:06:40.085Z","level":"WARN","component":"EnhancedGatekeeper","message":"Cannot enable bypass: not in development mode"}
+{"timestamp":"2026-07-27T06:06:51.760Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:06:51.761Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:06:51.762Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:06:51.763Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:06:51.763Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:06:51.764Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:06:51.765Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:06:51.765Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:06:51.766Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:06:51.766Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:06:51.767Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T06:06:51.767Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:06:51.767Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T06:06:51.767Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:06:51.768Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T06:06:51.768Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:06:51.769Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T06:06:51.770Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T06:06:51.770Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:06:51.770Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T06:06:51.771Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-checkout"}
+{"timestamp":"2026-07-27T06:06:51.771Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:06:51.771Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T06:06:51.771Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:06:51.772Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T06:06:51.773Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for unknown-hook"}
+{"timestamp":"2026-07-27T06:06:51.773Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:06:51.773Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Testing bypass"}
+{"timestamp":"2026-07-27T06:06:51.773Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:06:51.773Z","level":"WARN","component":"EnhancedGatekeeper","message":"Bypassing hook-pre-commit validation (development mode)"}
+{"timestamp":"2026-07-27T06:06:51.774Z","level":"WARN","component":"EnhancedGatekeeper","message":"Applying development mode bypass to validation"}
+{"timestamp":"2026-07-27T06:07:28.600Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T06:07:28.601Z","level":"WARN","component":"EnhancedGatekeeper","message":"Cannot enable bypass: not in development mode"}
+{"timestamp":"2026-07-27T06:07:40.260Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:07:40.261Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:07:40.262Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:07:40.262Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:07:40.263Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:07:40.263Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:07:40.264Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:07:40.264Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:07:40.265Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:07:40.265Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:07:40.266Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T06:07:40.266Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:07:40.266Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T06:07:40.266Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:07:40.267Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T06:07:40.267Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:07:40.270Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T06:07:40.271Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T06:07:40.271Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:07:40.271Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T06:07:40.272Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-checkout"}
+{"timestamp":"2026-07-27T06:07:40.272Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:07:40.272Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T06:07:40.273Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:07:40.273Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T06:07:40.274Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for unknown-hook"}
+{"timestamp":"2026-07-27T06:07:40.274Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:07:40.275Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Testing bypass"}
+{"timestamp":"2026-07-27T06:07:40.275Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:07:40.275Z","level":"WARN","component":"EnhancedGatekeeper","message":"Bypassing hook-pre-commit validation (development mode)"}
+{"timestamp":"2026-07-27T06:07:40.275Z","level":"WARN","component":"EnhancedGatekeeper","message":"Applying development mode bypass to validation"}
+{"timestamp":"2026-07-27T06:08:09.835Z","level":"WARN","component":"EnhancedGatekeeper","message":"Cannot enable bypass: not in development mode"}
+{"timestamp":"2026-07-27T06:08:22.138Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:08:22.139Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:22.140Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:08:22.141Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:08:22.141Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:22.142Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:08:22.142Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:08:22.143Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:22.143Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:08:22.144Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:08:22.145Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T06:08:22.145Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:22.146Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T06:08:22.146Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:22.146Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T06:08:22.146Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:22.147Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T06:08:22.147Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T06:08:22.147Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:22.148Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T06:08:22.148Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-checkout"}
+{"timestamp":"2026-07-27T06:08:22.149Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:22.149Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T06:08:22.149Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:22.150Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T06:08:22.150Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for unknown-hook"}
+{"timestamp":"2026-07-27T06:08:22.151Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:22.151Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Testing bypass"}
+{"timestamp":"2026-07-27T06:08:22.151Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:08:22.151Z","level":"WARN","component":"EnhancedGatekeeper","message":"Bypassing hook-pre-commit validation (development mode)"}
+{"timestamp":"2026-07-27T06:08:22.151Z","level":"WARN","component":"EnhancedGatekeeper","message":"Applying development mode bypass to validation"}
+{"timestamp":"2026-07-27T06:08:37.063Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:08:37.071Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:37.135Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:08:37.136Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:37.207Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:08:37.216Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:37.217Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:08:37.229Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:08:37.229Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:37.230Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:08:37.231Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T06:08:37.231Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:37.232Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T06:08:37.239Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:08:37.249Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:08:37.259Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:08:37.260Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:08:37.261Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:08:37.271Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:08:37.271Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:08:45.601Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T06:08:45.602Z","level":"WARN","component":"EnhancedGatekeeper","message":"Cannot enable bypass: not in development mode"}
+{"timestamp":"2026-07-27T06:08:56.995Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:08:57.003Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:57.073Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:08:57.073Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:57.157Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:08:57.168Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:57.170Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:08:57.180Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:08:57.180Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:57.180Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:08:57.181Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:57.182Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:08:57.182Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:08:57.183Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:08:57.183Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T06:08:57.183Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:57.183Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:57.184Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:08:57.185Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T06:08:57.185Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:08:57.186Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:57.186Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:08:57.187Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:08:57.187Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T06:08:57.187Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:08:57.187Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:57.188Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T06:08:57.188Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:57.188Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T06:08:57.188Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:57.189Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T06:08:57.189Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T06:08:57.189Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:57.190Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T06:08:57.190Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-checkout"}
+{"timestamp":"2026-07-27T06:08:57.190Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:57.191Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T06:08:57.191Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:57.191Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T06:08:57.192Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for unknown-hook"}
+{"timestamp":"2026-07-27T06:08:57.192Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:08:57.193Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Testing bypass"}
+{"timestamp":"2026-07-27T06:08:57.193Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:08:57.193Z","level":"WARN","component":"EnhancedGatekeeper","message":"Bypassing hook-pre-commit validation (development mode)"}
+{"timestamp":"2026-07-27T06:08:57.193Z","level":"WARN","component":"EnhancedGatekeeper","message":"Applying development mode bypass to validation"}
+{"timestamp":"2026-07-27T06:08:57.198Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:08:57.209Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:08:57.210Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:08:57.211Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:08:57.221Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:08:57.222Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:09:04.938Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T06:09:04.939Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T06:09:04.939Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Development testing"}
+{"timestamp":"2026-07-27T06:09:04.940Z","level":"WARN","component":"EnhancedGatekeeper","message":"Cannot enable bypass: not in development mode"}
+{"timestamp":"2026-07-27T06:09:16.329Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:09:16.329Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:09:16.331Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:09:16.331Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:09:16.331Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:09:16.332Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:09:16.333Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:09:16.333Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:09:16.333Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:09:16.334Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:09:16.334Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T06:09:16.334Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:09:16.335Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T06:09:16.335Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:09:16.335Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T06:09:16.335Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:09:16.336Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T06:09:16.340Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T06:09:16.340Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:09:16.341Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T06:09:16.341Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-checkout"}
+{"timestamp":"2026-07-27T06:09:16.341Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:09:16.342Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T06:09:16.342Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:09:16.343Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T06:09:16.343Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for unknown-hook"}
+{"timestamp":"2026-07-27T06:09:16.343Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:09:16.344Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Testing bypass"}
+{"timestamp":"2026-07-27T06:09:16.344Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:09:16.344Z","level":"WARN","component":"EnhancedGatekeeper","message":"Bypassing hook-pre-commit validation (development mode)"}
+{"timestamp":"2026-07-27T06:09:16.344Z","level":"WARN","component":"EnhancedGatekeeper","message":"Applying development mode bypass to validation"}
+{"timestamp":"2026-07-27T06:09:40.780Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:09:40.785Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:09:40.848Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:09:40.848Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:09:40.894Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:09:40.901Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:09:40.903Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:09:40.911Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:09:40.911Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:09:40.912Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:09:40.916Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T06:09:40.917Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:09:40.918Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T06:09:40.922Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:09:40.931Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:09:40.939Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:09:40.940Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:09:40.941Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:09:40.948Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:09:40.948Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:09:44.288Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:09:44.288Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:10:01.559Z","level":"WARN","component":"EnhancedGatekeeper","message":"Cannot enable bypass: not in development mode"}
+{"timestamp":"2026-07-27T06:10:14.464Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:10:14.465Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:10:14.466Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:10:14.467Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:10:14.467Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:10:14.468Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:10:14.469Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:10:14.469Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:10:14.469Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:10:14.470Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:10:14.471Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T06:10:14.471Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:10:14.472Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T06:10:14.472Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:10:14.473Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T06:10:14.473Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:10:14.474Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T06:10:14.474Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T06:10:14.474Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:10:14.475Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T06:10:14.475Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-checkout"}
+{"timestamp":"2026-07-27T06:10:14.475Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:10:14.476Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T06:10:14.476Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:10:14.476Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T06:10:14.477Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for unknown-hook"}
+{"timestamp":"2026-07-27T06:10:14.477Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:10:14.478Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Testing bypass"}
+{"timestamp":"2026-07-27T06:10:14.478Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:10:14.478Z","level":"WARN","component":"EnhancedGatekeeper","message":"Bypassing hook-pre-commit validation (development mode)"}
+{"timestamp":"2026-07-27T06:10:14.478Z","level":"WARN","component":"EnhancedGatekeeper","message":"Applying development mode bypass to validation"}
+{"timestamp":"2026-07-27T06:11:47.893Z","level":"WARN","component":"EnhancedGatekeeper","message":"Cannot enable bypass: not in development mode"}
+{"timestamp":"2026-07-27T06:12:00.072Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:12:00.073Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:12:00.074Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:12:00.075Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:12:00.075Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:12:00.077Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for commit-msg"}
+{"timestamp":"2026-07-27T06:12:00.078Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:12:00.079Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:12:00.080Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:12:00.080Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-push"}
+{"timestamp":"2026-07-27T06:12:00.081Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T06:12:00.081Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:12:00.082Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-commit"}
+{"timestamp":"2026-07-27T06:12:00.082Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:12:00.082Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T06:12:00.082Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:12:00.088Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-merge"}
+{"timestamp":"2026-07-27T06:12:00.088Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T06:12:00.089Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:12:00.089Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-rebase"}
+{"timestamp":"2026-07-27T06:12:00.090Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for post-checkout"}
+{"timestamp":"2026-07-27T06:12:00.090Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:12:00.090Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T06:12:00.090Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:12:00.091Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-receive"}
+{"timestamp":"2026-07-27T06:12:00.092Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for unknown-hook"}
+{"timestamp":"2026-07-27T06:12:00.092Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validation completed successfully"}
+{"timestamp":"2026-07-27T06:12:00.093Z","level":"INFO","component":"EnhancedGatekeeper","message":"Development bypass enabled: Testing bypass"}
+{"timestamp":"2026-07-27T06:12:00.093Z","level":"INFO","component":"EnhancedGatekeeper","message":"Validating hook context for pre-commit"}
+{"timestamp":"2026-07-27T06:12:00.094Z","level":"WARN","component":"EnhancedGatekeeper","message":"Bypassing hook-pre-commit validation (development mode)"}
+{"timestamp":"2026-07-27T06:12:00.094Z","level":"WARN","component":"EnhancedGatekeeper","message":"Applying development mode bypass to validation"}

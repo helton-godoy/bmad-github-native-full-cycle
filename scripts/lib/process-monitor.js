@@ -520,9 +520,9 @@ class ProcessMonitor extends EventEmitter {
       processTypeDistribution[type].percentage =
         totalProcesses > 0
           ? (
-              (processTypeDistribution[type].count / totalProcesses) *
-              100
-            ).toFixed(2)
+            (processTypeDistribution[type].count / totalProcesses) *
+            100
+          ).toFixed(2)
           : 0;
     }
 

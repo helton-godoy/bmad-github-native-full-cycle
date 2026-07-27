@@ -1,6 +1,7 @@
 /**
  * @ai-context Exponential Backoff utility with jitter and retry handling
  */
+/* eslint-env node */
 
 class ExponentialBackoff {
   constructor(config = {}) {
@@ -34,7 +35,7 @@ class ExponentialBackoff {
           break;
         }
         const delay = this.calculateDelay(attempt);
-        await new Promise((resolve) => setTimeout(resolve, delay));
+        await new Promise((resolve) => globalThis.setTimeout(resolve, delay));
       }
     }
     throw lastError;

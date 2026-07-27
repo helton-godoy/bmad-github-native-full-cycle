@@ -33,7 +33,7 @@ describe('Authentication API Integration Tests', () => {
       const response = await request(server)
         .post('/api/auth/register')
         .send(testUser);
-      
+
       expect(response.status).toBe(201);
       expect(response.body.success).toBe(true);
       expect(response.body.message).toBe('User registered successfully');
@@ -51,7 +51,7 @@ describe('Authentication API Integration Tests', () => {
           ...testUser,
           email: 'invalid-email'
         });
-      
+
       expect(response.status).toBe(400);
       expect(response.body.success).toBe(false);
     });
@@ -63,7 +63,7 @@ describe('Authentication API Integration Tests', () => {
           ...testUser,
           password: 'short'
         });
-      
+
       expect(response.status).toBe(400);
       expect(response.body.success).toBe(false);
     });
@@ -78,7 +78,7 @@ describe('Authentication API Integration Tests', () => {
       const response = await request(server)
         .post('/api/auth/register')
         .send(testUser);
-      
+
       expect(response.status).toBe(400);
       expect(response.body.success).toBe(false);
     });
@@ -89,7 +89,7 @@ describe('Authentication API Integration Tests', () => {
         .send({
           username: 'onlyusername'
         });
-      
+
       expect(response.status).toBe(400);
       expect(response.body.success).toBe(false);
     });

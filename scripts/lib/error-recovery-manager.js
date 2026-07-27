@@ -18,7 +18,7 @@ class ErrorRecoveryManager {
     this.recoveryPersonaActive = false;
   }
 
-  async retryOperation(operation, maxAttempts = this.maxRetries) {
+  async retryOperation(operation) {
     return this.backoff.execute(operation);
   }
 

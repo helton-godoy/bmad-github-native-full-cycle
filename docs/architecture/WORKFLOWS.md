@@ -20,6 +20,7 @@
 - **BMAD Workflow Orchestrator** (`bmad-workflow.js`)
 - **Execute complete BMAD workflow** (`bmad-workflow.js`)
 - **Generate workflow completion report** (`bmad-workflow.js`)
+- **State Cache Manager for persistent and atomic workflow state tracking** (`state-cache-manager.js`)
 - **Test suite for BMAD workflow orchestrator** (`workflow.test.js`)
 
 ## Workflow Phases

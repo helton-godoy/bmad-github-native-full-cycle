@@ -115,7 +115,7 @@ class ContextManager {
           // Wait and retry (Synchronous Sleep)
           const delay =
             Math.random() *
-              (this.retryOptions.maxTimeout - this.retryOptions.minTimeout) +
+            (this.retryOptions.maxTimeout - this.retryOptions.minTimeout) +
             this.retryOptions.minTimeout;
           this.sleepSync(delay);
           attempt++;

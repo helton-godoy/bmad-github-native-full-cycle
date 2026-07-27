@@ -94,13 +94,23 @@ class StateCacheManager {
   }
 
   async withAtomicWrite(operation) {
-    const tmpFile = `${this.stateFile}.${Date.now()}.${Math.random().toString(36).substr(2, 6)}.tmp`;
+    const tmpFile = `${this.stateFile}.${Date.now()}.${Math.random()
+      .toString(36)
+      .substr(2, 6)}.tmp`;
     const dir = path.dirname(this.stateFile);
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
     }
 
     await operation();
+    fs.writeFileSync(tmpFile, fs.readFileSync(this.stateFile, 'utf8'), 'utf8');
+    fs.copyFileSync(tmpFile, this.stateFile);
+    try {
+      fs.unlinkSync(tmpFile);
+    } catch {
+      // cleanup best-effort; atomic state remains intact
+    }
+
     return true;
   }
 

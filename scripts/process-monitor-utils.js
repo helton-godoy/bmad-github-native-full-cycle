@@ -153,16 +153,16 @@ class ProcessMonitorUtils {
                 </thead>
                 <tbody>
                     ${Object.entries(jsonReport.processTypes)
-                      .map(
-                        ([type, data]) => `
+        .map(
+          ([type, data]) => `
                         <tr>
                             <td>${type}</td>
                             <td>${data.count}</td>
                             <td>${data.percentage}%</td>
                         </tr>
                     `
-                      )
-                      .join('')}
+        )
+        .join('')}
                 </tbody>
             </table>
         </div>
@@ -197,25 +197,24 @@ class ProcessMonitorUtils {
             </table>
         </div>
 
-        ${
-          jsonReport.alerts.length > 0
-            ? `
+        ${jsonReport.alerts.length > 0
+        ? `
         <div class="section">
             <h2>🚨 Alerts</h2>
             ${jsonReport.alerts
-              .map(
-                (alert) => `
+          .map(
+            (alert) => `
                 <div class="alert ${alert.type.includes('error') ? 'error' : ''}">
                     <strong>${alert.type}</strong> - ${alert.timestamp}<br>
                     ${JSON.stringify(alert.data, null, 2)}
                 </div>
             `
-              )
-              .join('')}
+          )
+          .join('')}
         </div>
         `
-            : ''
-        }
+        : ''
+      }
 
         <div class="section">
             <h2>📋 Detailed Process List</h2>
@@ -232,8 +231,8 @@ class ProcessMonitorUtils {
                     </thead>
                     <tbody>
                         ${jsonReport.detailedProcesses
-                          .map(
-                            (process) => `
+        .map(
+          (process) => `
                             <tr>
                                 <td>${process.pid}</td>
                                 <td>${process.type}</td>
@@ -242,16 +241,15 @@ class ProcessMonitorUtils {
                                 <td>${process.status}</td>
                             </tr>
                         `
-                          )
-                          .join('')}
+        )
+        .join('')}
                     </tbody>
                 </table>
             </div>
         </div>
 
-        ${
-          jsonReport.jestSpecific
-            ? `
+        ${jsonReport.jestSpecific
+        ? `
         <div class="section">
             <h2>🧪 Jest-Specific Statistics</h2>
             <div class="summary">
@@ -274,8 +272,8 @@ class ProcessMonitorUtils {
             </div>
         </div>
         `
-            : ''
-        }
+        : ''
+      }
     </div>
 </body>
 </html>`;
