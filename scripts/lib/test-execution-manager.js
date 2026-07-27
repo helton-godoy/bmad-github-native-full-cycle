@@ -9,12 +9,15 @@ const { execSync } = require('child_process');
 const Logger = require('./logger');
 
 class TestExecutionManager {
-  constructor() {
+  constructor(options = {}) {
     this.logger = new Logger('TestExecutionManager');
-    this.lockFile = path.join(process.cwd(), '.git', 'test-execution.lock');
-    this.maxRetries = 3;
-    this.retryDelay = 2000; // 2 seconds
-    this.lockTimeout = 300000; // 5 minutes max lock time
+    this.lockFile =
+      options.lockFile ||
+      path.join(process.cwd(), '.git', 'test-execution.lock');
+    this.maxRetries = options.maxRetries || 3;
+    this.retryDelay = options.retryDelay ?? 2000; // 2 seconds
+    this.lockTimeout = options.lockTimeout || 300000; // 5 minutes max lock time
+    this.execSync = options.execSync || execSync;
   }
 
   /**
@@ -129,7 +132,7 @@ class TestExecutionManager {
       this.logger.info(`Executing serialized test: ${optimizedCommand}`);
 
       // Execute with resource limits
-      const result = execSync(optimizedCommand, {
+      const result = this.execSync(optimizedCommand, {
         encoding: 'utf8',
         stdio: 'pipe',
         timeout,

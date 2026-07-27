@@ -126,15 +126,14 @@ Current Phase
 Retry Count: 0
 Issue: #4
             `;
-            mockContextManager.read.mockReturnValue(stateContent);
+            mockContextManager.read.mockImplementation((filePath) => {
+                if (filePath.includes('BMAD_HANDOVER')) return stateContent;
+                return null; // PRD missing
+            });
 
             mockOctokit.rest.issues.get.mockResolvedValue({
                 data: { title: 'Feature', number: 4 }
             });
-
-            // Mock PRD MISSING
-            const fs = require('fs');
-            jest.spyOn(fs, 'existsSync').mockReturnValue(false);
 
             await orchestrator.orchestrate(4);
 
@@ -142,9 +141,6 @@ Issue: #4
                 persona: 'pm', // Should retry PM
                 source: 'System Init'
             }));
-
-            // Verify retry increment in state update (mocked via write)
-            // In a real integration test we'd check the file, here we check the logic flow
         });
 
         it('should stop workflow when MAX_RETRIES reached', async () => {
@@ -158,17 +154,18 @@ Current Phase
 Retry Count: 3
 Issue: #5
             `;
-            mockContextManager.read.mockReturnValue(stateContent);
+            mockContextManager.read.mockImplementation((filePath) => {
+                if (filePath.includes('BMAD_HANDOVER')) return stateContent;
+                return null; // PRD missing
+            });
+
             mockOctokit.rest.issues.get.mockResolvedValue({
                 data: { title: 'Feature', number: 5 }
             });
-            const fs = require('fs');
-            jest.spyOn(fs, 'existsSync').mockReturnValue(false);
 
             const result = await orchestrator.orchestrate(5);
 
             expect(result).toBe(false); // No action taken (stopped)
-            // Should verify error logging if we mocked console.error
         });
     });
 });

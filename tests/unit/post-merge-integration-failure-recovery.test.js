@@ -316,7 +316,9 @@ describe('Integration Failure Recovery Property Tests', () => {
                 reportGenerationFails: fc.boolean()
             }),
             async (mergeType, failures) => {
-                const failureCount = Object.values(failures).filter(Boolean).length;
+                const initialFailures = (failures.workflowFails ? 1 : 0) + (failures.validationFails ? 1 : 0);
+                const reportFails = (initialFailures > 0 && failures.reportGenerationFails) ? 1 : 0;
+                const failureCount = initialFailures + reportFails;
 
                 mockExecSync.mockImplementation((command) => {
                     if (command.includes('npm run bmad:workflow') && failures.workflowFails) {
@@ -324,6 +326,9 @@ describe('Integration Failure Recovery Property Tests', () => {
                     }
                     if (command.includes('git status') && failures.validationFails) {
                         throw new Error('Validation failed');
+                    }
+                    if (command.includes('git rev-parse')) {
+                        return 'main';
                     }
                     if (command.includes('git diff --stat')) {
                         return '5 files changed, 100 insertions(+), 50 deletions(-)';

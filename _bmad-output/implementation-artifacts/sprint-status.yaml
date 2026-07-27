@@ -1,0 +1,14 @@
+# sprint-status.yaml — BMAD Loop orchestrator state
+# generated: 2026-07-26
+# last_updated: 2026-07-26
+# project: bmad-github-native-full-cycle
+
+development_status:
+  epic-1: in-progress
+  epic-2: done
+
+  1-1-loop-detection: ready-for-dev
+  1-2-commit-handler: ready-for-dev
+  1-3-gatekeeper: ready-for-dev
+  1-4-error-recovery: ready-for-dev
+  1-5-state-cache: ready-for-dev

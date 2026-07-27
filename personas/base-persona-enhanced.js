@@ -10,6 +10,9 @@ const ContextManager = require('../scripts/lib/context-manager');
 const Logger = require('../scripts/lib/logger');
 const SecretManager = require('../scripts/lib/secret-manager');
 const CacheManager = require('../scripts/lib/cache-manager');
+const CommitHandler = require('../scripts/lib/commit-handler');
+const ErrorRecoveryManager = require('../scripts/lib/error-recovery-manager');
+const StateCacheManager = require('../scripts/lib/state-cache-manager');
 
 class EnhancedBasePersona {
   constructor(name, role, githubToken) {
@@ -21,6 +24,11 @@ class EnhancedBasePersona {
     this.secretManager = new SecretManager();
     this.cacheManager = new CacheManager(); // Default 1h TTL
     this.logger = new Logger(role); // Use role as component name
+    this.stateCacheManager = new StateCacheManager();
+    this.errorRecoveryManager = new ErrorRecoveryManager({
+      stateCache: this.stateCacheManager,
+    });
+    this.commitHandler = new CommitHandler();
 
     // Validate critical secrets on startup
     this.secretManager.validateRequired(['GITHUB_TOKEN']);
@@ -163,94 +171,30 @@ class EnhancedBasePersona {
    */
   async commit(message, files = []) {
     try {
-      // 1. Stage files
-      if (files.length > 0) {
-        for (const file of files) {
-          await this.execCommand(`git add "${file}"`);
-        }
-      } else {
-        // If no specific files provided, check if there are changes and stage all
-        try {
-          const status = await this.execCommand('git status --porcelain');
-          if (status.trim()) {
-            await this.execCommand('git add .');
-            this.log('Auto-staged all changes (no specific files provided)');
-          } else {
-            this.log('Nothing to commit (no changes detected)', 'WARNING');
-            return null;
-          }
-        } catch (error) {
-          // git status failed?
-          this.log(`Failed to check git status: ${error.message}`, 'ERROR');
-          throw error;
-        }
-      }
-
-      // 2. Verify if there is anything staged
-      // git diff --cached --quiet returns 0 (success) if NO changes, 1 (error) if changes exist
-      let hasStagedChanges = false;
-      try {
-        await this.execCommand('git diff --cached --quiet');
-      } catch (e) {
-        hasStagedChanges = true;
-      }
-
-      if (!hasStagedChanges) {
-        this.log('Nothing staged to commit after git add', 'WARNING');
-        return null;
-      }
-
-      // 3. PRE-COMMIT VALIDATION (Critical Security Fix)
-      const skipValidation = process.env.BMAD_SKIP_VALIDATION === 'true';
-
-      if (!skipValidation) {
-        this.log('Running pre-commit validation...');
-        try {
-          // Try to run validation if package.json has validate script
-          const packageJsonPath = 'package.json';
-          if (fs.existsSync(packageJsonPath)) {
-            const pkg = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
-            if (!pkg.scripts || !pkg.scripts.validate) {
-              this.log(
-                '❌ package.json encontrado mas script "validate" ausente. Commit bloqueado.',
-                'ERROR'
-              );
-              await this.execCommand('git reset HEAD');
-              throw new Error(
-                'Commit blocked: scripts.validate is required in package.json for BMAD workflows'
-              );
-            }
-
-            await this.execCommand('npm run validate');
-            this.log('✅ Pre-commit validation passed');
-          }
-        } catch (validationError) {
-          this.log(
-            `❌ Pre-commit validation FAILED: ${validationError.message}`,
-            'ERROR'
-          );
-          this.log('Rolling back staged changes...', 'WARNING');
-          await this.execCommand('git reset HEAD');
-          throw new Error(
-            `Commit blocked by validation failure: ${validationError.message}`
-          );
-        }
-      } else {
+      const stepId = this.getNextStepId();
+      const prepared = await this.commitHandler.prepareCommit(files);
+      if (!prepared) {
         this.log(
-          '⚠️ Pre-commit validation SKIPPED (BMAD_SKIP_VALIDATION=true)',
+          JSON.stringify({
+            event: 'commit-skipped',
+            stepId,
+            reason: 'no staged changes found',
+          }),
           'WARNING'
         );
+        return null;
       }
-
-      // 4. Commit with enhanced message
-      const commitMessage = `[${this.role.toUpperCase()}] [STEP-${this.getNextStepId()}] ${message}`;
-      await this.execCommand(`git commit -m "${commitMessage}"`);
+      const commitHash = await this.commitHandler.executeCommit(
+        message,
+        this.role,
+        stepId
+      );
 
       this.metrics.commitsMade++;
       this.metrics.filesModified += files.length > 0 ? files.length : 1;
-      this.log(`Committed: ${commitMessage}`);
+      this.log(`Committed and verified: ${commitHash}`);
 
-      return commitMessage;
+      return commitHash;
     } catch (error) {
       this.metrics.errors++;
       this.log(`Failed to commit: ${error.message}`, 'ERROR');

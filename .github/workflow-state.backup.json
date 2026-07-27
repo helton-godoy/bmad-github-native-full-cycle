@@ -1,0 +1,31 @@
+{
+  "workflowId": "issue-3",
+  "currentPersona": "PM",
+  "persona": "PM",
+  "stepId": "Architecture Design",
+  "context": {
+    "state": {
+      "persona": "PM",
+      "phase": "Planning",
+      "retryCount": 0,
+      "issueNumber": 3,
+      "content": "\nCurrent Persona: **[PM]**\nCurrent Phase\n\n**Planning**\n\nRetry Count: 0\nIssue: #3\n            "
+    },
+    "action": {
+      "persona": "architect",
+      "prompt": "Design the system.",
+      "source": "docs/planning/PRD-3.md",
+      "nextPhase": "Architecture Design",
+      "resetRetry": true
+    },
+    "transition": {
+      "allowed": false,
+      "category": "PM_PRECONDITION",
+      "valid": false,
+      "error": "requirements document has no EARS acceptance criterion: docs/planning/PRD-3.md"
+    }
+  },
+  "status": "suspended",
+  "timestamp": "2026-07-27T04:21:14.554Z",
+  "version": "2.0.0"
+}

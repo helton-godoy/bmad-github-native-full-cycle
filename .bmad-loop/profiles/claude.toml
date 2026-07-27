@@ -1,0 +1,31 @@
+# Custom Claude profile for Zen proxy
+# Uses --bare to skip OAuth (proxy doesn't support it)
+# Converts /slash-commands to natural language since --bare skips command loading
+name = "claude"
+binary = "claude"
+launch_args = ["--bare"]
+prompt_template = "Read and fully follow the {skill} skill (located at .claude/skills/{skill}/SKILL.md). Invoke it with these arguments: {args}"
+bypass_args = ["--permission-mode", "bypassPermissions"]
+model_flag = "--model"
+usage_parser = "claude-jsonl"
+first_run_note = "run `claude` once in the project to accept workspace trust and hooks approval"
+skill_tree = ".claude/skills"
+seed_files = [
+  ".mcp.json",
+  ".claude/settings.json",
+  ".claude/settings.local.json",
+]
+
+env_fault_patterns = [
+  "API Error.*(Unable to connect|Connection ?(error|refused|reset|timed ?out)|ConnectionRefused|ECONNREFUSED|ETIMEDOUT|ENOTFOUND|EAI_AGAIN)",
+]
+
+[env]
+CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN = "1"
+CLAUDE_CODE_DISABLE_BACKGROUND_TASKS = "1"
+ANTHROPIC_API_KEY = "claude-zen-local-key"
+
+[hooks]
+dialect = "claude-settings-json"
+config_path = ".claude/settings.json"
+events = { SessionStart = "SessionStart", Stop = "Stop", SessionEnd = "SessionEnd", PreCompact = "PreCompact" }

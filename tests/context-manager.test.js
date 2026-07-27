@@ -5,46 +5,41 @@ const ContextManager = require('../scripts/lib/context-manager');
 const fs = require('fs');
 const path = require('path');
 
-async function testConcurrency() {
-    console.log('🧪 Starting ContextManager Concurrency Test...');
+describe('ContextManager Concurrency', () => {
+    test('handles concurrent writes', async () => {
+        const contextManager = new ContextManager();
+        const testFile = 'test-concurrency.md';
+        const iterations = 5;
 
-    const contextManager = new ContextManager();
-    const testFile = 'test-concurrency.md';
-    const iterations = 5;
+        // Initialize file
+        contextManager.write(testFile, 'Initial Content\n');
 
-    // Initialize file
-    contextManager.write(testFile, 'Initial Content\n');
+        const promises = [];
 
-    console.log(`Running ${iterations} concurrent writes...`);
+        for (let i = 0; i < iterations; i++) {
+            promises.push(new Promise(async (resolve) => {
+                const id = i;
+                try {
+                    await contextManager.write(testFile, `Write from process ${id}\n`);
+                    resolve(true);
+                } catch (error) {
+                    resolve(false);
+                }
+            }));
+        }
 
-    const promises = [];
+        const results = await Promise.all(promises);
+        expect(results.every(r => r === true)).toBe(true);
 
-    for (let i = 0; i < iterations; i++) {
-        promises.push(new Promise(async (resolve) => {
-            const id = i;
-            try {
-                await contextManager.write(testFile, `Write from process ${id}\n`);
-                console.log(`✅ Process ${id} wrote successfully`);
-                resolve(true);
-            } catch (error) {
-                console.error(`❌ Process ${id} failed: ${error.message}`);
-                resolve(false);
-            }
-        }));
-    }
+        const finalContent = contextManager.read(testFile);
+        expect(finalContent).toBeDefined();
 
-    await Promise.all(promises);
-
-    const finalContent = contextManager.read(testFile);
-    console.log('Final Content:', finalContent);
-
-    // Cleanup
-    fs.unlinkSync(testFile);
-    if (fs.existsSync('.locks')) {
-        fs.rmdirSync('.locks', { recursive: true });
-    }
-
-    console.log('🎉 Test Completed');
-}
-
-testConcurrency();
+        // Cleanup
+        if (fs.existsSync(testFile)) {
+            fs.unlinkSync(testFile);
+        }
+        if (fs.existsSync('.locks')) {
+            fs.rmSync('.locks', { recursive: true, force: true });
+        }
+    });
+});

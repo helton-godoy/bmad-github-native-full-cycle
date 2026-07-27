@@ -55,7 +55,8 @@ describe('EnhancedBMADWorkflow Integration', () => {
         await workflow.executeWorkflow(issueNumber);
 
         expect(saveStateSpy).toHaveBeenCalled();
-        expect(fs.existsSync(stateFile)).toBe(false); // Should be cleared at end
+        // MAX_STEPS is a resumable terminal condition, so state must be retained.
+        expect(fs.existsSync(stateFile)).toBe(true);
     });
 
     test('should resume from existing state', async () => {
@@ -72,7 +73,7 @@ describe('EnhancedBMADWorkflow Integration', () => {
 
         await workflow.executeWorkflow(issueNumber);
 
-        expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining('Resuming existing workflow resume-test-id'));
+        expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining('Resuming workflow resume-test-id'));
         expect(workflow.workflowMetrics.phases.pm).toBeDefined();
     });
 });

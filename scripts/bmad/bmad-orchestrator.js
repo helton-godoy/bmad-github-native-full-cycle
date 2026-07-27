@@ -8,11 +8,15 @@ require('dotenv').config();
 const fs = require('fs');
 const { Octokit } = require('@octokit/rest');
 const ContextManager = require('../lib/context-manager');
+const LoopDetector = require('../lib/loop-detector');
+const StateCacheManager = require('../lib/state-cache-manager');
+const ErrorRecoveryManager = require('../lib/error-recovery-manager');
+const EnhancedGatekeeper = require('../lib/enhanced-gatekeeper');
 
 const HANDOVER_FILE = '.github/BMAD_HANDOVER.md';
 
 class BMADOrchestrator {
-  constructor(eventEmitter = null) {
+  constructor(eventEmitter = null, options = {}) {
     this.githubToken = process.env.GITHUB_TOKEN;
     if (!this.githubToken) {
       console.error('❌ GITHUB_TOKEN environment variable required');
@@ -21,6 +25,13 @@ class BMADOrchestrator {
     this.octokit = new Octokit({ auth: this.githubToken });
     this.eventEmitter = eventEmitter;
     this.contextManager = new ContextManager();
+    this.loopDetector = options.loopDetector || new LoopDetector(options.loopOptions);
+    this.stateCacheManager =
+      options.stateCacheManager || new StateCacheManager(options.stateOptions);
+    this.errorRecoveryManager =
+      options.errorRecoveryManager ||
+      new ErrorRecoveryManager({ stateCache: this.stateCacheManager });
+    this.gatekeeper = options.gatekeeper || new EnhancedGatekeeper(options.gatekeeperOptions);
   }
 
   /**
@@ -48,13 +59,13 @@ class BMADOrchestrator {
     // 1.5 Fetch Issue Details for Smart Context
     const issue = await this.getIssueDetails(issueNumber);
     const issueType = this.detectIssueType(issue);
-    console.log(`🧠 Detected Issue Type: ${issueType}`);
+    console.log(`🧠 Tipo de Issue Detectado: ${issueType}`);
 
     // 2. Determine Next Action
     const action = await this.determineNextAction(state, issue, issueType);
 
     if (!action) {
-      console.log('✅ No pending actions detected.');
+      console.log('✅ Nenhuma ação pendente detectada.');
       if (this.eventEmitter) {
         this.eventEmitter.emit('workflow-idle');
       }
@@ -69,11 +80,80 @@ class BMADOrchestrator {
       this.eventEmitter.emit('action-determined', action);
     }
 
-    // 3. Execute Persona
-    await this.executePersona(action, issueNumber);
+    const transition = await this.validateTransition(state, action, issueNumber);
+    if (!transition.allowed) {
+      await this.errorRecoveryManager.escalateToRecovery(
+        new Error(transition.error),
+        {
+          persona: state.persona,
+          operation: 'persona-transition',
+          stepId: action.nextPhase,
+          workflowId: `issue-${issueNumber}`,
+          context: { state, action, transition },
+          category: transition.category,
+        }
+      );
+      return false;
+    }
+    const gate = await this.gatekeeper.validatePhaseBoundary(action.nextPhase, {
+      issueNumber,
+      action,
+    });
+    if (gate.gate === 'FAIL' || gate.status === 'FAILED') {
+      await this.errorRecoveryManager.escalateToRecovery(
+        new Error(`Gatekeeper blocked phase ${action.nextPhase}`),
+        {
+          persona: state.persona,
+          operation: 'phase-gate',
+          stepId: action.nextPhase,
+          workflowId: `issue-${issueNumber}`,
+          context: { gate, state, action },
+          category: 'GATEKEEPER_FAILURE',
+        }
+      );
+      return false;
+    }
 
-    // 4. Update State
-    this.updateHandoverState(action, issueNumber);
+    // Persist before execution: a write failure aborts without changing handover.
+    await this.stateCacheManager.persistState(
+      action.persona.toUpperCase(),
+      action.nextPhase,
+      { issueNumber, source: action.source, previousPersona: state.persona },
+      { workflowId: `issue-${issueNumber}`, status: 'running' }
+    );
+
+    try {
+      const execute = () => this.executePersona(action, issueNumber);
+      try {
+        await execute();
+      } catch (initialError) {
+        const retryable =
+          initialError.retryable === true ||
+          initialError.name === 'RetryableError' ||
+          initialError.isRetryable === true;
+        if (!retryable) throw initialError;
+        await this.errorRecoveryManager.retryOperation(execute, 2);
+      }
+      this.updateHandoverState(action, issueNumber);
+      this.loopDetector.recordTransition(
+        state.persona || 'UNKNOWN',
+        action.persona,
+        new Date().toISOString(),
+        'executed'
+      );
+    } catch (error) {
+      await this.errorRecoveryManager.escalateToRecovery(error, {
+        persona: action.persona,
+        operation: 'executePersona',
+        stepId: action.nextPhase,
+        workflowId: `issue-${issueNumber}`,
+        context: { issueNumber, action },
+        retryCount: 2,
+        category: error.category || error.name,
+      });
+      error.recoveryHandled = true;
+      throw error;
+    }
 
     if (this.eventEmitter) {
       this.eventEmitter.emit('phase-completed', {
@@ -127,10 +207,11 @@ class BMADOrchestrator {
   async determineNextAction(state, issue, issueType) {
     const MAX_RETRIES = 3;
     const persona = (state.persona || 'UNKNOWN').toUpperCase();
+    const issueNumber = issue ? issue.number : (state ? state.issueNumber : null);
 
     // --- SPECIAL FLOW: AUDIT ---
     if (issueType === 'AUDIT') {
-      console.log('🕵️ Processing Audit Flow...');
+      console.log('🕵️ Processando Fluxo de Auditoria...');
 
       // 1. Audit Start: PM
       if (
@@ -153,7 +234,7 @@ class BMADOrchestrator {
 
         // Validate MASTER_PLAN existence before transition
         if (this.contextManager.read(masterPlanPath) !== null) {
-          console.log('✅ MASTER_PLAN.md validated, transitioning to Architect');
+          console.log('✅ MASTER_PLAN.md validado, transitando para Arquitetura');
           return {
             persona: 'architect',
             prompt:
@@ -187,7 +268,7 @@ class BMADOrchestrator {
 
       // 3. Architect -> Done (Audit)
       if (persona === 'ARCHITECT' && state.phase === 'Audit Breakdown') {
-        console.log('✅ Audit Breakdown completed. Issues created.');
+        console.log('✅ Quebra de Auditoria concluída. Issues criadas.');
         return null;
       }
     }
@@ -196,7 +277,7 @@ class BMADOrchestrator {
     else {
       // 1. PM -> Architect
       if (persona === 'PM' && state.phase.includes('Planning')) {
-        const prdPath = 'docs/planning/PRD-user-authentication.md'; // TODO: Dynamic path
+        const prdPath = this.getDynamicPath('PRD', issueNumber); // Dynamic path resolution
         if (this.contextManager.read(prdPath) !== null) {
           const prompt =
             this.extractSection(prdPath, 'Architect Prompt') ||
@@ -231,7 +312,7 @@ class BMADOrchestrator {
 
       // 2. Architect -> Developer
       if (persona === 'ARCHITECT') {
-        const specPath = 'docs/architecture/SPEC-user-authentication.md'; // TODO: Dynamic path
+        const specPath = this.getDynamicPath('SPEC', issueNumber); // Dynamic path resolution
         if (this.contextManager.read(specPath) !== null) {
           return {
             persona: 'developer',
@@ -335,6 +416,70 @@ class BMADOrchestrator {
     return match ? match[1].trim() : null;
   }
 
+  getDynamicPath(type, issueNumber) {
+    const normalized = String(type || '').toUpperCase();
+    if (!['PRD', 'SPEC'].includes(normalized)) {
+      throw new Error(`Unknown artifact type: ${type}`);
+    }
+    const candidates =
+      normalized === 'PRD'
+        ? [
+            `docs/planning/PRD-${issueNumber}.md`,
+            `docs/planning/PRD_${issueNumber}.md`,
+            'docs/planning/PRD.md',
+          ]
+        : [
+            `docs/architecture/SPEC-${issueNumber}.md`,
+            `docs/architecture/SPEC_${issueNumber}.md`,
+            'docs/architecture/SPEC.md',
+          ];
+    return candidates.find((candidate) => fs.existsSync(candidate)) || candidates[0];
+  }
+
+  validateRequirementsDocument(filePath) {
+    const content = this.contextManager.read(filePath);
+    if (content === null || content === undefined) {
+      return { valid: false, error: `requirements document not found: ${filePath}` };
+    }
+    const earsPattern =
+      /\b(WHEN|WHILE|WHERE|IF)\b[\s\S]{1,500}\b(SHALL|THEN)\b/i;
+    if (!earsPattern.test(content)) {
+      return {
+        valid: false,
+        error: `requirements document has no EARS acceptance criterion: ${filePath}`,
+      };
+    }
+    return { valid: true };
+  }
+
+  async validateTransition(state, action) {
+    const from = state.persona || 'UNKNOWN';
+    if (this.loopDetector.detectLoop(from, action.persona)) {
+      const record = this.loopDetector.recordTransition(
+        from,
+        action.persona,
+        new Date().toISOString(),
+        'blocked'
+      );
+      return {
+        allowed: false,
+        category: 'TRANSITION_LOOP',
+        error: `transition blocked after ${this.loopDetector.maxTransitions} occurrences`,
+        record,
+      };
+    }
+    if (
+      String(state.persona).toUpperCase() === 'PM' &&
+      String(action.persona).toUpperCase() === 'ARCHITECT'
+    ) {
+      const requirements = this.validateRequirementsDocument(action.source);
+      if (!requirements.valid) {
+        return { allowed: false, category: 'PM_PRECONDITION', ...requirements };
+      }
+    }
+    return { allowed: true };
+  }
+
   /**
    * @ai-context Execute the determined persona
    */
@@ -354,7 +499,7 @@ class BMADOrchestrator {
     const PersonaClass = require(`../../personas/${fileName}`);
     const persona = new PersonaClass(this.githubToken);
 
-    console.log(`🤖 Activating Persona: ${action.persona} (${fileName}.js)`);
+    console.log(`🤖 Ativando Persona: ${action.persona} (${fileName}.js)`);
     // In a real implementation, we would pass the prompt to the persona
     // For now, we assume the persona knows what to do based on context or issue
     // But the Orchestrator ensures the *timing* is right.
@@ -427,7 +572,7 @@ class BMADOrchestrator {
     }
 
     this.contextManager.write(HANDOVER_FILE, content);
-    console.log('📝 Handover State Updated (Atomic)');
+    console.log('📝 Estado de Handover Atualizado (Atômico)');
   }
 
   /**

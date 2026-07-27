@@ -49,11 +49,24 @@ class PerformanceMonitor {
     const startData = this.startTimes.get(executionId);
 
     if (!startData) {
-      throw new Error(`No start time found for execution ID: ${executionId}`);
+      return {
+        executionId,
+        hookType: 'unknown',
+        startTime: Date.now(),
+        endTime: Date.now(),
+        duration: 0,
+        success: false,
+        performanceThresholdMet: false,
+        optimizable: false,
+        context: {},
+        metadata,
+        error: `No start time found for execution ID: ${executionId}`,
+        timestamp: new Date().toISOString(),
+      };
     }
 
     const endTime = Date.now();
-    const duration = endTime - startData.startTime;
+    const duration = Math.max(0, endTime - startData.startTime);
 
     const execution = {
       executionId,
