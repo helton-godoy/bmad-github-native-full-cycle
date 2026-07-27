@@ -30,6 +30,7 @@ class BMADWorkflow {
         `${colors.red}❌ GITHUB_TOKEN environment variable required${colors.reset}`
       );
       process.exit(1);
+      return;
     }
 
     this.personas = {

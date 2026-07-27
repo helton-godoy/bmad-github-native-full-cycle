@@ -9,3 +9,1203 @@
 {"timestamp":"2025-12-20T04:48:49.084Z","level":"Recovery context: {\"persona\":\"DEVELOPER\",\"stepId\":\"TEST_STEP\",\"operation\":\"TEST_OPERATION\",\"timestamp\":\"2025-12-20T04:48:46.184Z\",\"additionalContext\":{\"stepId\":\"TEST_STEP\",\"operation\":\"TEST_OPERATION\"},\"retryHistory\":[{\"timestamp\":\"2025-12-20T04:48:46.186Z\",\"error\":\"Test network error\",\"category\":\"NETWORK_ERROR\",\"backoffDelay\":0,\"attempt\":1},{\"timestamp\":\"2025-12-20T04:48:47.261Z\",\"error\":\"Test network error\",\"category\":\"NETWORK_ERROR\",\"backoffDelay\":0,\"attempt\":2},{\"timestamp\":\"2025-12-20T04:48:49.082Z\",\"error\":\"Test network error\",\"category\":\"NETWORK_ERROR\",\"backoffDelay\":0,\"attempt\":3}],\"recoveryAttempts\":[{\"timestamp\":\"2025-12-20T04:48:49.084Z\",\"strategy\":\"AUTOMATED_REMEDIATION\",\"result\":\"ATTEMPTING\",\"details\":{\"recoveryId\":\"DEVELOPER_TEST_STEP_1766206129083\",\"attempt\":1},\"attempt\":1}],\"totalRetries\":3,\"totalRecoveryAttempts\":1}","component":"ErrorRecoveryManager"}
 {"timestamp":"2025-12-20T04:48:49.084Z","level":"Recovery successful for DEVELOPER_TEST_STEP_1766206129083: {\"status\":\"recovered\",\"action\":\"MOCK_RECOVERY_ACTION\",\"details\":\"Mock recovery completed successfully\"}","component":"ErrorRecoveryManager"}
 {"timestamp":"2025-12-20T04:48:49.084Z","level":"Recovery successful for DEVELOPER_TEST_STEP_1766206129083","component":"ErrorRecoveryManager"}
+{"timestamp":"2026-07-27T02:29:43.529Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.532Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.534Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.535Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.536Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:29:43.539Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:29:43.539Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.540Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.543Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.543Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.545Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.548Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.548Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.549Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:29:43.551Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:29:43.552Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.553Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:29:43.556Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:29:43.556Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.557Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:29:43.559Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:29:43.560Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.561Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.563Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.564Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.565Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.568Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.568Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.569Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:29:43.572Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:29:43.572Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.573Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:29:43.575Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:29:43.576Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.577Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.579Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.580Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.581Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.583Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.584Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.585Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.587Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.587Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.588Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.591Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.591Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.592Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:29:43.595Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:29:43.595Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.596Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:29:43.598Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:29:43.599Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.600Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:29:43.602Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:29:43.603Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.603Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.605Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.605Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.606Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:29:43.608Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:29:43.609Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.610Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.612Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.613Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.614Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.616Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.617Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.618Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.620Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.621Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.622Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.624Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.624Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.626Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.628Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.628Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.630Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:29:43.632Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:29:43.632Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.633Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.636Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.636Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.637Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.639Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.640Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.641Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.643Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.644Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.645Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.647Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.647Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.649Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:29:43.651Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:29:43.651Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.652Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:29:43.655Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:29:43.655Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.656Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.658Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.659Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.660Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.662Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.663Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.664Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:29:43.666Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:29:43.666Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.668Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.670Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.670Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.671Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.674Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.674Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.675Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:29:43.677Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:29:43.678Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.679Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.681Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.682Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.683Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:29:43.685Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:29:43.685Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.687Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.689Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.689Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.690Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:29:43.692Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:29:43.693Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.694Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.696Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.697Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.698Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.700Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.701Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.702Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.704Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.704Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.706Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:29:43.708Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:29:43.708Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.709Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:29:43.712Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:29:43.712Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.713Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.716Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.716Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.717Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:29:43.719Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:29:43.720Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.721Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.723Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.724Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.725Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:29:43.727Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:29:43.728Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.729Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:29:43.731Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:29:43.731Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.733Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.735Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.735Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.737Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:29:43.738Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:29:43.738Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.739Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:29:43.742Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:29:43.742Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.743Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:29:43.745Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:29:43.746Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.747Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:29:43.749Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:29:43.750Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.751Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:29:43.753Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:29:43.753Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.755Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:29:43.757Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:29:43.757Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.758Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.761Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.761Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.762Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:29:43.765Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:29:43.765Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.766Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:29:43.768Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:29:43.769Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.770Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.772Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.773Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.774Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:29:43.776Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:29:43.777Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.778Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:29:43.780Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:29:43.780Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.782Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:29:43.784Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:29:43.784Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.785Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:29:43.788Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:29:43.788Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.789Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:29:43.792Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:29:43.792Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.793Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.795Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.796Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.797Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:29:43.799Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:29:43.799Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.801Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.803Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.803Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.804Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:29:43.807Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:29:43.807Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.808Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.810Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.811Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.812Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:29:43.814Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:29:43.814Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.816Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:29:43.818Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:29:43.818Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.819Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.821Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.822Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.823Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.825Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.826Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.827Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.829Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.830Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.831Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.833Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.834Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.835Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:29:43.838Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:29:43.838Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.842Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:29:43.844Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:29:43.845Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.846Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:29:43.848Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:29:43.849Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.850Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.852Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.852Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.853Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.856Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:29:43.856Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.857Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.859Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.860Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.861Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.863Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.863Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.865Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:29:43.867Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:29:43.867Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.868Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:29:43.870Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:29:43.871Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.872Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.874Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.874Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.876Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:29:43.878Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:29:43.878Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.880Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.882Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.882Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.883Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.885Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.886Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.887Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:29:43.889Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:29:43.889Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.891Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:29:43.893Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:29:43.893Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.894Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:29:43.897Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:29:43.897Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.898Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.900Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.901Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.902Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:29:43.904Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:29:43.905Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.906Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:29:43.908Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:29:43.908Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.909Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.912Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:29:43.912Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:29:43.913Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:29:43.915Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:15.204Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.206Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:15.208Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:15.208Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.210Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:15.212Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:15.212Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.213Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.215Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.215Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.216Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.219Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.219Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.220Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.222Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.223Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.224Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.226Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.227Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.228Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.230Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.231Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.232Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:15.234Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:15.234Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.235Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.238Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.238Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.239Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:15.241Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:15.242Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.243Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.245Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.246Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.247Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.249Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.250Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.251Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:15.253Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:15.253Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.254Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.257Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.257Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.258Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.260Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.261Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.262Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:15.264Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:15.265Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.266Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.268Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.268Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.269Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:15.272Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:15.272Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.273Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:15.275Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:15.275Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.277Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.279Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.279Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.280Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.283Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.283Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.284Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.286Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.287Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.288Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.290Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.290Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.292Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.294Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.294Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.295Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.298Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.298Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.299Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:15.301Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:15.302Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.303Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:15.305Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:15.305Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.306Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.308Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.309Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.310Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:15.312Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:15.313Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.314Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:15.316Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:15.317Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.318Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.320Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.321Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.322Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.324Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.325Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.326Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:15.328Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:15.329Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.330Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.332Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.333Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.333Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.335Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.335Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.336Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.339Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.339Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.340Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.342Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.342Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.344Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:15.346Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:15.346Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.347Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.349Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.350Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.351Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.353Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.353Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.354Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:15.357Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:15.357Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.358Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:15.360Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:15.361Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.362Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:15.364Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:15.365Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.366Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.368Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.369Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.370Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:15.372Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:15.372Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.374Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.376Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.376Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.377Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.379Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.380Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.381Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:15.383Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:15.383Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.384Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.386Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.387Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.388Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:15.390Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:15.390Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.392Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.394Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.394Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.395Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:15.398Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:15.398Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.399Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:15.401Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:15.402Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.403Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.405Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.405Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.407Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:15.409Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:15.409Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.410Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:15.412Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:15.413Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.414Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.416Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.416Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.417Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.420Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.420Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.421Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.423Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.423Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.424Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.427Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.427Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.428Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:15.430Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:15.431Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.432Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.434Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.434Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.436Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:15.438Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:15.438Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.440Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.442Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.442Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.443Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.445Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.445Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.446Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.449Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.449Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.450Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.453Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.453Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.454Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.456Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.457Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.458Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.460Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.461Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.462Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.464Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.465Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.466Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.468Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.469Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.470Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:15.472Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:15.472Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.473Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.476Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.476Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.477Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:15.479Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:15.479Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.480Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:15.483Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:15.483Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.484Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.486Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.486Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.488Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:15.490Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:15.490Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.491Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:15.493Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:15.494Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.495Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.497Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.497Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.498Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.500Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.500Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.502Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.504Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.504Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.505Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.507Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.507Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.508Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.511Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.511Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.512Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.514Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.514Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.515Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:15.518Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:15.518Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.519Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.521Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.522Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.523Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.525Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.525Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.526Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.528Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.529Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.530Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.532Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.532Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.533Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.536Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.536Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.537Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.539Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:15.539Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.540Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.543Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.543Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.544Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.546Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.546Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.548Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.550Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.550Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.551Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:15.553Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:15.554Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.555Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.557Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:15.557Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.558Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:15.560Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:15.561Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.562Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.564Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:15.564Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.566Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.568Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:15.568Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:15.569Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:15.572Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.320Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.321Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:53.323Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:53.324Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.325Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.327Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.328Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.329Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:53.331Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:53.332Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.333Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.335Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.336Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.337Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:53.339Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:53.339Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.341Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.343Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.343Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.344Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.346Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.347Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.348Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.350Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.351Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.352Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.354Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.354Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.355Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.358Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.358Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.359Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:53.361Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:53.362Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.363Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.365Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.365Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.367Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.369Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.369Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.370Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:53.373Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:53.373Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.374Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.376Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.376Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.378Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.380Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.380Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.381Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.384Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.384Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.385Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:53.387Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:53.388Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.390Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:53.392Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:53.392Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.393Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:53.396Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:53.396Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.397Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.399Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.400Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.401Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:53.403Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:53.403Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.405Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:53.407Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:53.407Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.408Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:53.410Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:53.410Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.412Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:53.414Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:53.414Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.415Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.418Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.418Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.419Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:53.421Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:53.422Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.423Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:53.425Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:53.425Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.427Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.429Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.429Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.430Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.433Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.433Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.434Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.436Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.437Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.438Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.440Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.440Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.442Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.444Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.444Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.445Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.447Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.448Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.449Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:53.451Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:53.451Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.453Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.455Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.455Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.457Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.459Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.459Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.461Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.463Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.464Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.465Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.467Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.468Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.468Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.470Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.470Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.471Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:53.474Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:53.474Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.475Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.477Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.477Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.479Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.481Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.481Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.483Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.485Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.485Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.486Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:53.489Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:53.489Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.490Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.493Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.493Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.494Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:53.496Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:53.497Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.498Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:53.500Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:53.500Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.502Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.504Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.504Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.506Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:53.508Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:53.508Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.509Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:53.512Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:53.512Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.513Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.515Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.516Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.517Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:53.519Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:53.519Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.521Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.523Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.523Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.524Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:53.527Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:53.527Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.528Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.530Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.531Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.532Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:53.534Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:53.535Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.536Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.538Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.539Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.540Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.542Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.542Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.544Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.546Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.546Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.547Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:53.549Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:53.550Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.551Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.553Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.554Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.555Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.557Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.558Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.558Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.560Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.560Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.561Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.564Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.564Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.565Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.567Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.568Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.569Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:53.571Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:53.572Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.573Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:53.575Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:53.576Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.577Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:53.579Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:53.579Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.580Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.582Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.583Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.584Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.586Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.587Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.587Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.589Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.589Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.590Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:53.593Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:53.593Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.594Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.596Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.597Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.598Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:53.600Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:53.601Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.602Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.604Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.605Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.605Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.607Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.607Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.608Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:53.611Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:53.611Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.612Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.614Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.614Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.615Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:53.618Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:53.618Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.619Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.621Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.621Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.623Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.625Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.625Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.626Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.628Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.629Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.630Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.632Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.633Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.634Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.636Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.636Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.638Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.640Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.640Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.642Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:53.644Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:53.644Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.646Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:53.648Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:53.648Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.649Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.651Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.652Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.653Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.655Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.656Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.656Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:53.658Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:44:53.658Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.659Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:53.662Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:53.662Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.663Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.665Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:44:53.666Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.667Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.669Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:44:53.670Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.670Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.672Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.672Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.673Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:53.676Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:44:53.676Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.677Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.679Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:44:53.680Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.681Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:53.683Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:44:53.683Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.684Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.687Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:44:53.687Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:44:53.688Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:44:53.690Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:50:38.803Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.805Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:38.807Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:38.807Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.808Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:38.810Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:38.811Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.812Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:38.814Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:38.815Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.816Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:38.818Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:38.818Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.820Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:50:38.822Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:50:38.822Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.824Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:38.826Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:38.826Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.827Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:50:38.830Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:50:38.830Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.831Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:50:38.834Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:50:38.834Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.835Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:50:38.837Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:50:38.838Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.839Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:38.841Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:38.841Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.842Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:38.845Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:38.845Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.846Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:38.848Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:38.849Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.850Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:38.852Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:38.853Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.854Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:50:38.856Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:50:38.856Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.858Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:38.860Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:38.860Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.861Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:50:38.864Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:50:38.864Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.865Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:50:38.867Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:50:38.868Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.869Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:50:38.871Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:50:38.871Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.873Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:50:38.875Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:50:38.875Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.876Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:38.879Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:38.879Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.880Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:38.882Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:38.883Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.885Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:38.887Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:38.888Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.889Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:50:38.891Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:50:38.892Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.893Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:50:38.895Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:50:38.896Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.897Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:38.899Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:38.900Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.901Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:50:38.903Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:50:38.903Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.905Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:38.907Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:38.907Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.908Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:38.910Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:38.911Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.912Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:50:38.914Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:50:38.914Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.915Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:38.918Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:38.918Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.919Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:50:38.921Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:50:38.922Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.923Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:38.925Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:38.925Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.927Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:50:38.929Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:50:38.929Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.930Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:38.933Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:38.933Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.934Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:50:38.936Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:50:38.937Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.938Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:50:38.940Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:50:38.940Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.941Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:38.943Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:38.944Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.945Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:38.947Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:38.948Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.949Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:38.951Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:38.952Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.953Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:50:38.955Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:50:38.955Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.957Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:50:38.959Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:50:38.960Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.961Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:50:38.963Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:50:38.964Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.965Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:50:38.967Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:50:38.968Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.969Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:50:38.971Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:50:38.971Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.973Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:38.975Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:38.975Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.976Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:38.978Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:38.979Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.980Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:38.982Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:38.982Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.983Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:38.986Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:38.986Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.987Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:38.989Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:38.990Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.991Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:50:38.993Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:50:38.994Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.995Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:38.997Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:38.997Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:38.999Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:39.001Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:39.001Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.002Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:39.005Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:39.005Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.006Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:50:39.008Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:50:39.008Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.010Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:39.012Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:39.012Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.013Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:50:39.015Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:50:39.016Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.017Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:50:39.019Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:50:39.019Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.021Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:39.023Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:39.023Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.025Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:50:39.027Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:50:39.027Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.028Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:39.031Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:39.031Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.032Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:39.034Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:39.034Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.036Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:39.038Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:39.038Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.039Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:50:39.041Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:50:39.042Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.043Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:39.045Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:39.045Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.046Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:39.049Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:39.049Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.050Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:50:39.052Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:50:39.053Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.054Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:50:39.056Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:50:39.057Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.057Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:39.059Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:39.059Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.060Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:39.063Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:39.063Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.064Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:39.066Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:39.067Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.068Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:50:39.070Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:50:39.070Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.072Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:39.074Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:39.074Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.075Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:39.077Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:39.078Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.079Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:50:39.081Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:50:39.081Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.082Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:39.085Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:39.085Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.086Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:39.088Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:39.089Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.090Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:39.092Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:39.092Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.094Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:50:39.096Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:50:39.096Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.098Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:39.100Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:39.100Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.101Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:50:39.104Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:50:39.104Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.105Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:50:39.107Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:50:39.107Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.108Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:39.111Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:39.111Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.112Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:50:39.114Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:50:39.114Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.115Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:50:39.117Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:50:39.118Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.119Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:50:39.121Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T02:50:39.122Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.122Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:39.124Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T02:50:39.124Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.125Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:39.128Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:39.128Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.129Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:39.131Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:39.132Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.133Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:50:39.135Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:50:39.136Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.137Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:39.139Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:39.139Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.140Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:50:39.142Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:50:39.143Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.144Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:39.146Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:39.146Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.147Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T02:50:39.150Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T02:50:39.150Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.151Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:50:39.153Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T02:50:39.154Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.155Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:39.157Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:39.157Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.158Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:50:39.161Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T02:50:39.161Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.162Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:39.164Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T02:50:39.165Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.166Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:39.168Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T02:50:39.169Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.170Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:39.172Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T02:50:39.172Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T02:50:39.173Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T02:50:39.176Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}

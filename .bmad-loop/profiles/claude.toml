@@ -1,7 +1,10 @@
-# Custom Claude profile with API key for proxy
+# Custom Claude profile for Zen proxy
+# Uses --bare to skip OAuth (proxy doesn't support it)
+# Converts /slash-commands to natural language since --bare skips command loading
 name = "claude"
 binary = "claude"
-prompt_template = "{prompt}"
+launch_args = ["--bare"]
+prompt_template = "Read and fully follow the {skill} skill (located at .claude/skills/{skill}/SKILL.md). Invoke it with these arguments: {args}"
 bypass_args = ["--permission-mode", "bypassPermissions"]
 model_flag = "--model"
 usage_parser = "claude-jsonl"

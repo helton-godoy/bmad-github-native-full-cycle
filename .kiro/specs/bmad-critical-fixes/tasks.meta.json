@@ -1,0 +1,183 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.2 Write property test for error retry logic": [
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119007659
+      },
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119023127
+      }
+    ],
+    "1.4 Write property test for backoff timing": [
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119007756
+      },
+      {
+        "executionId": "c3ade947-94dc-4724-b4a7-8f666e50e462",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119774311
+      }
+    ],
+    "2.2 Write property test for loop detection": [
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119007889
+      }
+    ],
+    "2.4 Write property test for history persistence": [
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119007973
+      }
+    ],
+    "2.5 Write property test for cache cleanup": [
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119008053
+      }
+    ],
+    "2.7 Write property test for PM validation": [
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119008129
+      }
+    ],
+    "3.2 Write property test for staging validation": [
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119008196
+      }
+    ],
+    "3.3 Write property test for empty commit handling": [
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119008271
+      }
+    ],
+    "3.5 Write property test for commit verification": [
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119008337
+      }
+    ],
+    "3.7 Write property test for message format": [
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119008420
+      }
+    ],
+    "5.2 Write property test for mock usage": [
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119008529
+      }
+    ],
+    "5.3 Write property test for test execution": [
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119008608
+      }
+    ],
+    "5.5 Write property test for development bypass": [
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119008684
+      }
+    ],
+    "5.7 Write property test for error reporting": [
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119008759
+      }
+    ],
+    "5.8 Write property test for success logging": [
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119008839
+      }
+    ],
+    "6.2 Write property test for recovery escalation": [
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119008910
+      }
+    ],
+    "6.4 Write property test for recovery activation": [
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119008983
+      }
+    ],
+    "6.6 Write property test for remediation failure": [
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119009075
+      }
+    ],
+    "6.7 Write property test for state restoration": [
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119009155
+      }
+    ],
+    "7.2 Write property test for state persistence": [
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119009262
+      }
+    ],
+    "7.3 Write property test for atomic operations": [
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119009341
+      }
+    ],
+    "7.5 Write property test for state restoration": [
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119009401
+      }
+    ],
+    "7.6 Write property test for state validation": [
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119009476
+      }
+    ],
+    "7.7 Write property test for invalid state fallback": [
+      {
+        "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
+        "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
+        "timestamp": 1785119009542
+      }
+    ]
+  }
+}

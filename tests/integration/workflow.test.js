@@ -72,7 +72,7 @@ describe('EnhancedBMADWorkflow Integration', () => {
 
         await workflow.executeWorkflow(issueNumber);
 
-        expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining('Resuming existing workflow resume-test-id'));
+        expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining('Resuming workflow resume-test-id'));
         expect(workflow.workflowMetrics.phases.pm).toBeDefined();
     });
 });

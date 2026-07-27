@@ -10,18 +10,20 @@ class SecretManager {
   }
 
   loadSecrets() {
-    // Load standard secrets from process.env
-    const sensitiveKeys = [
-      'GITHUB_TOKEN',
-      'NPM_TOKEN',
-      'DB_PASSWORD',
-      'API_KEY',
-    ];
-
-    sensitiveKeys.forEach((key) => {
-      if (process.env[key]) {
-        this.secrets.set(key, process.env[key]);
-        this.maskedValues.add(process.env[key]);
+    // Load secrets from process.env that match sensitive key patterns
+    Object.keys(process.env).forEach((key) => {
+      const upperKey = key.toUpperCase();
+      if (
+        upperKey.includes('TOKEN') ||
+        upperKey.includes('KEY') ||
+        upperKey.includes('PASSWORD') ||
+        upperKey.includes('SECRET')
+      ) {
+        const val = process.env[key];
+        if (val) {
+          this.secrets.set(key, val);
+          this.maskedValues.add(val);
+        }
       }
     });
   }

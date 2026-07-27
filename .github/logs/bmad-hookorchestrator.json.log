@@ -5771,3 +5771,490 @@
 {"timestamp":"2026-01-10T05:58:48.825Z","level":"INFO","component":"HookOrchestrator","message":"Validating activeContext.md updates"}
 {"timestamp":"2026-01-10T05:58:48.829Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
 {"timestamp":"2026-01-10T05:58:54.723Z","level":"INFO","component":"HookOrchestrator","message":"pre-commit hook execution completed in 5908ms"}
+{"timestamp":"2026-07-27T00:29:35.252Z","level":"INFO","component":"HookOrchestrator","message":"Starting pre-commit hook execution"}
+{"timestamp":"2026-07-27T00:29:35.252Z","level":"INFO","component":"HookOrchestrator","message":"Executing pre-commit hook with 0 staged files"}
+{"timestamp":"2026-07-27T00:29:35.252Z","level":"INFO","component":"HookOrchestrator","message":"Running fast unit tests with serialized execution"}
+{"timestamp":"2026-07-27T00:29:35.660Z","level":"INFO","component":"HookOrchestrator","message":"Validating activeContext.md updates"}
+{"timestamp":"2026-07-27T00:29:35.665Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T00:29:35.670Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mpre-commit hook validation passed (1 check passed, 1 warning)\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.671Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.671Z","level":"INFO","component":"HookOrchestrator","message":"  • Review warnings to improve code quality"}
+{"timestamp":"2026-07-27T00:29:35.671Z","level":"INFO","component":"HookOrchestrator","message":"pre-commit hook execution completed in 419ms"}
+{"timestamp":"2026-07-27T00:29:35.724Z","level":"INFO","component":"HookOrchestrator","message":"Starting commit-msg hook execution"}
+{"timestamp":"2026-07-27T00:29:35.724Z","level":"INFO","component":"HookOrchestrator","message":"Executing commit-msg hook validation"}
+{"timestamp":"2026-07-27T00:29:35.725Z","level":"INFO","component":"HookOrchestrator","message":"Validating context consistency for persona: PM"}
+{"timestamp":"2026-07-27T00:29:35.726Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T00:29:35.727Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mcommit-msg hook validation passed (1 check passed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.727Z","level":"INFO","component":"HookOrchestrator","message":"commit-msg hook execution completed in 3ms"}
+{"timestamp":"2026-07-27T00:29:35.775Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T00:29:35.781Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mpre-commit hook validation passed (4 checks passed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.782Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T00:29:35.789Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (3 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.789Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.789Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T00:29:35.789Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T00:29:35.790Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mcommit-msg hook validation passed (2 checks passed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.790Z","level":"ERROR","component":"HookOrchestrator","message":"Gatekeeper integration failed: this.logger.debug is not a function"}
+{"timestamp":"2026-07-27T00:29:35.790Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-push hook"}
+{"timestamp":"2026-07-27T00:29:35.790Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-push hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.790Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.790Z","level":"INFO","component":"HookOrchestrator","message":"  • Add tests to improve code coverage"}
+{"timestamp":"2026-07-27T00:29:35.790Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run test:coverage to see coverage details"}
+{"timestamp":"2026-07-27T00:29:35.791Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for post-commit hook"}
+{"timestamp":"2026-07-27T00:29:35.791Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mpost-commit hook validation passed (3 checks passed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.791Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for post-merge hook"}
+{"timestamp":"2026-07-27T00:29:35.791Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpost-merge hook validation failed (1 check passed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.791Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.792Z","level":"INFO","component":"HookOrchestrator","message":"  • Check BMAD workflow logs for detailed error information"}
+{"timestamp":"2026-07-27T00:29:35.792Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run bmad:workflow manually to retry"}
+{"timestamp":"2026-07-27T00:29:35.792Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T00:29:35.792Z","level":"ERROR","component":"HookOrchestrator","message":"Gatekeeper integration failed: Gatekeeper error"}
+{"timestamp":"2026-07-27T00:29:35.793Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T00:29:35.799Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (2 checks passed, 2 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.799Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.799Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T00:29:35.799Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm test to see detailed test failure information"}
+{"timestamp":"2026-07-27T00:29:35.800Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T00:29:35.807Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.807Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.807Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T00:29:35.807Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T00:29:35.807Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mcommit-msg hook validation failed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.807Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.807Z","level":"INFO","component":"HookOrchestrator","message":"  • Use format: [PERSONA] [STEP-ID] Description"}
+{"timestamp":"2026-07-27T00:29:35.807Z","level":"INFO","component":"HookOrchestrator","message":"  • Example: [DEVELOPER] [STEP-001] Implement user authentication"}
+{"timestamp":"2026-07-27T00:29:35.808Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-push hook"}
+{"timestamp":"2026-07-27T00:29:35.808Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-push hook validation failed (1 check passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.809Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T00:29:35.816Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.816Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.816Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T00:29:35.816Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T00:29:35.819Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mcommit-msg hook validation failed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.819Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.819Z","level":"INFO","component":"HookOrchestrator","message":"  • Use format: [PERSONA] [STEP-ID] Description"}
+{"timestamp":"2026-07-27T00:29:35.819Z","level":"INFO","component":"HookOrchestrator","message":"  • Example: [DEVELOPER] [STEP-001] Implement user authentication"}
+{"timestamp":"2026-07-27T00:29:35.819Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-push hook"}
+{"timestamp":"2026-07-27T00:29:35.819Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-push hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.819Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:29:35.819Z","level":"INFO","component":"HookOrchestrator","message":"  • Add tests to improve code coverage"}
+{"timestamp":"2026-07-27T00:29:35.819Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run test:coverage to see coverage details"}
+{"timestamp":"2026-07-27T00:35:00.754Z","level":"INFO","component":"HookOrchestrator","message":"Starting pre-commit hook execution"}
+{"timestamp":"2026-07-27T00:35:00.754Z","level":"INFO","component":"HookOrchestrator","message":"Executing pre-commit hook with 0 staged files"}
+{"timestamp":"2026-07-27T00:35:00.754Z","level":"INFO","component":"HookOrchestrator","message":"Running fast unit tests with serialized execution"}
+{"timestamp":"2026-07-27T00:35:01.144Z","level":"INFO","component":"HookOrchestrator","message":"Validating activeContext.md updates"}
+{"timestamp":"2026-07-27T00:35:01.150Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T00:35:01.160Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mpre-commit hook validation passed (1 check passed, 1 warning)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.160Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.160Z","level":"INFO","component":"HookOrchestrator","message":"  • Review warnings to improve code quality"}
+{"timestamp":"2026-07-27T00:35:01.161Z","level":"INFO","component":"HookOrchestrator","message":"pre-commit hook execution completed in 407ms"}
+{"timestamp":"2026-07-27T00:35:01.223Z","level":"INFO","component":"HookOrchestrator","message":"Starting commit-msg hook execution"}
+{"timestamp":"2026-07-27T00:35:01.223Z","level":"INFO","component":"HookOrchestrator","message":"Executing commit-msg hook validation"}
+{"timestamp":"2026-07-27T00:35:01.224Z","level":"INFO","component":"HookOrchestrator","message":"Validating context consistency for persona: PM"}
+{"timestamp":"2026-07-27T00:35:01.225Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T00:35:01.226Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mcommit-msg hook validation passed (1 check passed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.226Z","level":"INFO","component":"HookOrchestrator","message":"commit-msg hook execution completed in 3ms"}
+{"timestamp":"2026-07-27T00:35:01.276Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T00:35:01.283Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mpre-commit hook validation passed (4 checks passed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.285Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T00:35:01.294Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (3 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.294Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.294Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T00:35:01.295Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T00:35:01.295Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mcommit-msg hook validation passed (2 checks passed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.295Z","level":"ERROR","component":"HookOrchestrator","message":"Gatekeeper integration failed: this.logger.debug is not a function"}
+{"timestamp":"2026-07-27T00:35:01.296Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-push hook"}
+{"timestamp":"2026-07-27T00:35:01.296Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-push hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.296Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.296Z","level":"INFO","component":"HookOrchestrator","message":"  • Add tests to improve code coverage"}
+{"timestamp":"2026-07-27T00:35:01.296Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run test:coverage to see coverage details"}
+{"timestamp":"2026-07-27T00:35:01.297Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for post-commit hook"}
+{"timestamp":"2026-07-27T00:35:01.297Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mpost-commit hook validation passed (3 checks passed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.297Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for post-merge hook"}
+{"timestamp":"2026-07-27T00:35:01.297Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpost-merge hook validation failed (1 check passed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.297Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.297Z","level":"INFO","component":"HookOrchestrator","message":"  • Check BMAD workflow logs for detailed error information"}
+{"timestamp":"2026-07-27T00:35:01.297Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run bmad:workflow manually to retry"}
+{"timestamp":"2026-07-27T00:35:01.298Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T00:35:01.298Z","level":"ERROR","component":"HookOrchestrator","message":"Gatekeeper integration failed: Gatekeeper error"}
+{"timestamp":"2026-07-27T00:35:01.298Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T00:35:01.305Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (2 checks passed, 2 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.305Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.305Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T00:35:01.305Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm test to see detailed test failure information"}
+{"timestamp":"2026-07-27T00:35:01.306Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T00:35:01.313Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.313Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.313Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T00:35:01.313Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T00:35:01.314Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mcommit-msg hook validation failed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.314Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.314Z","level":"INFO","component":"HookOrchestrator","message":"  • Use format: [PERSONA] [STEP-ID] Description"}
+{"timestamp":"2026-07-27T00:35:01.314Z","level":"INFO","component":"HookOrchestrator","message":"  • Example: [DEVELOPER] [STEP-001] Implement user authentication"}
+{"timestamp":"2026-07-27T00:35:01.314Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-push hook"}
+{"timestamp":"2026-07-27T00:35:01.314Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-push hook validation failed (1 check passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.315Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T00:35:01.321Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.321Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.321Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T00:35:01.321Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T00:35:01.322Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mcommit-msg hook validation failed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.322Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.322Z","level":"INFO","component":"HookOrchestrator","message":"  • Use format: [PERSONA] [STEP-ID] Description"}
+{"timestamp":"2026-07-27T00:35:01.322Z","level":"INFO","component":"HookOrchestrator","message":"  • Example: [DEVELOPER] [STEP-001] Implement user authentication"}
+{"timestamp":"2026-07-27T00:35:01.322Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-push hook"}
+{"timestamp":"2026-07-27T00:35:01.322Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-push hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.322Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:01.322Z","level":"INFO","component":"HookOrchestrator","message":"  • Add tests to improve code coverage"}
+{"timestamp":"2026-07-27T00:35:01.322Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run test:coverage to see coverage details"}
+{"timestamp":"2026-07-27T00:35:18.221Z","level":"INFO","component":"HookOrchestrator","message":"Starting pre-commit hook execution"}
+{"timestamp":"2026-07-27T00:35:18.221Z","level":"INFO","component":"HookOrchestrator","message":"Executing pre-commit hook with 0 staged files"}
+{"timestamp":"2026-07-27T00:35:18.221Z","level":"INFO","component":"HookOrchestrator","message":"Running fast unit tests with serialized execution"}
+{"timestamp":"2026-07-27T00:35:18.229Z","level":"WARN","component":"HookOrchestrator","message":"System resources low, skipping tests"}
+{"timestamp":"2026-07-27T00:35:18.230Z","level":"INFO","component":"HookOrchestrator","message":"Validating activeContext.md updates"}
+{"timestamp":"2026-07-27T00:35:18.234Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T00:35:18.241Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mpre-commit hook validation passed (1 check passed, 1 warning)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.241Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.241Z","level":"INFO","component":"HookOrchestrator","message":"  • Review warnings to improve code quality"}
+{"timestamp":"2026-07-27T00:35:18.241Z","level":"INFO","component":"HookOrchestrator","message":"pre-commit hook execution completed in 20ms"}
+{"timestamp":"2026-07-27T00:35:18.289Z","level":"INFO","component":"HookOrchestrator","message":"Starting commit-msg hook execution"}
+{"timestamp":"2026-07-27T00:35:18.290Z","level":"INFO","component":"HookOrchestrator","message":"Executing commit-msg hook validation"}
+{"timestamp":"2026-07-27T00:35:18.290Z","level":"INFO","component":"HookOrchestrator","message":"Validating context consistency for persona: PM"}
+{"timestamp":"2026-07-27T00:35:18.291Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T00:35:18.292Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mcommit-msg hook validation passed (1 check passed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.292Z","level":"INFO","component":"HookOrchestrator","message":"commit-msg hook execution completed in 3ms"}
+{"timestamp":"2026-07-27T00:35:18.335Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T00:35:18.341Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mpre-commit hook validation passed (4 checks passed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.342Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T00:35:18.348Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (3 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.348Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.348Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T00:35:18.349Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T00:35:18.349Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mcommit-msg hook validation passed (2 checks passed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.349Z","level":"ERROR","component":"HookOrchestrator","message":"Gatekeeper integration failed: this.logger.debug is not a function"}
+{"timestamp":"2026-07-27T00:35:18.350Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-push hook"}
+{"timestamp":"2026-07-27T00:35:18.350Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-push hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.350Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.350Z","level":"INFO","component":"HookOrchestrator","message":"  • Add tests to improve code coverage"}
+{"timestamp":"2026-07-27T00:35:18.350Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run test:coverage to see coverage details"}
+{"timestamp":"2026-07-27T00:35:18.350Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for post-commit hook"}
+{"timestamp":"2026-07-27T00:35:18.350Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mpost-commit hook validation passed (3 checks passed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.351Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for post-merge hook"}
+{"timestamp":"2026-07-27T00:35:18.351Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpost-merge hook validation failed (1 check passed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.351Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.351Z","level":"INFO","component":"HookOrchestrator","message":"  • Check BMAD workflow logs for detailed error information"}
+{"timestamp":"2026-07-27T00:35:18.351Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run bmad:workflow manually to retry"}
+{"timestamp":"2026-07-27T00:35:18.351Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T00:35:18.351Z","level":"ERROR","component":"HookOrchestrator","message":"Gatekeeper integration failed: Gatekeeper error"}
+{"timestamp":"2026-07-27T00:35:18.351Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T00:35:18.359Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (2 checks passed, 2 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.359Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.359Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T00:35:18.359Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm test to see detailed test failure information"}
+{"timestamp":"2026-07-27T00:35:18.360Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T00:35:18.366Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.366Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.366Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T00:35:18.367Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T00:35:18.367Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mcommit-msg hook validation failed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.367Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.367Z","level":"INFO","component":"HookOrchestrator","message":"  • Use format: [PERSONA] [STEP-ID] Description"}
+{"timestamp":"2026-07-27T00:35:18.367Z","level":"INFO","component":"HookOrchestrator","message":"  • Example: [DEVELOPER] [STEP-001] Implement user authentication"}
+{"timestamp":"2026-07-27T00:35:18.368Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-push hook"}
+{"timestamp":"2026-07-27T00:35:18.368Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-push hook validation failed (1 check passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.369Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T00:35:18.376Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.376Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.376Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T00:35:18.376Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T00:35:18.377Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mcommit-msg hook validation failed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.377Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.377Z","level":"INFO","component":"HookOrchestrator","message":"  • Use format: [PERSONA] [STEP-ID] Description"}
+{"timestamp":"2026-07-27T00:35:18.377Z","level":"INFO","component":"HookOrchestrator","message":"  • Example: [DEVELOPER] [STEP-001] Implement user authentication"}
+{"timestamp":"2026-07-27T00:35:18.377Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-push hook"}
+{"timestamp":"2026-07-27T00:35:18.377Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-push hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.377Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T00:35:18.377Z","level":"INFO","component":"HookOrchestrator","message":"  • Add tests to improve code coverage"}
+{"timestamp":"2026-07-27T00:35:18.377Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run test:coverage to see coverage details"}
+{"timestamp":"2026-07-27T01:25:06.592Z","level":"INFO","component":"HookOrchestrator","message":"Starting pre-commit hook execution"}
+{"timestamp":"2026-07-27T01:25:06.593Z","level":"INFO","component":"HookOrchestrator","message":"Executing pre-commit hook with 0 staged files"}
+{"timestamp":"2026-07-27T01:25:06.593Z","level":"INFO","component":"HookOrchestrator","message":"Running fast unit tests with serialized execution"}
+{"timestamp":"2026-07-27T01:25:06.950Z","level":"INFO","component":"HookOrchestrator","message":"Validating activeContext.md updates"}
+{"timestamp":"2026-07-27T01:25:06.955Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T01:25:06.960Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mpre-commit hook validation passed (1 check passed, 1 warning)\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:06.960Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:06.960Z","level":"INFO","component":"HookOrchestrator","message":"  • Review warnings to improve code quality"}
+{"timestamp":"2026-07-27T01:25:06.960Z","level":"INFO","component":"HookOrchestrator","message":"pre-commit hook execution completed in 368ms"}
+{"timestamp":"2026-07-27T01:25:07.009Z","level":"INFO","component":"HookOrchestrator","message":"Starting commit-msg hook execution"}
+{"timestamp":"2026-07-27T01:25:07.009Z","level":"INFO","component":"HookOrchestrator","message":"Executing commit-msg hook validation"}
+{"timestamp":"2026-07-27T01:25:07.010Z","level":"INFO","component":"HookOrchestrator","message":"Validating context consistency for persona: PM"}
+{"timestamp":"2026-07-27T01:25:07.011Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T01:25:07.012Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mcommit-msg hook validation passed (1 check passed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:07.012Z","level":"INFO","component":"HookOrchestrator","message":"commit-msg hook execution completed in 3ms"}
+{"timestamp":"2026-07-27T01:25:07.055Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T01:25:07.062Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mpre-commit hook validation passed (4 checks passed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:07.063Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T01:25:07.071Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (3 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:07.071Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:07.071Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T01:25:07.072Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T01:25:07.072Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mcommit-msg hook validation passed (2 checks passed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:07.072Z","level":"ERROR","component":"HookOrchestrator","message":"Gatekeeper integration failed: this.logger.debug is not a function"}
+{"timestamp":"2026-07-27T01:25:07.073Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-push hook"}
+{"timestamp":"2026-07-27T01:25:07.073Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-push hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:07.073Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:07.073Z","level":"INFO","component":"HookOrchestrator","message":"  • Add tests to improve code coverage"}
+{"timestamp":"2026-07-27T01:25:07.073Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run test:coverage to see coverage details"}
+{"timestamp":"2026-07-27T01:25:07.073Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for post-commit hook"}
+{"timestamp":"2026-07-27T01:25:07.073Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mpost-commit hook validation passed (3 checks passed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:07.074Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for post-merge hook"}
+{"timestamp":"2026-07-27T01:25:07.074Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpost-merge hook validation failed (1 check passed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:07.074Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:07.074Z","level":"INFO","component":"HookOrchestrator","message":"  • Check BMAD workflow logs for detailed error information"}
+{"timestamp":"2026-07-27T01:25:07.074Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run bmad:workflow manually to retry"}
+{"timestamp":"2026-07-27T01:25:07.075Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T01:25:07.075Z","level":"ERROR","component":"HookOrchestrator","message":"Gatekeeper integration failed: Gatekeeper error"}
+{"timestamp":"2026-07-27T01:25:07.076Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T01:25:07.083Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (2 checks passed, 2 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:07.083Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:07.083Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T01:25:07.083Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm test to see detailed test failure information"}
+{"timestamp":"2026-07-27T01:25:07.084Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T01:25:07.089Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:07.089Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:07.090Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T01:25:07.090Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T01:25:07.090Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mcommit-msg hook validation failed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:07.090Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:07.090Z","level":"INFO","component":"HookOrchestrator","message":"  • Use format: [PERSONA] [STEP-ID] Description"}
+{"timestamp":"2026-07-27T01:25:07.090Z","level":"INFO","component":"HookOrchestrator","message":"  • Example: [DEVELOPER] [STEP-001] Implement user authentication"}
+{"timestamp":"2026-07-27T01:25:07.091Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-push hook"}
+{"timestamp":"2026-07-27T01:25:07.091Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-push hook validation failed (1 check passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:07.092Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T01:25:07.097Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:07.097Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:07.097Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T01:25:07.097Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T01:25:07.098Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mcommit-msg hook validation failed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:07.098Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:07.098Z","level":"INFO","component":"HookOrchestrator","message":"  • Use format: [PERSONA] [STEP-ID] Description"}
+{"timestamp":"2026-07-27T01:25:07.098Z","level":"INFO","component":"HookOrchestrator","message":"  • Example: [DEVELOPER] [STEP-001] Implement user authentication"}
+{"timestamp":"2026-07-27T01:25:07.098Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-push hook"}
+{"timestamp":"2026-07-27T01:25:07.098Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-push hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:07.098Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:25:07.098Z","level":"INFO","component":"HookOrchestrator","message":"  • Add tests to improve code coverage"}
+{"timestamp":"2026-07-27T01:25:07.098Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run test:coverage to see coverage details"}
+{"timestamp":"2026-07-27T01:28:17.386Z","level":"INFO","component":"HookOrchestrator","message":"Starting pre-commit hook execution"}
+{"timestamp":"2026-07-27T01:28:17.387Z","level":"INFO","component":"HookOrchestrator","message":"Executing pre-commit hook with 0 staged files"}
+{"timestamp":"2026-07-27T01:28:17.387Z","level":"INFO","component":"HookOrchestrator","message":"Running fast unit tests with serialized execution"}
+{"timestamp":"2026-07-27T01:28:17.771Z","level":"INFO","component":"HookOrchestrator","message":"Validating activeContext.md updates"}
+{"timestamp":"2026-07-27T01:28:17.775Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T01:28:17.781Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mpre-commit hook validation passed (1 check passed, 1 warning)\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.781Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.781Z","level":"INFO","component":"HookOrchestrator","message":"  • Review warnings to improve code quality"}
+{"timestamp":"2026-07-27T01:28:17.781Z","level":"INFO","component":"HookOrchestrator","message":"pre-commit hook execution completed in 395ms"}
+{"timestamp":"2026-07-27T01:28:17.835Z","level":"INFO","component":"HookOrchestrator","message":"Starting commit-msg hook execution"}
+{"timestamp":"2026-07-27T01:28:17.835Z","level":"INFO","component":"HookOrchestrator","message":"Executing commit-msg hook validation"}
+{"timestamp":"2026-07-27T01:28:17.836Z","level":"INFO","component":"HookOrchestrator","message":"Validating context consistency for persona: PM"}
+{"timestamp":"2026-07-27T01:28:17.837Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T01:28:17.838Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mcommit-msg hook validation passed (1 check passed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.838Z","level":"INFO","component":"HookOrchestrator","message":"commit-msg hook execution completed in 3ms"}
+{"timestamp":"2026-07-27T01:28:17.885Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T01:28:17.893Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mpre-commit hook validation passed (4 checks passed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.895Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T01:28:17.902Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (3 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.902Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.902Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T01:28:17.903Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T01:28:17.903Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mcommit-msg hook validation passed (2 checks passed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.903Z","level":"ERROR","component":"HookOrchestrator","message":"Gatekeeper integration failed: this.logger.debug is not a function"}
+{"timestamp":"2026-07-27T01:28:17.904Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-push hook"}
+{"timestamp":"2026-07-27T01:28:17.904Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-push hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.904Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.904Z","level":"INFO","component":"HookOrchestrator","message":"  • Add tests to improve code coverage"}
+{"timestamp":"2026-07-27T01:28:17.904Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run test:coverage to see coverage details"}
+{"timestamp":"2026-07-27T01:28:17.905Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for post-commit hook"}
+{"timestamp":"2026-07-27T01:28:17.905Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mpost-commit hook validation passed (3 checks passed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.905Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for post-merge hook"}
+{"timestamp":"2026-07-27T01:28:17.905Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpost-merge hook validation failed (1 check passed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.905Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.905Z","level":"INFO","component":"HookOrchestrator","message":"  • Check BMAD workflow logs for detailed error information"}
+{"timestamp":"2026-07-27T01:28:17.905Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run bmad:workflow manually to retry"}
+{"timestamp":"2026-07-27T01:28:17.906Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T01:28:17.906Z","level":"ERROR","component":"HookOrchestrator","message":"Gatekeeper integration failed: Gatekeeper error"}
+{"timestamp":"2026-07-27T01:28:17.907Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T01:28:17.914Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (2 checks passed, 2 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.914Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.914Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T01:28:17.914Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm test to see detailed test failure information"}
+{"timestamp":"2026-07-27T01:28:17.915Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T01:28:17.921Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.921Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.921Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T01:28:17.922Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T01:28:17.922Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mcommit-msg hook validation failed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.922Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.922Z","level":"INFO","component":"HookOrchestrator","message":"  • Use format: [PERSONA] [STEP-ID] Description"}
+{"timestamp":"2026-07-27T01:28:17.922Z","level":"INFO","component":"HookOrchestrator","message":"  • Example: [DEVELOPER] [STEP-001] Implement user authentication"}
+{"timestamp":"2026-07-27T01:28:17.923Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-push hook"}
+{"timestamp":"2026-07-27T01:28:17.923Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-push hook validation failed (1 check passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.924Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T01:28:17.931Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.931Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.931Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T01:28:17.932Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T01:28:17.932Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mcommit-msg hook validation failed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.932Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.932Z","level":"INFO","component":"HookOrchestrator","message":"  • Use format: [PERSONA] [STEP-ID] Description"}
+{"timestamp":"2026-07-27T01:28:17.932Z","level":"INFO","component":"HookOrchestrator","message":"  • Example: [DEVELOPER] [STEP-001] Implement user authentication"}
+{"timestamp":"2026-07-27T01:28:17.932Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-push hook"}
+{"timestamp":"2026-07-27T01:28:17.932Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-push hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.932Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:28:17.932Z","level":"INFO","component":"HookOrchestrator","message":"  • Add tests to improve code coverage"}
+{"timestamp":"2026-07-27T01:28:17.932Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run test:coverage to see coverage details"}
+{"timestamp":"2026-07-27T01:49:50.757Z","level":"INFO","component":"HookOrchestrator","message":"Starting pre-commit hook execution"}
+{"timestamp":"2026-07-27T01:49:50.758Z","level":"INFO","component":"HookOrchestrator","message":"Executing pre-commit hook with 0 staged files"}
+{"timestamp":"2026-07-27T01:49:50.758Z","level":"INFO","component":"HookOrchestrator","message":"Running fast unit tests with serialized execution"}
+{"timestamp":"2026-07-27T01:49:51.163Z","level":"INFO","component":"HookOrchestrator","message":"Validating activeContext.md updates"}
+{"timestamp":"2026-07-27T01:49:51.167Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T01:49:51.174Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mpre-commit hook validation passed (1 check passed, 1 warning)\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.174Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.174Z","level":"INFO","component":"HookOrchestrator","message":"  • Review warnings to improve code quality"}
+{"timestamp":"2026-07-27T01:49:51.174Z","level":"INFO","component":"HookOrchestrator","message":"pre-commit hook execution completed in 417ms"}
+{"timestamp":"2026-07-27T01:49:51.245Z","level":"INFO","component":"HookOrchestrator","message":"Starting commit-msg hook execution"}
+{"timestamp":"2026-07-27T01:49:51.246Z","level":"INFO","component":"HookOrchestrator","message":"Executing commit-msg hook validation"}
+{"timestamp":"2026-07-27T01:49:51.247Z","level":"INFO","component":"HookOrchestrator","message":"Validating context consistency for persona: PM"}
+{"timestamp":"2026-07-27T01:49:51.248Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T01:49:51.250Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mcommit-msg hook validation passed (1 check passed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.250Z","level":"INFO","component":"HookOrchestrator","message":"commit-msg hook execution completed in 5ms"}
+{"timestamp":"2026-07-27T01:49:51.311Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T01:49:51.317Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mpre-commit hook validation passed (4 checks passed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.319Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T01:49:51.325Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (3 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.325Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.326Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T01:49:51.327Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T01:49:51.327Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mcommit-msg hook validation passed (2 checks passed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.327Z","level":"ERROR","component":"HookOrchestrator","message":"Gatekeeper integration failed: this.logger.debug is not a function"}
+{"timestamp":"2026-07-27T01:49:51.328Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-push hook"}
+{"timestamp":"2026-07-27T01:49:51.328Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-push hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.328Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.328Z","level":"INFO","component":"HookOrchestrator","message":"  • Add tests to improve code coverage"}
+{"timestamp":"2026-07-27T01:49:51.328Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run test:coverage to see coverage details"}
+{"timestamp":"2026-07-27T01:49:51.329Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for post-commit hook"}
+{"timestamp":"2026-07-27T01:49:51.329Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mpost-commit hook validation passed (3 checks passed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.329Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for post-merge hook"}
+{"timestamp":"2026-07-27T01:49:51.329Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpost-merge hook validation failed (1 check passed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.329Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.329Z","level":"INFO","component":"HookOrchestrator","message":"  • Check BMAD workflow logs for detailed error information"}
+{"timestamp":"2026-07-27T01:49:51.329Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run bmad:workflow manually to retry"}
+{"timestamp":"2026-07-27T01:49:51.330Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T01:49:51.330Z","level":"ERROR","component":"HookOrchestrator","message":"Gatekeeper integration failed: Gatekeeper error"}
+{"timestamp":"2026-07-27T01:49:51.331Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T01:49:51.337Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (2 checks passed, 2 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.337Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.337Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T01:49:51.337Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm test to see detailed test failure information"}
+{"timestamp":"2026-07-27T01:49:51.338Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T01:49:51.345Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.345Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.345Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T01:49:51.345Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T01:49:51.346Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mcommit-msg hook validation failed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.346Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.346Z","level":"INFO","component":"HookOrchestrator","message":"  • Use format: [PERSONA] [STEP-ID] Description"}
+{"timestamp":"2026-07-27T01:49:51.346Z","level":"INFO","component":"HookOrchestrator","message":"  • Example: [DEVELOPER] [STEP-001] Implement user authentication"}
+{"timestamp":"2026-07-27T01:49:51.346Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-push hook"}
+{"timestamp":"2026-07-27T01:49:51.346Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-push hook validation failed (1 check passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.347Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T01:49:51.353Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.353Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.353Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T01:49:51.354Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T01:49:51.354Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mcommit-msg hook validation failed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.354Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.354Z","level":"INFO","component":"HookOrchestrator","message":"  • Use format: [PERSONA] [STEP-ID] Description"}
+{"timestamp":"2026-07-27T01:49:51.354Z","level":"INFO","component":"HookOrchestrator","message":"  • Example: [DEVELOPER] [STEP-001] Implement user authentication"}
+{"timestamp":"2026-07-27T01:49:51.354Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-push hook"}
+{"timestamp":"2026-07-27T01:49:51.354Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-push hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.354Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T01:49:51.354Z","level":"INFO","component":"HookOrchestrator","message":"  • Add tests to improve code coverage"}
+{"timestamp":"2026-07-27T01:49:51.354Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run test:coverage to see coverage details"}
+{"timestamp":"2026-07-27T02:45:40.244Z","level":"INFO","component":"HookOrchestrator","message":"Starting pre-commit hook execution"}
+{"timestamp":"2026-07-27T02:45:40.244Z","level":"INFO","component":"HookOrchestrator","message":"Executing pre-commit hook with 0 staged files"}
+{"timestamp":"2026-07-27T02:45:40.244Z","level":"INFO","component":"HookOrchestrator","message":"Running fast unit tests with serialized execution"}
+{"timestamp":"2026-07-27T02:45:40.595Z","level":"INFO","component":"HookOrchestrator","message":"Validating activeContext.md updates"}
+{"timestamp":"2026-07-27T02:45:40.599Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T02:45:40.605Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mpre-commit hook validation passed (1 check passed, 1 warning)\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.605Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.605Z","level":"INFO","component":"HookOrchestrator","message":"  • Review warnings to improve code quality"}
+{"timestamp":"2026-07-27T02:45:40.605Z","level":"INFO","component":"HookOrchestrator","message":"pre-commit hook execution completed in 361ms"}
+{"timestamp":"2026-07-27T02:45:40.656Z","level":"INFO","component":"HookOrchestrator","message":"Starting commit-msg hook execution"}
+{"timestamp":"2026-07-27T02:45:40.656Z","level":"INFO","component":"HookOrchestrator","message":"Executing commit-msg hook validation"}
+{"timestamp":"2026-07-27T02:45:40.657Z","level":"INFO","component":"HookOrchestrator","message":"Validating context consistency for persona: PM"}
+{"timestamp":"2026-07-27T02:45:40.658Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T02:45:40.659Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mcommit-msg hook validation passed (1 check passed)\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.659Z","level":"INFO","component":"HookOrchestrator","message":"commit-msg hook execution completed in 3ms"}
+{"timestamp":"2026-07-27T02:45:40.701Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T02:45:40.708Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mpre-commit hook validation passed (4 checks passed)\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.709Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T02:45:40.716Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (3 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.716Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.716Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T02:45:40.717Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T02:45:40.717Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mcommit-msg hook validation passed (2 checks passed)\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.717Z","level":"ERROR","component":"HookOrchestrator","message":"Gatekeeper integration failed: this.logger.debug is not a function"}
+{"timestamp":"2026-07-27T02:45:40.718Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-push hook"}
+{"timestamp":"2026-07-27T02:45:40.718Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-push hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.718Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.718Z","level":"INFO","component":"HookOrchestrator","message":"  • Add tests to improve code coverage"}
+{"timestamp":"2026-07-27T02:45:40.718Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run test:coverage to see coverage details"}
+{"timestamp":"2026-07-27T02:45:40.719Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for post-commit hook"}
+{"timestamp":"2026-07-27T02:45:40.719Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[32mpost-commit hook validation passed (3 checks passed)\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.719Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for post-merge hook"}
+{"timestamp":"2026-07-27T02:45:40.719Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpost-merge hook validation failed (1 check passed)\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.719Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.719Z","level":"INFO","component":"HookOrchestrator","message":"  • Check BMAD workflow logs for detailed error information"}
+{"timestamp":"2026-07-27T02:45:40.719Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run bmad:workflow manually to retry"}
+{"timestamp":"2026-07-27T02:45:40.720Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T02:45:40.720Z","level":"ERROR","component":"HookOrchestrator","message":"Gatekeeper integration failed: Gatekeeper error"}
+{"timestamp":"2026-07-27T02:45:40.721Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T02:45:40.728Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (2 checks passed, 2 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.728Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.728Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T02:45:40.728Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm test to see detailed test failure information"}
+{"timestamp":"2026-07-27T02:45:40.729Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T02:45:40.736Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.736Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.736Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T02:45:40.736Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T02:45:40.737Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mcommit-msg hook validation failed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.737Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.737Z","level":"INFO","component":"HookOrchestrator","message":"  • Use format: [PERSONA] [STEP-ID] Description"}
+{"timestamp":"2026-07-27T02:45:40.737Z","level":"INFO","component":"HookOrchestrator","message":"  • Example: [DEVELOPER] [STEP-001] Implement user authentication"}
+{"timestamp":"2026-07-27T02:45:40.737Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-push hook"}
+{"timestamp":"2026-07-27T02:45:40.737Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-push hook validation failed (1 check passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.738Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T02:45:40.745Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.745Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.745Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run lint:fix to automatically fix linting issues"}
+{"timestamp":"2026-07-27T02:45:40.745Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for commit-msg hook"}
+{"timestamp":"2026-07-27T02:45:40.745Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mcommit-msg hook validation failed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.745Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.745Z","level":"INFO","component":"HookOrchestrator","message":"  • Use format: [PERSONA] [STEP-ID] Description"}
+{"timestamp":"2026-07-27T02:45:40.745Z","level":"INFO","component":"HookOrchestrator","message":"  • Example: [DEVELOPER] [STEP-001] Implement user authentication"}
+{"timestamp":"2026-07-27T02:45:40.745Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-push hook"}
+{"timestamp":"2026-07-27T02:45:40.745Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-push hook validation failed (2 checks passed, 1 failed)\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.745Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T02:45:40.745Z","level":"INFO","component":"HookOrchestrator","message":"  • Add tests to improve code coverage"}
+{"timestamp":"2026-07-27T02:45:40.745Z","level":"INFO","component":"HookOrchestrator","message":"  • Run npm run test:coverage to see coverage details"}
+{"timestamp":"2026-07-27T02:50:32.682Z","level":"INFO","component":"HookOrchestrator","message":"Starting pre-commit hook execution"}
+{"timestamp":"2026-07-27T02:50:32.683Z","level":"INFO","component":"HookOrchestrator","message":"Executing pre-commit hook with 0 staged files"}
+{"timestamp":"2026-07-27T02:50:32.683Z","level":"INFO","component":"HookOrchestrator","message":"Running fast unit tests with serialized execution"}
+{"timestamp":"2026-07-27T02:50:47.703Z","level":"INFO","component":"HookOrchestrator","message":"Validating activeContext.md updates"}
+{"timestamp":"2026-07-27T02:50:47.708Z","level":"INFO","component":"HookOrchestrator","message":"Integrating with Enhanced Gatekeeper for pre-commit hook"}
+{"timestamp":"2026-07-27T02:50:47.715Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[31mpre-commit hook validation failed, 1 failed, 1 warning)\u001b[0m"}
+{"timestamp":"2026-07-27T02:50:47.715Z","level":"INFO","component":"HookOrchestrator","message":"\u001b[34mRecommendations:\u001b[0m"}
+{"timestamp":"2026-07-27T02:50:47.715Z","level":"INFO","component":"HookOrchestrator","message":"  • Update activeContext.md to document your changes"}
+{"timestamp":"2026-07-27T02:50:47.715Z","level":"INFO","component":"HookOrchestrator","message":"  • Review warnings to improve code quality"}
+{"timestamp":"2026-07-27T02:50:47.715Z","level":"INFO","component":"HookOrchestrator","message":"pre-commit hook execution completed in 15033ms"}

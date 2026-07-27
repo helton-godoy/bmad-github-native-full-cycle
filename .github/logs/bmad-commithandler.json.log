@@ -1,0 +1,340 @@
+{"timestamp":"2026-07-27T01:33:56.429Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:33:56.429Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:33:56.430Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:33:56.430Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:33:56.431Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:33:56.431Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:33:56.431Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:33:56.431Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:33:56.432Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:33:56.432Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:33:56.432Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:33:56.432Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:33:56.432Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:33:56.432Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:33:56.433Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:33:56.433Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:33:56.433Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:33:56.433Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:33:56.433Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:33:56.433Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:33:56.434Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:33:56.434Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:33:56.434Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:33:56.434Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:33:56.434Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:33:56.434Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:33:56.434Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:33:56.434Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:33:56.434Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:33:56.434Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:33:56.435Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:33:56.435Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:33:56.435Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:33:56.435Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:33:56.435Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:33:56.435Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:33:56.435Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:33:56.435Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:33:56.435Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:33:56.435Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:34:16.352Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:34:16.353Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:34:16.354Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:34:16.354Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:34:16.354Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:34:16.354Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:34:16.355Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:34:16.355Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:34:16.355Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:34:16.355Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:34:16.356Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:34:16.356Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:34:16.356Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:34:16.356Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:34:16.357Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:34:16.357Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:34:16.357Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:34:16.357Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:34:16.358Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:34:16.358Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:34:16.358Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:34:16.358Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:34:16.358Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:34:16.358Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:34:16.359Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:34:16.359Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:34:16.359Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:34:16.359Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:34:16.359Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:34:16.359Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:34:16.360Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:34:16.360Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:34:16.360Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:34:16.360Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:34:16.360Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:34:16.360Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:34:16.361Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:34:16.361Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:34:16.361Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:34:16.361Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:34:16.364Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T01:34:16.364Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T01:34:16.365Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T01:34:16.365Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T01:34:16.365Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T01:34:16.366Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T01:34:16.366Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T01:34:16.366Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T01:34:16.366Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T01:34:16.367Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T01:34:16.367Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T01:34:16.367Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T01:34:16.368Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T01:34:16.372Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T01:34:16.372Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T01:34:16.372Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T01:34:16.372Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T01:34:16.373Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T01:34:16.373Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T01:34:16.373Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T01:49:03.196Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:49:03.196Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:49:03.196Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:49:03.196Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:49:03.197Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:49:03.197Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:49:03.197Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:49:03.197Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:49:03.197Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:49:03.197Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:49:03.197Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:49:03.197Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:49:03.197Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:49:03.197Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:49:03.198Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:49:03.198Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:49:03.198Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:49:03.198Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:49:03.198Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:49:03.198Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:49:03.198Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:49:03.198Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:49:03.198Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:49:03.198Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:49:03.199Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:49:03.199Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:49:03.199Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:49:03.199Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:49:03.199Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:49:03.199Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:49:03.199Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:49:03.199Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:49:03.199Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:49:03.200Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:49:03.200Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:49:03.200Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:49:03.200Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:49:03.200Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T01:49:03.200Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T01:49:03.200Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T01:49:03.201Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T01:49:03.202Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T01:49:03.202Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T01:49:03.202Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T01:49:03.202Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T01:49:03.202Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T01:49:03.203Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T01:49:03.203Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T01:49:03.203Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T01:49:03.203Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T01:49:03.203Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T01:49:03.203Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T01:49:03.204Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T01:49:03.204Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T01:49:03.204Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T01:49:03.204Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T01:49:03.204Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T01:49:03.205Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T01:49:03.208Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T01:49:03.208Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:44:12.111Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:12.111Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:44:12.111Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:12.111Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:44:12.112Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:12.112Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:44:12.112Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:12.112Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:44:12.112Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:12.113Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:44:12.113Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:12.113Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:44:12.113Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:12.113Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:44:12.114Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:12.114Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:44:12.114Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:12.114Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:44:12.114Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:12.114Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:44:12.115Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:12.115Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:44:12.115Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:12.115Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:44:12.115Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:12.115Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:44:12.116Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:12.116Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:44:12.116Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:12.116Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:44:12.116Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:12.116Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:44:12.117Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:12.117Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:44:12.117Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:12.117Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:44:12.117Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:12.117Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:44:12.117Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:12.117Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:44:12.118Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:44:12.118Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:44:12.119Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:44:12.119Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:44:12.119Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:44:12.119Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:44:12.119Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:44:12.120Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:44:12.120Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:44:12.120Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:44:12.120Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:44:12.120Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:44:12.120Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:44:12.121Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:44:12.121Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:44:12.121Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:44:12.121Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:44:12.121Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:44:12.121Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:44:12.122Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:44:49.537Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:49.537Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:44:49.538Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:49.538Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:44:49.538Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:49.538Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:44:49.538Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:49.538Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:44:49.538Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:49.539Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:44:49.539Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:49.539Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:44:49.539Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:49.539Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:44:49.539Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:49.539Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:44:49.539Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:49.539Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:44:49.539Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:49.539Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:44:49.540Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:49.540Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:44:49.540Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:49.540Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:44:49.540Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:49.540Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:44:49.540Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:49.540Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:44:49.540Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:49.540Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:44:49.540Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:49.541Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:44:49.541Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:49.541Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:44:49.541Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:49.541Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:44:49.541Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:49.541Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:44:49.541Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:44:49.541Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:44:49.542Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:44:49.542Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:44:49.543Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:44:49.543Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:44:49.543Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:44:49.546Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:44:49.546Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:44:49.547Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:44:49.547Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:44:49.547Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:44:49.547Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:44:49.547Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:44:49.548Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:44:49.548Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:44:49.548Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:44:49.548Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:44:49.548Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:44:49.548Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:44:49.548Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:44:49.549Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:50:35.025Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:50:35.025Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:50:35.025Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:50:35.025Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:50:35.025Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:50:35.025Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:50:35.025Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:50:35.025Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:50:35.026Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:50:35.026Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:50:35.026Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:50:35.026Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:50:35.026Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:50:35.026Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:50:35.026Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:50:35.026Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:50:35.026Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:50:35.026Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:50:35.027Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:50:35.027Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:50:35.027Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:50:35.027Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:50:35.027Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:50:35.027Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:50:35.027Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:50:35.027Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:50:35.027Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:50:35.027Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:50:35.027Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:50:35.027Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:50:35.028Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:50:35.028Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:50:35.028Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:50:35.028Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:50:35.028Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:50:35.028Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:50:35.028Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:50:35.028Z","level":"INFO","component":"CommitHandler","message":"Commit preparation completed successfully"}
+{"timestamp":"2026-07-27T02:50:35.028Z","level":"INFO","component":"CommitHandler","message":"Preparing commit..."}
+{"timestamp":"2026-07-27T02:50:35.028Z","level":"WARN","component":"CommitHandler","message":"No changes staged after git add operation"}
+{"timestamp":"2026-07-27T02:50:35.029Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:50:35.030Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:50:35.030Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:50:35.030Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:50:35.030Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:50:35.030Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:50:35.031Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:50:35.031Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:50:35.031Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:50:35.031Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:50:35.031Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:50:35.031Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:50:35.032Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:50:35.032Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:50:35.032Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:50:35.032Z","level":"WARN","component":"CommitHandler","message":"No changes to commit - skipping commit operation"}
+{"timestamp":"2026-07-27T02:50:35.032Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:50:35.033Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:50:35.033Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}
+{"timestamp":"2026-07-27T02:50:35.033Z","level":"INFO","component":"CommitHandler","message":"Commit completed after 1 attempts"}

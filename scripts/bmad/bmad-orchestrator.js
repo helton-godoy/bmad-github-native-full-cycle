@@ -48,13 +48,13 @@ class BMADOrchestrator {
     // 1.5 Fetch Issue Details for Smart Context
     const issue = await this.getIssueDetails(issueNumber);
     const issueType = this.detectIssueType(issue);
-    console.log(`🧠 Detected Issue Type: ${issueType}`);
+    console.log(`🧠 Tipo de Issue Detectado: ${issueType}`);
 
     // 2. Determine Next Action
     const action = await this.determineNextAction(state, issue, issueType);
 
     if (!action) {
-      console.log('✅ No pending actions detected.');
+      console.log('✅ Nenhuma ação pendente detectada.');
       if (this.eventEmitter) {
         this.eventEmitter.emit('workflow-idle');
       }
@@ -127,10 +127,11 @@ class BMADOrchestrator {
   async determineNextAction(state, issue, issueType) {
     const MAX_RETRIES = 3;
     const persona = (state.persona || 'UNKNOWN').toUpperCase();
+    const issueNumber = issue ? issue.number : (state ? state.issueNumber : null);
 
     // --- SPECIAL FLOW: AUDIT ---
     if (issueType === 'AUDIT') {
-      console.log('🕵️ Processing Audit Flow...');
+      console.log('🕵️ Processando Fluxo de Auditoria...');
 
       // 1. Audit Start: PM
       if (
@@ -153,7 +154,7 @@ class BMADOrchestrator {
 
         // Validate MASTER_PLAN existence before transition
         if (this.contextManager.read(masterPlanPath) !== null) {
-          console.log('✅ MASTER_PLAN.md validated, transitioning to Architect');
+          console.log('✅ MASTER_PLAN.md validado, transitando para Arquitetura');
           return {
             persona: 'architect',
             prompt:
@@ -187,7 +188,7 @@ class BMADOrchestrator {
 
       // 3. Architect -> Done (Audit)
       if (persona === 'ARCHITECT' && state.phase === 'Audit Breakdown') {
-        console.log('✅ Audit Breakdown completed. Issues created.');
+        console.log('✅ Quebra de Auditoria concluída. Issues criadas.');
         return null;
       }
     }
@@ -196,7 +197,7 @@ class BMADOrchestrator {
     else {
       // 1. PM -> Architect
       if (persona === 'PM' && state.phase.includes('Planning')) {
-        const prdPath = 'docs/planning/PRD-user-authentication.md'; // TODO: Dynamic path
+        const prdPath = this.getDynamicPath('PRD', issueNumber); // Dynamic path resolution
         if (this.contextManager.read(prdPath) !== null) {
           const prompt =
             this.extractSection(prdPath, 'Architect Prompt') ||
@@ -231,7 +232,7 @@ class BMADOrchestrator {
 
       // 2. Architect -> Developer
       if (persona === 'ARCHITECT') {
-        const specPath = 'docs/architecture/SPEC-user-authentication.md'; // TODO: Dynamic path
+        const specPath = this.getDynamicPath('SPEC', issueNumber); // Dynamic path resolution
         if (this.contextManager.read(specPath) !== null) {
           return {
             persona: 'developer',
@@ -354,7 +355,7 @@ class BMADOrchestrator {
     const PersonaClass = require(`../../personas/${fileName}`);
     const persona = new PersonaClass(this.githubToken);
 
-    console.log(`🤖 Activating Persona: ${action.persona} (${fileName}.js)`);
+    console.log(`🤖 Ativando Persona: ${action.persona} (${fileName}.js)`);
     // In a real implementation, we would pass the prompt to the persona
     // For now, we assume the persona knows what to do based on context or issue
     // But the Orchestrator ensures the *timing* is right.
@@ -427,7 +428,7 @@ class BMADOrchestrator {
     }
 
     this.contextManager.write(HANDOVER_FILE, content);
-    console.log('📝 Handover State Updated (Atomic)');
+    console.log('📝 Estado de Handover Atualizado (Atômico)');
   }
 
   /**

@@ -35,11 +35,12 @@ describe('Context Synchronizer Property Tests', () => {
     mockExecSync.mockReturnValue('file1.js\nfile2.js');
 
     // Mock ContextManager
-    mockContextManager.mockImplementation(() => ({
+    const contextManagerInstance = {
       read: jest.fn().mockResolvedValue('# Active Context\n**Persona:** DEVELOPER\n**Step ID:** STEP-001'),
       write: jest.fn().mockResolvedValue('abc123def456'),
       withLock: jest.fn().mockImplementation((lockName, operation) => operation())
-    }));
+    };
+    mockContextManager.mockImplementation(() => contextManagerInstance);
 
     contextSynchronizer = new ContextSynchronizer({
       autoUpdate: true,

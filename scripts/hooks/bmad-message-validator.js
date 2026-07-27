@@ -25,7 +25,7 @@ class BMADMessageValidator {
     // Persona: Uppercase letters and underscores
     // Step-ID: Letters and numbers with hyphens
     // Description: Any non-empty text
-    this.bmadRegex = /^\[([A-Z_]+)\] \[([A-Z]+-\d+)\] (.+)$/;
+    this.bmadRegex = /^\[([a-zA-Z_]+)\]\s+\[([A-Z0-9]+-\d+)\]\s+(.+)$/;
 
     // Conventional commits pattern as fallback
     // type(scope): description
@@ -87,15 +87,17 @@ class BMADMessageValidator {
     };
 
     try {
-      if (!message || typeof message !== 'string') {
-        result.errors.push('Commit message is required and must be a string');
+      if (message === null || message === undefined || typeof message !== 'string') {
+        result.errors.push('Message is required and must be a string');
         return result;
       }
 
-      const trimmedMessage = message.trim();
+      // Check for first line if multiline
+      const firstLine = message.split(/\r?\n/)[0];
+      const trimmedMessage = firstLine.trim();
 
       if (trimmedMessage.length === 0) {
-        result.errors.push('Commit message cannot be empty');
+        result.errors.push('Message is required and cannot be empty');
         return result;
       }
 
@@ -157,6 +159,15 @@ class BMADMessageValidator {
       errorMessage += 'ERRORS:\n';
       validationResult.errors.forEach((error, index) => {
         errorMessage += `  ${index + 1}. ${error}\n`;
+      });
+      errorMessage += '\n';
+    }
+
+    // Add specific warnings
+    if (validationResult.warnings && validationResult.warnings.length > 0) {
+      errorMessage += 'WARNINGS:\n';
+      validationResult.warnings.forEach((warning, index) => {
+        errorMessage += `  ${index + 1}. ${warning}\n`;
       });
       errorMessage += '\n';
     }
@@ -276,7 +287,7 @@ class BMADMessageValidator {
     }
 
     const [, type, scopeWithParens] = match;
-    const scope = scopeWithParens ? scopeWithParens.slice(1, -1) : null; // Remove parentheses
+    const scope = scopeWithParens ? scopeWithParens.slice(1, -1) : undefined; // Remove parentheses
     const description = message.substring(
       match.index + type.length + (scopeWithParens || '').length + 2
     ); // +2 for ': '
@@ -343,9 +354,8 @@ class BMADMessageValidator {
     }
 
     if (!this.validPersonas.includes(persona.toUpperCase())) {
-      result.warnings.push(
-        `Persona '${persona}' is not a standard BMAD persona. Valid personas: ${this.validPersonas.join(', ')}`
-      );
+      result.valid = false;
+      result.errors.push(`Invalid persona: ${persona}`);
     }
 
     return result;
@@ -436,9 +446,14 @@ class BMADMessageValidator {
     const trimmedDescription = description.trim();
 
     if (trimmedDescription.length < 5) {
-      result.warnings.push(
-        'Description is very short - consider adding more detail'
-      );
+      if (this.strictMode) {
+        result.valid = false;
+        result.errors.push('Description must be at least 5 characters');
+      } else {
+        result.warnings.push(
+          'Description is very short - consider adding more detail'
+        );
+      }
     }
 
     if (trimmedDescription.length > 100) {
@@ -502,7 +517,15 @@ class BMADMessageValidator {
         validationResult.warnings.length > 0
           ? ` (${validationResult.warnings.length} warnings)`
           : '';
-      return `Valid ${format} format${warnings}`;
+      let details = '';
+      if (validationResult.parsed) {
+        if (validationResult.format === 'bmad') {
+          details = ` (${validationResult.parsed.persona} ${validationResult.parsed.stepId})`;
+        } else if (validationResult.parsed.type) {
+          details = ` (${validationResult.parsed.type})`;
+        }
+      }
+      return `Valid ${format} format${details}${warnings}`;
     } else {
       return `Invalid format (${validationResult.errors.length} errors)`;
     }

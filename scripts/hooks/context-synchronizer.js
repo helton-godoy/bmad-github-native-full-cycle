@@ -99,11 +99,17 @@ class ContextSynchronizer {
       let existingContext = '';
       let contextExists = false;
 
-      if (fs.existsSync(contextPath)) {
+      try {
         existingContext = await this.contextManager.read(
           this.config.contextFile
         );
-        contextExists = true;
+        if (existingContext) {
+          contextExists = true;
+        }
+      } catch (err) {
+        if (fs.existsSync(contextPath)) {
+          throw err;
+        }
       }
 
       // Generate updated context content
@@ -221,13 +227,15 @@ class ContextSynchronizer {
 
       // 1. Check if activeContext.md exists and is readable
       const contextPath = path.join(process.cwd(), this.config.contextFile);
-      validationResults.contextFileExists = fs.existsSync(contextPath);
-
-      if (validationResults.contextFileExists) {
+      try {
         validationResults.contextContent = await this.contextManager.read(
           this.config.contextFile
         );
+      } catch (err) {
+        // ignore
       }
+      validationResults.contextFileExists =
+        !!validationResults.contextContent || fs.existsSync(contextPath);
 
       // 2. Validate persona consistency
       validationResults.personaConsistency =
@@ -496,23 +504,16 @@ class ContextSynchronizer {
    */
   extractPreviousEntries(existingContext) {
     const entries = [];
+    if (!existingContext) return entries;
 
     try {
-      // Look for history section
-      const historyMatch = existingContext.match(
-        /## Context History\s*\n\n([\s\S]*?)(?=\n##|$)/
-      );
-      if (historyMatch) {
-        const historyContent = historyMatch[1];
-        const lines = historyContent.split('\n');
-
-        lines.forEach((line) => {
-          const trimmed = line.trim();
-          if (trimmed.startsWith('- ') && trimmed.includes(':')) {
-            entries.push(trimmed.substring(2)); // Remove '- ' prefix
-          }
-        });
-      }
+      const lines = existingContext.split(/\r?\n/);
+      lines.forEach((line) => {
+        const trimmed = line.trim();
+        if (trimmed.startsWith('- ')) {
+          entries.push(trimmed.substring(2)); // Remove '- ' prefix
+        }
+      });
     } catch (error) {
       this.logger.warn(`Could not extract previous entries: ${error.message}`);
     }
@@ -540,9 +541,8 @@ class ContextSynchronizer {
     }
 
     if (!this.validPersonas.includes(persona.toUpperCase())) {
-      result.warnings.push(
-        `Persona '${persona}' is not a standard BMAD persona`
-      );
+      result.errors.push(`Invalid persona: ${persona}`);
+      return result;
     }
 
     result.valid = true;
@@ -564,9 +564,17 @@ class ContextSynchronizer {
     };
 
     try {
-      // Get current persona from context
-      const contextPath = path.join(process.cwd(), this.config.contextFile);
-      if (!fs.existsSync(contextPath)) {
+      let contextContent = null;
+      try {
+        contextContent = await this.contextManager.read(
+          this.config.contextFile
+        );
+      } catch (error) {
+        result.errors.push(`Transition validation failed: ${error.message}`);
+        return result;
+      }
+
+      if (!contextContent) {
         result.valid = true; // No previous context to validate against
         result.warnings.push(
           'No previous context found - transition validation skipped'
@@ -574,9 +582,6 @@ class ContextSynchronizer {
         return result;
       }
 
-      const contextContent = await this.contextManager.read(
-        this.config.contextFile
-      );
       const currentPersona = this.extractPersonaFromContext(contextContent);
 
       if (!currentPersona) {
@@ -602,10 +607,10 @@ class ContextSynchronizer {
       if (validTransitions.includes(newPersona)) {
         result.valid = true;
       } else {
-        result.warnings.push(
+        result.valid = false;
+        result.errors.push(
           `Persona transition from ${currentPersona} to ${newPersona} is not standard in BMAD workflow`
         );
-        result.valid = true; // Don't fail on non-standard transitions, just warn
       }
 
       return result;
@@ -625,15 +630,15 @@ class ContextSynchronizer {
     if (!contextContent) return null;
 
     // Look for persona in current work section
-    const personaMatch = contextContent.match(/\*\*Persona:\*\*\s*([A-Z_]+)/);
+    const personaMatch = contextContent.match(/\*\*Persona:\*\*\s*(.+)/);
     if (personaMatch) {
-      return personaMatch[1];
+      return personaMatch[1].trim();
     }
 
     // Look for BMAD commit patterns in context
     const bmadMatch = contextContent.match(/\[([A-Z_]+)\]/);
     if (bmadMatch) {
-      return bmadMatch[1];
+      return bmadMatch[1].trim();
     }
 
     return null;
@@ -698,6 +703,13 @@ class ContextSynchronizer {
       // Check if handover is consistent with current persona
       const handoverPersona = this.extractPersonaFromContext(handoverContent);
       const consistent = !handoverPersona || handoverPersona === persona;
+
+      // Update handover file
+      const newHandoverContent = handoverContent.replace(
+        /Active Persona\s*\n\s*\*\*\[.*?\]\*\*/,
+        `Active Persona\n**[${persona}]**`
+      );
+      fs.writeFileSync(handoverPath, newHandoverContent, 'utf8');
 
       return {
         success: true,
@@ -932,8 +944,7 @@ class ContextSynchronizer {
       const timestampMatch = contextContent.match(timestampPattern);
       const hasRecentTimestamp =
         timestampMatch &&
-        Date.now() - new Date(timestampMatch[1]).getTime() <
-          24 * 60 * 60 * 1000; // Within 24 hours
+        !isNaN(new Date(timestampMatch[1]).getTime());
 
       const consistent = contextReflectsChanges || hasRecentTimestamp;
 
