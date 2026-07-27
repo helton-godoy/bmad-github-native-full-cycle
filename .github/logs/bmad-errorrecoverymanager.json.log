@@ -31826,3 +31826,1282 @@
 {"timestamp":"2026-07-27T06:11:55.761Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
 {"timestamp":"2026-07-27T06:11:55.762Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
 {"timestamp":"2026-07-27T06:11:55.764Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T06:19:15.960Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: {"}
+{"timestamp":"2026-07-27T06:19:15.965Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:15.967Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:15.972Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:15.972Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in SECURITY, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:15.972Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for SECURITY"}
+{"timestamp":"2026-07-27T06:19:15.973Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: y"}
+{"timestamp":"2026-07-27T06:19:15.974Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:15.976Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:15.980Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:15.980Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:15.980Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:15.981Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: $e"}
+{"timestamp":"2026-07-27T06:19:15.982Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:15.984Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:15.989Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:15.989Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:15.989Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:15.989Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: w>\\*zBZfN=.'"}
+{"timestamp":"2026-07-27T06:19:15.990Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:15.992Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:15.996Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:15.996Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in PM, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:15.996Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for PM"}
+{"timestamp":"2026-07-27T06:19:15.997Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: z"}
+{"timestamp":"2026-07-27T06:19:15.998Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.000Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.004Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.004Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.004Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:16.005Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: t^dE$}.:"}
+{"timestamp":"2026-07-27T06:19:16.006Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.008Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.012Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.013Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.013Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:16.013Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: ro"}
+{"timestamp":"2026-07-27T06:19:16.014Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.016Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.021Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.021Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.021Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:16.021Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: }"}
+{"timestamp":"2026-07-27T06:19:16.022Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.025Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.028Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.028Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVOPS, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.028Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.029Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: avbK-L#"}
+{"timestamp":"2026-07-27T06:19:16.030Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.032Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.037Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.037Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in SECURITY, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.037Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.037Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: (BXuBF#."}
+{"timestamp":"2026-07-27T06:19:16.039Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.041Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.045Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.045Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.045Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.046Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: *{-_r/J"}
+{"timestamp":"2026-07-27T06:19:16.047Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.049Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.053Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.053Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in SECURITY, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.054Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.054Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: {\")}ddHx@6#"}
+{"timestamp":"2026-07-27T06:19:16.055Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.057Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.062Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.062Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in PM, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.062Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for PM"}
+{"timestamp":"2026-07-27T06:19:16.062Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: hn\\{_"}
+{"timestamp":"2026-07-27T06:19:16.063Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.066Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.070Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.070Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.070Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.071Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: %0V~g"}
+{"timestamp":"2026-07-27T06:19:16.072Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.074Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.078Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.078Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in PM, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.078Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for PM"}
+{"timestamp":"2026-07-27T06:19:16.079Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: 3}T[c;~1c1I"}
+{"timestamp":"2026-07-27T06:19:16.080Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.082Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.087Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.087Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.087Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.087Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: EO"}
+{"timestamp":"2026-07-27T06:19:16.088Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.091Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.094Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.094Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.094Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.095Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: z9w$#\"!|;\"E"}
+{"timestamp":"2026-07-27T06:19:16.096Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.099Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.103Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.103Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.103Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:16.104Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: =*Q6"}
+{"timestamp":"2026-07-27T06:19:16.105Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.107Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.111Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.112Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in SECURITY, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.112Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.112Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY:  $[&_hi#/"}
+{"timestamp":"2026-07-27T06:19:16.113Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.115Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.120Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.120Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in SECURITY, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.120Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.120Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: E/"}
+{"timestamp":"2026-07-27T06:19:16.121Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.124Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.128Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.128Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.128Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.129Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: cM"}
+{"timestamp":"2026-07-27T06:19:16.129Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.131Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.135Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.135Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.135Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.136Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: %xVrA"}
+{"timestamp":"2026-07-27T06:19:16.138Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.140Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.144Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.145Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in SECURITY, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.145Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.145Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: ]O="}
+{"timestamp":"2026-07-27T06:19:16.146Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.148Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.153Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.153Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.153Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:16.153Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: ["}
+{"timestamp":"2026-07-27T06:19:16.155Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.157Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.161Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.161Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in SECURITY, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.161Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.162Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: R wG@u"}
+{"timestamp":"2026-07-27T06:19:16.163Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.165Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.169Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.169Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVOPS, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.169Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.170Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: A3%2]O1{Kb"}
+{"timestamp":"2026-07-27T06:19:16.171Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.173Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.177Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.178Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in SECURITY, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.178Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.178Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: |$$~a$"}
+{"timestamp":"2026-07-27T06:19:16.179Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.182Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.186Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.186Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.186Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.186Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: txbV"}
+{"timestamp":"2026-07-27T06:19:16.187Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.190Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.194Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.194Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.194Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.195Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: \\}$\""}
+{"timestamp":"2026-07-27T06:19:16.197Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.199Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.203Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.204Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.204Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.204Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: N8&;6d[d^?"}
+{"timestamp":"2026-07-27T06:19:16.205Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.207Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.211Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.212Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.212Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.212Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: sx!C"}
+{"timestamp":"2026-07-27T06:19:16.213Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.216Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.220Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.220Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in PM, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.220Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for PM"}
+{"timestamp":"2026-07-27T06:19:16.220Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: #dZ(*NFNV.Fn"}
+{"timestamp":"2026-07-27T06:19:16.222Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.224Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.228Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.228Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.228Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.229Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: #.ap"}
+{"timestamp":"2026-07-27T06:19:16.230Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.232Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.237Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.237Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in SECURITY, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.237Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.237Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: DxwC%`x~"}
+{"timestamp":"2026-07-27T06:19:16.238Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.240Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.245Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.245Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.245Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.245Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: F?S76|au&g"}
+{"timestamp":"2026-07-27T06:19:16.246Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.249Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.253Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.253Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.253Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.253Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: D}^_~FDX"}
+{"timestamp":"2026-07-27T06:19:16.255Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.257Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.261Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.261Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVOPS, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.261Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.262Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: $PdoA"}
+{"timestamp":"2026-07-27T06:19:16.263Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.265Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.269Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.270Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in SECURITY, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.270Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.270Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: 2P"}
+{"timestamp":"2026-07-27T06:19:16.271Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.273Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.278Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.278Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.278Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.278Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: 3k^"}
+{"timestamp":"2026-07-27T06:19:16.279Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.282Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.285Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.285Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in PM, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.285Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for PM"}
+{"timestamp":"2026-07-27T06:19:16.285Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: xeM8|"}
+{"timestamp":"2026-07-27T06:19:16.286Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.288Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.292Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.292Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.292Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.293Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: &I"}
+{"timestamp":"2026-07-27T06:19:16.294Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.296Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.300Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.300Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.300Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.301Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: K"}
+{"timestamp":"2026-07-27T06:19:16.302Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.304Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.308Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.309Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in PM, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.309Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for PM"}
+{"timestamp":"2026-07-27T06:19:16.309Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: T)2{8wMC8"}
+{"timestamp":"2026-07-27T06:19:16.310Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.312Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.317Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.317Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.317Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.317Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Z_$i2-&`5p"}
+{"timestamp":"2026-07-27T06:19:16.318Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.321Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.325Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.325Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.325Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.325Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: (v+3](lU<"}
+{"timestamp":"2026-07-27T06:19:16.326Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.329Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.333Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.333Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in SECURITY, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.333Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.333Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: bPM"}
+{"timestamp":"2026-07-27T06:19:16.335Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.337Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.341Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.341Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVOPS, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.341Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.341Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: *Fl4uX3`{R"}
+{"timestamp":"2026-07-27T06:19:16.343Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.345Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.349Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.349Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.349Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.350Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: J<Tp/q d\\3:v"}
+{"timestamp":"2026-07-27T06:19:16.351Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.353Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.357Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.357Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in SECURITY, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.357Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.358Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: 8W"}
+{"timestamp":"2026-07-27T06:19:16.359Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.361Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.366Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.366Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.366Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.366Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: U5"}
+{"timestamp":"2026-07-27T06:19:16.367Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.369Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.374Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.374Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in PM, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.374Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for PM"}
+{"timestamp":"2026-07-27T06:19:16.375Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Test error"}
+{"timestamp":"2026-07-27T06:19:16.375Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.377Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.381Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.381Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.381Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.382Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: %"}
+{"timestamp":"2026-07-27T06:19:16.384Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.386Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.390Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.390Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.391Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:16.391Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: giTqW0n"}
+{"timestamp":"2026-07-27T06:19:16.392Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.394Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.399Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.399Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.399Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.399Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: V`IY4.n{"}
+{"timestamp":"2026-07-27T06:19:16.400Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.403Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.407Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.407Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.407Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.407Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: t_WG(@Q=89>"}
+{"timestamp":"2026-07-27T06:19:16.409Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.411Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.415Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.415Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.415Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.416Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Jr"}
+{"timestamp":"2026-07-27T06:19:16.417Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.419Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.423Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.423Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.423Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.424Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: 7VH:8]<w"}
+{"timestamp":"2026-07-27T06:19:16.425Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.427Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.432Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.432Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in PM, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.432Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for PM"}
+{"timestamp":"2026-07-27T06:19:16.432Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY:  8#"}
+{"timestamp":"2026-07-27T06:19:16.433Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.435Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.440Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.440Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in SECURITY, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.440Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.440Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: le"}
+{"timestamp":"2026-07-27T06:19:16.442Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.444Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.448Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.448Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.448Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:16.449Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: apply"}
+{"timestamp":"2026-07-27T06:19:16.450Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.452Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.456Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.457Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in SECURITY, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.457Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.457Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: {a4S>"}
+{"timestamp":"2026-07-27T06:19:16.458Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.460Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.465Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.465Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in PM, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.465Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for PM"}
+{"timestamp":"2026-07-27T06:19:16.465Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: \\7k<\\3sUd-VZ"}
+{"timestamp":"2026-07-27T06:19:16.466Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.469Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.473Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.473Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.473Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.473Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: h>"}
+{"timestamp":"2026-07-27T06:19:16.475Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.477Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.481Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.481Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.481Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.482Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Cbp.#(:5J"}
+{"timestamp":"2026-07-27T06:19:16.483Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.485Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.489Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.490Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.490Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.490Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: %"}
+{"timestamp":"2026-07-27T06:19:16.491Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.493Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.498Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.498Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.498Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:16.498Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: % ZI"}
+{"timestamp":"2026-07-27T06:19:16.499Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.502Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.506Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.506Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.506Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.506Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: O5SnFVt<"}
+{"timestamp":"2026-07-27T06:19:16.507Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.510Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.514Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.514Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in PM, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.514Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for PM"}
+{"timestamp":"2026-07-27T06:19:16.514Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: -]&AZ_%x%k"}
+{"timestamp":"2026-07-27T06:19:16.516Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.518Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.522Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.522Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVOPS, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.522Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.523Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: #Nco"}
+{"timestamp":"2026-07-27T06:19:16.523Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.525Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.529Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.529Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.529Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.530Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: O0ctgV[mX.e"}
+{"timestamp":"2026-07-27T06:19:16.530Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.533Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.537Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.537Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in SECURITY, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.537Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.537Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: okupGesOwn"}
+{"timestamp":"2026-07-27T06:19:16.539Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.541Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.545Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.545Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVOPS, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.545Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.546Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: O]?"}
+{"timestamp":"2026-07-27T06:19:16.547Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.549Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.553Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.553Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.553Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.554Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: ="}
+{"timestamp":"2026-07-27T06:19:16.555Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.557Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.561Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.561Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.561Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.562Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: }0:#s[zf@yL/"}
+{"timestamp":"2026-07-27T06:19:16.563Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.565Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.569Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.570Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in SECURITY, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.570Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.570Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: 0|voC3}"}
+{"timestamp":"2026-07-27T06:19:16.571Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.573Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.577Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.578Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in SECURITY, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.578Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.578Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: i"}
+{"timestamp":"2026-07-27T06:19:16.579Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.581Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.586Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.586Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in SECURITY, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.586Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.586Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: 9#<U'"}
+{"timestamp":"2026-07-27T06:19:16.587Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.589Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.594Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.594Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.594Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.594Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: sf_"}
+{"timestamp":"2026-07-27T06:19:16.596Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.598Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.602Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.602Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in PM, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.602Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for PM"}
+{"timestamp":"2026-07-27T06:19:16.603Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER:   toString"}
+{"timestamp":"2026-07-27T06:19:16.604Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.606Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.610Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.610Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.610Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.611Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: S)AMw_<J"}
+{"timestamp":"2026-07-27T06:19:16.612Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.614Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.619Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.619Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.619Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:16.619Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: zTD?\\In"}
+{"timestamp":"2026-07-27T06:19:16.620Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.623Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.627Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.627Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in SECURITY, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.627Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.627Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: j{$p"}
+{"timestamp":"2026-07-27T06:19:16.628Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.631Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.635Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.635Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.635Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:16.635Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: uc"}
+{"timestamp":"2026-07-27T06:19:16.637Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.639Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.643Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.643Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in SECURITY, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.643Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.644Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: VVJDJJ"}
+{"timestamp":"2026-07-27T06:19:16.644Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.646Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.650Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.650Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.650Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:16.651Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: O)%"}
+{"timestamp":"2026-07-27T06:19:16.652Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.654Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.659Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.659Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in PM, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.659Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for PM"}
+{"timestamp":"2026-07-27T06:19:16.659Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: 4!^ 5"}
+{"timestamp":"2026-07-27T06:19:16.660Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.663Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.667Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.667Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.667Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:16.667Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: $#$"}
+{"timestamp":"2026-07-27T06:19:16.669Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.671Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.675Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.675Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.675Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.676Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: 9sto[NC^#{ab"}
+{"timestamp":"2026-07-27T06:19:16.677Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.679Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.683Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.683Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.683Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.684Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: 7i\"3_ow"}
+{"timestamp":"2026-07-27T06:19:16.685Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.687Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.692Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.692Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in SECURITY, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.692Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.692Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: %v#4`[&o}8"}
+{"timestamp":"2026-07-27T06:19:16.693Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.696Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.700Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.700Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.700Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:16.700Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: 3/P^{H5"}
+{"timestamp":"2026-07-27T06:19:16.702Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.704Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.708Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.708Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in SECURITY, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.708Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.709Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: F ###"}
+{"timestamp":"2026-07-27T06:19:16.710Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.712Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.716Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.717Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVOPS, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.717Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.717Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: =4J#CJ"}
+{"timestamp":"2026-07-27T06:19:16.718Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.720Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.725Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.725Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.725Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.725Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: mR*f;e4Te"}
+{"timestamp":"2026-07-27T06:19:16.726Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.728Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.732Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.732Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVOPS, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.732Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.732Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: \\"}
+{"timestamp":"2026-07-27T06:19:16.734Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.736Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.740Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.740Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.740Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:16.741Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Y)yapply"}
+{"timestamp":"2026-07-27T06:19:16.742Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.744Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.748Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.748Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in SECURITY, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.748Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.749Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: @:?"}
+{"timestamp":"2026-07-27T06:19:16.750Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.752Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.757Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.757Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in SECURITY, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.757Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for SECURITY"}
+{"timestamp":"2026-07-27T06:19:16.757Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: )#"}
+{"timestamp":"2026-07-27T06:19:16.758Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.760Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.765Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.765Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.765Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:16.765Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: l|n.`-7e8"}
+{"timestamp":"2026-07-27T06:19:16.766Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.768Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.773Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:16.773Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in PM, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.773Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for PM"}
+{"timestamp":"2026-07-27T06:19:16.773Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: !3a8XG_oE"}
+{"timestamp":"2026-07-27T06:19:16.775Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.777Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.781Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.781Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVOPS, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.781Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVOPS"}
+{"timestamp":"2026-07-27T06:19:16.782Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: z "}
+{"timestamp":"2026-07-27T06:19:16.783Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.785Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.789Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.789Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.789Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:16.790Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Error"}
+{"timestamp":"2026-07-27T06:19:16.791Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.794Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.798Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:16.798Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.798Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:16.799Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: H$X1;ZAZm`\\U"}
+{"timestamp":"2026-07-27T06:19:16.800Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.803Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.807Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.807Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.807Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:16.807Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: 7z"}
+{"timestamp":"2026-07-27T06:19:16.809Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.811Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.815Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.815Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.815Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:16.816Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: ,tRF/u/Y6S"}
+{"timestamp":"2026-07-27T06:19:16.817Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.819Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.823Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.824Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.824Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:16.824Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: H2?.DeG}B:V)"}
+{"timestamp":"2026-07-27T06:19:16.825Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.827Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.831Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.831Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.831Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:16.831Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: L)$;t!7\"y8"}
+{"timestamp":"2026-07-27T06:19:16.832Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.835Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.839Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.839Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.839Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:16.839Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: ke"}
+{"timestamp":"2026-07-27T06:19:16.841Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.843Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.847Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.847Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.847Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:16.847Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: ?pDq>b"}
+{"timestamp":"2026-07-27T06:19:16.849Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.850Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.854Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.854Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.854Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:16.854Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: gX"}
+{"timestamp":"2026-07-27T06:19:16.855Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.858Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.862Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.862Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.862Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:16.862Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: pGetter_"}
+{"timestamp":"2026-07-27T06:19:16.864Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.866Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.870Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.870Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.870Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:16.870Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: ?#qll\"3e&"}
+{"timestamp":"2026-07-27T06:19:16.872Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.874Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.878Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.878Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.878Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:16.878Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: ,z"}
+{"timestamp":"2026-07-27T06:19:16.880Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.881Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.885Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.885Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.885Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:16.886Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: Zz\""}
+{"timestamp":"2026-07-27T06:19:16.887Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.889Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.893Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.894Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.894Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:16.894Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: d;{n"}
+{"timestamp":"2026-07-27T06:19:16.895Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.898Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.902Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.902Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.902Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:16.902Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: .(ifE!.~"}
+{"timestamp":"2026-07-27T06:19:16.904Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.906Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.910Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.910Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.910Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:16.910Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: Mfj+"}
+{"timestamp":"2026-07-27T06:19:16.912Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.914Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.918Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.918Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.918Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:16.918Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: %NxRe)lcU*"}
+{"timestamp":"2026-07-27T06:19:16.920Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.922Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.926Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.927Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.927Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:16.927Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: ;bk#3%RXO"}
+{"timestamp":"2026-07-27T06:19:16.929Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.931Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.935Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.935Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.935Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:16.936Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: ={z`*HDs'yj\""}
+{"timestamp":"2026-07-27T06:19:16.937Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.939Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.943Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.944Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.944Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:16.944Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: U`58OGCo3_u"}
+{"timestamp":"2026-07-27T06:19:16.945Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.947Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.951Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.951Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.952Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:16.952Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: %0$!#iiO&#NE"}
+{"timestamp":"2026-07-27T06:19:16.953Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.955Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.959Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.959Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.959Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:16.960Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: O!"}
+{"timestamp":"2026-07-27T06:19:16.961Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.963Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.967Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.967Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.967Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:16.968Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: su,*m}Z#"}
+{"timestamp":"2026-07-27T06:19:16.969Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.971Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.975Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.976Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.976Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:16.976Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: 'HHWcNF+H"}
+{"timestamp":"2026-07-27T06:19:16.977Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.979Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.983Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.984Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.984Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:16.984Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: 9i;M'[\\WP"}
+{"timestamp":"2026-07-27T06:19:16.985Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.987Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.991Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.992Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:16.992Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:16.992Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: Z#%"}
+{"timestamp":"2026-07-27T06:19:16.993Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:16.995Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:17.000Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:17.000Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.000Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:17.000Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: [W$IN<"}
+{"timestamp":"2026-07-27T06:19:17.001Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:17.004Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:17.008Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:17.008Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.008Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:17.008Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: lHN/<M"}
+{"timestamp":"2026-07-27T06:19:17.010Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:17.012Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:17.016Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:17.016Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.016Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:17.017Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: <3;A"}
+{"timestamp":"2026-07-27T06:19:17.017Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:17.019Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:17.023Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:17.023Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.023Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:17.023Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: D#isProto"}
+{"timestamp":"2026-07-27T06:19:17.025Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:17.027Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:17.031Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:17.031Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.031Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:17.032Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in TEST: S?|3<Gj(l>P8"}
+{"timestamp":"2026-07-27T06:19:17.032Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:17.034Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:17.038Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in TEST"}
+{"timestamp":"2026-07-27T06:19:17.038Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in TEST, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.038Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for TEST"}
+{"timestamp":"2026-07-27T06:19:17.039Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Fixable error"}
+{"timestamp":"2026-07-27T06:19:17.040Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: P+V!IXkM;J"}
+{"timestamp":"2026-07-27T06:19:17.041Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:17.043Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:17.047Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:17.048Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.048Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:17.048Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: plye"}
+{"timestamp":"2026-07-27T06:19:17.049Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:17.052Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:17.056Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:17.056Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.056Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:17.057Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: 6\\J5"}
+{"timestamp":"2026-07-27T06:19:17.058Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.060Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.065Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.065Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.065Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.065Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: 6f"}
+{"timestamp":"2026-07-27T06:19:17.066Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.068Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.072Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.072Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.072Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.072Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: |&aUqf"}
+{"timestamp":"2026-07-27T06:19:17.073Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.076Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.080Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.080Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.080Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:17.080Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: 7M~&"}
+{"timestamp":"2026-07-27T06:19:17.082Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.084Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.088Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.088Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.088Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:17.088Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: $\"+e{\"!y~"}
+{"timestamp":"2026-07-27T06:19:17.090Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:17.092Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:17.096Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:17.096Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in PM, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.096Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for PM"}
+{"timestamp":"2026-07-27T06:19:17.096Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: bind"}
+{"timestamp":"2026-07-27T06:19:17.098Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:17.100Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:17.104Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:17.104Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in PM, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.104Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for PM"}
+{"timestamp":"2026-07-27T06:19:17.105Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: $_"}
+{"timestamp":"2026-07-27T06:19:17.106Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.108Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.112Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.113Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.113Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:17.113Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: XOX7I(_=E,y"}
+{"timestamp":"2026-07-27T06:19:17.114Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.116Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.121Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.121Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.121Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:17.121Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: ="}
+{"timestamp":"2026-07-27T06:19:17.122Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.125Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.129Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.129Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.129Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.129Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: ha"}
+{"timestamp":"2026-07-27T06:19:17.131Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.132Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.136Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.136Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.136Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.136Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: key"}
+{"timestamp":"2026-07-27T06:19:17.138Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.140Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.144Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.144Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.144Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:17.145Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: UFDT}I"}
+{"timestamp":"2026-07-27T06:19:17.146Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:17.148Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:17.152Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:17.152Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in PM, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.152Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for PM"}
+{"timestamp":"2026-07-27T06:19:17.153Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: \"$KFT"}
+{"timestamp":"2026-07-27T06:19:17.154Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.156Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.160Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.160Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.160Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.161Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: V"}
+{"timestamp":"2026-07-27T06:19:17.162Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.164Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.168Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.168Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.169Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:17.169Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: hDW&hwn"}
+{"timestamp":"2026-07-27T06:19:17.170Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:17.172Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:17.177Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:17.177Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in PM, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.177Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for PM"}
+{"timestamp":"2026-07-27T06:19:17.177Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: h23B "}
+{"timestamp":"2026-07-27T06:19:17.179Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:17.181Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:17.185Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:17.185Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in ARCHITECT, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.185Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:17.186Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: ,VgD"}
+{"timestamp":"2026-07-27T06:19:17.187Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:17.189Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:17.193Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:17.194Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in PM, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.194Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for PM"}
+{"timestamp":"2026-07-27T06:19:17.194Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: T[p3"}
+{"timestamp":"2026-07-27T06:19:17.195Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.198Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.202Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.202Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.202Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.203Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: ?4_@cyvR("}
+{"timestamp":"2026-07-27T06:19:17.203Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:17.205Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:17.209Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:17.209Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in PM, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.209Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for PM"}
+{"timestamp":"2026-07-27T06:19:17.210Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: \\=@loX"}
+{"timestamp":"2026-07-27T06:19:17.211Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.213Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.218Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.218Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.218Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.219Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: mJi|{&"}
+{"timestamp":"2026-07-27T06:19:17.220Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.222Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.226Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.227Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.227Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.227Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: p){\\@"}
+{"timestamp":"2026-07-27T06:19:17.228Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:17.231Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:17.234Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:17.234Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in PM, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.234Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for PM"}
+{"timestamp":"2026-07-27T06:19:17.235Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: %|"}
+{"timestamp":"2026-07-27T06:19:17.236Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:17.238Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:17.242Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in PM"}
+{"timestamp":"2026-07-27T06:19:17.243Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in PM, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.243Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for PM"}
+{"timestamp":"2026-07-27T06:19:17.243Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: ref"}
+{"timestamp":"2026-07-27T06:19:17.245Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.247Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.251Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.251Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.251Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:17.252Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: SR(wCq"}
+{"timestamp":"2026-07-27T06:19:17.253Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.255Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.259Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.260Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.260Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.260Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: @RJQv"}
+{"timestamp":"2026-07-27T06:19:17.262Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.264Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.268Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.268Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.268Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.269Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: HRj$r.kG~h1"}
+{"timestamp":"2026-07-27T06:19:17.270Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.272Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.277Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.277Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.277Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:17.277Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: DtY`EWpv+"}
+{"timestamp":"2026-07-27T06:19:17.279Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.281Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.285Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in QA"}
+{"timestamp":"2026-07-27T06:19:17.285Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in QA, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.285Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for QA"}
+{"timestamp":"2026-07-27T06:19:17.287Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Temporary error"}
+{"timestamp":"2026-07-27T06:19:17.288Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.290Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.294Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 4/3 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:17.295Z","level":"ERROR","component":"ErrorRecoveryManager","message":"All retries exhausted for error in DEVELOPER, escalating to recovery"}
+{"timestamp":"2026-07-27T06:19:17.295Z","level":"INFO","component":"ErrorRecoveryManager","message":"Escalating to recovery persona for DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.106Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.107Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.109Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.110Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.111Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:21.113Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:21.114Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.115Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.117Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.117Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.119Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.121Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.122Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.123Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T06:19:21.125Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T06:19:21.125Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.126Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:21.129Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:21.129Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.131Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.133Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.133Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.134Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.137Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.137Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.139Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:21.141Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:21.141Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.142Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:21.145Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:21.146Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.147Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:21.149Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:21.150Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.151Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.153Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.154Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.155Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T06:19:21.157Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T06:19:21.158Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.159Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:21.161Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:21.162Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.164Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.166Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.166Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.167Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:21.170Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:21.171Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.172Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.174Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.174Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.175Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:21.178Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:21.179Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.180Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T06:19:21.182Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T06:19:21.183Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.184Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.186Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.187Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.188Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.191Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.191Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.192Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:21.194Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:21.195Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.197Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.199Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.199Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.200Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T06:19:21.203Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T06:19:21.204Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.205Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.207Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.208Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.209Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.211Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.212Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.213Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:21.215Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:21.216Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.217Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.219Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.220Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.222Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:21.224Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:21.224Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.225Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.228Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.229Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.230Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.232Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.232Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.233Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.236Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.237Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.238Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:21.240Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:21.241Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.242Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.245Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.246Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.247Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:21.249Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:21.249Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.251Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.253Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.254Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.255Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:21.257Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:21.258Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.259Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T06:19:21.261Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T06:19:21.262Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.263Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:21.266Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:21.266Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.267Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.270Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.271Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.272Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:21.274Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:21.274Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.276Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T06:19:21.278Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T06:19:21.279Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.280Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:21.282Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:21.283Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.284Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:21.286Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:21.287Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.288Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T06:19:21.290Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T06:19:21.291Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.292Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T06:19:21.294Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T06:19:21.295Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.297Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:21.299Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:21.299Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.300Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:21.303Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:21.304Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.305Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.307Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.307Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.308Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.311Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.312Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.312Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T06:19:21.314Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T06:19:21.314Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.315Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:21.318Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:21.318Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.319Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T06:19:21.322Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T06:19:21.322Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.323Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.325Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.326Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.327Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.329Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.330Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.331Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.333Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.333Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.335Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T06:19:21.337Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T06:19:21.337Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.339Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T06:19:21.341Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T06:19:21.341Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.342Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T06:19:21.345Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T06:19:21.345Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.346Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T06:19:21.348Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T06:19:21.349Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.350Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.352Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.352Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.354Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.355Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.355Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.356Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.358Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.359Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.360Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:21.362Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:21.363Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.364Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.366Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.366Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.367Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.369Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.370Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.371Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:21.373Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:21.374Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.374Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:21.376Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:21.376Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.377Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:21.380Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:21.380Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.381Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.383Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.384Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.384Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:21.386Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:21.386Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.388Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:21.389Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:21.389Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.390Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T06:19:21.392Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T06:19:21.393Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.394Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.396Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.397Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.398Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:21.400Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:21.401Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.402Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.404Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.404Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.406Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T06:19:21.408Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T06:19:21.408Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.409Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.411Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.412Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.413Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:21.415Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:21.416Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.417Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T06:19:21.419Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T06:19:21.420Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.421Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.423Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.423Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.424Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T06:19:21.427Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T06:19:21.427Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.428Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.431Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.431Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in QA: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.432Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.434Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in QA"}
+{"timestamp":"2026-07-27T06:19:21.435Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.437Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.439Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.439Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.440Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:21.443Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:21.443Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.444Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T06:19:21.447Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T06:19:21.447Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.448Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:21.450Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:21.451Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.452Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T06:19:21.454Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T06:19:21.455Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.456Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:21.458Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:21.458Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in ARCHITECT: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.460Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:21.462Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in ARCHITECT"}
+{"timestamp":"2026-07-27T06:19:21.462Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in PM: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.464Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in PM"}
+{"timestamp":"2026-07-27T06:19:21.466Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in PM"}
+{"timestamp":"2026-07-27T06:19:21.466Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RECOVERY: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.467Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T06:19:21.470Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RECOVERY"}
+{"timestamp":"2026-07-27T06:19:21.470Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in RELEASE_MANAGER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.471Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.474Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in RELEASE_MANAGER"}
+{"timestamp":"2026-07-27T06:19:21.474Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.476Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.478Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.479Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVOPS: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.480Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:21.482Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVOPS"}
+{"timestamp":"2026-07-27T06:19:21.482Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.483Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.486Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.486Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.488Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:21.490Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:21.490Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in DEVELOPER: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.491Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.494Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in DEVELOPER"}
+{"timestamp":"2026-07-27T06:19:21.494Z","level":"ERROR","component":"ErrorRecoveryManager","message":"Handling error in SECURITY: Operation failed"}
+{"timestamp":"2026-07-27T06:19:21.496Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 2/2 for error in SECURITY"}
+{"timestamp":"2026-07-27T06:19:21.498Z","level":"INFO","component":"ErrorRecoveryManager","message":"Retry attempt 3/2 for error in SECURITY"}

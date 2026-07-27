@@ -4494,3 +4494,8 @@
 {"timestamp":"2026-07-27T06:11:46.806Z","level":"WARN","component":"Watchdog","message":"⚠️ Workflow workflow-state-999.json appears STALLED."}
 {"timestamp":"2026-07-27T06:11:46.837Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
 {"timestamp":"2026-07-27T06:11:46.840Z","level":"ERROR","component":"Watchdog","message":"⛔ Circuit Breaker is OPEN. Skipping checks to prevent error loop."}
+{"timestamp":"2026-07-27T06:19:14.609Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T06:19:14.611Z","level":"INFO","component":"Watchdog","message":"Checking workflow-state-999.json: Last update 15m ago."}
+{"timestamp":"2026-07-27T06:19:14.612Z","level":"WARN","component":"Watchdog","message":"⚠️ Workflow workflow-state-999.json appears STALLED."}
+{"timestamp":"2026-07-27T06:19:14.661Z","level":"INFO","component":"Watchdog","message":"🩺 Starting Health Check..."}
+{"timestamp":"2026-07-27T06:19:14.664Z","level":"ERROR","component":"Watchdog","message":"⛔ Circuit Breaker is OPEN. Skipping checks to prevent error loop."}

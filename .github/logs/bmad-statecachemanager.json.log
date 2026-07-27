@@ -480,3 +480,26 @@
 {"timestamp":"2026-07-27T06:11:52.036Z","level":"ERROR","component":"StateCacheManager","message":"Invalid state detected during restoration, falling back"}
 {"timestamp":"2026-07-27T06:11:52.037Z","level":"ERROR","component":"StateCacheManager","message":"Failed to restore state: Unexpected token 'o', \"not valid json {{{\" is not valid JSON"}
 {"timestamp":"2026-07-27T06:11:52.037Z","level":"ERROR","component":"StateCacheManager","message":"Failed to restore state: Expected property name or '}' in JSON at position 1 (line 1 column 2)"}
+{"timestamp":"2026-07-27T06:19:17.926Z","level":"WARN","component":"StateCacheManager","message":"State file missing, restoring from backup file"}
+{"timestamp":"2026-07-27T06:19:17.933Z","level":"ERROR","component":"StateCacheManager","message":"Invalid state detected during restoration, falling back"}
+{"timestamp":"2026-07-27T06:19:17.934Z","level":"ERROR","component":"StateCacheManager","message":"Invalid state detected during restoration, falling back"}
+{"timestamp":"2026-07-27T06:19:17.934Z","level":"ERROR","component":"StateCacheManager","message":"Invalid state detected during restoration, falling back"}
+{"timestamp":"2026-07-27T06:19:17.935Z","level":"ERROR","component":"StateCacheManager","message":"Invalid state detected during restoration, falling back"}
+{"timestamp":"2026-07-27T06:19:17.935Z","level":"ERROR","component":"StateCacheManager","message":"Invalid state detected during restoration, falling back"}
+{"timestamp":"2026-07-27T06:19:17.936Z","level":"ERROR","component":"StateCacheManager","message":"Invalid state detected during restoration, falling back"}
+{"timestamp":"2026-07-27T06:19:17.936Z","level":"ERROR","component":"StateCacheManager","message":"Invalid state detected during restoration, falling back"}
+{"timestamp":"2026-07-27T06:19:17.936Z","level":"ERROR","component":"StateCacheManager","message":"Invalid state detected during restoration, falling back"}
+{"timestamp":"2026-07-27T06:19:17.937Z","level":"ERROR","component":"StateCacheManager","message":"Invalid state detected during restoration, falling back"}
+{"timestamp":"2026-07-27T06:19:17.937Z","level":"ERROR","component":"StateCacheManager","message":"Invalid state detected during restoration, falling back"}
+{"timestamp":"2026-07-27T06:19:17.937Z","level":"ERROR","component":"StateCacheManager","message":"Invalid state detected during restoration, falling back"}
+{"timestamp":"2026-07-27T06:19:17.938Z","level":"ERROR","component":"StateCacheManager","message":"Invalid state detected during restoration, falling back"}
+{"timestamp":"2026-07-27T06:19:17.938Z","level":"ERROR","component":"StateCacheManager","message":"Invalid state detected during restoration, falling back"}
+{"timestamp":"2026-07-27T06:19:17.938Z","level":"ERROR","component":"StateCacheManager","message":"Invalid state detected during restoration, falling back"}
+{"timestamp":"2026-07-27T06:19:17.939Z","level":"ERROR","component":"StateCacheManager","message":"Invalid state detected during restoration, falling back"}
+{"timestamp":"2026-07-27T06:19:17.939Z","level":"ERROR","component":"StateCacheManager","message":"Invalid state detected during restoration, falling back"}
+{"timestamp":"2026-07-27T06:19:17.939Z","level":"ERROR","component":"StateCacheManager","message":"Invalid state detected during restoration, falling back"}
+{"timestamp":"2026-07-27T06:19:17.939Z","level":"ERROR","component":"StateCacheManager","message":"Invalid state detected during restoration, falling back"}
+{"timestamp":"2026-07-27T06:19:17.940Z","level":"ERROR","component":"StateCacheManager","message":"Invalid state detected during restoration, falling back"}
+{"timestamp":"2026-07-27T06:19:17.940Z","level":"ERROR","component":"StateCacheManager","message":"Invalid state detected during restoration, falling back"}
+{"timestamp":"2026-07-27T06:19:17.941Z","level":"ERROR","component":"StateCacheManager","message":"Failed to restore state: Unexpected token 'o', \"not valid json {{{\" is not valid JSON"}
+{"timestamp":"2026-07-27T06:19:17.942Z","level":"ERROR","component":"StateCacheManager","message":"Failed to restore state: Expected property name or '}' in JSON at position 1 (line 1 column 2)"}
