@@ -1,0 +1,15 @@
+{
+  "valid": true,
+  "specDir": "/home/helton/Public/bmad-github-native-full-cycle/.kiro/specs/deterministic-kiro-spec-validation",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "requirements": 6,
+    "acceptanceCriteria": 35,
+    "properties": 18,
+    "tasks": 27,
+    "completedTasks": 27,
+    "traceCoveragePercent": 100
+  },
+  "fingerprint": "742b279b27d1d1efdaea04e8c22894a1c14f190467c6aac13aba9c09b66300c7"
+}
