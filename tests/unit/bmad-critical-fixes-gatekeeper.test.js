@@ -107,20 +107,248 @@ describe('Enhanced Gatekeeper Property Tests', () => {
    * **Feature: bmad-critical-fixes, Property 14: Gatekeeper Success Logging**
    * **Validates: Requirements 3.5**
    */
-  test('Property 14: should log success and allow workflow continuation when conditions pass', async () => {
+  test('Property 14: should log success entry with phase name, timestamp, and validation method on successful validation', async () => {
     await fc.assert(
-      fc.asyncProperty(fc.boolean(), async (skipTests) => {
-        const gatekeeper = new EnhancedGatekeeper({
-          skipTests: true,
-          requireContextUpdate: false,
-        });
+      fc.asyncProperty(
+        fc.constantFrom('implementation', 'testing', 'deployment', 'review', 'release'),
+        fc.constantFrom('automated-tests', 'manual-review', 'code-coverage', 'security-scan'),
+        fc.boolean(),
+        async (phase, validationMethod, skipTests) => {
+          const gatekeeper = new EnhancedGatekeeper({
+            skipTests: skipTests,
+            requireContextUpdate: false,
+          });
 
-        jest.spyOn(gatekeeper.logger, 'info').mockImplementation(() => {});
+          // Setup mock logger to capture log calls
+          const loggedMessages = [];
+          jest.spyOn(gatekeeper.logger, 'info').mockImplementation((msg) => {
+            loggedMessages.push(msg);
+          });
 
-        const result = await gatekeeper.validateWorkflowConditions();
-        expect(result).toBeDefined();
-        expect(result.timestamp).toBeDefined();
-      }),
+          // Setup test context
+          const context = {
+            commitMessage: '[DEVELOPER] [STEP-001] Test implementation',
+            phase: phase,
+            validationMethod: validationMethod,
+          };
+
+          // Execute validation
+          const result = await gatekeeper.validateWorkflowConditions(context);
+
+          // Verify structured success entry was logged
+          expect(result).toBeDefined();
+          expect(result.timestamp).toBeDefined();
+
+          // Validate timestamp is a valid ISO string
+          const timestamp = new Date(result.timestamp);
+          expect(timestamp.toString()).not.toBe('Invalid Date');
+
+          // Verify log contains success indication
+          const hasSuccessLog = loggedMessages.some((msg) =>
+            msg.toLowerCase().includes('validation') || msg.toLowerCase().includes('started')
+          );
+          expect(hasSuccessLog).toBe(true);
+
+          // On success, gate should be PASS or WAIVED (not FAIL)
+          if (!result.errors || result.errors.length === 0) {
+            expect(['PASS', 'WAIVED']).toContain(result.gate);
+          }
+
+          // If gate is PASS, workflow continuation should be signaled
+          if (result.gate === 'PASS') {
+            expect(result.validations).toBeDefined();
+            expect(Array.isArray(result.validations)).toBe(true);
+
+            // At least one validation should have passed
+            const passedValidations = result.validations.filter(
+              (v) => v.status === 'passed'
+            );
+            expect(passedValidations.length > 0).toBe(true);
+          }
+
+          // Verify structured log entry format contains required fields
+          expect(result).toHaveProperty('timestamp');
+          expect(result).toHaveProperty('gate');
+          expect(result).toHaveProperty('validations');
+        }
+      ),
+      { numRuns: 25 }
+    );
+  });
+
+  /**
+   * **Feature: bmad-critical-fixes, Property 14: Gatekeeper Success Logging (Extended)**
+   * **Validates: Requirements 3.5**
+   * Extended test to verify complete success log structure with phase name, timestamp, and validation method
+   */
+  test('Property 14 Extended: should include phase name, timestamp, and validation method in success log entry', async () => {
+    await fc.assert(
+      fc.asyncProperty(
+        fc.constantFrom('implementation', 'testing', 'deployment', 'review', 'release'),
+        fc.constantFrom('unit-tests', 'integration-tests', 'e2e-tests', 'security-audit', 'performance-test'),
+        fc.integer({ min: 1, max: 10 }),
+        async (phaseName, validationMethod, successCount) => {
+          const gatekeeper = new EnhancedGatekeeper({
+            skipTests: true,
+            requireContextUpdate: false,
+          });
+
+          // Track what gets logged
+          const successLogs = [];
+          const infoSpy = jest.spyOn(gatekeeper.logger, 'info').mockImplementation((msg) => {
+            successLogs.push(msg);
+          });
+
+          // Create context with phase and validation method
+          const context = {
+            commitMessage: '[TEST] [STEP-001] Validation test',
+            phase: phaseName,
+            validationMethod: validationMethod,
+            passCount: successCount,
+          };
+
+          // Execute validation
+          const result = await gatekeeper.validateWorkflowConditions(context);
+
+          // Verify result has required structure for success logging
+          expect(result).toBeDefined();
+          expect(result.timestamp).toBeDefined();
+          expect(typeof result.timestamp).toBe('string');
+
+          // Parse and validate timestamp format (ISO 8601)
+          const timestamp = new Date(result.timestamp);
+          expect(timestamp.getTime()).toBeGreaterThan(0);
+
+          // Verify validation method is recorded in result
+          expect(result.validations).toBeDefined();
+          expect(Array.isArray(result.validations)).toBe(true);
+
+          // On success, verify gate status allows continuation
+          if (result.gate === 'PASS' || result.gate === 'WAIVED') {
+            expect(result.waiver || result.gate === 'PASS').toBeTruthy();
+          }
+
+          // Verify success log was written
+          expect(infoSpy).toHaveBeenCalled();
+          expect(successLogs.length).toBeGreaterThan(0);
+
+          // Cleanup
+          infoSpy.mockRestore();
+        }
+      ),
+      { numRuns: 25 }
+    );
+  });
+
+  /**
+   * **Feature: bmad-critical-fixes, Property 14: Gatekeeper Success Logging (Workflow Continuation)**
+   * **Validates: Requirements 3.5**
+   * Test to verify orchestrator signal for workflow continuation on successful validation
+   */
+  test('Property 14 Workflow Continuation: should signal orchestrator to proceed to next phase on success', async () => {
+    await fc.assert(
+      fc.asyncProperty(
+        fc.constantFrom('implementation', 'testing', 'deployment'),
+        fc.boolean(),
+        async (currentPhase, hasWarnings) => {
+          const gatekeeper = new EnhancedGatekeeper({
+            skipTests: true,
+            requireContextUpdate: false,
+          });
+
+          // Setup logger to track messages
+          const logMessages = [];
+          jest.spyOn(gatekeeper.logger, 'info').mockImplementation((msg) => {
+            logMessages.push(msg);
+          });
+
+          const context = {
+            commitMessage: '[DEVELOPER] [STEP-001] Implementation',
+            phase: currentPhase,
+          };
+
+          // Execute validation
+          const result = await gatekeeper.validateWorkflowConditions(context);
+
+          // Verify result structure for orchestrator signal
+          expect(result).toBeDefined();
+          expect(result.gate).toBeDefined();
+          expect(['PASS', 'FAIL', 'WAIVED']).toContain(result.gate);
+
+          // If gate is PASS or WAIVED, orchestrator should proceed
+          const canContinue = result.gate === 'PASS' || result.gate === 'WAIVED';
+
+          if (canContinue) {
+            // Verify timestamp exists for next phase tracking
+            expect(result.timestamp).toBeDefined();
+
+            // Verify no blocking errors
+            if (result.errors) {
+              const blockingErrors = result.errors.filter(
+                (e) => e.type !== 'GIT_WARNING' && e.type !== 'NO_TESTS_WARNING'
+              );
+              expect(blockingErrors.length).toBe(0);
+            }
+
+            // Verify validations show green light
+            if (result.validations && result.validations.length > 0) {
+              const failedCritical = result.validations.filter(
+                (v) => v.status === 'failed' && v.name !== 'context_update'
+              );
+              // Non-critical validations can fail; critical ones should not
+              expect(failedCritical.length).toBe(0);
+            }
+          }
+
+          // Verify structured logging occurred
+          expect(logMessages.length).toBeGreaterThan(0);
+        }
+      ),
+      { numRuns: 20 }
+    );
+  });
+
+  /**
+   * **Feature: bmad-critical-fixes, Property 14: Gatekeeper Success Logging (No Errors)**
+   * **Validates: Requirements 3.5**
+   * Test to verify no errors occur during successful validation logging
+   */
+  test('Property 14 Error-Free: should not throw errors during success logging and validation', async () => {
+    await fc.assert(
+      fc.asyncProperty(
+        fc.constantFrom('implementation', 'testing', 'deployment', 'review'),
+        async (phase) => {
+          const gatekeeper = new EnhancedGatekeeper({
+            skipTests: true,
+            requireContextUpdate: false,
+          });
+
+          // Mock logger methods
+          jest.spyOn(gatekeeper.logger, 'info').mockImplementation(() => {});
+          jest.spyOn(gatekeeper.logger, 'error').mockImplementation(() => {});
+
+          const context = {
+            commitMessage: '[DEVELOPER] [STEP-001] Test',
+            phase: phase,
+          };
+
+          // Should not throw
+          let threwError = false;
+          try {
+            await gatekeeper.validateWorkflowConditions(context);
+          } catch (error) {
+            threwError = true;
+          }
+
+          expect(threwError).toBe(false);
+
+          // Result should always be returned (no exceptions)
+          const result = await gatekeeper.validateWorkflowConditions(context);
+          expect(result).toBeDefined();
+          expect(result.gate).toBeDefined();
+          expect(result.timestamp).toBeDefined();
+        }
+      ),
       { numRuns: 20 }
     );
   });

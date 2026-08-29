@@ -2,11 +2,59 @@
   "pbtResults": {
     "1.4 Write property test for backoff timing": {
       "status": "passed",
-      "lastRunTimestamp": 1785130390461
+      "lastRunTimestamp": 1785686254659
     },
     "2.2 Write property test for loop detection": {
       "status": "passed",
       "lastRunTimestamp": 1785130551827
+    },
+    "2.4 Write property test for history persistence": {
+      "status": "passed",
+      "lastRunTimestamp": 1785686575296
+    },
+    "2.5 Write property test for cache cleanup": {
+      "status": "passed",
+      "lastRunTimestamp": 1785686742170
+    },
+    "2.7 Write property test for PM validation": {
+      "status": "passed",
+      "lastRunTimestamp": 1785687066100
+    },
+    "3.2 Write property test for staging validation": {
+      "status": "passed",
+      "lastRunTimestamp": 1785687346096
+    },
+    "3.3 Write property test for empty commit handling": {
+      "status": "passed",
+      "lastRunTimestamp": 1785687608981
+    },
+    "3.5 Write property test for commit verification": {
+      "status": "passed",
+      "lastRunTimestamp": 1785688346124
+    },
+    "3.6 Write property test for message format": {
+      "status": "passed",
+      "lastRunTimestamp": 1785688651318
+    },
+    "5.2 Write property test for mock usage": {
+      "status": "passed",
+      "lastRunTimestamp": 1785689237036
+    },
+    "5.3 Write property test for test execution": {
+      "status": "passed",
+      "lastRunTimestamp": 1785689757475
+    },
+    "5.5 Write property test for development bypass": {
+      "status": "passed",
+      "lastRunTimestamp": 1785690317989
+    },
+    "5.7 Write property test for error reporting": {
+      "status": "passed",
+      "lastRunTimestamp": 1785690666385
+    },
+    "5.8 Write property test for success logging": {
+      "status": "passed",
+      "lastRunTimestamp": 1785690877413
     }
   },
   "executionHistory": {
@@ -42,6 +90,16 @@
         "executionId": "882a3d73-be94-44ac-ba26-059250718cb5",
         "chatSessionId": "sess_9a5a65f3-df83-4b26-b08b-d765fc08bb32",
         "timestamp": 1785129610115
+      },
+      {
+        "executionId": "645ac14a-feb7-4e10-864c-799d534e3530",
+        "chatSessionId": "sess_74d7f39d-8c30-458c-8c3d-a378c5b7c530",
+        "timestamp": 1785685993825
+      },
+      {
+        "executionId": "645ac14a-feb7-4e10-864c-799d534e3530",
+        "chatSessionId": "sess_74d7f39d-8c30-458c-8c3d-a378c5b7c530",
+        "timestamp": 1785686271061
       }
     ],
     "2.2 Write property test for loop detection": [
@@ -66,6 +124,16 @@
         "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
         "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
         "timestamp": 1785119007973
+      },
+      {
+        "executionId": "daca1198-75b4-45ac-ba27-5bd079e7e928",
+        "chatSessionId": "sess_6bb279ed-1963-4979-b501-659f6f4b0b28",
+        "timestamp": 1785686296761
+      },
+      {
+        "executionId": "daca1198-75b4-45ac-ba27-5bd079e7e928",
+        "chatSessionId": "sess_6bb279ed-1963-4979-b501-659f6f4b0b28",
+        "timestamp": 1785686596203
       }
     ],
     "2.5 Write property test for cache cleanup": [
@@ -73,6 +141,16 @@
         "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
         "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
         "timestamp": 1785119008053
+      },
+      {
+        "executionId": "7fe5d11e-6832-4586-a265-4c4a1f3f0534",
+        "chatSessionId": "sess_aee842c1-8292-47d2-a0fb-fa27ad5986b4",
+        "timestamp": 1785686620250
+      },
+      {
+        "executionId": "7fe5d11e-6832-4586-a265-4c4a1f3f0534",
+        "chatSessionId": "sess_aee842c1-8292-47d2-a0fb-fa27ad5986b4",
+        "timestamp": 1785686764933
       }
     ],
     "2.7 Write property test for PM validation": [
@@ -80,6 +158,16 @@
         "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
         "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
         "timestamp": 1785119008129
+      },
+      {
+        "executionId": "6d2bb077-a839-4647-aac5-6891501098e6",
+        "chatSessionId": "sess_3195d4c9-7601-4387-9271-9b50bc1f4b26",
+        "timestamp": 1785686796694
+      },
+      {
+        "executionId": "6d2bb077-a839-4647-aac5-6891501098e6",
+        "chatSessionId": "sess_3195d4c9-7601-4387-9271-9b50bc1f4b26",
+        "timestamp": 1785687131239
       }
     ],
     "3.2 Write property test for staging validation": [
@@ -87,6 +175,16 @@
         "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
         "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
         "timestamp": 1785119008196
+      },
+      {
+        "executionId": "2b07aec5-de64-4b46-8505-a6268e91379b",
+        "chatSessionId": "sess_0152859a-ee04-4573-9278-1f1f4ec4a478",
+        "timestamp": 1785687150080
+      },
+      {
+        "executionId": "2b07aec5-de64-4b46-8505-a6268e91379b",
+        "chatSessionId": "sess_0152859a-ee04-4573-9278-1f1f4ec4a478",
+        "timestamp": 1785687466485
       }
     ],
     "3.3 Write property test for empty commit handling": [
@@ -94,6 +192,16 @@
         "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
         "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
         "timestamp": 1785119008271
+      },
+      {
+        "executionId": "47889a5b-ab26-431e-a189-d0ce121a75c8",
+        "chatSessionId": "sess_9b773a3d-59a8-4da9-97ab-b6bbe5908c30",
+        "timestamp": 1785687540751
+      },
+      {
+        "executionId": "47889a5b-ab26-431e-a189-d0ce121a75c8",
+        "chatSessionId": "sess_9b773a3d-59a8-4da9-97ab-b6bbe5908c30",
+        "timestamp": 1785687620639
       }
     ],
     "3.5 Write property test for commit verification": [
@@ -101,6 +209,16 @@
         "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
         "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
         "timestamp": 1785119008337
+      },
+      {
+        "executionId": "b38f9169-cae5-4905-9f56-c39b1da544f1",
+        "chatSessionId": "sess_0c54eb71-89f5-4025-8799-7964d2552ede",
+        "timestamp": 1785687934455
+      },
+      {
+        "executionId": "b38f9169-cae5-4905-9f56-c39b1da544f1",
+        "chatSessionId": "sess_0c54eb71-89f5-4025-8799-7964d2552ede",
+        "timestamp": 1785688363792
       }
     ],
     "3.7 Write property test for message format": [
@@ -115,6 +233,16 @@
         "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
         "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
         "timestamp": 1785119008529
+      },
+      {
+        "executionId": "c5b0d92b-8bc9-47a3-99bb-9ef5e15e410f",
+        "chatSessionId": "sess_9829d2f4-265f-49d6-a3c2-b8e88e20d783",
+        "timestamp": 1785688888602
+      },
+      {
+        "executionId": "c5b0d92b-8bc9-47a3-99bb-9ef5e15e410f",
+        "chatSessionId": "sess_9829d2f4-265f-49d6-a3c2-b8e88e20d783",
+        "timestamp": 1785689262489
       }
     ],
     "5.3 Write property test for test execution": [
@@ -122,6 +250,16 @@
         "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
         "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
         "timestamp": 1785119008608
+      },
+      {
+        "executionId": "4eb6b5c7-1178-4dce-904c-d68f32b278c4",
+        "chatSessionId": "sess_56c23a7b-40be-4fb8-8edc-64613d856eac",
+        "timestamp": 1785689515520
+      },
+      {
+        "executionId": "4eb6b5c7-1178-4dce-904c-d68f32b278c4",
+        "chatSessionId": "sess_56c23a7b-40be-4fb8-8edc-64613d856eac",
+        "timestamp": 1785689781070
       }
     ],
     "5.5 Write property test for development bypass": [
@@ -129,6 +267,16 @@
         "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
         "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
         "timestamp": 1785119008684
+      },
+      {
+        "executionId": "222d302f-8e5f-4dc2-8c13-53669df335be",
+        "chatSessionId": "sess_0d243352-894e-467f-80b3-3b53b101a56f",
+        "timestamp": 1785689840241
+      },
+      {
+        "executionId": "222d302f-8e5f-4dc2-8c13-53669df335be",
+        "chatSessionId": "sess_0d243352-894e-467f-80b3-3b53b101a56f",
+        "timestamp": 1785690371384
       }
     ],
     "5.7 Write property test for error reporting": [
@@ -136,6 +284,16 @@
         "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
         "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
         "timestamp": 1785119008759
+      },
+      {
+        "executionId": "8f372276-3e29-49e8-81fd-fae70e946d8e",
+        "chatSessionId": "sess_2f391ec5-e617-4ae7-9f44-b97cab647b3b",
+        "timestamp": 1785690477745
+      },
+      {
+        "executionId": "8f372276-3e29-49e8-81fd-fae70e946d8e",
+        "chatSessionId": "sess_2f391ec5-e617-4ae7-9f44-b97cab647b3b",
+        "timestamp": 1785690747063
       }
     ],
     "5.8 Write property test for success logging": [
@@ -143,6 +301,16 @@
         "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
         "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
         "timestamp": 1785119008839
+      },
+      {
+        "executionId": "28ee0abf-91a8-42ab-ad58-f95cd837cf04",
+        "chatSessionId": "sess_5d746e9c-e92f-4644-999e-ec963e62789f",
+        "timestamp": 1785690770536
+      },
+      {
+        "executionId": "28ee0abf-91a8-42ab-ad58-f95cd837cf04",
+        "chatSessionId": "sess_5d746e9c-e92f-4644-999e-ec963e62789f",
+        "timestamp": 1785690911588
       }
     ],
     "6.2 Write property test for recovery escalation": [
@@ -206,6 +374,18 @@
         "executionId": "00d440e4-46c4-42a2-bbc1-536602738eea",
         "chatSessionId": "sess_3303bab5-ad7f-4683-aff9-20b004ea3993",
         "timestamp": 1785119009542
+      }
+    ],
+    "3.6 Write property test for message format": [
+      {
+        "executionId": "13dfa143-8312-4f97-a32e-74ad3e2e75bc",
+        "chatSessionId": "sess_463aa2bc-8524-4c14-88f6-7fe27026a063",
+        "timestamp": 1785688441841
+      },
+      {
+        "executionId": "13dfa143-8312-4f97-a32e-74ad3e2e75bc",
+        "chatSessionId": "sess_463aa2bc-8524-4c14-88f6-7fe27026a063",
+        "timestamp": 1785688688714
       }
     ]
   }

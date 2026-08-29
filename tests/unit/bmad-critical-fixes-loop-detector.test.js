@@ -86,31 +86,78 @@ describe('Loop Detector Property Tests', () => {
   /**
    * **Feature: bmad-critical-fixes, Property 3: Cache Cleanup on Success**
    * **Validates: Requirements 1.4**
+   *
+   * This property validates that transition history cache is cleared after successful workflow completion.
+   * Property: For any successfully completed workflow cycle, the system should clear the transition 
+   * history cache to prepare for the next cycle within the specified time window (5 seconds).
+   *
+   * Test Strategy:
+   * - Generate random transition sequences (0-10 transitions)
+   * - Record transitions in the cache
+   * - Simulate workflow completion by calling clearHistory()
+   * - Verify cache is empty in memory
+   * - Verify history file is removed from disk
+   * - Verify timing constraint (cleanup within 5 seconds)
    */
   test('Property 3: should clear transition history on workflow success', async () => {
     await fc.assert(
       fc.asyncProperty(
         fc.array(
           fc.record({
-            from: fc.constantFrom('PM', 'ARCHITECT', 'DEVELOPER'),
-            to: fc.constantFrom('ARCHITECT', 'DEVELOPER', 'QA'),
+            from: fc.constantFrom('PM', 'ARCHITECT', 'DEVELOPER', 'QA', 'SECURITY'),
+            to: fc.constantFrom('ARCHITECT', 'DEVELOPER', 'QA', 'SECURITY', 'DEVOPS'),
           }),
-          { minLength: 1, maxLength: 5 }
+          { minLength: 0, maxLength: 10 }
         ),
-        async (transitions) => {
+        fc.integer({ min: 1, max: 100 }),
+        async (transitions, _seed) => {
           const detector = new LoopDetector({
             historyFile: testHistoryFile,
+            maxTransitions: 3,
           });
 
-          transitions.forEach((t) => detector.recordTransition(t.from, t.to));
-          expect(detector.history.length).toBe(transitions.length);
-
+          // Ensure clean state
           detector.clearHistory();
           expect(detector.history.length).toBe(0);
+
+          // Record all transitions - simulating workflow cycle execution
+          transitions.forEach((t) => {
+            detector.recordTransition(t.from, t.to);
+          });
+
+          // Verify transitions were recorded
+          expect(detector.history.length).toBe(transitions.length);
+          if (transitions.length > 0) {
+            expect(fs.existsSync(testHistoryFile)).toBe(true);
+          }
+
+          // Simulate successful workflow completion
+          // Requirement 1.4: "WHEN a Workflow_Cycle completes with a final delivery commit, 
+          // THE BMAD_System SHALL clear all Transition_Pair records from the State_Cache 
+          // for that cycle within 5 seconds of commit completion"
+          const cleanupStartTime = Date.now();
+          detector.clearHistory();
+          const cleanupEndTime = Date.now();
+
+          // Verify cache is cleared in memory
+          expect(detector.history.length).toBe(0);
+
+          // Verify history file is deleted from disk
           expect(fs.existsSync(testHistoryFile)).toBe(false);
+
+          // Verify cleanup completed within 5 second window
+          const cleanupDuration = cleanupEndTime - cleanupStartTime;
+          expect(cleanupDuration).toBeLessThan(5000);
+
+          // Verify detector can record new transitions after cleanup
+          // (preparing for next cycle)
+          detector.recordTransition('ORCHESTRATOR', 'PM');
+          expect(detector.history.length).toBe(1);
+          expect(detector.history[0].fromPersona).toBe('ORCHESTRATOR');
+          expect(detector.history[0].toPersona).toBe('PM');
         }
       ),
-      { numRuns: 20 }
+      { numRuns: 50 }
     );
   });
 
