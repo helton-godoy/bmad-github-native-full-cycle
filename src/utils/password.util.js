@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 
-const SALT_ROUNDS = parseInt(process.env.BCRYPT_ROUNDS) || 10;
+const SALT_ROUNDS = parseInt(process.env.BCRYPT_ROUNDS) || 12;
 
 /**
  * Hash a plain text password
