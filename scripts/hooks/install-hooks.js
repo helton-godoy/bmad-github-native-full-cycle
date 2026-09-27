@@ -16,8 +16,11 @@ class HooksInstaller {
     this.huskyDir = path.join(this.projectRoot, '.husky');
     this.configPath = path.join(this.huskyDir, 'hooks-config.json');
     this.templatePath = path.join(__dirname, 'hooks-config.template.json');
+    this.hookTemplatesDir =
+      options.hookTemplatesDir || path.join(__dirname, 'templates');
     this.force = options.force || false;
     this.verbose = options.verbose || false;
+    this.execSync = options.execSync || execSync;
   }
 
   /**
@@ -85,7 +88,7 @@ class HooksInstaller {
   checkPrerequisites() {
     // Check if git is installed
     try {
-      execSync('git --version', { stdio: 'pipe' });
+      this.execSync('git --version', { stdio: 'pipe' });
     } catch (error) {
       throw new Error('Git is not installed or not in PATH');
     }
@@ -128,7 +131,7 @@ class HooksInstaller {
   initializeHusky() {
     try {
       // Run husky install
-      execSync('npx husky install', {
+      this.execSync('npx husky install', {
         cwd: this.projectRoot,
         stdio: this.verbose ? 'inherit' : 'pipe',
       });
@@ -178,12 +181,9 @@ class HooksInstaller {
       'pre-rebase',
     ];
 
-    const scriptsDir = path.join(__dirname);
-    const hookTemplatesDir = path.join(scriptsDir, 'templates');
-
     hooks.forEach((hook) => {
       const hookPath = path.join(this.huskyDir, hook);
-      const templatePath = path.join(hookTemplatesDir, hook);
+      const templatePath = path.join(this.hookTemplatesDir, hook);
 
       // Check if hook already exists
       if (fs.existsSync(hookPath) && !this.force) {
@@ -350,9 +350,7 @@ class HooksInstaller {
   }
 }
 
-// CLI interface
-if (require.main === module) {
-  const args = process.argv.slice(2);
+async function main(args = process.argv.slice(2)) {
   const command = args[0] || 'install';
   const options = {
     force: args.includes('--force') || args.includes('-f'),
@@ -362,20 +360,25 @@ if (require.main === module) {
   const installer = new HooksInstaller(options);
 
   if (command === 'install') {
-    installer.install().then((result) => {
-      process.exit(result.success ? 0 : 1);
-    });
+    const result = await installer.install();
+    return result.success ? 0 : 1;
   } else if (command === 'uninstall') {
-    installer.uninstall().then((result) => {
-      process.exit(result.success ? 0 : 1);
-    });
+    const result = await installer.uninstall();
+    return result.success ? 0 : 1;
   } else {
     console.error(`Unknown command: ${command}`);
     console.log(
       'Usage: node install-hooks.js [install|uninstall] [--force] [--verbose]'
     );
-    process.exit(1);
+    return 1;
   }
 }
 
+if (require.main === module) {
+  main().then((exitCode) => {
+    process.exitCode = exitCode;
+  });
+}
+
 module.exports = HooksInstaller;
+module.exports.main = main;

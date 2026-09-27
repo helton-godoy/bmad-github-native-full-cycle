@@ -37,8 +37,9 @@ describe('Health Check API', () => {
             .get('/health')
             .expect(200);
         
+        expect(Number.isFinite(res.body.uptime)).toBe(true);
         expect(res.body.uptime).toBeGreaterThan(0);
-        expect(res.body.uptime).toBeLessThan(100);
+        expect(res.body.uptime).toBeLessThanOrEqual(process.uptime() + 1);
     });
 
     test('GET /health response time should be less than 100ms', async () => {

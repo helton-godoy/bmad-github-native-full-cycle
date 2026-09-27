@@ -334,13 +334,13 @@ class JestProcessMonitor {
     );
 
     const results = [];
-    for (const process of jestProcesses) {
+    for (const processData of jestProcesses) {
       try {
-        process.kill(process.pid, 'SIGTERM');
-        results.push({ pid: process.pid, success: true });
+        process.kill(processData.pid, 'SIGTERM');
+        results.push({ pid: processData.pid, success: true });
       } catch (error) {
         results.push({
-          pid: process.pid,
+          pid: processData.pid,
           success: false,
           error: error.message,
         });

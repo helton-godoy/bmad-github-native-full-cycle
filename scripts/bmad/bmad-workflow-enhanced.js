@@ -14,6 +14,8 @@ const EnhancedSecurity = require('../../personas/security');
 const EnhancedDevOps = require('../../personas/devops');
 const EnhancedReleaseManager = require('../../personas/release-manager');
 const RecoveryPersona = require('../../personas/recovery');
+const StateCacheManager = require('../lib/state-cache-manager');
+const ErrorRecoveryManager = require('../lib/error-recovery-manager');
 
 const colors = {
   red: '\x1b[31m',
@@ -85,7 +87,7 @@ class EnhancedBMADWorkflow {
     );
 
     // Try to load existing state for resume
-    let state = this.loadState(issueNumber);
+    let state = await this.loadState(issueNumber);
     let workflowId;
 
     if (state) {
@@ -104,10 +106,15 @@ class EnhancedBMADWorkflow {
       );
       workflowId = state.workflowId;
       this.workflowMetrics = state.metrics || this.workflowMetrics;
+      this.workflowMetrics.phases = this.workflowMetrics.phases || {};
+      this.workflowMetrics.errors = this.workflowMetrics.errors || [];
+      this.workflowMetrics.successes = this.workflowMetrics.successes || [];
+      this.workflowMetrics.startTime =
+        this.workflowMetrics.startTime ? new Date(this.workflowMetrics.startTime) : new Date();
 
       // Track resume count
       state.resumeCount = (state.resumeCount || 0) + 1;
-      this.saveState(state);
+      await this.saveState(state);
     } else {
       workflowId = this.generateWorkflowId();
       this.logWorkflow(
@@ -119,8 +126,10 @@ class EnhancedBMADWorkflow {
         status: 'running',
         resumeCount: 0,
         metrics: this.workflowMetrics,
+        currentPersona: 'ORCHESTRATOR',
+        stepId: 'INIT-000',
       };
-      this.saveState(state);
+      await this.saveState(state);
     }
 
     const EventEmitter = require('events');
@@ -147,10 +156,24 @@ class EnhancedBMADWorkflow {
         status: 'completed',
         timestamp: new Date().toISOString(),
       };
+      const candidatePersona = String(data.persona || 'ORCHESTRATOR').toUpperCase();
+      state.currentPersona = stateCache.registeredPersonas.includes(candidatePersona)
+        ? candidatePersona
+        : 'ORCHESTRATOR';
+      state.stepId = data.nextPhase || state.stepId || 'WORKFLOW';
     });
 
     const BMADOrchestrator = require('./bmad-orchestrator');
-    const orchestrator = new BMADOrchestrator(eventEmitter);
+    const stateCache = this.createStateCache(issueNumber);
+    const LoopDetector = require('../lib/loop-detector');
+    const orchestrator = new BMADOrchestrator(eventEmitter, {
+      loopDetector: new LoopDetector({
+        workflowId,
+        historyFile: `.github/transition-history-${issueNumber}.json`,
+      }),
+      stateCacheManager: stateCache,
+      errorRecoveryManager: new ErrorRecoveryManager({ stateCache }),
+    });
 
     try {
       console.log(
@@ -174,7 +197,7 @@ class EnhancedBMADWorkflow {
           );
           state.status = 'timeout';
           state.lastStep = new Date().toISOString();
-          this.saveState(state);
+          await this.saveState(state);
           break;
         }
 
@@ -192,7 +215,7 @@ class EnhancedBMADWorkflow {
         if (!keepRunning) {
           state.status = state.status || 'completed';
         }
-        this.saveState(state);
+        await this.saveState(state);
       }
 
       if (stepCount >= MAX_STEPS && keepRunning) {
@@ -201,7 +224,7 @@ class EnhancedBMADWorkflow {
         );
         state.status = 'max-steps';
         state.lastStep = new Date().toISOString();
-        this.saveState(state);
+        await this.saveState(state);
       }
 
       // Generate final report
@@ -216,11 +239,16 @@ class EnhancedBMADWorkflow {
       if (!state.status || state.status === 'running') {
         state.status = 'completed';
         state.lastStep = new Date().toISOString();
-        this.saveState(state);
+        await this.saveState(state);
       }
 
       // Clear state on successful completion
-      this.clearState(issueNumber);
+      if (state.status === 'completed') {
+        await this.clearState(issueNumber, state.status);
+        if (orchestrator.loopDetector) {
+          orchestrator.loopDetector.clearHistory();
+        }
+      }
     } catch (error) {
       console.error(
         `${colors.red}❌ Workflow failed: ${error.message}${colors.reset}`
@@ -234,15 +262,32 @@ class EnhancedBMADWorkflow {
       // Save error state
       state.status = 'failed';
       state.error = error.message;
-      this.saveState(state);
+      await this.saveState(state);
 
-      // Attempt automated recovery
+      // Attempt automated recovery only when the orchestrator did not already do it.
       try {
+        if (error.recoveryHandled) throw error;
         console.log(
           `${colors.yellow}🛟 Attempting automated recovery using RecoveryPersona...${colors.reset}`
         );
         const recovery = new RecoveryPersona(this.githubToken);
-        await recovery.execute(issueNumber);
+        const recoveryManager = new ErrorRecoveryManager({
+          stateCache: this.createStateCache(issueNumber),
+          remediations: {
+            WORKFLOW_ERROR: async () => recovery.execute(issueNumber),
+          },
+        });
+        const recoveryResult = await recoveryManager.escalateToRecovery(error, {
+          persona: state.currentPersona || 'ORCHESTRATOR',
+          operation: 'executeWorkflow',
+          stepId: state.stepId || state.lastStep || 'WORKFLOW',
+          workflowId,
+          category: 'WORKFLOW_ERROR',
+          context: { workflowState: state },
+        });
+        if (recoveryResult.status === 'suspended') {
+          throw new Error(recoveryResult.reason);
+        }
         this.workflowMetrics.errors.push({
           phase: 'recovery',
           error: null,
@@ -250,7 +295,7 @@ class EnhancedBMADWorkflow {
         });
         state.status = 'recovered';
         state.lastStep = new Date().toISOString();
-        this.saveState(state);
+        await this.saveState(state);
       } catch (recoveryError) {
         console.error(
           `${colors.red}❌ Recovery workflow failed: ${recoveryError.message}${colors.reset}`
@@ -263,7 +308,7 @@ class EnhancedBMADWorkflow {
         state.status = 'recovery-failed';
         state.recoveryError = recoveryError.message;
         state.lastStep = new Date().toISOString();
-        this.saveState(state);
+        await this.saveState(state);
       }
 
       await this.generateErrorReport(workflowId, issueNumber, error);
@@ -274,30 +319,66 @@ class EnhancedBMADWorkflow {
   /**
    * @ai-context Load workflow state from file
    */
-  loadState(issueNumber) {
+  createStateCache(issueNumber) {
+    return new StateCacheManager({
+      stateFile: `.github/workflow-state-${issueNumber}.json`,
+      backupFile: `.github/workflow-state-${issueNumber}.backup.json`,
+    });
+  }
+
+  async loadState(issueNumber) {
     const stateFile = `.github/workflow-state-${issueNumber}.json`;
     if (require('fs').existsSync(stateFile)) {
-      return JSON.parse(require('fs').readFileSync(stateFile, 'utf-8'));
+      try {
+        const legacy = JSON.parse(require('fs').readFileSync(stateFile, 'utf8'));
+        if (legacy.workflowId && !legacy.currentPersona && !legacy.persona) {
+          this.logWorkflow(
+            `Migrating legacy workflow state ${legacy.workflowId} for Issue #${issueNumber}`
+          );
+          return legacy;
+        }
+      } catch (error) {
+        this.logWorkflow(`State load failed for Issue #${issueNumber}: ${error.message}`);
+      }
     }
-    return null;
+    const restored = await this.createStateCache(issueNumber).restoreState();
+    if (!restored || restored.status === 'reset') return null;
+    const state = restored.context && restored.context.workflowState;
+    if (state) {
+      this.logWorkflow(
+        `Resuming persona ${restored.currentPersona} at ${restored.stepId}`
+      );
+    }
+    return state || null;
   }
 
   /**
    * @ai-context Save workflow state to file
    */
-  saveState(state) {
-    const stateFile = `.github/workflow-state-${state.issueNumber}.json`;
-    require('fs').writeFileSync(stateFile, JSON.stringify(state, null, 2));
+  async saveState(state) {
+    const cache = this.createStateCache(state.issueNumber);
+    return cache.persistState(
+      state.currentPersona || 'ORCHESTRATOR',
+      state.stepId || state.lastStep || 'WORKFLOW',
+      { workflowState: state },
+      { workflowId: state.workflowId, status: state.status || 'running' }
+    );
   }
 
   /**
    * @ai-context Clear workflow state file
    */
-  clearState(issueNumber) {
+  async clearState(issueNumber, status = 'completed') {
+    if (status !== 'completed') return false;
     const stateFile = `.github/workflow-state-${issueNumber}.json`;
+    const backupFile = `.github/workflow-state-${issueNumber}.backup.json`;
     if (require('fs').existsSync(stateFile)) {
       require('fs').unlinkSync(stateFile);
     }
+    if (require('fs').existsSync(backupFile)) {
+      require('fs').unlinkSync(backupFile);
+    }
+    return true;
   }
 
   /**

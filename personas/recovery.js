@@ -13,8 +13,20 @@ class RecoveryPersona extends BasePersona {
   /**
    * @ai-context Execute recovery workflow
    */
-  async execute(issueNumber) {
+  async execute(issueNumber, errorContext = null) {
     this.log('Starting recovery analysis');
+    if (errorContext) {
+      this.log(
+        JSON.stringify({
+          event: 'recovery-activated',
+          persona: errorContext.persona,
+          operation: errorContext.operation,
+          errorMessage: errorContext.errorMessage,
+          retryCount: errorContext.retryCount,
+          category: errorContext.category,
+        })
+      );
+    }
 
     try {
       // 1. Check CI/CD status

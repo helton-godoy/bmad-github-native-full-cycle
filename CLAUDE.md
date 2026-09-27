@@ -18,6 +18,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ### Setup
+
 ```bash
 npm run setup          # Install dependencies and make scripts executable
 npm run setup:enhanced # Enhanced setup with additional configuration
@@ -25,12 +26,14 @@ cp .env.example .env   # Configure environment variables (GITHUB_TOKEN required)
 ```
 
 ### Development Server
+
 ```bash
 npm start              # Start Express server on port 3000
 npm run dev            # Generate docs + start server
 ```
 
 ### Testing
+
 ```bash
 npm test               # Run all Jest tests (single worker, stops on first failure)
 npm run test:watch     # Run tests in watch mode
@@ -43,6 +46,7 @@ npm run test:dev       # Run with development config
 ```
 
 ### BMAD Workflows
+
 ```bash
 npm run bmad:workflow          # Run full enhanced BMAD workflow
 npm run bmad:workflow:original # Run original (non-enhanced) workflow
@@ -58,6 +62,7 @@ npm run bmad:config:validate   # Validate configuration
 ```
 
 ### Code Quality
+
 ```bash
 npm run lint              # ESLint on src/, scripts/, personas/
 npm run lint:fix          # ESLint with --fix
@@ -67,6 +72,7 @@ npm run validate          # Lint + test
 ```
 
 ### Git Hooks
+
 ```bash
 npm run hooks:setup       # Set up git hooks
 npm run hooks:test        # Test hook configuration
@@ -75,6 +81,7 @@ npm run hooks:report      # Generate hook report
 ```
 
 ### Monitoring
+
 ```bash
 npm run monitor:analyze   # Analyze process monitoring data
 npm run monitor:html      # Generate HTML report from monitoring data

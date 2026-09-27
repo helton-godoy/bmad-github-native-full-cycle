@@ -34,6 +34,7 @@
 - **All auth flows must work end-to-end** (`auth.test.js`:1)
 - **Mock all GitHub API calls for testing** (`octokit.js`:1)
 - **All personas must be loadable and functional** (`personas.test.js`:1)
+- **All persona transitions must be persisted to state cache with accurate timestamps** (`transition-history-persistence.test.js`:1)
 - **Configure test environment and mocks** (`setup.js`:1)
 - **Maintains in-memory state of a virtual repository** (`github-simulator.js`:1)
 - **JWT tokens must be secure and properly validated** (`jwt.util.test.js`:1)

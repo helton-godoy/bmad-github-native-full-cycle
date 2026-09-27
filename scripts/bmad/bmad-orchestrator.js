@@ -8,11 +8,15 @@ require('dotenv').config();
 const fs = require('fs');
 const { Octokit } = require('@octokit/rest');
 const ContextManager = require('../lib/context-manager');
+const LoopDetector = require('../lib/loop-detector');
+const StateCacheManager = require('../lib/state-cache-manager');
+const ErrorRecoveryManager = require('../lib/error-recovery-manager');
+const EnhancedGatekeeper = require('../lib/enhanced-gatekeeper');
 
 const HANDOVER_FILE = '.github/BMAD_HANDOVER.md';
 
 class BMADOrchestrator {
-  constructor(eventEmitter = null) {
+  constructor(eventEmitter = null, options = {}) {
     this.githubToken = process.env.GITHUB_TOKEN;
     if (!this.githubToken) {
       console.error('❌ GITHUB_TOKEN environment variable required');
@@ -21,6 +25,13 @@ class BMADOrchestrator {
     this.octokit = new Octokit({ auth: this.githubToken });
     this.eventEmitter = eventEmitter;
     this.contextManager = new ContextManager();
+    this.loopDetector = options.loopDetector || new LoopDetector(options.loopOptions);
+    this.stateCacheManager =
+      options.stateCacheManager || new StateCacheManager(options.stateOptions);
+    this.errorRecoveryManager =
+      options.errorRecoveryManager ||
+      new ErrorRecoveryManager({ stateCache: this.stateCacheManager });
+    this.gatekeeper = options.gatekeeper || new EnhancedGatekeeper(options.gatekeeperOptions);
   }
 
   /**
@@ -69,11 +80,80 @@ class BMADOrchestrator {
       this.eventEmitter.emit('action-determined', action);
     }
 
-    // 3. Execute Persona
-    await this.executePersona(action, issueNumber);
+    const transition = await this.validateTransition(state, action, issueNumber);
+    if (!transition.allowed) {
+      await this.errorRecoveryManager.escalateToRecovery(
+        new Error(transition.error),
+        {
+          persona: state.persona,
+          operation: 'persona-transition',
+          stepId: action.nextPhase,
+          workflowId: `issue-${issueNumber}`,
+          context: { state, action, transition },
+          category: transition.category,
+        }
+      );
+      return false;
+    }
+    const gate = await this.gatekeeper.validatePhaseBoundary(action.nextPhase, {
+      issueNumber,
+      action,
+    });
+    if (gate.gate === 'FAIL' || gate.status === 'FAILED') {
+      await this.errorRecoveryManager.escalateToRecovery(
+        new Error(`Gatekeeper blocked phase ${action.nextPhase}`),
+        {
+          persona: state.persona,
+          operation: 'phase-gate',
+          stepId: action.nextPhase,
+          workflowId: `issue-${issueNumber}`,
+          context: { gate, state, action },
+          category: 'GATEKEEPER_FAILURE',
+        }
+      );
+      return false;
+    }
 
-    // 4. Update State
-    this.updateHandoverState(action, issueNumber);
+    // Persist before execution: a write failure aborts without changing handover.
+    await this.stateCacheManager.persistState(
+      action.persona.toUpperCase(),
+      action.nextPhase,
+      { issueNumber, source: action.source, previousPersona: state.persona },
+      { workflowId: `issue-${issueNumber}`, status: 'running' }
+    );
+
+    try {
+      const execute = () => this.executePersona(action, issueNumber);
+      try {
+        await execute();
+      } catch (initialError) {
+        const retryable =
+          initialError.retryable === true ||
+          initialError.name === 'RetryableError' ||
+          initialError.isRetryable === true;
+        if (!retryable) throw initialError;
+        await this.errorRecoveryManager.retryOperation(execute, 2);
+      }
+      this.updateHandoverState(action, issueNumber);
+      this.loopDetector.recordTransition(
+        state.persona || 'UNKNOWN',
+        action.persona,
+        new Date().toISOString(),
+        'executed'
+      );
+    } catch (error) {
+      await this.errorRecoveryManager.escalateToRecovery(error, {
+        persona: action.persona,
+        operation: 'executePersona',
+        stepId: action.nextPhase,
+        workflowId: `issue-${issueNumber}`,
+        context: { issueNumber, action },
+        retryCount: 2,
+        category: error.category || error.name,
+      });
+      error.recoveryHandled = true;
+      throw error;
+    }
 
     if (this.eventEmitter) {
       this.eventEmitter.emit('phase-completed', {
@@ -334,6 +414,70 @@ class BMADOrchestrator {
     const regex = new RegExp(`## ${sectionTitle}\\s*([\\s\\S]*?)(?=##|$)`, 'i');
     const match = content.match(regex);
     return match ? match[1].trim() : null;
+  }
+
+  getDynamicPath(type, issueNumber) {
+    const normalized = String(type || '').toUpperCase();
+    if (!['PRD', 'SPEC'].includes(normalized)) {
+      throw new Error(`Unknown artifact type: ${type}`);
+    }
+    const candidates =
+      normalized === 'PRD'
+        ? [
+            `docs/planning/PRD-${issueNumber}.md`,
+            `docs/planning/PRD_${issueNumber}.md`,
+            'docs/planning/PRD.md',
+          ]
+        : [
+            `docs/architecture/SPEC-${issueNumber}.md`,
+            `docs/architecture/SPEC_${issueNumber}.md`,
+            'docs/architecture/SPEC.md',
+          ];
+    return candidates.find((candidate) => fs.existsSync(candidate)) || candidates[0];
+  }
+
+  validateRequirementsDocument(filePath) {
+    const content = this.contextManager.read(filePath);
+    if (content === null || content === undefined) {
+      return { valid: false, error: `requirements document not found: ${filePath}` };
+    }
+    const earsPattern =
+      /\b(WHEN|WHILE|WHERE|IF)\b[\s\S]{1,500}\b(SHALL|THEN)\b/i;
+    if (!earsPattern.test(content)) {
+      return {
+        valid: false,
+        error: `requirements document has no EARS acceptance criterion: ${filePath}`,
+      };
+    }
+    return { valid: true };
+  }
+
+  async validateTransition(state, action) {
+    const from = state.persona || 'UNKNOWN';
+    if (this.loopDetector.detectLoop(from, action.persona)) {
+      const record = this.loopDetector.recordTransition(
+        from,
+        action.persona,
+        new Date().toISOString(),
+        'blocked'
+      );
+      return {
+        allowed: false,
+        category: 'TRANSITION_LOOP',
+        error: `transition blocked after ${this.loopDetector.maxTransitions} occurrences`,
+        record,
+      };
+    }
+    if (
+      String(state.persona).toUpperCase() === 'PM' &&
+      String(action.persona).toUpperCase() === 'ARCHITECT'
+    ) {
+      const requirements = this.validateRequirementsDocument(action.source);
+      if (!requirements.valid) {
+        return { allowed: false, category: 'PM_PRECONDITION', ...requirements };
+      }
+    }
+    return { allowed: true };
   }
 
   /**

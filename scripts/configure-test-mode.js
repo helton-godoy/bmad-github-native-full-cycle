@@ -88,12 +88,11 @@ const modes = {
   },
 };
 
-function updateJestConfig(modeConfig) {
-  const jestConfigPath = path.join(process.cwd(), 'jest.config.js');
+function updateJestConfig(modeConfig, rootDir = process.cwd()) {
+  const jestConfigPath = path.join(rootDir, 'jest.config.js');
 
   if (!fs.existsSync(jestConfigPath)) {
-    console.error('jest.config.js not found');
-    process.exit(1);
+    throw new Error('jest.config.js not found');
   }
 
   // Read current config
@@ -112,8 +111,8 @@ function updateJestConfig(modeConfig) {
   console.log(`✅ Updated jest.config.js for ${getCurrentMode()} mode`);
 }
 
-function updateEnvFile(modeConfig) {
-  const envPath = path.join(process.cwd(), '.env.test');
+function updateEnvFile(modeConfig, rootDir = process.cwd()) {
+  const envPath = path.join(rootDir, '.env.test');
 
   // Create or update .env.test file
   const envContent = Object.entries(modeConfig.envVars)
@@ -139,18 +138,17 @@ function showUsage() {
   console.log('\nExample: node scripts/configure-test-mode.js performance');
 }
 
-function main() {
-  const mode = getCurrentMode();
+function main(mode = getCurrentMode(), rootDir = process.cwd()) {
 
   if (mode === 'help' || mode === '--help' || mode === '-h') {
     showUsage();
-    return;
+    return 0;
   }
 
   if (!modes[mode]) {
     console.error(`❌ Unknown mode: ${mode}`);
     showUsage();
-    process.exit(1);
+    return 1;
   }
 
   const modeConfig = modes[mode];
@@ -159,8 +157,8 @@ function main() {
   console.log(`📝 ${modeConfig.description}\n`);
 
   try {
-    updateJestConfig(modeConfig);
-    updateEnvFile(modeConfig);
+    updateJestConfig(modeConfig, rootDir);
+    updateEnvFile(modeConfig, rootDir);
 
     console.log('\n✅ Configuration complete!');
     console.log('\nNext steps:');
@@ -169,14 +167,22 @@ function main() {
     console.log(
       '3. Reset to default: node scripts/configure-test-mode.js development'
     );
+    return 0;
   } catch (error) {
     console.error(`❌ Configuration failed: ${error.message}`);
-    process.exit(1);
+    return 1;
   }
 }
 
 if (require.main === module) {
-  main();
+  process.exitCode = main();
 }
 
-module.exports = { modes, updateJestConfig, updateEnvFile };
+module.exports = {
+  modes,
+  updateJestConfig,
+  updateEnvFile,
+  getCurrentMode,
+  showUsage,
+  main,
+};

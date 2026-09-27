@@ -204,9 +204,7 @@ For more information, see: docs/hooks/README.md
   }
 }
 
-// CLI entry point
-if (require.main === module) {
-  const args = process.argv.slice(2);
+function main(args = process.argv.slice(2)) {
   const command = args[0] || 'validate';
   const options = {
     fix: args.includes('--fix'),
@@ -217,7 +215,7 @@ if (require.main === module) {
   const cli = new ConfigCLI();
 
   if (options.help) {
-    process.exit(cli.showHelp());
+    return cli.showHelp();
   }
 
   let exitCode = 0;
@@ -252,7 +250,12 @@ if (require.main === module) {
       exitCode = 1;
   }
 
-  process.exit(exitCode);
+  return exitCode;
+}
+
+if (require.main === module) {
+  process.exitCode = main();
 }
 
 module.exports = ConfigCLI;
+module.exports.main = main;

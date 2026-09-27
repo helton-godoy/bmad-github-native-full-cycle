@@ -2,14 +2,15 @@
  * @ai-context Exponential Backoff utility with jitter and retry handling
  */
 /* eslint-env node */
+/* global setTimeout */
 
 class ExponentialBackoff {
   constructor(config = {}) {
-    this.initialDelay = config.initialDelay || 1000;
-    this.maxDelay = config.maxDelay || 5000;
-    this.multiplier = config.multiplier || 2;
-    this.maxRetries = config.maxRetries || 3;
-    this.jitterFactor = config.jitterFactor || 0.1;
+    this.initialDelay = config.initialDelay ?? 1000;
+    this.maxDelay = config.maxDelay ?? 5000;
+    this.multiplier = config.multiplier ?? 2;
+    this.maxRetries = config.maxRetries ?? 3;
+    this.jitterFactor = config.jitterFactor ?? 0.1;
   }
 
   calculateDelay(attempt) {
@@ -21,7 +22,7 @@ class ExponentialBackoff {
       delay = Math.max(0, Math.round(delay + jitter));
     }
 
-    return delay;
+    return Math.round(delay);
   }
 
   async execute(operation) {

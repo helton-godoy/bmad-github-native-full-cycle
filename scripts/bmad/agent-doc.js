@@ -96,27 +96,35 @@ function generateMarkdown(mapData) {
   return md;
 }
 
-// Main Execution
-console.log('\x1b[36m🧠 AgentDoc: Scanning codebase...\x1b[0m');
-const rootDir = process.cwd();
-const files = scanDir(rootDir);
-const mapData = {};
+function main(options = {}) {
+  console.log('\x1b[36m🧠 AgentDoc: Scanning codebase...\x1b[0m');
+  const rootDir = options.rootDir || process.cwd();
+  const files = scanDir(rootDir);
+  const mapData = {};
 
-files.forEach((file) => {
-  const content = fs.readFileSync(file, 'utf-8');
-  const tags = extractTags(content);
-  if (tags.length > 0) {
-    const relativePath = path.relative(rootDir, file);
-    mapData[relativePath] = tags;
-  }
-});
+  files.forEach((file) => {
+    const content = fs.readFileSync(file, 'utf-8');
+    const tags = extractTags(content);
+    if (tags.length > 0) {
+      const relativePath = path.relative(rootDir, file);
+      mapData[relativePath] = tags;
+    }
+  });
 
-const output = generateMarkdown(mapData);
-const outputPath = path.join(rootDir, CONFIG.outputFile);
+  const output = generateMarkdown(mapData);
+  const outputPath = path.join(rootDir, CONFIG.outputFile);
+  const outputDir = path.dirname(outputPath);
+  if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
-// Ensure dir exists
-const outputDir = path.dirname(outputPath);
-if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
+  fs.writeFileSync(outputPath, output);
+  console.log(
+    `\x1b[32m✅ System Map generated at: ${CONFIG.outputFile}\x1b[0m`
+  );
+  return { files, mapData, outputPath };
+}
 
-fs.writeFileSync(outputPath, output);
-console.log(`\x1b[32m✅ System Map generated at: ${CONFIG.outputFile}\x1b[0m`);
+if (require.main === module) {
+  main();
+}
+
+module.exports = { CONFIG, scanDir, extractTags, generateMarkdown, main };

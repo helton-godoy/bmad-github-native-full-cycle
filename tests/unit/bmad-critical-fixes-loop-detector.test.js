@@ -157,7 +157,7 @@ describe('Loop Detector Property Tests', () => {
           expect(detector.history[0].toPersona).toBe('PM');
         }
       ),
-      { numRuns: 50 }
+      { numRuns: 100 }
     );
   });
 

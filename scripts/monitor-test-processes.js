@@ -23,8 +23,10 @@ const fs = require('fs');
 const path = require('path');
 
 class StandaloneProcessMonitor {
-  constructor() {
-    this.args = this.parseArguments();
+  constructor(options = {}) {
+    this.argv = options.argv || process.argv.slice(2);
+    this.spawn = options.spawn || spawn;
+    this.args = options.args || this.parseArguments();
     this.monitor = null;
     this.targetProcess = null;
     this.startTime = null;
@@ -34,7 +36,7 @@ class StandaloneProcessMonitor {
    * Parse command line arguments
    */
   parseArguments() {
-    const args = process.argv.slice(2);
+    const args = this.argv;
     const options = {
       command: 'npm test',
       duration: null,
@@ -234,7 +236,7 @@ Examples:
       console.log(`🚀 Starting target command: ${this.args.command}`);
 
       const [command, ...args] = this.args.command.split(' ');
-      this.targetProcess = spawn(command, args, {
+      this.targetProcess = this.spawn(command, args, {
         stdio: 'inherit',
         shell: true,
       });
@@ -387,7 +389,7 @@ if (require.main === module) {
   const monitor = new StandaloneProcessMonitor();
   monitor.start().catch((error) => {
     console.error(`❌ Monitor failed: ${error.message}`);
-    process.exit(1);
+    process.exitCode = 1;
   });
 }
 

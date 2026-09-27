@@ -4,8 +4,7 @@
  * @ai-connection Integrates with ExponentialBackoff for retry logic
  */
 
-const { execSync } = require('child_process');
-const fs = require('fs');
+const { execSync, execFileSync } = require('child_process');
 const ExponentialBackoff = require('./exponential-backoff');
 const Logger = require('./logger');
 
@@ -18,10 +17,16 @@ class CommitHandler {
     this.logger = new Logger('CommitHandler');
 
     // Configuration
-    this.maxRetries = options.maxRetries || 2;
+    this.maxRetries = options.maxRetries ?? 2;
+    this.stepId = options.stepId || 'UNKNOWN';
     this.validateStaging = options.validateStaging !== false; // Default true
     this.validateFormat = options.validateFormat !== false; // Default true
     this.enableRollback = options.enableRollback !== false; // Default true
+    this.runValidation =
+      options.runValidation ?? process.env.NODE_ENV !== 'test';
+    this.validationRunner =
+      options.validationRunner ||
+      (() => execFileSync('npm', ['run', 'validate'], { stdio: 'pipe' }));
 
     // Initialize backoff for commit retries
     this.backoff = new ExponentialBackoff({
@@ -78,6 +83,9 @@ class CommitHandler {
    */
   async executeCommit(message, persona, stepId) {
     try {
+      if (![message, persona, stepId].every((value) => typeof value === 'string')) {
+        throw new TypeError('Commit message, persona and stepId must be strings');
+      }
       // Format commit message
       const formattedMessage = this.formatCommitMessage(
         persona,
@@ -99,16 +107,19 @@ class CommitHandler {
         this.logger.warn('No changes to commit - skipping commit operation');
         return null;
       }
+      if (this.runValidation) {
+        await this.validationRunner();
+      }
 
       // Execute commit with retry logic
       const result = await this.backoff.execute(async (attempt) => {
         this.logger.info(
-          `Attempting commit (attempt ${attempt + 1}/${this.maxRetries + 1})`
+          `Attempting commit (attempt ${attempt}/${this.maxRetries + 1})`
         );
 
         try {
           // Execute git commit
-          const output = execSync(`git commit -m "${formattedMessage}"`, {
+          const output = execFileSync('git', ['commit', '-m', formattedMessage], {
             encoding: 'utf-8',
             stdio: ['pipe', 'pipe', 'pipe'],
           });
@@ -120,7 +131,7 @@ class CommitHandler {
           return commitHash;
         } catch (error) {
           this.logger.warn(
-            `Commit attempt ${attempt + 1} failed: ${error.message}`
+            `Commit attempt ${attempt} failed: ${error.message}`
           );
 
           // Check if this is a retryable error
@@ -133,16 +144,26 @@ class CommitHandler {
         }
       });
 
-      if (result.success) {
-        this.logger.info(
-          `Commit completed after ${result.attempts.length} attempts`
-        );
+      // Accept the historic structured backoff result while the canonical
+      // ExponentialBackoff returns the operation value directly.
+      if (result && typeof result === 'object' && 'success' in result) {
+        if (!result.success) {
+          throw result.error || new Error('Commit failed');
+        }
+        const verification = await this.validateCommit(result.result);
+        if (!verification || verification.verified === false) {
+          throw new Error(`Commit verification failed: ${result.result}`);
+        }
         return result.result;
-      } else {
-        throw new Error(
-          `Commit failed after ${result.attempts.length} attempts: ${result.error.message}`
-        );
       }
+      const commitHash = result;
+      const verification = await this.validateCommit(commitHash);
+      if (!verification || verification.verified === false) {
+        const error = new Error(`Commit verification failed: ${commitHash}`);
+        error.code = 'COMMIT_VERIFICATION_FAILURE';
+        throw error;
+      }
+      return commitHash;
     } catch (error) {
       this.logger.error(`Execute commit failed: ${error.message}`);
       throw error;
@@ -157,6 +178,9 @@ class CommitHandler {
    * @returns {string} - Formatted commit message
    */
   formatCommitMessage(persona, stepId, description) {
+    if (!description || !description.trim()) {
+      throw new Error('Commit description must be non-empty');
+    }
     // Ensure persona is uppercase
     const upperPersona = persona.toUpperCase();
 
@@ -167,7 +191,8 @@ class CommitHandler {
     const cleanDescription = description
       .replace(/"/g, '\\"')
       .replace(/\n/g, ' ')
-      .trim();
+      .trim()
+      .slice(0, 72);
 
     return `[${upperPersona}] [STEP-${formattedStepId}] ${cleanDescription}`;
   }
@@ -181,13 +206,11 @@ class CommitHandler {
 
     for (const file of files) {
       try {
-        // Verify file exists
-        if (!fs.existsSync(file)) {
-          this.logger.warn(`File does not exist, skipping: ${file}`);
-          continue;
+        if (typeof file !== 'string' || !file.trim()) {
+          throw new TypeError('Files to stage must be non-empty strings');
         }
-
-        execSync(`git add "${file}"`, { stdio: 'pipe' });
+        // `git add -- path` also stages tracked deletions.
+        execFileSync('git', ['add', '--', file], { stdio: 'pipe' });
         this.logger.info(`Staged file: ${file}`);
       } catch (error) {
         this.logger.error(`Failed to stage file ${file}: ${error.message}`);
@@ -211,7 +234,7 @@ class CommitHandler {
       }
 
       this.logger.info('Staging all changes');
-      execSync('git add .', { stdio: 'pipe' });
+      execFileSync('git', ['add', '-A'], { stdio: 'pipe' });
     } catch (error) {
       this.logger.error(`Failed to stage all changes: ${error.message}`);
       throw error;

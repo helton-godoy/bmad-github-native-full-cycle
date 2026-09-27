@@ -6,8 +6,9 @@ const fs = require('fs');
 const path = require('path');
 
 class BMADMonitor {
-  constructor() {
-    this.rootDir = process.cwd();
+  constructor(options = {}) {
+    this.rootDir = options.rootDir || process.cwd();
+    this.RecoveryPersona = options.RecoveryPersona;
     this.docsDir = path.join(this.rootDir, 'docs');
     this.githubDir = path.join(this.rootDir, '.github');
     this.dashboardFile = path.join(this.docsDir, 'DASHBOARD.md');
@@ -137,7 +138,8 @@ ${taskStats.summary}
   async monitorCI() {
     console.log('🕵️ Monitoring CI Status...');
     try {
-      const RecoveryPersona = require('../../personas/recovery');
+      const RecoveryPersona =
+        this.RecoveryPersona || require('../../personas/recovery');
       // Ensure we have a token
       const token = process.env.GITHUB_TOKEN;
       if (!token) {

@@ -179,10 +179,11 @@ async function syncToQdrant(mapData) {
   }
 }
 
-// Main Execution
-(async () => {
+async function main(options = {}) {
   console.log('\x1b[36m🧠 AgentDoc: Scanning codebase...\x1b[0m');
-  const rootDir = process.cwd();
+  const rootDir = options.rootDir || process.cwd();
+  const syncQdrant =
+    options.syncQdrant ?? process.argv.includes('--qdrant');
   const files = scanDir(rootDir);
   const mapData = {};
 
@@ -206,9 +207,29 @@ async function syncToQdrant(mapData) {
   );
 
   // 2. Sync to Qdrant (Vector Memory)
-  if (process.argv.includes('--qdrant')) {
+  if (syncQdrant) {
     await syncToQdrant(mapData);
   } else {
     console.log('ℹ️  Run with --qdrant to sync with Vector Database.');
   }
-})();
+  return { files, mapData, outputPath };
+}
+
+if (require.main === module) {
+  main().catch((error) => {
+    console.error('❌ AgentDoc generation failed:', error.message);
+    process.exitCode = 1;
+  });
+}
+
+module.exports = {
+  CONFIG,
+  scanDir,
+  extractTags,
+  generateMarkdown,
+  qdrantRequest,
+  ensureCollection,
+  mockEmbedding,
+  syncToQdrant,
+  main,
+};
