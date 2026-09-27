@@ -254,7 +254,7 @@ const users = new Map();
 ### Hash de Senha
 
 - **Algoritmo:** bcrypt
-- **Salt Rounds:** 10
+- **Salt Rounds:** 12
 - **Nunca armazenar senhas em texto plano**
 
 ### Configuração JWT
@@ -343,7 +343,7 @@ JWT_SECRET=sua-chave-jwt-super-secreta-mude-em-producao
 JWT_EXPIRES_IN=24h
 
 # Bcrypt
-BCRYPT_ROUNDS=10
+BCRYPT_ROUNDS=12
 ```
 
 ---
@@ -393,7 +393,7 @@ BCRYPT_ROUNDS=10
 ### Estratégias de Otimização
 
 - Usar async/await para todas as operações de I/O
-- Bcrypt rounds definido como 10 (equilíbrio segurança/desempenho)
+- Bcrypt rounds definido como 12 (equilíbrio segurança/desempenho)
 - Armazenamento em memória para acesso instantâneo
 
 ---

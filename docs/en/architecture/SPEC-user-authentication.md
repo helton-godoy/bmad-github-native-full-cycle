@@ -254,7 +254,7 @@ const users = new Map();
 ### Password Hashing
 
 - **Algorithm:** bcrypt
-- **Salt Rounds:** 10
+- **Salt Rounds:** 12
 - **Never store plain text passwords**
 
 ### JWT Configuration
@@ -346,7 +346,7 @@ JWT_SECRET=your-super-secret-jwt-key-change-in-production
 JWT_EXPIRES_IN=24h
 
 # Bcrypt
-BCRYPT_ROUNDS=10
+BCRYPT_ROUNDS=12
 ```
 
 ---
@@ -396,7 +396,7 @@ BCRYPT_ROUNDS=10
 ### Optimization Strategies
 
 - Use async/await for all I/O operations
-- Bcrypt rounds set to 10 (balance security/performance)
+- Bcrypt rounds set to 12 (balance security/performance)
 - In-memory storage for instant access
 
 ---
