@@ -6,8 +6,8 @@
 function sanitizeUser(user) {
   if (!user) return null;
   // eslint-disable-next-line no-unused-vars
-  const { passwordHash, ...userWithoutPassword } = user;
-  return userWithoutPassword;
+  const { password, passwordHash, ...userWithoutSensitiveData } = user;
+  return userWithoutSensitiveData;
 }
 
 module.exports = {
