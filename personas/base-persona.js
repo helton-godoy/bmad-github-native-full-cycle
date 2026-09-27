@@ -86,21 +86,27 @@ class BasePersona {
     const commitMessage = `[${commitId}] ${message}`;
 
     try {
-      // Add files
-      for (const file of files) {
-        let sha;
-        try {
-          const { data } = await this.octokit.rest.repos.getContent({
-            owner: process.env.GITHUB_OWNER || 'helton-godoy',
-            repo: process.env.GITHUB_REPO || 'shantilly-cli',
-            path: file.path,
-            ref: process.env.GITHUB_BRANCH || 'main',
-          });
-          sha = data.sha;
-        } catch (err) {
-          // File doesn't exist, sha remains undefined which is correct for creation
-        }
+      // 1. Get SHAs for all files in parallel to optimize read performance
+      const filesWithSha = await Promise.all(
+        files.map(async (file) => {
+          let sha;
+          try {
+            const { data } = await this.octokit.rest.repos.getContent({
+              owner: process.env.GITHUB_OWNER || 'helton-godoy',
+              repo: process.env.GITHUB_REPO || 'shantilly-cli',
+              path: file.path,
+              ref: process.env.GITHUB_BRANCH || 'main',
+            });
+            sha = data.sha;
+          } catch (err) {
+            // File doesn't exist, sha remains undefined which is correct for creation
+          }
+          return { ...file, sha };
+        })
+      );
 
+      // 2. Update/create file contents sequentially to avoid 409 Conflict race conditions on branch head
+      for (const file of filesWithSha) {
         await this.octokit.rest.repos.createOrUpdateFileContents({
           owner: process.env.GITHUB_OWNER || 'helton-godoy',
           repo: process.env.GITHUB_REPO || 'shantilly-cli',
@@ -108,7 +114,7 @@ class BasePersona {
           message: commitMessage,
           content: Buffer.from(file.content).toString('base64'),
           branch: process.env.GITHUB_BRANCH || 'main',
-          sha: sha,
+          sha: file.sha,
         });
       }
 

@@ -70,6 +70,32 @@ class HookOrchestrator {
   }
 
   /**
+   * Get list of changed files (staged or modified)
+   */
+  getChangedFiles() {
+    try {
+      // Get staged files first
+      let files = this.getStagedFiles();
+
+      // If no staged files, get modified files
+      if (files.length === 0) {
+        const output = execSync('git diff --name-only', {
+          encoding: 'utf8',
+        });
+        files = output
+          .trim()
+          .split('\n')
+          .filter((f) => f.length > 0);
+      }
+
+      return files;
+    } catch (error) {
+      this.logger.warn(`Could not get changed files: ${error.message}`);
+      return [];
+    }
+  }
+
+  /**
    * Start performance timer and log execution start
    */
   startTimer(hookType) {

@@ -13,12 +13,12 @@ jobs:
   audit:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '20'
           cache: 'npm'
 
       - name: Install Dependencies
@@ -30,9 +30,9 @@ jobs:
 
       # In a real "Deep Dive", we would add CodeQL here
       # - name: Initialize CodeQL
-      #   uses: github/codeql-action/init@v2
+      #   uses: github/codeql-action/init@v3
       #   with:
       #     languages: javascript
 
       # - name: Perform CodeQL Analysis
-      #   uses: github/codeql-action/analyze@v2
+      #   uses: github/codeql-action/analyze@v3

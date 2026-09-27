@@ -60,7 +60,7 @@ jobs:
       run: npm run bmad:gatekeeper
       
     - name: Generate AgentDoc
-      run: npm run bmad:doc
+      run: npm run bmad:docs
 
   security-scan:
     runs-on: ubuntu-latest
@@ -72,7 +72,7 @@ jobs:
       run: npm audit --audit-level=moderate
       
     - name: Run CodeQL Analysis
-      uses: github/codeql-action/analyze@v2
+      uses: github/codeql-action/analyze@v3
       with:
         languages: javascript
 
@@ -142,7 +142,7 @@ jobs:
       run: npm ci
       
     - name: Generate documentation
-      run: npm run bmad:doc
+      run: npm run bmad:docs
       
     - name: Commit documentation
       run: |
