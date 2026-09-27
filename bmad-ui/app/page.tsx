@@ -1,8 +1,20 @@
 'use client';
 
+import { useMemo } from 'react';
 import { mockTasks, mockAgents, mockSystemHealth } from '@/lib/data/mock-data';
 
 export default function DashboardPage() {
+  const tasksByStatus = useMemo(() => {
+    return mockTasks.reduce((acc, task) => {
+      const status = task.status;
+      if (!acc[status]) {
+        acc[status] = [];
+      }
+      acc[status].push(task);
+      return acc;
+    }, {} as Record<string, typeof mockTasks>);
+  }, []);
+
   return (
     <div className="min-h-screen bg-(--color-page-bg)">
       {/* Header */}
@@ -76,13 +88,12 @@ export default function DashboardPage() {
                       {status}
                     </h3>
                     <span className="text-xs text-gray-500">
-                      {mockTasks.filter(t => t.status === status).length}
+                      {tasksByStatus[status]?.length || 0}
                     </span>
                   </div>
                   
                   <div className="space-y-3">
-                    {mockTasks
-                      .filter((task) => task.status === status)
+                    {(tasksByStatus[status] || [])
                       .map((task) => (
                         <div
                           key={task.id}
