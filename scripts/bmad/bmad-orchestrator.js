@@ -196,7 +196,7 @@ class BMADOrchestrator {
     else {
       // 1. PM -> Architect
       if (persona === 'PM' && state.phase.includes('Planning')) {
-        const prdPath = 'docs/planning/PRD-user-authentication.md'; // TODO: Dynamic path
+        const prdPath = `docs/planning/PRD-${this.getIssueSlug(issue)}.md`;
         if (this.contextManager.read(prdPath) !== null) {
           const prompt =
             this.extractSection(prdPath, 'Architect Prompt') ||
@@ -231,7 +231,7 @@ class BMADOrchestrator {
 
       // 2. Architect -> Developer
       if (persona === 'ARCHITECT') {
-        const specPath = 'docs/architecture/SPEC-user-authentication.md'; // TODO: Dynamic path
+        const specPath = `docs/architecture/SPEC-${this.getIssueSlug(issue)}.md`;
         if (this.contextManager.read(specPath) !== null) {
           return {
             persona: 'developer',
@@ -481,6 +481,23 @@ class BMADOrchestrator {
     if (title.includes('[audit]') || title.includes('audit:')) return 'AUDIT';
     if (title.includes('bug') || title.includes('fix:')) return 'BUG';
     return 'FEATURE';
+  }
+
+  /**
+   * @ai-context Generate slug from issue title for dynamic paths
+   */
+  getIssueSlug(issue) {
+    if (!issue || !issue.title) return 'unknown';
+    return issue.title
+      .replace(
+        /^(Architecture Planning|Implementation|QA|Security|DevOps|Release Management):\s*/i,
+        ''
+      )
+      .toLowerCase()
+      .replace(/[^\w\s-]/g, '')
+      .replace(/\s+/g, '-')
+      .replace(/-+/g, '-')
+      .trim();
   }
 }
 
