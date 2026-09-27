@@ -2,6 +2,8 @@ const crypto = require('crypto');
 
 // In-memory storage
 const users = new Map();
+const usersByEmail = new Map();
+const usersByUsername = new Map();
 
 class UserRepository {
   /**
@@ -18,6 +20,8 @@ class UserRepository {
     };
 
     users.set(user.id, user);
+    usersByEmail.set(user.email, user);
+    usersByUsername.set(user.username, user);
     return user;
   }
 
@@ -25,14 +29,14 @@ class UserRepository {
    * Find user by email
    */
   async findByEmail(email) {
-    return Array.from(users.values()).find((u) => u.email === email);
+    return usersByEmail.get(email);
   }
 
   /**
    * Find user by username
    */
   async findByUsername(username) {
-    return Array.from(users.values()).find((u) => u.username === username);
+    return usersByUsername.get(username);
   }
 
   /**
