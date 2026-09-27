@@ -7,12 +7,17 @@ const colors = { red: '\x1b[31m', green: '\x1b[32m', yellow: '\x1b[33m', reset: 
 
 console.log(`${colors.yellow}🛡️  BMAD AGENT GUARD 🛡️${colors.reset}`);
 
-// Configuração Básica
+// Configuração Básica e Carregamento de Package.json
 let config = { requireContextUpdate: true };
+let pkg = {};
+
 try {
-    const pkg = require(path.join(process.cwd(), 'package.json'));
+    pkg = require(path.join(process.cwd(), 'package.json'));
     if (pkg.bmad) config = { ...config, ...pkg.bmad };
-} catch (e) {}
+} catch (e) {
+    // Silently ignore if package.json is missing or invalid, using default config
+    console.warn(`${colors.yellow}⚠️  Aviso: Não foi possível carregar o package.json. Usando configuração padrão.${colors.reset}`);
+}
 
 // 1. Validar Mensagem de Commit (Conventional Commits)
 const commitMsg = process.argv[2];
@@ -40,14 +45,14 @@ if (config.requireContextUpdate) {
         }
     } catch (e) {
         // Ignora erro se git não estiver iniciado ou vazio, ou se o comando falhar
+        // Isso permite que o processo continue em ambientes sem git ou em estados de erro não críticos
     }
 }
 
 // 3. Rodar Testes (Se existirem)
 console.log(`${colors.yellow}🧪 A verificar integridade (testes)...${colors.reset}`);
 try {
-    // Verifica se existe script de teste no package.json
-    const pkg = require(path.join(process.cwd(), 'package.json'));
+    // Verifica se existe script de teste no package.json carregado anteriormente
     if (pkg.scripts && pkg.scripts.test) {
          execSync('npm test --if-present', { stdio: 'inherit' });
          console.log(`${colors.green}✅ Testes aprovados.${colors.reset}`);
