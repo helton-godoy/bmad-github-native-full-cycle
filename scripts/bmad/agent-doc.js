@@ -13,21 +13,23 @@ const CONFIG = {
   outputFile: 'docs/architecture/SYSTEM_MAP.md',
 };
 
-function scanDir(dir, fileList = []) {
-  const files = fs.readdirSync(dir);
-  files.forEach((file) => {
-    const filePath = path.join(dir, file);
-    const stat = fs.statSync(filePath);
-    if (CONFIG.exclude.some((ex) => filePath.includes(ex))) return;
+async function scanDir(dir, fileList = []) {
+  const files = await fs.promises.readdir(dir);
+  await Promise.all(
+    files.map(async (file) => {
+      const filePath = path.join(dir, file);
+      if (CONFIG.exclude.some((ex) => filePath.includes(ex))) return;
 
-    if (stat.isDirectory()) {
-      scanDir(filePath, fileList);
-    } else {
-      if (CONFIG.include.includes(path.extname(file))) {
-        fileList.push(filePath);
+      const stat = await fs.promises.stat(filePath);
+      if (stat.isDirectory()) {
+        await scanDir(filePath, fileList);
+      } else {
+        if (CONFIG.include.includes(path.extname(file))) {
+          fileList.push(filePath);
+        }
       }
-    }
-  });
+    })
+  );
   return fileList;
 }
 
@@ -96,27 +98,30 @@ function generateMarkdown(mapData) {
   return md;
 }
 
-function main(options = {}) {
+async function main(options = {}) {
   console.log('\x1b[36m🧠 AgentDoc: Scanning codebase...\x1b[0m');
   const rootDir = options.rootDir || process.cwd();
-  const files = scanDir(rootDir);
+  const files = await scanDir(rootDir);
   const mapData = {};
 
-  files.forEach((file) => {
-    const content = fs.readFileSync(file, 'utf-8');
-    const tags = extractTags(content);
-    if (tags.length > 0) {
-      const relativePath = path.relative(rootDir, file);
-      mapData[relativePath] = tags;
-    }
-  });
+  await Promise.all(
+    files.map(async (file) => {
+      const content = await fs.promises.readFile(file, 'utf-8');
+      const tags = extractTags(content);
+      if (tags.length > 0) {
+        const relativePath = path.relative(rootDir, file);
+        mapData[relativePath] = tags;
+      }
+    })
+  );
 
   const output = generateMarkdown(mapData);
   const outputPath = path.join(rootDir, CONFIG.outputFile);
-  const outputDir = path.dirname(outputPath);
-  if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
 
-  fs.writeFileSync(outputPath, output);
+  // Ensure dir exists
+  const outputDir = path.dirname(outputPath);
+  await fs.promises.mkdir(outputDir, { recursive: true });
+  await fs.promises.writeFile(outputPath, output);
   console.log(
     `\x1b[32m✅ System Map generated at: ${CONFIG.outputFile}\x1b[0m`
   );

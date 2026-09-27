@@ -14,8 +14,21 @@ app.use(helmet());
 app.use(
   cors({
     origin: (origin, callback) => {
+      const isProduction = process.env.NODE_ENV === 'production';
+      const allowedOrigins = process.env.CORS_ALLOWED_ORIGINS
+        ? process.env.CORS_ALLOWED_ORIGINS.split(',').map((o) => o.trim())
+        : isProduction
+          ? []
+          : ['http://localhost:3000'];
+
       // Allow requests with no origin (like mobile apps or curl requests)
-      if (!origin) return callback(null, true);
+      // but only if not in production for better security
+      if (!origin) {
+        if (isProduction) {
+          return callback(new Error('Origin required in production'));
+        }
+        return callback(null, true);
+      }
 
       const origins = process.env.CORS_ALLOWED_ORIGINS
         ? process.env.CORS_ALLOWED_ORIGINS.split(',').map((o) => o.trim())

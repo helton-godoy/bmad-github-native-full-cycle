@@ -334,6 +334,7 @@ class ProcessMonitor extends EventEmitter {
 
     try {
       const systemProcesses = await this.getSystemProcesses();
+      const systemProcessMap = new Map(systemProcesses.map((p) => [p.pid, p]));
 
       // Update existing processes
       for (const [pid, processData] of this.processes.entries()) {
@@ -341,7 +342,7 @@ class ProcessMonitor extends EventEmitter {
           continue;
         }
 
-        const systemProc = systemProcesses.find((p) => p.pid === pid);
+        const systemProc = systemProcessMap.get(pid);
         if (systemProc) {
           // Update process info
           processData.cpuUsage = systemProc.pcpu;

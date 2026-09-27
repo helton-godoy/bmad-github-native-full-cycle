@@ -20,5 +20,5 @@ Your existence and memory are defined strictly by the state of the Git repositor
 3.  **Act:** Write code in `src/` + Tests in `tests/`.
     *   *AgentDoc:* Add `@ai-context`, `@ai-invariant`, and `@ai-connection` comments to your code.
 4.  **Verify:** Run `npm test` and `npm run bmad:gatekeeper`.
-    *   *AgentDoc:* Run `npm run bmad:doc` to update the system map.
+    *   *AgentDoc:* Run `npm run bmad:docs` to update the system map.
 5.  **Commit:** `git commit` (Conventional Commits) -> Update `activeContext.md` -> `git push`.

@@ -228,6 +228,7 @@ describe('Pre-push Validation Property Tests', () => {
                 if (result.status === 'passed') {
                     expect(result.failed).toBe(0);
                 }
+                return true;
             }
         ), { numRuns: 20 });
     });
@@ -287,6 +288,7 @@ describe('Pre-push Validation Property Tests', () => {
                 if (result.status === 'passed') {
                     expect(result.message).toContain('successful');
                 }
+                return true;
             }
         ), { numRuns: 15 });
     });
@@ -342,6 +344,7 @@ describe('Pre-push Validation Property Tests', () => {
                 if (totalVulns === 0) {
                     expect(result.status).toBe('passed');
                 }
+                return true;
             }
         ), { numRuns: 20 });
     });
@@ -420,6 +423,7 @@ describe('Pre-push Validation Property Tests', () => {
                 expect(result.branch).toBe(branch);
                 expect(result.remote).toBe(remote);
                 expect(result.duration).toBeGreaterThanOrEqual(0);
+                return true;
             }
         ), { numRuns: 10 });
     });

@@ -14,16 +14,15 @@ class AuthController {
       });
     } catch (error) {
       const [code, message] = error.message.split(': ');
-      res
-        .status(
-          code === 'VALIDATION_ERROR' || code === 'USER_EXISTS' ? 400 : 500
-        )
-        .json({
-          success: false,
-          error: message || error.message,
-          code: code || 'INTERNAL_ERROR',
-          timestamp: new Date().toISOString(),
-        });
+      const isClientError = code === 'VALIDATION_ERROR' || code === 'USER_EXISTS';
+      const statusCode = isClientError ? 400 : 500;
+
+      res.status(statusCode).json({
+        success: false,
+        error: isClientError ? message || error.message : 'An internal server error occurred',
+        code: isClientError ? code : 'INTERNAL_ERROR',
+        timestamp: new Date().toISOString(),
+      });
     }
   }
 
@@ -40,20 +39,21 @@ class AuthController {
       });
     } catch (error) {
       const [code, message] = error.message.split(': ');
-      res
-        .status(
-          code === 'INVALID_CREDENTIALS'
-            ? 401
-            : code === 'VALIDATION_ERROR'
-              ? 400
-              : 500
-        )
-        .json({
-          success: false,
-          error: message || error.message,
-          code: code || 'INTERNAL_ERROR',
-          timestamp: new Date().toISOString(),
-        });
+      const isClientError =
+        code === 'INVALID_CREDENTIALS' || code === 'VALIDATION_ERROR';
+      const statusCode =
+        code === 'INVALID_CREDENTIALS'
+          ? 401
+          : code === 'VALIDATION_ERROR'
+            ? 400
+            : 500;
+
+      res.status(statusCode).json({
+        success: false,
+        error: isClientError ? message || error.message : 'An internal server error occurred',
+        code: isClientError ? code : 'INTERNAL_ERROR',
+        timestamp: new Date().toISOString(),
+      });
     }
   }
 
@@ -68,10 +68,13 @@ class AuthController {
         data: user,
       });
     } catch (error) {
-      res.status(404).json({
+      const [code, message] = error.message.split(': ');
+      const isNotFound = code === 'USER_NOT_FOUND';
+
+      res.status(isNotFound ? 404 : 500).json({
         success: false,
-        error: error.message,
-        code: 'USER_NOT_FOUND',
+        error: isNotFound ? message || error.message : 'An internal server error occurred',
+        code: isNotFound ? code : 'INTERNAL_ERROR',
         timestamp: new Date().toISOString(),
       });
     }
