@@ -20,4 +20,13 @@ describe('CORS Configuration', () => {
         // When origin is not allowed, the CORS middleware usually doesn't set the header
         expect(res.headers['access-control-allow-origin']).toBeUndefined();
     });
+
+    test('should reject requests without an Origin header', async () => {
+        const res = await request(app)
+            .get('/health');
+
+        // The middleware now returns an error for missing origin
+        expect(res.status).not.toBe(200);
+        expect(res.headers['access-control-allow-origin']).toBeUndefined();
+    });
 });
