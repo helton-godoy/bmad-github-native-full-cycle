@@ -88,6 +88,11 @@ describe('Validator Utility', () => {
       expect(result.valid).toBe(false);
       expect(result.errors).toContain('"extra" is not allowed');
     });
+
+    test('should handle null or undefined input', () => {
+      expect(validateRegistration(null).valid).toBe(false);
+      expect(validateRegistration(undefined).valid).toBe(false);
+    });
   });
 
   describe('validateLogin', () => {
@@ -128,6 +133,11 @@ describe('Validator Utility', () => {
       const result = validateLogin(data);
       expect(result.valid).toBe(false);
       expect(result.errors).toContain('"extra" is not allowed');
+    });
+
+    test('should handle null or undefined input', () => {
+      expect(validateLogin(null).valid).toBe(false);
+      expect(validateLogin(undefined).valid).toBe(false);
     });
   });
 });
