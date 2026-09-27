@@ -17,19 +17,26 @@ describe('GitStateManager', () => {
         try {
             execSync('git config --local user.email "test@example.com"');
             execSync('git config --local user.name "Test User"');
-        } catch (e) { }
+} catch (error) {
+            console.warn('Failed to set git identity, may already be set:',
+                error.message);
+        }
 
         // Cleanup existing test branch if any
         try {
             execSync(`git branch -D ${TEST_BRANCH}`, { stdio: 'ignore' });
-        } catch (e) { }
+        } catch (error) {
+            // Branch might not exist, which is fine
+        }
     });
 
     afterAll(() => {
         // Cleanup
         try {
             execSync(`git branch -D ${TEST_BRANCH}`, { stdio: 'ignore' });
-        } catch (e) { }
+        } catch (error) {
+            // Test branch may not exist if test failed early or branch was not created
+        }
     });
 
     test('should initialize the orphan branch', () => {
