@@ -171,33 +171,42 @@ async function syncToQdrant(mapData) {
 }
 
 // Main Execution
-(async () => {
-    console.log("\x1b[36m🧠 AgentDoc: Scanning codebase...\x1b[0m");
-    const rootDir = process.cwd();
-    const files = scanDir(rootDir);
-    const mapData = {};
+if (require.main === module) {
+    (async () => {
+        console.log("\x1b[36m🧠 AgentDoc: Scanning codebase...\x1b[0m");
+        const rootDir = process.cwd();
+        const files = scanDir(rootDir);
+        const mapData = {};
 
-    files.forEach(file => {
-        const content = fs.readFileSync(file, 'utf-8');
-        const tags = extractTags(content);
-        if (tags.length > 0) {
-            const relativePath = path.relative(rootDir, file);
-            mapData[relativePath] = tags;
+        files.forEach(file => {
+            const content = fs.readFileSync(file, 'utf-8');
+            const tags = extractTags(content);
+            if (tags.length > 0) {
+                const relativePath = path.relative(rootDir, file);
+                mapData[relativePath] = tags;
+            }
+        });
+
+        // 1. Generate Markdown (Legacy/Quick View)
+        const output = generateMarkdown(mapData);
+        const outputPath = path.join(rootDir, CONFIG.outputFile);
+        const outputDir = path.dirname(outputPath);
+        if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
+        fs.writeFileSync(outputPath, output);
+        console.log(`\x1b[32m✅ System Map generated at: ${CONFIG.outputFile}\x1b[0m`);
+
+        // 2. Sync to Qdrant (Vector Memory)
+        if (process.argv.includes('--qdrant')) {
+            await syncToQdrant(mapData);
+        } else {
+            console.log(`ℹ️  Run with --qdrant to sync with Vector Database.`);
         }
-    });
+    })();
+}
 
-    // 1. Generate Markdown (Legacy/Quick View)
-    const output = generateMarkdown(mapData);
-    const outputPath = path.join(rootDir, CONFIG.outputFile);
-    const outputDir = path.dirname(outputPath);
-    if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
-    fs.writeFileSync(outputPath, output);
-    console.log(`\x1b[32m✅ System Map generated at: ${CONFIG.outputFile}\x1b[0m`);
-
-    // 2. Sync to Qdrant (Vector Memory)
-    if (process.argv.includes('--qdrant')) {
-        await syncToQdrant(mapData);
-    } else {
-        console.log(`ℹ️  Run with --qdrant to sync with Vector Database.`);
-    }
-})();
+module.exports = {
+    extractTags,
+    generateMarkdown,
+    scanDir,
+    CONFIG
+};
