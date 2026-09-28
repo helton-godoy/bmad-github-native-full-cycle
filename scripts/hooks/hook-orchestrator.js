@@ -67,6 +67,43 @@ class HookOrchestrator {
       averageDuration: 0,
       successRate: 0,
     };
+
+    // Cache for parsed package.json
+    this.packageJsonCache = null;
+  }
+
+  /**
+   * Get parsed package.json from cache or read from disk
+   * @param {boolean} forceRefresh - Whether to force reading from disk
+   * @returns {Object|null} Parsed package.json object or null if invalid/missing
+   */
+  getPackageJson(forceRefresh = false) {
+    if (this.packageJsonCache !== null && !forceRefresh) {
+      return this.packageJsonCache;
+    }
+
+    try {
+      const packagePath = path.join(process.cwd(), 'package.json');
+      if (!fs.existsSync(packagePath)) {
+        this.packageJsonCache = null;
+        return null;
+      }
+
+      const content = fs.readFileSync(packagePath, 'utf8');
+      this.packageJsonCache = JSON.parse(content);
+      return this.packageJsonCache;
+    } catch (error) {
+      this.logger.warn(`Could not read package.json: ${error.message}`);
+      this.packageJsonCache = null;
+      return null;
+    }
+  }
+
+  /**
+   * Clear the cached package.json content
+   */
+  clearPackageJsonCache() {
+    this.packageJsonCache = null;
   }
 
   /**
@@ -347,16 +384,14 @@ class HookOrchestrator {
       }
 
       // Check if test script exists
-      const packagePath = path.join(process.cwd(), 'package.json');
-      if (!fs.existsSync(packagePath)) {
+      const pkg = this.getPackageJson();
+      if (!pkg) {
         return {
           status: 'warning',
           message: 'No package.json found',
           testsRun: 0,
         };
       }
-
-      const pkg = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
       if (!pkg.scripts || !pkg.scripts.test) {
         return {
           status: 'warning',
@@ -1133,8 +1168,8 @@ class HookOrchestrator {
 
     try {
       // Check if test script exists
-      const packagePath = path.join(process.cwd(), 'package.json');
-      if (!fs.existsSync(packagePath)) {
+      const pkg = this.getPackageJson();
+      if (!pkg) {
         return {
           status: 'warning',
           message: 'No package.json found',
@@ -1142,8 +1177,6 @@ class HookOrchestrator {
           coverage: null,
         };
       }
-
-      const pkg = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
       if (!pkg.scripts || !pkg.scripts['test:coverage']) {
         // Fallback to regular test if coverage script not available
         if (!pkg.scripts.test) {
@@ -1230,10 +1263,10 @@ class HookOrchestrator {
    */
   getCoverageThreshold() {
     try {
-      const packagePath = path.join(process.cwd(), 'package.json');
-      const pkg = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
+      const pkg = this.getPackageJson();
 
       if (
+        pkg &&
         pkg.jest &&
         pkg.jest.coverageThreshold &&
         pkg.jest.coverageThreshold.global
@@ -1273,15 +1306,13 @@ class HookOrchestrator {
     this.logger.info('Validating project build');
 
     try {
-      const packagePath = path.join(process.cwd(), 'package.json');
-      if (!fs.existsSync(packagePath)) {
+      const pkg = this.getPackageJson();
+      if (!pkg) {
         return {
           status: 'warning',
           message: 'No package.json found for build validation',
         };
       }
-
-      const pkg = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
 
       // Check if build script exists
       if (!pkg.scripts || !pkg.scripts.build) {
@@ -2153,16 +2184,14 @@ class HookOrchestrator {
       }
 
       // Check if documentation generation script exists
-      const packagePath = path.join(process.cwd(), 'package.json');
-      if (!fs.existsSync(packagePath)) {
+      const pkg = this.getPackageJson();
+      if (!pkg) {
         return {
           status: 'skipped',
           message: 'No package.json found',
           filesChecked: changedFiles.length,
         };
       }
-
-      const pkg = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
       if (!pkg.scripts || !pkg.scripts['bmad:docs']) {
         return {
           status: 'skipped',
@@ -2449,15 +2478,13 @@ class HookOrchestrator {
 
     try {
       // Check if bmad:workflow script exists
-      const packagePath = path.join(process.cwd(), 'package.json');
-      if (!fs.existsSync(packagePath)) {
+      const pkg = this.getPackageJson();
+      if (!pkg) {
         return {
           status: 'skipped',
           message: 'No package.json found',
         };
       }
-
-      const pkg = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
       if (!pkg.scripts || !pkg.scripts['bmad:workflow']) {
         return {
           status: 'skipped',
