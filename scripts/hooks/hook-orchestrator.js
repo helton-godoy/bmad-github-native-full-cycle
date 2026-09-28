@@ -496,7 +496,7 @@ class HookOrchestrator {
 
       // Validate context file content if it exists and is staged
       if (contextExists && contextStaged) {
-        const contextContent = fs.readFileSync(contextPath, 'utf8');
+        const contextContent = await fs.promises.readFile(contextPath, 'utf8');
         const isValidContext = this.validateContextContent(contextContent);
 
         return {
