@@ -74,7 +74,7 @@ describe('AuthController Unit Tests', () => {
       });
     });
 
-    it('should fallback to error.message if code split results in empty message for client error', async () => {
+    it('should fallback to safe generic message if code split results in empty message for client error', async () => {
       authService.register.mockRejectedValue(new Error('VALIDATION_ERROR'));
 
       await authController.register(req, res);
@@ -82,7 +82,7 @@ describe('AuthController Unit Tests', () => {
       expect(res.status).toHaveBeenCalledWith(400);
       expect(res.json).toHaveBeenCalledWith({
         success: false,
-        error: 'VALIDATION_ERROR',
+        error: 'A validation error occurred',
         code: 'VALIDATION_ERROR',
         timestamp: expect.any(String),
       });
@@ -151,7 +151,7 @@ describe('AuthController Unit Tests', () => {
       });
     });
 
-    it('should fallback to error.message if INVALID_CREDENTIALS message part is missing', async () => {
+    it('should fallback to safe generic message if INVALID_CREDENTIALS message part is missing', async () => {
       authService.login.mockRejectedValue(new Error('INVALID_CREDENTIALS'));
 
       await authController.login(req, res);
@@ -159,7 +159,7 @@ describe('AuthController Unit Tests', () => {
       expect(res.status).toHaveBeenCalledWith(401);
       expect(res.json).toHaveBeenCalledWith({
         success: false,
-        error: 'INVALID_CREDENTIALS',
+        error: 'Authentication failed',
         code: 'INVALID_CREDENTIALS',
         timestamp: expect.any(String),
       });
@@ -211,7 +211,7 @@ describe('AuthController Unit Tests', () => {
       });
     });
 
-    it('should fallback to error.message if USER_NOT_FOUND message part is missing', async () => {
+    it('should fallback to safe generic message if USER_NOT_FOUND message part is missing', async () => {
       req.user = { userId: 'user-999' };
       authService.getUserById.mockRejectedValue(new Error('USER_NOT_FOUND'));
 
@@ -220,7 +220,7 @@ describe('AuthController Unit Tests', () => {
       expect(res.status).toHaveBeenCalledWith(404);
       expect(res.json).toHaveBeenCalledWith({
         success: false,
-        error: 'USER_NOT_FOUND',
+        error: 'Resource not found',
         code: 'USER_NOT_FOUND',
         timestamp: expect.any(String),
       });

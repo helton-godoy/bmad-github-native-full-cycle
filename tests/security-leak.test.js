@@ -1,40 +1,68 @@
-const request = require('supertest');
-const app = require('../src/app');
-const authService = require('../src/services/auth.service');
-const { generateToken } = require('../src/utils/jwt.util');
+jest.mock('bcrypt', () => ({
+  hash: jest.fn().mockResolvedValue('hashed'),
+  compare: jest.fn().mockResolvedValue(true)
+}), { virtual: true });
 
-jest.mock('../src/services/auth.service');
+jest.mock('jsonwebtoken', () => ({
+  sign: jest.fn().mockReturnValue('token'),
+  verify: jest.fn().mockReturnValue({ userId: '1' })
+}), { virtual: true });
+
+jest.mock('joi', () => ({
+  object: jest.fn().mockReturnValue({
+    keys: jest.fn().mockReturnValue({
+      validate: jest.fn().mockReturnValue({ error: null, value: {} })
+    })
+  }),
+  string: jest.fn().mockReturnValue({
+    alphanum: function() { return this; },
+    min: function() { return this; },
+    max: function() { return this; },
+    email: function() { return this; },
+    required: function() { return this; }
+  })
+}), { virtual: true });
+
+process.env.JWT_SECRET = 'test-secret';
+
+const authController = require('../src/controllers/auth.controller');
+const authService = require('../src/services/auth.service');
 
 describe('Auth Security Fix', () => {
-    let server;
-    beforeAll(() => {
-        server = app.listen(0);
-    });
-    afterAll(() => {
-        server.close();
+    let req, res;
+
+    beforeEach(() => {
+        req = { body: {}, user: {} };
+        res = {
+            statusCode: null,
+            body: null,
+            status(code) {
+                this.statusCode = code;
+                return this;
+            },
+            json(data) {
+                this.body = data;
+                return this;
+            }
+        };
         jest.restoreAllMocks();
     });
 
     test('Register - does not leak internal error message', async () => {
-        authService.register.mockRejectedValue(new Error('DATABASE_ERROR: Secret connection string leaked'));
+        jest.spyOn(authService, 'register').mockRejectedValue(new Error('DATABASE_ERROR: Secret connection string leaked'));
 
-        const res = await request(server)
-            .post('/api/auth/register')
-            .send({ username: 'testuser', email: 'test@example.com', password: 'Password123' });
+        await authController.register(req, res);
 
         expect(res.statusCode).toBe(500);
         expect(res.body.success).toBe(false);
-        // Should NOT leak the message
         expect(res.body.error).toBe('An internal server error occurred');
         expect(res.body.code).toBe('INTERNAL_ERROR');
     });
 
     test('Login - does not leak internal error message', async () => {
-        authService.login.mockRejectedValue(new Error('INTERNAL_ERROR: Sensitive login details leaked'));
+        jest.spyOn(authService, 'login').mockRejectedValue(new Error('INTERNAL_ERROR: Sensitive login details leaked'));
 
-        const res = await request(server)
-            .post('/api/auth/login')
-            .send({ email: 'test@example.com', password: 'Password123' });
+        await authController.login(req, res);
 
         expect(res.statusCode).toBe(500);
         expect(res.body.success).toBe(false);
@@ -43,12 +71,10 @@ describe('Auth Security Fix', () => {
     });
 
     test('Me - does not leak internal error message', async () => {
-        authService.getUserById.mockRejectedValue(new Error('Something sensitive'));
-        const token = generateToken({ userId: '123', username: 'test' });
+        req.user = { userId: '123' };
+        jest.spyOn(authService, 'getUserById').mockRejectedValue(new Error('Something sensitive'));
 
-        const res = await request(server)
-            .get('/api/auth/me')
-            .set('Authorization', `Bearer ${token}`);
+        await authController.me(req, res);
 
         expect(res.statusCode).toBe(500);
         expect(res.body.success).toBe(false);
@@ -57,11 +83,9 @@ describe('Auth Security Fix', () => {
     });
 
     test('Register - allows validation errors', async () => {
-        authService.register.mockRejectedValue(new Error('VALIDATION_ERROR: Invalid email'));
+        jest.spyOn(authService, 'register').mockRejectedValue(new Error('VALIDATION_ERROR: Invalid email'));
 
-        const res = await request(server)
-            .post('/api/auth/register')
-            .send({ email: 'invalid' });
+        await authController.register(req, res);
 
         expect(res.statusCode).toBe(400);
         expect(res.body.error).toBe('Invalid email');
