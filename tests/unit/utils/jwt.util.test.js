@@ -103,6 +103,11 @@ describe('JWT Utilities', () => {
       expect(() => verifyToken(invalidToken)).toThrow('TOKEN_INVALID');
     });
 
+    it('should throw TOKEN_INVALID for null or empty token', () => {
+      expect(() => verifyToken(null)).toThrow('TOKEN_INVALID');
+      expect(() => verifyToken('')).toThrow('TOKEN_INVALID');
+    });
+
     it('should throw TOKEN_EXPIRED for expired token', () => {
       // For now, test that malformed tokens throw TOKEN_INVALID
       const malformedToken = 'eyJhbG...Y6O8';

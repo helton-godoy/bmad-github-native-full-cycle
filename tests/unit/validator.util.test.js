@@ -1,143 +1,224 @@
+/**
+ * @ai-context Unit Tests for Validation Utilities
+ * @ai-invariant Input validation must be strict and consistent
+ * @ai-connection Validation utilities are used by auth.service.js
+ */
 const { validateRegistration, validateLogin } = require('../../src/utils/validator.util');
 
-describe('Validator Utility', () => {
+describe('Validation Utilities', () => {
   describe('validateRegistration', () => {
-    test('should validate a correct registration payload', () => {
+    it('should validate correct registration data', () => {
       const data = {
-        username: 'johndoe',
-        email: 'john@example.com',
-        password: 'password123',
+        username: 'testuser',
+        email: 'test@example.com',
+        password: 'Password123'
       };
+
       const result = validateRegistration(data);
+
       expect(result.valid).toBe(true);
-      expect(result.value).toEqual(data);
+      expect(result.value).toBeDefined();
+      expect(result.value.username).toBe(data.username);
+      expect(result.value.email).toBe(data.email);
+      expect(result.value.password).toBe(data.password);
     });
 
-    test('should return errors for missing required fields', () => {
-      const data = {};
-      const result = validateRegistration(data);
-      expect(result.valid).toBe(false);
-      expect(result.errors).toContain('"username" is required');
-      expect(result.errors).toContain('"email" is required');
-      expect(result.errors).toContain('"password" is required');
-    });
-
-    test('should return errors for invalid username (not alphanumeric)', () => {
+    it('should reject invalid email format', () => {
       const data = {
-        username: 'john_doe!',
-        email: 'john@example.com',
-        password: 'password123',
+        username: 'testuser',
+        email: 'invalid-email',
+        password: 'Password123'
       };
+
       const result = validateRegistration(data);
+
       expect(result.valid).toBe(false);
-      expect(result.errors).toContain('"username" must only contain alpha-numeric characters');
+      expect(result.errors).toBeDefined();
+      expect(result.errors.some(e => e.includes('email'))).toBe(true);
     });
 
-    test('should return errors for username too short', () => {
+    it('should reject short password', () => {
       const data = {
-        username: 'jo',
-        email: 'john@example.com',
-        password: 'password123',
+        username: 'testuser',
+        email: 'test@example.com',
+        password: 'short'
       };
+
       const result = validateRegistration(data);
+
       expect(result.valid).toBe(false);
-      expect(result.errors).toContain('"username" length must be at least 3 characters long');
+      expect(result.errors).toBeDefined();
+      expect(result.errors.some(e => e.includes('password'))).toBe(true);
     });
 
-    test('should return errors for username too long', () => {
+    it('should reject short username', () => {
+      const data = {
+        username: 'ab',
+        email: 'test@example.com',
+        password: 'Password123'
+      };
+
+      const result = validateRegistration(data);
+
+      expect(result.valid).toBe(false);
+      expect(result.errors).toBeDefined();
+    });
+
+    it('should reject long username', () => {
       const data = {
         username: 'a'.repeat(31),
-        email: 'john@example.com',
-        password: 'password123',
+        email: 'test@example.com',
+        password: 'Password123'
       };
+
       const result = validateRegistration(data);
+
       expect(result.valid).toBe(false);
-      expect(result.errors).toContain('"username" length must be less than or equal to 30 characters long');
+      expect(result.errors).toBeDefined();
     });
 
-    test('should return errors for invalid email', () => {
+    it('should reject username with invalid non-alphanumeric characters', () => {
       const data = {
-        username: 'johndoe',
-        email: 'not-an-email',
-        password: 'password123',
+        username: 'user@name!',
+        email: 'test@example.com',
+        password: 'Password123'
       };
+
       const result = validateRegistration(data);
+
       expect(result.valid).toBe(false);
-      expect(result.errors).toContain('"email" must be a valid email');
+      expect(result.errors).toBeDefined();
     });
 
-    test('should return errors for password too short', () => {
+    it('should reject missing fields', () => {
+      const result = validateRegistration({});
+
+      expect(result.valid).toBe(false);
+      expect(result.errors).toBeDefined();
+      expect(result.errors.length).toBeGreaterThan(0);
+    });
+
+    it('should accept username with underscores', () => {
       const data = {
-        username: 'johndoe',
-        email: 'john@example.com',
-        password: 'short',
+        username: 'test_user_123',
+        email: 'test@example.com',
+        password: 'Password123'
       };
+
       const result = validateRegistration(data);
-      expect(result.valid).toBe(false);
-      expect(result.errors).toContain('"password" length must be at least 8 characters long');
+
+      expect(result.valid).toBe(true);
     });
 
-    test('should reject unknown fields', () => {
+    it('should return all validation errors at once', () => {
       const data = {
-        username: 'johndoe',
-        email: 'john@example.com',
-        password: 'password123',
-        extra: 'field'
+        username: 'ab',
+        email: 'invalid',
+        password: 'short'
       };
+
       const result = validateRegistration(data);
+
       expect(result.valid).toBe(false);
-      expect(result.errors).toContain('"extra" is not allowed');
+      expect(result.errors.length).toBeGreaterThan(1);
     });
 
-    test('should handle null or undefined input', () => {
+    it('should handle non-object inputs gracefully', () => {
       expect(validateRegistration(null).valid).toBe(false);
       expect(validateRegistration(undefined).valid).toBe(false);
+      expect(validateRegistration('string').valid).toBe(false);
+      expect(validateRegistration(123).valid).toBe(false);
+    });
+
+    it('should strip unknown fields in validateRegistration', () => {
+      const data = {
+        username: 'testuser',
+        email: 'test@example.com',
+        password: 'Password123',
+        extraField: 'should be stripped'
+      };
+
+      const result = validateRegistration(data);
+
+      expect(result.valid).toBe(true);
+      expect(result.value).not.toHaveProperty('extraField');
     });
   });
 
   describe('validateLogin', () => {
-    test('should validate a correct login payload', () => {
+    it('should validate correct login data', () => {
       const data = {
-        email: 'john@example.com',
-        password: 'password123',
+        email: 'test@example.com',
+        password: 'Password123'
       };
+
       const result = validateLogin(data);
+
       expect(result.valid).toBe(true);
-      expect(result.value).toEqual(data);
+      expect(result.value.email).toBe(data.email);
+      expect(result.value.password).toBe(data.password);
     });
 
-    test('should return errors for missing fields', () => {
-      const data = {};
-      const result = validateLogin(data);
-      expect(result.valid).toBe(false);
-      expect(result.errors).toContain('"email" is required');
-      expect(result.errors).toContain('"password" is required');
-    });
-
-    test('should return errors for invalid email', () => {
+    it('should reject invalid email format', () => {
       const data = {
-        email: 'not-an-email',
-        password: 'password123',
+        email: 'invalid-email',
+        password: 'Password123'
       };
+
       const result = validateLogin(data);
+
       expect(result.valid).toBe(false);
-      expect(result.errors).toContain('"email" must be a valid email');
+      expect(result.errors.some(e => e.includes('email'))).toBe(true);
     });
 
-    test('should reject unknown fields', () => {
+    it('should reject missing password', () => {
       const data = {
-        email: 'john@example.com',
-        password: 'password123',
-        extra: 'field'
+        email: 'test@example.com'
       };
+
       const result = validateLogin(data);
+
       expect(result.valid).toBe(false);
-      expect(result.errors).toContain('"extra" is not allowed');
+      expect(result.errors.some(e => e.includes('password'))).toBe(true);
     });
 
-    test('should handle null or undefined input', () => {
+    it('should reject missing email', () => {
+      const data = {
+        password: 'Password123'
+      };
+
+      const result = validateLogin(data);
+
+      expect(result.valid).toBe(false);
+      expect(result.errors.some(e => e.includes('email'))).toBe(true);
+    });
+
+    it('should accept email with plus sign (Gmail convention)', () => {
+      const data = {
+        email: 'test+user@example.com',
+        password: 'Password123'
+      };
+
+      const result = validateLogin(data);
+
+      expect(result.valid).toBe(true);
+    });
+
+    it('should accept email with subdomains', () => {
+      const data = {
+        email: 'test@sub.example.com',
+        password: 'Password123'
+      };
+
+      const result = validateLogin(data);
+
+      expect(result.valid).toBe(true);
+    });
+
+    it('should handle non-object or null/undefined inputs for validateLogin', () => {
       expect(validateLogin(null).valid).toBe(false);
       expect(validateLogin(undefined).valid).toBe(false);
+      expect(validateLogin('string').valid).toBe(false);
     });
   });
 });

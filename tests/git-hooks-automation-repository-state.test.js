@@ -108,7 +108,7 @@ describe('Repository State Validation - Property 14', () => {
         // Run validation for different merge types
         const mergeTypes = ['fast-forward', 'merge-commit', 'rebase', 'squash'];
 
-        await Promise.all(mergeTypes.map(async (mergeType) => {
+        for (const mergeType of mergeTypes) {
             const result = await orchestrator.validateRepositoryState(mergeType);
 
             // Property: Result should always have all required fields
@@ -122,7 +122,7 @@ describe('Repository State Validation - Property 14', () => {
             expect(result).toHaveProperty('timestamp');
             expect(result).toHaveProperty('summary');
             expect(result).toHaveProperty('status');
-        }));
+        }
     });
 
     /**
