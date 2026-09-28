@@ -40,7 +40,7 @@ describe('Agent documentation tools', () => {
     fs.writeFileSync(path.join(root, 'src', 'ignored.txt'), taggedSource);
     fs.writeFileSync(path.join(root, 'node_modules', 'hidden.js'), taggedSource);
 
-    const files = tool.scanDir(root);
+    const files = await tool.scanDir(root);
     expect(files).toEqual([path.join(root, 'src', 'sample.js')]);
     const tags = tool.extractTags(taggedSource);
     expect(tags.map((tag) => tag.type)).toEqual([

@@ -139,23 +139,32 @@ function mockEmbedding(text) {
 async function syncToQdrant(mapData) {
     await ensureCollection();
 
-    const points = [];
     let idCounter = Date.now();
+    const project = path.basename(process.cwd());
+    const entries = Object.entries(mapData);
 
-    for (const [file, tags] of Object.entries(mapData)) {
-        for (const tag of tags) {
-            points.push({
-                id: idCounter++,
-                vector: mockEmbedding(tag.content),
-                payload: {
-                    file: file,
-                    type: tag.type,
-                    content: tag.content,
-                    project: path.basename(process.cwd())
-                }
-            });
+    const pointPromises = [];
+    for (let i = 0; i < entries.length; i++) {
+        const [file, tags] = entries[i];
+        for (let j = 0; j < tags.length; j++) {
+            const tag = tags[j];
+            const id = idCounter++;
+            pointPromises.push(
+                (async () => ({
+                    id,
+                    vector: await mockEmbedding(tag.content),
+                    payload: {
+                        file: file,
+                        type: tag.type,
+                        content: tag.content,
+                        project: project
+                    }
+                }))()
+            );
         }
     }
+
+    const points = await Promise.all(pointPromises);
 
     if (points.length > 0) {
         console.log(`🚀 Sending ${points.length} points to Qdrant...`);
@@ -205,8 +214,12 @@ if (require.main === module) {
 }
 
 module.exports = {
+    CONFIG,
+    scanDir,
     extractTags,
     generateMarkdown,
-    scanDir,
-    CONFIG
+    qdrantRequest,
+    ensureCollection,
+    mockEmbedding,
+    syncToQdrant
 };
