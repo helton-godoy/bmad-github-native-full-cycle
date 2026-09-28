@@ -10,6 +10,7 @@ process.env.GITHUB_OWNER = 'helton-godoy';
 process.env.GITHUB_REPO = 'shantilly-cli';
 process.env.GITHUB_BRANCH = 'main';
 process.env.NODE_ENV = 'test';
+process.env.JWT_SECRET = process.env.JWT_SECRET || 'mock-jwt-secret-for-testing';
 
 // Mock console methods to reduce noise in tests
 global.console = {
