@@ -1,6 +1,17 @@
-const { validateRegistration, validateLogin } = require('../../src/utils/validator.util');
+const validatorUtil = require('../../src/utils/validator.util');
+const { validateRegistration, validateLogin } = validatorUtil;
 
 describe('Validator Utility', () => {
+  describe('Module Exports', () => {
+    test('should export validateRegistration and validateLogin functions', () => {
+      expect(validatorUtil).toBeDefined();
+      expect(typeof validatorUtil).toBe('object');
+      expect(typeof validatorUtil.validateRegistration).toBe('function');
+      expect(typeof validatorUtil.validateLogin).toBe('function');
+      expect(Object.keys(validatorUtil)).toEqual(['validateRegistration', 'validateLogin']);
+    });
+  });
+
   describe('validateRegistration', () => {
     test('should validate a correct registration payload', () => {
       const data = {
