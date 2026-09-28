@@ -15,3 +15,5 @@ personas, commits, gatekeeping, loop detection, and error recovery.
 
 Implementation specification:
 `_bmad-output/implementation-artifacts/spec-complete-bmad-critical-fixes.md`.
+
+- Added unit tests for `src/middleware/auth.middleware.js` in `tests/unit/auth.middleware.test.js` covering error paths (`AUTH_HEADER_MISSING`, `TOKEN_MISSING`, `TOKEN_EXPIRED`, `TOKEN_INVALID`, unexpected errors) and happy path token verification.
