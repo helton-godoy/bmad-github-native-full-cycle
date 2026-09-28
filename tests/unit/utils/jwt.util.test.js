@@ -1,13 +1,16 @@
+/* global it */
 /**
  * @ai-context Unit Tests for JWT Utilities
  * @ai-invariant JWT tokens must be secure and properly validated
  * @ai-connection JWT utilities are used by auth.service.js
  */
-const { generateToken, verifyToken } = require('../../src/utils/jwt.util');
+const jwt = require('jsonwebtoken');
 
-// Set test secret before tests
-process.env.JWT_SECRET = 'test-secret-key-for-unit-tests';
+// Ensure secret is set before importing jwt.util
+process.env.JWT_SECRET = process.env.JWT_SECRET || 'test-secret-key-for-unit-tests';
 process.env.JWT_EXPIRES_IN = '1h';
+
+const { generateToken, verifyToken } = require('../../src/utils/jwt.util');
 
 describe('JWT Utilities', () => {
   describe('generateToken', () => {
@@ -103,29 +106,23 @@ describe('JWT Utilities', () => {
       expect(() => verifyToken(invalidToken)).toThrow('TOKEN_INVALID');
     });
 
-    it('should throw TOKEN_EXPIRED for expired token', () => {
-      // For now, test that malformed tokens throw TOKEN_INVALID
-      const malformedToken = 'eyJhbG...Y6O8';
-
-      expect(() => verifyToken(malformedToken)).toThrow('TOKEN_INVALID');
+    it('should throw TOKEN_INVALID for null or empty token', () => {
+      expect(() => verifyToken(null)).toThrow('TOKEN_INVALID');
+      expect(() => verifyToken('')).toThrow('TOKEN_INVALID');
     });
 
-    it('should throw error for token with wrong secret', () => {
+    it('should throw TOKEN_EXPIRED for expired token', () => {
       const payload = { userId: '123' };
-      const token = generateToken(payload);
+      const expiredToken = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '-1s' });
 
-      // Temporarily change secret
-      const originalSecret = process.env.JWT_SECRET;
-      process.env.JWT_SECRET = 'different-secret';
+      expect(() => verifyToken(expiredToken)).toThrow('TOKEN_EXPIRED');
+    });
 
-      expect(() => {
-        // Need to re-import to pick up new secret
-        jest.resetModules();
-        const jwtUtils = require('../../src/utils/jwt.util');
-        jwtUtils.verifyToken(token);
-      }).toThrow();
+    it('should throw TOKEN_INVALID for token with wrong secret', () => {
+      const payload = { userId: '123' };
+      const tokenWithWrongSecret = jwt.sign(payload, 'different-secret-key');
 
-      process.env.JWT_SECRET = originalSecret;
+      expect(() => verifyToken(tokenWithWrongSecret)).toThrow('TOKEN_INVALID');
     });
   });
 
