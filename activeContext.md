@@ -15,3 +15,7 @@ personas, commits, gatekeeping, loop detection, and error recovery.
 
 Implementation specification:
 `_bmad-output/implementation-artifacts/spec-complete-bmad-critical-fixes.md`.
+
+
+## Performance Optimization
+Optimized Qdrant vector memory synchronization in agent-doc scripts by parallelizing vector computations using Promise.all and hoisting path invariants outside the nested loop.

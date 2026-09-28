@@ -3,7 +3,14 @@
  * Orders tests to minimize resource usage and prevent system overload
  */
 
-const Sequencer = require('@jest/test-sequencer').default;
+let Sequencer;
+try {
+    Sequencer = require('@jest/test-sequencer').default;
+} catch (e) {
+    Sequencer = class DummySequencer {
+        sort(tests) { return tests; }
+    };
+}
 const fs = require('fs');
 const path = require('path');
 
