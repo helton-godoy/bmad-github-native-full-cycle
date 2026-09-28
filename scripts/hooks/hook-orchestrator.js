@@ -1134,19 +1134,37 @@ class HookOrchestrator {
     try {
       // Check if test script exists
       const packagePath = path.join(process.cwd(), 'package.json');
-      if (!fs.existsSync(packagePath)) {
-        return {
-          status: 'warning',
-          message: 'No package.json found',
-          testsRun: 0,
-          coverage: null,
-        };
+      let packageContent;
+      if (fs.promises && fs.promises.readFile) {
+        try {
+          packageContent = await fs.promises.readFile(packagePath, 'utf8');
+        } catch (err) {
+          if (err.code === 'ENOENT') {
+            return {
+              status: 'warning',
+              message: 'No package.json found',
+              testsRun: 0,
+              coverage: null,
+            };
+          }
+          throw err;
+        }
+      } else {
+        if (!fs.existsSync(packagePath)) {
+          return {
+            status: 'warning',
+            message: 'No package.json found',
+            testsRun: 0,
+            coverage: null,
+          };
+        }
+        packageContent = fs.readFileSync(packagePath, 'utf8');
       }
 
-      const pkg = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
+      const pkg = JSON.parse(packageContent);
       if (!pkg.scripts || !pkg.scripts['test:coverage']) {
         // Fallback to regular test if coverage script not available
-        if (!pkg.scripts.test) {
+        if (!pkg.scripts || !pkg.scripts.test) {
           return {
             status: 'warning',
             message: 'No test scripts defined in package.json',
@@ -1171,7 +1189,7 @@ class HookOrchestrator {
       const coverageResults = this.parseCoverageOutput(testOutput);
 
       // Check if coverage meets minimum thresholds
-      const coverageThreshold = this.getCoverageThreshold();
+      const coverageThreshold = this.getCoverageThreshold(pkg);
       const coverageMet = this.checkCoverageThreshold(
         coverageResults,
         coverageThreshold
@@ -1228,10 +1246,12 @@ class HookOrchestrator {
   /**
    * Get coverage threshold from package.json or default
    */
-  getCoverageThreshold() {
+  getCoverageThreshold(pkg = null) {
     try {
-      const packagePath = path.join(process.cwd(), 'package.json');
-      const pkg = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
+      if (!pkg) {
+        const packagePath = path.join(process.cwd(), 'package.json');
+        pkg = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
+      }
 
       if (
         pkg.jest &&
