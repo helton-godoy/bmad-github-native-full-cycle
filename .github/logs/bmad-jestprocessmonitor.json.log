@@ -1,0 +1,10 @@
+{"timestamp":"2026-09-28T01:45:19.695Z","level":"INFO","component":"JestProcessMonitor","message":"Process monitoring report saved to /tmp/process-monitor-gu1BrA/report.json"}
+{"timestamp":"2026-09-28T01:45:19.698Z","level":"INFO","component":"JestProcessMonitor","message":"Jest process monitoring setup complete"}
+{"timestamp":"2026-09-28T01:45:19.699Z","level":"INFO","component":"JestProcessMonitor","message":"Process monitoring report saved to /tmp/process-monitor-qDr9Fb/jest.json"}
+{"timestamp":"2026-09-28T01:45:19.699Z","level":"INFO","component":"JestProcessMonitor","message":"Child process hooks installed"}
+{"timestamp":"2026-09-28T01:45:19.700Z","level":"INFO","component":"JestProcessMonitor","message":"Jest process monitoring setup complete"}
+{"timestamp":"2026-09-28T01:45:19.700Z","level":"INFO","component":"JestProcessMonitor","message":"Child process hooks removed"}
+{"timestamp":"2026-09-28T01:45:19.702Z","level":"ERROR","component":"JestProcessMonitor","message":"Failed to save report: EISDIR: illegal operation on a directory, open '/tmp/process-monitor-3hqooB'"}
+{"timestamp":"2026-09-28T01:45:19.705Z","level":"INFO","component":"JestProcessMonitor","message":"Child process hooks installed"}
+{"timestamp":"2026-09-28T01:45:19.706Z","level":"INFO","component":"JestProcessMonitor","message":"Child process hooks removed"}
+{"timestamp":"2026-09-28T01:45:19.708Z","level":"INFO","component":"JestProcessMonitor","message":"Jest worker detected: PID 5"}
