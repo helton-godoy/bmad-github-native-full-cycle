@@ -22,6 +22,62 @@ const colors = {
   reset: '\x1b[0m',
 };
 
+const PHASES = [
+  {
+    header: '📋 Phase 1: Project Manager Analysis',
+    key: 'pm',
+    personaName: 'PM',
+    nextLabel: 'architecture',
+    logCompleted: (issue) => `✅ PM completed. Architecture issue: #${issue}`,
+  },
+  {
+    header: '🏗️  Phase 2: Architecture Design',
+    key: 'architect',
+    personaName: 'Architect',
+    nextLabel: 'implementation',
+    logCompleted: (issue) =>
+      `✅ Architect completed. Implementation issue: #${issue}`,
+  },
+  {
+    header: '💻 Phase 3: Development',
+    key: 'developer',
+    personaName: 'Developer',
+    nextLabel: 'qa',
+    logCompleted: (issue) => `✅ Developer completed. QA issue: #${issue}`,
+  },
+  {
+    header: '🧪 Phase 4: Quality Assurance',
+    key: 'qa',
+    personaName: 'QA',
+    nextLabel: 'security',
+    logCompleted: (issue) =>
+      `✅ QA completed. Security issue: #${issue}`,
+  },
+  {
+    header: '🔒 Phase 5: Security Review',
+    key: 'security',
+    personaName: 'Security',
+    nextLabel: 'devops',
+    logCompleted: (issue) =>
+      `✅ Security completed. DevOps issue: #${issue}`,
+  },
+  {
+    header: '⚙️  Phase 6: DevOps Preparation',
+    key: 'devops',
+    personaName: 'DevOps',
+    nextLabel: 'release',
+    logCompleted: (issue) =>
+      `✅ DevOps completed. Release issue: #${issue}`,
+  },
+  {
+    header: '🎉 Phase 7: Release Management',
+    key: 'releaseManager',
+    personaName: 'Release Manager',
+    nextLabel: null,
+    logCompleted: null,
+  },
+];
+
 class BMADWorkflow {
   constructor() {
     this.githubToken = process.env.GITHUB_TOKEN;
@@ -60,111 +116,23 @@ class BMADWorkflow {
     const workflowLog = [];
 
     try {
-      // Phase 1: Project Manager
-      console.log(
-        `\n${colors.yellow}📋 Phase 1: Project Manager Analysis${colors.reset}`
-      );
-      await this.personas.pm.execute(currentIssue);
-      workflowLog.push({
-        persona: 'PM',
-        issue: currentIssue,
-        status: 'completed',
-      });
+      for (let i = 0; i < PHASES.length; i++) {
+        const phase = PHASES[i];
+        console.log(`\n${colors.yellow}${phase.header}${colors.reset}`);
+        await this.personas[phase.key].execute(currentIssue);
+        workflowLog.push({
+          persona: phase.personaName,
+          issue: currentIssue,
+          status: 'completed',
+        });
 
-      // Get the architecture planning issue created by PM
-      currentIssue = await this.getLatestIssue('architecture');
-      console.log(
-        `${colors.green}✅ PM completed. Architecture issue: #${currentIssue}${colors.reset}`
-      );
-
-      // Phase 2: Architect
-      console.log(
-        `\n${colors.yellow}🏗️  Phase 2: Architecture Design${colors.reset}`
-      );
-      await this.personas.architect.execute(currentIssue);
-      workflowLog.push({
-        persona: 'Architect',
-        issue: currentIssue,
-        status: 'completed',
-      });
-
-      currentIssue = await this.getLatestIssue('implementation');
-      console.log(
-        `${colors.green}✅ Architect completed. Implementation issue: #${currentIssue}${colors.reset}`
-      );
-
-      // Phase 3: Developer
-      console.log(`\n${colors.yellow}💻 Phase 3: Development${colors.reset}`);
-      await this.personas.developer.execute(currentIssue);
-      workflowLog.push({
-        persona: 'Developer',
-        issue: currentIssue,
-        status: 'completed',
-      });
-
-      currentIssue = await this.getLatestIssue('qa');
-      console.log(
-        `${colors.green}✅ Developer completed. QA issue: #${currentIssue}${colors.reset}`
-      );
-
-      // Phase 4: QA
-      console.log(
-        `\n${colors.yellow}🧪 Phase 4: Quality Assurance${colors.reset}`
-      );
-      await this.personas.qa.execute(currentIssue);
-      workflowLog.push({
-        persona: 'QA',
-        issue: currentIssue,
-        status: 'completed',
-      });
-
-      currentIssue = await this.getLatestIssue('security');
-      console.log(
-        `${colors.green}✅ QA completed. Security issue: #${currentIssue}${colors.reset}`
-      );
-
-      // Phase 5: Security
-      console.log(
-        `\n${colors.yellow}🔒 Phase 5: Security Review${colors.reset}`
-      );
-      await this.personas.security.execute(currentIssue);
-      workflowLog.push({
-        persona: 'Security',
-        issue: currentIssue,
-        status: 'completed',
-      });
-
-      currentIssue = await this.getLatestIssue('devops');
-      console.log(
-        `${colors.green}✅ Security completed. DevOps issue: #${currentIssue}${colors.reset}`
-      );
-
-      // Phase 6: DevOps
-      console.log(
-        `\n${colors.yellow}⚙️  Phase 6: DevOps Preparation${colors.reset}`
-      );
-      await this.personas.devops.execute(currentIssue);
-      workflowLog.push({
-        persona: 'DevOps',
-        issue: currentIssue,
-        status: 'completed',
-      });
-
-      currentIssue = await this.getLatestIssue('release');
-      console.log(
-        `${colors.green}✅ DevOps completed. Release issue: #${currentIssue}${colors.reset}`
-      );
-
-      // Phase 7: Release Manager
-      console.log(
-        `\n${colors.yellow}🎉 Phase 7: Release Management${colors.reset}`
-      );
-      await this.personas.releaseManager.execute(currentIssue);
-      workflowLog.push({
-        persona: 'Release Manager',
-        issue: currentIssue,
-        status: 'completed',
-      });
+        if (phase.nextLabel) {
+          currentIssue = await this.getLatestIssue(phase.nextLabel);
+          console.log(
+            `${colors.green}${phase.logCompleted(currentIssue)}${colors.reset}`
+          );
+        }
+      }
 
       const workflowEnd = Date.now();
       const duration = ((workflowEnd - workflowStart) / 1000 / 60).toFixed(2);
