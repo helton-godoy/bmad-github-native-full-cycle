@@ -410,7 +410,10 @@ class BMADOrchestrator {
    * @ai-context Extract specific section from markdown file
    */
   extractSection(filePath, sectionTitle) {
-    const content = fs.readFileSync(filePath, 'utf-8');
+    let content = this.contextManager ? this.contextManager.read(filePath) : null;
+    if (content === null || content === undefined) {
+      content = fs.readFileSync(filePath, 'utf-8');
+    }
     const regex = new RegExp(`## ${sectionTitle}\\s*([\\s\\S]*?)(?=##|$)`, 'i');
     const match = content.match(regex);
     return match ? match[1].trim() : null;
@@ -433,7 +436,10 @@ class BMADOrchestrator {
             `docs/architecture/SPEC_${issueNumber}.md`,
             'docs/architecture/SPEC.md',
           ];
-    return candidates.find((candidate) => fs.existsSync(candidate)) || candidates[0];
+    return candidates.find((candidate) =>
+      (this.contextManager && this.contextManager.read(candidate) !== null) ||
+      fs.existsSync(candidate)
+    ) || candidates[0];
   }
 
   validateRequirementsDocument(filePath) {
