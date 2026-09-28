@@ -348,15 +348,20 @@ class HookOrchestrator {
 
       // Check if test script exists
       const packagePath = path.join(process.cwd(), 'package.json');
-      if (!fs.existsSync(packagePath)) {
-        return {
-          status: 'warning',
-          message: 'No package.json found',
-          testsRun: 0,
-        };
+      let pkg;
+      try {
+        const pkgData = await fs.promises.readFile(packagePath, 'utf8');
+        pkg = JSON.parse(pkgData);
+      } catch (err) {
+        if (err.code === 'ENOENT') {
+          return {
+            status: 'warning',
+            message: 'No package.json found',
+            testsRun: 0,
+          };
+        }
+        throw err;
       }
-
-      const pkg = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
       if (!pkg.scripts || !pkg.scripts.test) {
         return {
           status: 'warning',
@@ -1134,16 +1139,21 @@ class HookOrchestrator {
     try {
       // Check if test script exists
       const packagePath = path.join(process.cwd(), 'package.json');
-      if (!fs.existsSync(packagePath)) {
-        return {
-          status: 'warning',
-          message: 'No package.json found',
-          testsRun: 0,
-          coverage: null,
-        };
+      let pkg;
+      try {
+        const pkgData = await fs.promises.readFile(packagePath, 'utf8');
+        pkg = JSON.parse(pkgData);
+      } catch (err) {
+        if (err.code === 'ENOENT') {
+          return {
+            status: 'warning',
+            message: 'No package.json found',
+            testsRun: 0,
+            coverage: null,
+          };
+        }
+        throw err;
       }
-
-      const pkg = JSON.parse(fs.readFileSync(packagePath, 'utf8'));
       if (!pkg.scripts || !pkg.scripts['test:coverage']) {
         // Fallback to regular test if coverage script not available
         if (!pkg.scripts.test) {
