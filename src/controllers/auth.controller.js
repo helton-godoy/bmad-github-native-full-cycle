@@ -2,6 +2,17 @@ const authService = require('../services/auth.service');
 
 class AuthController {
   /**
+   * Helper to safely parse error message format "CODE: Message"
+   */
+  _parseError(error) {
+    const errorMessage = error && error.message ? String(error.message) : '';
+    const parts = errorMessage.split(': ');
+    const code = parts[0] || '';
+    const message = parts.slice(1).join(': ') || '';
+    return { code, message };
+  }
+
+  /**
    * Register endpoint
    */
   async register(req, res) {
@@ -13,13 +24,13 @@ class AuthController {
         data: user,
       });
     } catch (error) {
-      const [code, message] = error.message.split(': ');
+      const { code, message } = this._parseError(error);
       const isClientError = code === 'VALIDATION_ERROR' || code === 'USER_EXISTS';
       const statusCode = isClientError ? 400 : 500;
 
       res.status(statusCode).json({
         success: false,
-        error: isClientError ? message || error.message : 'An internal server error occurred',
+        error: isClientError ? message || 'A validation error occurred' : 'An internal server error occurred',
         code: isClientError ? code : 'INTERNAL_ERROR',
         timestamp: new Date().toISOString(),
       });
@@ -38,7 +49,7 @@ class AuthController {
         data: result,
       });
     } catch (error) {
-      const [code, message] = error.message.split(': ');
+      const { code, message } = this._parseError(error);
       const isClientError =
         code === 'INVALID_CREDENTIALS' || code === 'VALIDATION_ERROR';
       const statusCode =
@@ -50,7 +61,7 @@ class AuthController {
 
       res.status(statusCode).json({
         success: false,
-        error: isClientError ? message || error.message : 'An internal server error occurred',
+        error: isClientError ? message || 'Authentication failed' : 'An internal server error occurred',
         code: isClientError ? code : 'INTERNAL_ERROR',
         timestamp: new Date().toISOString(),
       });
@@ -68,12 +79,12 @@ class AuthController {
         data: user,
       });
     } catch (error) {
-      const [code, message] = error.message.split(': ');
+      const { code, message } = this._parseError(error);
       const isNotFound = code === 'USER_NOT_FOUND';
 
       res.status(isNotFound ? 404 : 500).json({
         success: false,
-        error: isNotFound ? message || error.message : 'An internal server error occurred',
+        error: isNotFound ? message || 'Resource not found' : 'An internal server error occurred',
         code: isNotFound ? code : 'INTERNAL_ERROR',
         timestamp: new Date().toISOString(),
       });
